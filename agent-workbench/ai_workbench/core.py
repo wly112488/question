@@ -47,6 +47,10 @@ def sha256_text(value: str) -> str:
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def read_text_exact(path: Path) -> str:
+    with path.open("r", encoding="utf-8", newline="") as stream:
+        return stream.read()
+
 def read_manifest(path: Path) -> dict:
     if not path.exists():
         return {"version": MANIFEST_VERSION, "managed_files": {}, "global_agents_block_hash": None}
