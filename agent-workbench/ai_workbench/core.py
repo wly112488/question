@@ -103,9 +103,9 @@ def remove_managed_block(content: str, separator_added: bool = False, start: str
     begin = content.index(start)
     finish = content.index(end, begin) + len(end)
     prefix, suffix = content[:begin], content[finish:]
-    if suffix == "\n":
-        suffix = ""
-    if separator_added and prefix.endswith("\n"):
+    if suffix.startswith("\n"):
+        suffix = suffix[1:]
+    if separator_added and not suffix and prefix.endswith("\n"):
         prefix = prefix[:-1]
     return prefix + suffix
 
