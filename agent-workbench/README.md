@@ -135,6 +135,9 @@ It is intentionally not a rigid checklist. Small UI changes should remain small;
 
 ## Model-behavior evaluation
 
+See [VALIDATION_REPORT.md](VALIDATION_REPORT.md) for the exact automated checks and environment limitations.
+
+
 EVALUATION.md contains ten disposable-project scenarios for checking actual Codex behavior (scope changes, component/API reuse, prototype-to-production transition, environment identity, recovery, final-state verification, finding closure and proportionate workflow). Automated tests cannot prove model compliance; use these scenarios to evaluate the model and tools available in your own Windows/WSL setup.
 
 ## Update and conflict handling
