@@ -113,6 +113,9 @@ def install(paths: Paths | None = None, specs_dir: Path | None = None, source_ro
     paths = paths or get_paths()
     source_root = (source_root or Path(__file__).resolve().parent.parent).resolve()
     manifest = read_manifest(paths.manifest)
+    invalid_paths = _invalid_manifest_paths(manifest, paths)
+    if invalid_paths:
+        raise WorkbenchError("Install manifest contains paths outside AI Workbench-managed directories: " + ", ".join(invalid_paths))
     specs_path = (specs_dir or Path(manifest.get("specs_dir") or paths.specs_dir)).expanduser().resolve()
     should_update = (specs_dir is None) if update_specs is None else update_specs
     info = ensure_specs_checkout(specs_path, runner=runner, update_existing=should_update)
@@ -150,6 +153,16 @@ def install(paths: Paths | None = None, specs_dir: Path | None = None, source_ro
             raise WorkbenchError(f"Install failed: {exc}. Rollback also failed: {'; '.join(rollback_failures)}") from exc
         raise
     return {"specs_commit": info.commit, "skills_installed": len(sources), "launcher": str(paths.launcher), "global_agents": str(paths.global_agents)}
+
+def _managed_path_allowed(target: Path, paths: Paths) -> bool:
+    if target.is_symlink():
+        return False
+    resolved = target.resolve(strict=False)
+    roots = (paths.bin_dir.resolve(strict=False), paths.skills_dir.resolve(strict=False))
+    return any(resolved != root and root in resolved.parents for root in roots)
+
+def _invalid_manifest_paths(manifest: dict, paths: Paths) -> list[str]:
+    return [name for name in manifest.get("managed_files", {}) if not _managed_path_allowed(Path(name), paths)]
 
 def _check(label: str, ok: bool, detail: str, warning: bool = False) -> dict:
     return {"label": label, "status": "OK" if ok else ("WARN" if warning else "FAIL"), "detail": detail}
@@ -193,15 +206,18 @@ def doctor(paths: Paths | None = None, project_root: Path | None = None) -> list
     required = ["ai-workbench", "task-execution-discipline", "executing-plans", "executing-dependent-plans", "test-driven-development", "auditing-finding-closure", "writing-plans", "writing-specs", "rule-maintenance"]
     missing = [name for name in required if not (paths.skills_dir / name / "SKILL.md").is_file()]
     checks.append(_check("Installed skills", not missing, "All required skills present" if not missing else "Missing: " + ", ".join(missing)))
+    invalid_paths = _invalid_manifest_paths(manifest, paths)
     modified, absent = [], []
     for target_text, expected in manifest.get("managed_files", {}).items():
         target = Path(target_text)
-        if not target.exists():
+        if target_text in invalid_paths:
+            modified.append(target_text + " (outside managed directories)")
+        elif not target.exists():
             absent.append(target_text)
-        elif target.is_symlink() or sha256_file(target) != expected:
+        elif sha256_file(target) != expected:
             modified.append(target_text)
     integrity = not modified and not absent
-    detail = "Managed files match install manifest" if integrity else "Modified: " + ", ".join(modified) + "; missing: " + ", ".join(absent)
+    detail = "Managed files match install manifest" if integrity else "Modified/unsafe: " + ", ".join(modified) + "; missing: " + ", ".join(absent)
     checks.append(_check("Managed file integrity", integrity, detail))
     checks.append(_check("Launcher", paths.launcher.exists() and paths.installed_script.exists(), str(paths.launcher)))
     path_entries = [os.path.normcase(os.path.normpath(item)) for item in os.environ.get("PATH", "").split(os.pathsep) if item]
@@ -261,6 +277,9 @@ def uninstall(paths: Paths | None = None) -> dict:
                 preserved.append(str(paths.global_agents) + " (managed block missing or markers removed)")
     for name, expected in manifest.get("managed_files", {}).items():
         path = Path(name)
+        if not _managed_path_allowed(path, paths):
+            preserved.append(str(path) + " (outside managed directories; preserved)")
+            continue
         if not path.exists():
             continue
         if path.is_symlink():
