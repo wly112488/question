@@ -1,0 +1,227 @@
+{
+  "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+  "source_audit": "sol_env/01a133fe-6311-7151-971e-609dbd22b715.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T14-41-11-01a133fe-6311-7151-971e-609dbd22b715.jsonl",
+  "snapshot_lines": 487,
+  "items": [
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:F01a",
+      "kind": "confirmed_issue",
+      "description": "PATH只对单条命令注入，下一次裸用helper又command not found；require返回入口存在后工具命令也仍不在PATH，重复失败。",
+      "context_from_chat": "用户9给Cleaner角色，47明确helper存在但命令runner漏PATH，要求每次prefix；后接slugify和指标审阅。",
+      "trigger_or_change": "从启动失败到prefix修正，再在新commit上做独立审阅/交接。",
+      "workflow_relevance": "小函数双角色环境验证，非前端视觉迭代；真实差异/测试核验必要。",
+      "necessary_cost": "按任务完整审阅差异、一次结构/行为检查及诚实披露缺口必要。",
+      "possibly_avoidable_cost": "可减少入口混淆和协议往返，但不能删除审查或把全部读README当无效。",
+      "remaining_uncertainty": "未记录所有进程环境传播细节，时间成本不按主子并行相加。",
+      "cause_status": "supported",
+      "cause_explanation": "47已要求每helper加prefix，76仍裸用而79失败；179只给require进程临时PATH，后接&& crap4clj未带工具bin，182失败。环境变量前缀仅作用于对应进程，不能持久到下一调用或链后命令。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            35,
+            47,
+            53,
+            56,
+            76,
+            79,
+            83,
+            179,
+            182
+          ],
+          "what_it_supports": "真实helper、质量工具、审计门槛和复验返回"
+        }
+      ],
+      "revised_possible_solutions": [
+        "统一在真实runner注入helper和工具bin，或每条显式用已验证入口；不假定局部prefix持久。"
+      ]
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:F01b",
+      "kind": "confirmed_issue",
+      "description": "工具绝对路径存在，但包装器引用不存在的task，实际启动失败；入口存在检查无法检出这类缺陷。",
+      "context_from_chat": "用户9给Cleaner角色，47明确helper存在但命令runner漏PATH，要求每次prefix；后接slugify和指标审阅。",
+      "trigger_or_change": "从启动失败到prefix修正，再在新commit上做独立审阅/交接。",
+      "workflow_relevance": "小函数双角色环境验证，非前端视觉迭代；真实差异/测试核验必要。",
+      "necessary_cost": "按任务完整审阅差异、一次结构/行为检查及诚实披露缺口必要。",
+      "possibly_avoidable_cost": "可减少入口混淆和协议往返，但不能删除审查或把全部读README当无效。",
+      "remaining_uncertainty": "未记录所有进程环境传播细节，时间成本不按主子并行相加。",
+      "cause_status": "supported",
+      "cause_explanation": "绝对入口186排除了PATH后仍189/203 File does not exist: crap4clj；235明确用bb.edn的crap task时238成功help。控制差异支持包装器task名错误，非缺源码或全局运行时不存在。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            186,
+            189,
+            200,
+            203,
+            235,
+            238
+          ],
+          "what_it_supports": "真实helper、质量工具、审计门槛和复验返回"
+        }
+      ],
+      "revised_possible_solutions": [
+        "修生成器使用crap等实际task并真实启动，不只检查文件可执行。"
+      ]
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:F01c",
+      "kind": "confirmed_issue",
+      "description": "CRAP覆盖率调用缺少clj，导致两轮覆盖率复验均无法执行；测试通过不等于该指标已独立核实。",
+      "context_from_chat": "用户9给Cleaner角色，47明确helper存在但命令runner漏PATH，要求每次prefix；后接slugify和指标审阅。",
+      "trigger_or_change": "从启动失败到prefix修正，再在新commit上做独立审阅/交接。",
+      "workflow_relevance": "小函数双角色环境验证，非前端视觉迭代；真实差异/测试核验必要。",
+      "necessary_cost": "按任务完整审阅差异、一次结构/行为检查及诚实披露缺口必要。",
+      "possibly_avoidable_cost": "可减少入口混淆和协议往返，但不能删除审查或把全部读README当无效。",
+      "remaining_uncertainty": "未记录所有进程环境传播细节，时间成本不按主子并行相加。",
+      "cause_status": "supported",
+      "cause_explanation": "277按正确task做分析后280显示clj not found并exit127；435/438新指标审阅再试同样缺前提。bb能跑单测不等于Cloverage依赖的clj存在。第二次是在新指标任务核对现状，有明确用途，但已知环境未变可少一次失败。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            277,
+            280,
+            434,
+            435,
+            438
+          ],
+          "what_it_supports": "真实helper、质量工具、审计门槛和复验返回"
+        }
+      ],
+      "revised_possible_solutions": [
+        "预检分析工具依赖的clj入口，缺前提时报告coverage未复核，环境变更后再试。"
+      ]
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:F02",
+      "kind": "positive_context",
+      "description": "Cleaner真实读全diff、检查结构及测试，保留无必要改动；指出指标coverage无法独立验证。 影响：独立复核成立；质量收益局限于差异/测试确认与诚实限定。",
+      "context_from_chat": "用户9给Cleaner角色，47明确helper存在但命令runner漏PATH，要求每次prefix；后接slugify和指标审阅。",
+      "trigger_or_change": "从启动失败到prefix修正，再在新commit上做独立审阅/交接。",
+      "workflow_relevance": "小函数双角色环境验证，非前端视觉迭代；真实差异/测试核验必要。",
+      "necessary_cost": "按任务完整审阅差异、一次结构/行为检查及诚实披露缺口必要。",
+      "possibly_avoidable_cost": "可减少入口混淆和协议往返，但不能删除审查或把全部读README当无效。",
+      "remaining_uncertainty": "未记录所有进程环境传播细节，时间成本不按主子并行相加。",
+      "cause_status": "supported",
+      "cause_explanation": "348查看全diff，314结构OK、321七例通过，375与484均限定coverage未验；未为证明角色价值制造业务改动。这是有界独立审阅而非单凭角色名推质量。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            314,
+            321,
+            348,
+            375,
+            425,
+            445,
+            484
+          ],
+          "what_it_supports": "真实helper、质量工具、审计门槛和复验返回"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留差异+关键行为复验及已验/未验分层，允许审阅后无需改代码。"
+      ]
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:F03",
+      "kind": "confirmed_issue",
+      "description": "首次handoff因AUDIT_REQUIRED拒绝，实际重读差异后成功；两轮各有一次。 影响：4次交接尝试、2次后补审阅；原生耗时均<1秒，主要模型往返未知。",
+      "context_from_chat": "用户9给Cleaner角色，47明确helper存在但命令runner漏PATH，要求每次prefix；后接slugify和指标审阅。",
+      "trigger_or_change": "从启动失败到prefix修正，再在新commit上做独立审阅/交接。",
+      "workflow_relevance": "小函数双角色环境验证，非前端视觉迭代；真实差异/测试核验必要。",
+      "necessary_cost": "按任务完整审阅差异、一次结构/行为检查及诚实披露缺口必要。",
+      "possibly_avoidable_cost": "可减少入口混淆和协议往返，但不能删除审查或把全部读README当无效。",
+      "remaining_uncertainty": "未记录所有进程环境传播细节，时间成本不按主子并行相加。",
+      "cause_status": "mixed",
+      "cause_explanation": "339/454的拒绝由handoff脚本两阶段协议触发。补充原因：Coder会话294保存submit-after-audit!源码，新candidate与previous不相同就写marker并返回AUDIT_REQUIRED，相同candidate第二次才submit；不能由首拒绝推断此前完全没读差异。344/345和462实际重读后通过，审计有价值，但首拒绝往返包含协议固有成本。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            339,
+            344,
+            345,
+            359,
+            454,
+            462,
+            472
+          ],
+          "what_it_supports": "两轮实际门槛和审阅后成功"
+        },
+        {
+          "session_id": "01a133fe-6308-7ea0-a68b-38ef3896b9f6",
+          "physical_lines": [
+            294
+          ],
+          "what_it_supports": "脚本按candidate指纹两阶段提交，首拒绝是协议机制"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留完整候选审阅；若要减少往返，应由脚本提供清晰prepare/audit/submit阶段或一次显式证据提交，不移除检查。"
+      ]
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:U01",
+      "kind": "evidence_gap",
+      "description": "审计完整扫描58次调用，但长源码/README只重点展开，也未独立重跑；其余代码细节与当前环境可复现性没有新增证据。",
+      "context_from_chat": "用户9给Cleaner角色，47明确helper存在但命令runner漏PATH，要求每次prefix；后接slugify和指标审阅。",
+      "trigger_or_change": "从启动失败到prefix修正，再在新commit上做独立审阅/交接。",
+      "workflow_relevance": "小函数双角色环境验证，非前端视觉迭代；真实差异/测试核验必要。",
+      "necessary_cost": "按任务完整审阅差异、一次结构/行为检查及诚实披露缺口必要。",
+      "possibly_avoidable_cost": "可减少入口混淆和协议往返，但不能删除审查或把全部读README当无效。",
+      "remaining_uncertainty": "未记录所有进程环境传播细节，时间成本不按主子并行相加。",
+      "cause_status": "unknown",
+      "cause_explanation": "长README/源码返回及未独立重跑限制当前证明范围；历史7例通过只说明当时工具记录，不构成审计时重现。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            189,
+            238,
+            348,
+            375,
+            484
+          ],
+          "what_it_supports": "真实helper、质量工具、审计门槛和复验返回"
+        }
+      ],
+      "revised_possible_solutions": [
+        "按具体问题补读保存内容，独立复现若需要须另获授权且不混作历史证据。"
+      ]
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:A01",
+      "kind": "evidence_gap",
+      "description": "质量指标审阅阶段未重新验证coverage，报告只确认已有指标内容与部分源码的一致性；不能把队列完成理解为覆盖率独立复算通过。",
+      "context_from_chat": "用户9给Cleaner角色，47明确helper存在但命令runner漏PATH，要求每次prefix；后接slugify和指标审阅。",
+      "trigger_or_change": "从启动失败到prefix修正，再在新commit上做独立审阅/交接。",
+      "workflow_relevance": "小函数双角色环境验证，非前端视觉迭代；真实差异/测试核验必要。",
+      "necessary_cost": "按任务完整审阅差异、一次结构/行为检查及诚实披露缺口必要。",
+      "possibly_avoidable_cost": "可减少入口混淆和协议往返，但不能删除审查或把全部读README当无效。",
+      "remaining_uncertainty": "未记录所有进程环境传播细节，时间成本不按主子并行相加。",
+      "cause_status": "supported",
+      "cause_explanation": "445已有coverage100与CRAP1的指标，但438重跑因clj缺失失败；484明确不能独立验证。指标内容与单线源结构可比，不代表计数采集在本角色重新发生。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            435,
+            438,
+            442,
+            445,
+            484
+          ],
+          "what_it_supports": "真实helper、质量工具、审计门槛和复验返回"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留既有产物来源与未复算状态；需要独立值时先补合法clj入口再生成。"
+      ]
+    }
+  ]
+}

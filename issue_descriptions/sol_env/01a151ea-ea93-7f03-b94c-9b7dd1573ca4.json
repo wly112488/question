@@ -1,0 +1,452 @@
+{
+  "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+  "title": "排查 ChatGPT 回复加载失败",
+  "source_audit": "sol_env/01a151ea-ea93-7f03-b94c-9b7dd1573ca4.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "Windows/WSL home及cwd项目配置覆盖没有先区分，实际启动器读取不同配置或在WSL找不到cmd，配置文件存在被误当正确加载。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            223,
+            244,
+            295,
+            302,
+            338,
+            347,
+            405,
+            433,
+            638,
+            719,
+            784,
+            832,
+            1008,
+            1031,
+            1068,
+            1153,
+            1181,
+            1311,
+            1356,
+            1363,
+            1474,
+            1626,
+            1629,
+            1679
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "先确认host、cwd、实际config来源与启动器，再按日志验证进程和握手。"
+      ],
+      "uncertainty": "当前会话确实不能热注入，但本机可创建新CLI验证，1008以后实际证明能做；应早用确定性握手/日志。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "多次保证重开会话即可获得工具又撤回，混淆当前模型工具目录与本机新CLI可测试能力；本可先做确定性新CLI握手。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            223,
+            244,
+            295,
+            302,
+            338,
+            347,
+            405,
+            433,
+            638,
+            719,
+            784,
+            832,
+            1008,
+            1031,
+            1068,
+            1153,
+            1181,
+            1311,
+            1356,
+            1363,
+            1474,
+            1626,
+            1629,
+            1679
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "以fresh CLI的tools/list和具体调用结果验证，当前会话不能热注入时只陈述该限制，不保证新会话结果。"
+      ],
+      "uncertainty": "当前会话确实不能热注入，但本机可创建新CLI验证，1008以后实际证明能做；应早用确定性握手/日志。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F01c",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "MCP进程/注册状态与Chrome浏览器端点连通混为同层，存在启动等待和运行侧差异；反复配置未直接取得目标请求。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            223,
+            244,
+            295,
+            302,
+            338,
+            347,
+            405,
+            433,
+            638,
+            719,
+            784,
+            832,
+            1008,
+            1031,
+            1068,
+            1153,
+            1181,
+            1311,
+            1356,
+            1363,
+            1474,
+            1626,
+            1629,
+            1679
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "分别验证server启动、握手、工具目录、Chrome端点和目标页面访问，保留每层原始结果。"
+      ],
+      "uncertainty": "当前会话确实不能热注入，但本机可创建新CLI验证，1008以后实际证明能做；应早用确定性握手/日志。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F02a",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "为初始只读限制关闭导航时，也禁用了list_pages等必要只读能力，阻断目标页面发现。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            295,
+            302,
+            405,
+            433,
+            545,
+            560,
+            565,
+            628,
+            631,
+            2099,
+            2200,
+            2234,
+            2321,
+            2336
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "先核对tools/list与开关依赖，只关闭确实超出授权的操作能力。"
+      ],
+      "uncertainty": "初始只读设置有依据，后续用户授权改变后应更新能力配置；Chrome自身授权弹窗不是重复询问用户意图。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F02b",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "用户授权交互后仍保留categoryInput=false，导致无法发送测试消息，随后改走Computer Use额外等待且被拒绝。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            295,
+            302,
+            405,
+            433,
+            545,
+            560,
+            565,
+            628,
+            631,
+            2099,
+            2200,
+            2234,
+            2321,
+            2336
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "用户授权改变后重算目标操作所需能力，仅更新相关开关并实测工具可调用。"
+      ],
+      "uncertainty": "初始只读设置有依据，后续用户授权改变后应更新能力配置；Chrome自身授权弹窗不是重复询问用户意图。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F02c",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "反复短MCP探测连接多次触发Chrome确认，用户明确抱怨；连接方式增加授权弹窗负担。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            295,
+            302,
+            405,
+            433,
+            545,
+            560,
+            565,
+            628,
+            631,
+            2099,
+            2200,
+            2234,
+            2321,
+            2336
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "建立一次已授权常驻连接并复用，按具体失败层级诊断，避免每探测都重连。"
+      ],
+      "uncertainty": "Chrome安全确认不是助手重复询问用户意图；不能建议绕过浏览器授权。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F03",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "把mcp list Auth列Unsupported解释成启动/加载不支持，之后日志才显示实际No such file。 影响：误导用户重启/换环境，延迟真实日志定位。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            1298,
+            1311,
+            1356,
+            1379,
+            1457,
+            1460,
+            1474
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "解释报错先保留列名/来源；认证方式不支持与server运行失败分开。"
+      ],
+      "uncertainty": "表头可据输出区分Auth与Status；Unsupported本身不足诊断工具加载。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F04a",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "confirmed_issue",
+      "description": "跨bash/PowerShell拼接的美元符号和here-string多次被错误解析，至少两次自动化语法失败，后EncodedCommand才解决。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            672,
+            674,
+            680,
+            683,
+            1686,
+            1693,
+            1956,
+            1959,
+            1973,
+            1975
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "通过单一原生shell或脚本文件/结构化参数执行，避免多层插值；跨边界前先做语法检查。"
+      ],
+      "uncertainty": "当前任务跨OS复杂，但多次错误可通过单一脚本文件或原生shell入口降低。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F04b",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "confirmed_issue",
+      "description": "用户把/tmp路径命令在PowerShell运行失败，指令未清晰标明应在哪个宿主和shell执行。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            672,
+            674,
+            680,
+            683,
+            1686,
+            1693,
+            1956,
+            1959,
+            1973,
+            1975
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "面向用户的命令显式标注Windows PowerShell或WSL及运行位置，提供对应入口。"
+      ],
+      "uncertainty": "当前任务跨OS复杂，但多次错误可通过单一脚本文件或原生shell入口降低。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F04c",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "confirmed_issue",
+      "description": "执行搜索时JavaScript对象语法错误（1324/1369），增加与故障本身无关的调用失败。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            1324,
+            1369
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "以最小结构化对象调用搜索；长工具编排先校验语法再执行。"
+      ],
+      "uncertainty": "当前任务跨OS复杂，但多次错误可通过单一脚本文件或原生shell入口降低。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F05",
+      "source_refs": [
+        "/findings/4"
+      ],
+      "kind": "positive_context",
+      "description": "初始尊重只读，后按用户授权更改范围；无目标请求证据时不把429/CSP认定根因，Computer Use拒绝后明确未发送。 影响：避免虚假成功/凭空归因。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            10,
+            34,
+            109,
+            151,
+            1938,
+            1943,
+            1967,
+            1989,
+            2184,
+            2193
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "应保留：保留。"
+      ],
+      "uncertainty": "不能按最初只读要求判后续授权交互违约；仍未查明网页故障。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "全部191顶层调用已摘要扫描；长子CLI输出有历史工具端截断，只能据可见内容判断，不伪称已还原隐藏全部执行。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "statement": "全部191顶层调用已摘要扫描；长子CLI输出有历史工具端截断，只能据可见内容判断，不伪称已还原隐藏全部执行。"
+        }
+      ],
+      "possible_solutions": [
+        "只针对具体未清楚之处补读已保存输出；历史工具端截断的子CLI内部动作维持未知。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "网页“无法加载回复”的原失败请求证据始终缺失，429/CSP等候选原因未证实，历史结果未解决。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/1",
+          "statement": "原网页故障始终缺失败回复请求证据，historical_outcome_status=unresolved。"
+        }
+      ],
+      "possible_solutions": [
+        "在之后合法可复现的目标页面保存失败请求、响应状态和控制台关联时间，再逐个排除候选原因；旧证据缺失时保持未解决。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:U03",
+      "source_refs": [
+        "/uncertainties/2"
+      ],
+      "kind": "positive_context",
+      "description": "MCP fresh codex exec是独立CLI，不是thread_spawn，不算注册子代理但计API等待成本。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/2",
+          "statement": "MCP fresh codex exec是独立CLI，不是thread_spawn，不算注册子代理但计API等待成本。"
+        }
+      ],
+      "possible_solutions": [
+        "将fresh codex exec标为独立CLI及API等待，不能误计为thread_spawn子代理或纯推理时间。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:A01",
+      "source_refs": [
+        "/task_segments/5",
+        "/task_segments/6"
+      ],
+      "kind": "evidence_gap",
+      "description": "最后已恢复输入工具目录，但先前授权的测试消息仍未实际发送；“输入能力恢复”和目标交互完成是不同结果。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/5",
+            "/task_segments/6"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "若该测试仍在当前授权目标内，以实际目标页面完成一次最小交互并核验结果；不能执行时继续标未发送。"
+      ],
+      "uncertainty": "原报告明确未确认该结果；没有证据证明后续一定失败，亦不能补造完成。"
+    }
+  ]
+}

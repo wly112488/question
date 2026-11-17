@@ -1,0 +1,575 @@
+{
+  "session_id": "01a14908-48e8-74a0-8bc1-99fca4462c6a",
+  "title": "更新系统界面说明文档",
+  "source_audit": "sol_dev/01a14908-48e8-74a0-8bc1-99fca4462c6a.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "在WSL缺pip、apt权限不足等探测后，未及时检查Windows已有Office自动化能力；默认关联未命中便转向替代工具链，直到用户给WPS快捷方式才确认COM可用。",
+      "evidence": [
+        {
+          "line": 84,
+          "output_line": 87
+        },
+        {
+          "line": 115,
+          "output_line": 118
+        },
+        {
+          "line": 164,
+          "output_line": 166
+        },
+        {
+          "line": 629
+        },
+        {
+          "line": 842
+        },
+        {
+          "line": 1242
+        },
+        {
+          "line": 1272
+        },
+        {
+          "line": 1343
+        },
+        {
+          "line": 1370
+        },
+        {
+          "line": 1377
+        },
+        {
+          "line": 1398
+        }
+      ],
+      "possible_solutions": [
+        "先检查两侧OS已安装应用、开始菜单快捷方式与自动化接口，用一个最小文档验证真实渲染。"
+      ],
+      "uncertainty": "WPS位置不标准有发现难度；首轮175调用还包含必要截图和编辑，不全算浪费，无环境被安装损坏证据。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "docx-preview/pdfjs等近似渲染经过多轮仍无法可靠模拟Word分页，最后仍需切换WPS重做最终分页核验。",
+      "evidence": [
+        {
+          "line": 84,
+          "output_line": 87
+        },
+        {
+          "line": 115,
+          "output_line": 118
+        },
+        {
+          "line": 164,
+          "output_line": 166
+        },
+        {
+          "line": 629
+        },
+        {
+          "line": 842
+        },
+        {
+          "line": 1242
+        },
+        {
+          "line": 1272
+        },
+        {
+          "line": 1343
+        },
+        {
+          "line": 1370
+        },
+        {
+          "line": 1377
+        },
+        {
+          "line": 1398
+        }
+      ],
+      "possible_solutions": [
+        "开始全文排版前确认渲染器能呈现实际分页；近似预览只用于结构检查，不用作最终页数证据。"
+      ],
+      "uncertainty": "逐页QA是用户明确要求；不能把渲染验证本身归为低效。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F02a",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "已知带间隔文字“打 开”的专业卡片，后续脚本又按“打开”button猜定位，数轮重复8/10/30秒等待并重走演示前置流程。",
+      "evidence": [
+        {
+          "line": 438,
+          "output_line": 441
+        },
+        {
+          "line": 484,
+          "output_line": 486
+        },
+        {
+          "line": 528,
+          "output_line": 531
+        },
+        {
+          "line": 568,
+          "output_line": 570
+        },
+        {
+          "line": 2075,
+          "output_line": 2078
+        },
+        {
+          "line": 2136,
+          "output_line": 2139
+        },
+        {
+          "line": 2170
+        },
+        {
+          "line": 2178
+        },
+        {
+          "line": 2191,
+          "output_line": 2194
+        },
+        {
+          "line": 3223,
+          "output_line": 3226
+        }
+      ],
+      "possible_solutions": [
+        "复用已走通的目标入口和对话框定位助手；失配时读DOM真实名称。"
+      ],
+      "uncertainty": "首次探索合理，问题是同类定位错误再次引入；不直接相加每次工具wall时间。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F02b",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "截图脚本按唯一主按钮定位，但页面同时有两个主按钮，匹配不唯一使交互无法继续。",
+      "evidence": [
+        {
+          "line": 438,
+          "output_line": 441
+        },
+        {
+          "line": 484,
+          "output_line": 486
+        },
+        {
+          "line": 528,
+          "output_line": 531
+        },
+        {
+          "line": 568,
+          "output_line": 570
+        },
+        {
+          "line": 2075,
+          "output_line": 2078
+        },
+        {
+          "line": 2136,
+          "output_line": 2139
+        },
+        {
+          "line": 2170
+        },
+        {
+          "line": 2178
+        },
+        {
+          "line": 2191,
+          "output_line": 2194
+        },
+        {
+          "line": 3223,
+          "output_line": 3226
+        }
+      ],
+      "possible_solutions": [
+        "将定位限定到目标对话框/卡片，再按语义与实际操作意图选择。"
+      ],
+      "uncertainty": "页面复杂不等于产品本身错误；只据原报告记载的脚本匹配问题。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F03a",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "WSL调用Windows PowerShell的复杂内联字符串被bash提前展开变量/剥除反斜杠，多次产生解析错误和C:Users式错误路径；已成功方法之后仍重现。",
+      "evidence": [
+        {
+          "line": 1363,
+          "output_line": 1366
+        },
+        {
+          "line": 1384,
+          "output_line": 1387
+        },
+        {
+          "line": 1391
+        },
+        {
+          "line": 1398
+        },
+        {
+          "line": 2123,
+          "output_line": 2126
+        },
+        {
+          "line": 2248,
+          "output_line": 2251
+        },
+        {
+          "line": 3048,
+          "output_line": 3051
+        }
+      ],
+      "possible_solutions": [
+        "用UTF-8脚本文件和参数传递复杂逻辑，避免多层shell内联。"
+      ],
+      "uncertainty": "后改.ps1和正确路径已成功；不能据终端乱码断言用户文档损坏。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F03b",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "本会话已确认缺python-docx，2248和3048仍重复尝试导入，重复能力探测不能推进文档编辑。",
+      "evidence": [
+        {
+          "line": 1363,
+          "output_line": 1366
+        },
+        {
+          "line": 1384,
+          "output_line": 1387
+        },
+        {
+          "line": 1391
+        },
+        {
+          "line": 1398
+        },
+        {
+          "line": 2123,
+          "output_line": 2126
+        },
+        {
+          "line": 2248,
+          "output_line": 2251
+        },
+        {
+          "line": 3048,
+          "output_line": 3051
+        }
+      ],
+      "possible_solutions": [
+        "复用解释器/模块能力记录；环境变化再探测，缺模块时采用已验证XML标准库路径。"
+      ],
+      "uncertainty": "秒级失败净耗时未可靠分解；最终替代方案可用。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F04",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "confirmed_issue",
+      "description": "第3轮截图演示的两份报告JSON写入实际项目data/reports，模型后续移到临时目录并核验项目中为0、其余147项现有改动保留。 判断：浏览器context隔离了本地存储，却没有自动隔离HTTP写入；截图任务需明确服务端副作用边界。 已知影响：2个意外报告写入及其识别/迁移清理；没有确认业务数据丢失。",
+      "evidence": [
+        {
+          "line": 2583
+        },
+        {
+          "line": 2695,
+          "output_line": 2698
+        },
+        {
+          "line": 2710
+        }
+      ],
+      "possible_solutions": [
+        "浏览器文档采集前列出将触发的服务端写操作，对演示记录使用明确ID/隔离后端或截获限定测试写入，并记录清理边界。"
+      ],
+      "uncertainty": "用户允许正常界面形成合理演示状态，未明确禁止一切测试写入；模型保留可追溯的定向清理且未触碰用户原有记录，没有最终数据破坏证据。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F05a",
+      "source_refs": [
+        "/findings/4"
+      ],
+      "kind": "positive_context",
+      "description": "独立更新版、未验证范围说明是初始要求；覆盖原文件、正文去开发状态和新增补图都是后来新增或更具体的规则，应按阶段保存。",
+      "evidence": [
+        {
+          "line": 10
+        },
+        {
+          "line": 1754
+        },
+        {
+          "line": 2717
+        },
+        {
+          "line": 2997
+        },
+        {
+          "line": 3162
+        },
+        {
+          "line": 3234
+        }
+      ],
+      "possible_solutions": [
+        "文档阶段记录读者、交付路径和验证记录位置，按最新明确范围执行。"
+      ],
+      "uncertainty": "不能以最终要求追溯判初轮违令。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F05b",
+      "source_refs": [
+        "/findings/4"
+      ],
+      "kind": "candidate_issue",
+      "description": "第五轮修改三项业务定位与校准边界却没有新增截图，可能留下新增业务说明与图片不匹配的覆盖缺口，后续用户又要求重新看前端补图。",
+      "evidence": [
+        {
+          "line": 10
+        },
+        {
+          "line": 1754
+        },
+        {
+          "line": 2717
+        },
+        {
+          "line": 2997
+        },
+        {
+          "line": 3162
+        },
+        {
+          "line": 3234
+        }
+      ],
+      "possible_solutions": [
+        "按每项新增业务检查既有图片是否代表当前入口和状态，必要时补拍而非全量重采。"
+      ],
+      "uncertainty": "该轮同时要求保留既有截图；仅凭助手自认不足以确认明确违令。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F05c",
+      "source_refs": [
+        "/findings/4"
+      ],
+      "kind": "candidate_issue",
+      "description": "初版正文包含较多截图状态和开发/验证信息，后来用户纠正文档读者定位；说明正文与核验记录的分工可能未提前对齐。",
+      "evidence": [
+        {
+          "line": 10
+        },
+        {
+          "line": 1754
+        },
+        {
+          "line": 2717
+        },
+        {
+          "line": 2997
+        },
+        {
+          "line": 3162
+        },
+        {
+          "line": 3234
+        }
+      ],
+      "possible_solutions": [
+        "先确定目标读者，将业务说明和开发核验记录放在各自合适的位置。"
+      ],
+      "uncertainty": "初始要求如实记录未验证范围，并未禁止全部状态说明；保留为候选，不强认初轮错误。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F06a",
+      "source_refs": [
+        "/findings/5"
+      ],
+      "kind": "positive_context",
+      "description": "最终DOCX保存、ZIP结构、图数/图题、WPS页数、原路径写回后再渲染及看图都有实际输出，保留真实产物验收。",
+      "evidence": [
+        {
+          "line": 2695,
+          "output_line": 2698
+        },
+        {
+          "line": 2952
+        },
+        {
+          "line": 2959
+        },
+        {
+          "line": 2968
+        },
+        {
+          "line": 3140
+        },
+        {
+          "line": 3376
+        },
+        {
+          "line": 3404
+        },
+        {
+          "line": 3413
+        },
+        {
+          "line": 3421
+        }
+      ],
+      "possible_solutions": [
+        "继续保留最终写回文件的真实渲染验证。"
+      ],
+      "uncertainty": "审计未重看历史PNG，不据调用存在保证每个像素无瑕疵。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:F06b",
+      "source_refs": [
+        "/findings/5"
+      ],
+      "kind": "positive_context",
+      "description": "遇WPS文件锁时先确认已保存，再定向关闭目标文档和替换，没有强杀所有Office或清掉其他改动。",
+      "evidence": [
+        {
+          "line": 2695,
+          "output_line": 2698
+        },
+        {
+          "line": 2952
+        },
+        {
+          "line": 2959
+        },
+        {
+          "line": 2968
+        },
+        {
+          "line": 3140
+        },
+        {
+          "line": 3376
+        },
+        {
+          "line": 3404
+        },
+        {
+          "line": 3413
+        },
+        {
+          "line": 3421
+        }
+      ],
+      "possible_solutions": [
+        "保留只处理目标文档、确认保存状态和重开核验的做法。"
+      ],
+      "uncertainty": "文件占用安全处理属于必要工作。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：原日志多处输出截断，报告不评价省略的源码或截图视觉细节。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "recorded_limitation": "原日志多处输出截断，报告不评价省略的源码或截图视觉细节。"
+        }
+      ],
+      "possible_solutions": [
+        "仅在需要视觉结论时补可用原图/源码；工具已省略部分维持未知。"
+      ],
+      "uncertainty": "原日志多处输出截断，报告不评价省略的源码或截图视觉细节。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：部分截图脚本日志的中文经Windows输出捕获乱码，不能据此声称DOCX或PNG名称/文本损坏。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/1",
+          "recorded_limitation": "部分截图脚本日志的中文经Windows输出捕获乱码，不能据此声称DOCX或PNG名称/文本损坏。"
+        }
+      ],
+      "possible_solutions": [
+        "需要判断文件编码时直接按UTF-8读取实际文件，并对DOCX/PNG真实内容或渲染取证。"
+      ],
+      "uncertainty": "部分截图脚本日志的中文经Windows输出捕获乱码，不能据此声称DOCX或PNG名称/文本损坏。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:U03",
+      "source_refs": [
+        "/uncertainties/2"
+      ],
+      "kind": "positive_context",
+      "description": "单会话日志使用gpt-6-luna high，不足以推导模型优劣或换模型结论。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/2",
+          "recorded_limitation": "日志模型gpt-6-luna high；不据单个会话推导模型优劣或要求换模型。"
+        }
+      ],
+      "possible_solutions": [
+        "若需模型比较，应另设计有控制变量的对照；本问题目录仅保留已记载行为。"
+      ],
+      "uncertainty": "日志模型gpt-6-luna high；不据单个会话推导模型优劣或要求换模型。"
+    },
+    {
+      "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a:U04",
+      "source_refs": [
+        "/uncertainties/3"
+      ],
+      "kind": "positive_context",
+      "description": "中断和等待用户回复不属于持续模型执行时间，误计会夸大损耗。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/3",
+          "recorded_limitation": "中断/等待用户回复的间隔不计入持续模型耗时。"
+        }
+      ],
+      "possible_solutions": [
+        "耗时统计区分实际模型执行、异步重叠、中断与用户等待，不把自然跨度直接求和。"
+      ],
+      "uncertainty": "中断/等待用户回复的间隔不计入持续模型耗时。"
+    }
+  ]
+}

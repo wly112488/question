@@ -1,0 +1,228 @@
+{
+  "session_id": "01a163f4-a62f-7c01-b875-b87626f041da",
+  "title": "Read swarmforge instructions",
+  "source_audit": "sol_env/01a163f4-a62f-7c01-b875-b87626f041da.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "historical_outcome_status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a163f4-a62f-7c01-b875-b87626f041da:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "前三角色已记录同样三个包装器故障，Architect再次查询上游HEAD、读README、启动同样错误工具；不过不同worktree缺venv是独立环境事实。 影响：重复三个失败启动和上游比对，多轮模型往返；没有新增原工具故障根因。",
+      "evidence": [
+        {
+          "session_id": "01a163f4-a62f-7c01-b875-b87626f041da",
+          "physical_lines": [
+            135,
+            138,
+            161,
+            164,
+            168,
+            170,
+            174,
+            177,
+            181,
+            184,
+            186,
+            189,
+            191,
+            194,
+            196,
+            200,
+            239,
+            249,
+            271
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "各角色只核实自身入口/路径，公共工具相同版本复用一次故障记录，变化时再复验。"
+      ],
+      "uncertainty": "用户任务1确实要求每个角色自检，不应删除实际各工作树的差异检查；共同依赖位于同一共享路径，重复网络/源码查证增量低。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a163f4-a62f-7c01-b875-b87626f041da:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "positive_context",
+      "description": "各worktree的venv和实际入口可能不同，Architect检查自身环境提供独立信息；不能因为公共故障重复就删除所有角色自检。",
+      "evidence": [
+        {
+          "session_id": "01a163f4-a62f-7c01-b875-b87626f041da",
+          "physical_lines": [
+            135,
+            138,
+            161,
+            164,
+            168,
+            170,
+            174,
+            177,
+            181,
+            184,
+            186,
+            189,
+            191,
+            194,
+            196,
+            200,
+            239,
+            249,
+            271
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "保留自身入口/工作树差异检查，共享依赖同版本证据另行复用。"
+      ],
+      "uncertainty": "用户任务1确实要求每个角色自检，不应删除实际各工作树的差异检查；共同依赖位于同一共享路径，重复网络/源码查证增量低。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a163f4-a62f-7c01-b875-b87626f041da:F02",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "同一角色两次handoff因untracked prompt/helper被覆盖风险阻塞，均转存后再合并。 影响：2次merge失败及备份动作；其他角色也重复。",
+      "evidence": [
+        {
+          "session_id": "01a163f4-a62f-7c01-b875-b87626f041da",
+          "physical_lines": [
+            282,
+            285,
+            289,
+            298,
+            301,
+            329,
+            332,
+            336,
+            339
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "在首次新增受控文件前检查全部工作树，集中迁移配置并备份。"
+      ],
+      "uncertainty": "Git保护正确、角色保留副本合理；问题是生成配置与后续源码同路径。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a163f4-a62f-7c01-b875-b87626f041da:F03",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "positive_context",
+      "description": "实际复验31单元、520属性断言和24验收样例；仍将真实工具故障及架构审查列未闭合，任务留本角色。 影响：避免继续把坏工具任务标Done；测试提供新增代码回归证据而非原目标成功。",
+      "evidence": [
+        {
+          "session_id": "01a163f4-a62f-7c01-b875-b87626f041da",
+          "physical_lines": [
+            376,
+            378,
+            383,
+            386,
+            390,
+            393,
+            398,
+            401,
+            409,
+            413,
+            418
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "应保留：保留这种按原问题和各证据层级分别报告的习惯。"
+      ],
+      "uncertainty": "新通知功能通过不能说明原工具恢复；该角色准确保留这个区别，是对早期过早完成的成功反例。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a163f4-a62f-7c01-b875-b87626f041da:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "52调用已扫描，但259/345等原生长输出截断部分不能恢复，也未独立重跑历史测试；完整代码/可复现性范围受限。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "statement": "52顶层调用全扫；原生259/345等大输出截断部分不能恢复；没有重跑历史测试。"
+        }
+      ],
+      "possible_solutions": [
+        "仅对有争议结论补读保存内容；历史截断部分保留未知。",
+        "需当前复现时在另获授权的隔离环境验证同commit，不把历史记录当作新运行结果。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a163f4-a62f-7c01-b875-b87626f041da:A01",
+      "source_refs": [
+        "/task_segments/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "任务1发现三个真实工具task映射错误，工具不能启动；文档记录完成不等于原工具恢复。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/2"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "修生成器入口并重新生成包装器，以最小有效输入执行真实工具。"
+      ],
+      "uncertainty": "原报告明确未确认该结果；没有证据证明后续一定失败，亦不能补造完成。"
+    },
+    {
+      "id": "01a163f4-a62f-7c01-b875-b87626f041da:A02",
+      "source_refs": [
+        "/task_segments/2"
+      ],
+      "kind": "evidence_gap",
+      "description": "该worktree缺venv，APS解析通过不能证明Python产品测试已通过，产品验证仍缺结果。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/2"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "核实该工作树对应解释器与依赖，产品验证必要时补跑并保存实际结果。"
+      ],
+      "uncertainty": "原报告明确未确认该结果；没有证据证明后续一定失败，亦不能补造完成。"
+    },
+    {
+      "id": "01a163f4-a62f-7c01-b875-b87626f041da:A03",
+      "source_refs": [
+        "/task_segments/4",
+        "/historical_outcome_status"
+      ],
+      "kind": "evidence_gap",
+      "description": "新增功能31单元、520属性断言和24验收通过，但原工具故障及架构审查尚未闭合，整卡结果仍未完成。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/4",
+            "/historical_outcome_status"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "继续将整卡留在未完成状态，待真实工具恢复和架构审查结论齐备后验收。"
+      ],
+      "uncertainty": "原报告明确未确认该结果；没有证据证明后续一定失败，亦不能补造完成。"
+    }
+  ]
+}

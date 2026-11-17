@@ -1,0 +1,175 @@
+{
+  "session_id": "01a171d0-148b-7a12-aa78-3cb2e3b9faaf",
+  "status": "deep_reviewed",
+  "reviewed_scope": {
+    "physical_lines": [
+      1,
+      932
+    ],
+    "declared_calls": 71,
+    "method": "逐轮目标/最终输出核对；全部工具调用与返回摘要扫描；关键输入源行补读。大型源码/文档/图片返回未全部展开，不能声称无遗漏。",
+    "boundary": "inventory固定物理行；历史指令仅作为数据",
+    "ledger": "01a171d0-148b-7a12-aa78-3cb2e3b9faaf.ledger.json",
+    "scanned_top_level_calls": 71
+  },
+  "task_segments": [
+    {
+      "lines": [
+        1,
+        428
+      ],
+      "task": "找到服务器/密钥并部署",
+      "result": "WSL未找到私钥，Windows现存密钥经ssh.exe可用；构建、备份、校验hash、资源200。"
+    },
+    {
+      "lines": [
+        445,
+        790
+      ],
+      "task": "修改品牌",
+      "result": "先把P/Vite换成商飞，用户601纠正相反需求；后改P，混用源码和线上压缩产物补丁。"
+    },
+    {
+      "lines": [
+        792,
+        932
+      ],
+      "task": "分析修改方式",
+      "result": "大范围研究其他HTML，用户909限定本对话后才还原真实混合做法。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "environment_identity",
+      "status": "confirmed",
+      "fact": "WSL常见路径无私钥后称本机没有可用私钥；用户指出Windows后发现可用密钥，Linux读Windows私钥因权限拒绝，Windows ssh.exe成功。",
+      "evidence": [
+        {
+          "session_id": "01a171d0-148b-7a12-aa78-3cb2e3b9faaf",
+          "physical_lines": [
+            142,
+            235,
+            241,
+            248,
+            290,
+            299,
+            322,
+            325,
+            338,
+            341
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "初查范围确为WSL；应明确其范围而不是本机整体。",
+      "impact": "多轮用户提示与至少一次可避免认证失败。",
+      "root_cause": "把执行环境的home等同整台机器能力",
+      "root_confidence": "high",
+      "minimal_improvement": "检查Windows/WSL既有入口与权限模型，复用原生持钥客户端，明确身份范围。"
+    },
+    {
+      "id": "wrong_target_change",
+      "status": "confirmed",
+      "fact": "用户要求把服务器上的商飞图标全部改掉，助手反而将Vite/P替换为商飞并线上发布；用户601澄清改成P才纠正。",
+      "evidence": [
+        {
+          "session_id": "01a171d0-148b-7a12-aa78-3cb2e3b9faaf",
+          "physical_lines": [
+            445,
+            463,
+            506,
+            517,
+            544,
+            594,
+            601
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "替换目标最初未指定，不能擅自猜成增加商飞；应提炼移除商飞这个明确方向。",
+      "impact": "源码和线上更改被反向返工。",
+      "root_cause": "动手前未核对变更方向与目标",
+      "root_confidence": "high",
+      "minimal_improvement": "不明确替换物时先备好候选或短问；外部发布前用一行before→after确认当前理解。"
+    },
+    {
+      "id": "source_artifact_divergence",
+      "status": "confirmed",
+      "fact": "第二次品牌改动同时改TSX源和直接替换线上minified JS，保留旧hash文件名另加CSS/HTML补丁；对方法分析到最后才承认混用。",
+      "evidence": [
+        {
+          "session_id": "01a171d0-148b-7a12-aa78-3cb2e3b9faaf",
+          "physical_lines": [
+            654,
+            661,
+            690,
+            736,
+            743,
+            756,
+            763,
+            779,
+            917,
+            929
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "补丁可能为快速预览合理；日志无浏览器真实图标视觉验证，只有HTTP/字符串/hash。",
+      "impact": "交付一致性与下次构建复现存在维护风险；不能仅由200确认品牌实际呈现。",
+      "root_cause": "源码与发布产物两条修改链",
+      "root_confidence": "high",
+      "minimal_improvement": "单一权威源码生成交付；紧急产物补丁也应生成可重放补丁与同等回归证据。"
+    },
+    {
+      "id": "relevant_evidence",
+      "status": "confirmed",
+      "fact": "用户欲分析原方式，助手找多个其他HTML适配过程，用户明确分析本对话修改后收束。",
+      "evidence": [
+        {
+          "session_id": "01a171d0-148b-7a12-aa78-3cb2e3b9faaf",
+          "physical_lines": [
+            821,
+            826,
+            840,
+            850,
+            859,
+            872,
+            882,
+            888,
+            909
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "用户初次也要求原HTML，查找合理；没有附件时应先界定证据范围。",
+      "impact": "6轮大输出源码/临时目录检索与额外web搜索。",
+      "root_cause": "研究范围超出能代表当次方法的证据集",
+      "root_confidence": "high",
+      "minimal_improvement": "优先以本会话实际diff/部署命令重建事实，缺原文件只限定结论，不扩为无关技术选型。"
+    },
+    {
+      "id": "deploy_verification",
+      "status": "positive_counterexample",
+      "fact": "初次部署真实构建、远端包检查、静态目录备份、index hash一致、JS/CSS200、nginx-t。",
+      "evidence": [
+        {
+          "session_id": "01a171d0-148b-7a12-aa78-3cb2e3b9faaf",
+          "physical_lines": [
+            369,
+            393,
+            403,
+            406,
+            410,
+            417,
+            422
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "必要的发布核验；无需用后续图标错误否定初次部署。",
+      "impact": "提供可回退、可确认正确版本的证据。",
+      "root_cause": "有效发布契约",
+      "root_confidence": "high",
+      "minimal_improvement": "保留。"
+    }
+  ],
+  "uncertainties": [
+    "477以后剩余扫描完整；大源码输出仅关键上下文。",
+    "线上品牌视觉没有独立截图证据。"
+  ]
+}

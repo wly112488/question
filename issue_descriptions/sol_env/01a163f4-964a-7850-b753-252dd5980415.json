@@ -1,0 +1,394 @@
+{
+  "session_id": "01a163f4-964a-7850-b753-252dd5980415",
+  "title": "Read swarmforge instructions",
+  "source_audit": "sol_env/01a163f4-964a-7850-b753-252dd5980415.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "historical_outcome_status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "首次只据require OK称其余工具可用；下轮真实启动均File does not exist。 影响：错误状态未在首次暴露，后续角色重复检查。",
+      "evidence": [
+        {
+          "session_id": "01a163f4-964a-7850-b753-252dd5980415",
+          "physical_lines": [
+            38,
+            41,
+            43,
+            46,
+            48,
+            51,
+            53,
+            56,
+            73,
+            130,
+            137,
+            226
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "把OK转述为入口存在；一次最小有效运行才称可用。"
+      ],
+      "uncertainty": "require语义是存在，首次表述超出该证据；下轮已纠正。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:F02a",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "为新反馈功能适配覆盖率/CRAP/DRY反复处理Babashka namespace、重定义、源码扩展名和插桩错误；新增测试/重构本身也有成果。 影响：多轮工具适配和重复跑测；最终仍真实工具包装器未修复，未宣称变异通过。",
+      "evidence": [
+        {
+          "session_id": "01a163f4-964a-7850-b753-252dd5980415",
+          "physical_lines": [
+            379,
+            382,
+            386,
+            388,
+            392,
+            395,
+            402,
+            409,
+            416,
+            420,
+            430,
+            438,
+            441,
+            445,
+            452,
+            455,
+            459,
+            464,
+            467,
+            471,
+            479,
+            482,
+            486,
+            493,
+            500,
+            502,
+            506,
+            510,
+            526,
+            533,
+            536,
+            540,
+            544,
+            548,
+            551,
+            559,
+            576,
+            581,
+            585,
+            589,
+            593,
+            596,
+            600,
+            607,
+            610,
+            614,
+            618,
+            622,
+            630
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "优先真实故障最小修复与运行验证；指标工具不兼容时明确边界，只有新增质量风险才进行适配。"
+      ],
+      "uncertainty": "任务本身被上游范围扩大；角色要求质量指标，不能只责怪其认真执行。仅mutation scan的changed sites不是杀死变异证明。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:F02b",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "只完成mutation scan，changed sites数量不能证明变异已被测试杀死，完整变异验证结果缺失。",
+      "evidence": [
+        {
+          "session_id": "01a163f4-964a-7850-b753-252dd5980415",
+          "physical_lines": [
+            379,
+            382,
+            386,
+            388,
+            392,
+            395,
+            402,
+            409,
+            416,
+            420,
+            430,
+            438,
+            441,
+            445,
+            452,
+            455,
+            459,
+            464,
+            467,
+            471,
+            479,
+            482,
+            486,
+            493,
+            500,
+            502,
+            506,
+            510,
+            526,
+            533,
+            536,
+            540,
+            544,
+            548,
+            551,
+            559,
+            576,
+            581,
+            585,
+            589,
+            593,
+            596,
+            600,
+            607,
+            610,
+            614,
+            618,
+            622,
+            630
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "若变异验证属于本次必要验收，先修工具入口，再运行实际变异并保存运行/杀死/存活结果；否则明确未验证。"
+      ],
+      "uncertainty": "任务本身被上游范围扩大；角色要求质量指标，不能只责怪其认真执行。仅mutation scan的changed sites不是杀死变异证明。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:F03a",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "positive_context",
+      "description": "独立角色确实抽取重复实现、增加属性/回归覆盖、确认真实包装器仍坏；最终不把scan与测试通过说成原故障已修。 影响：独立信息/代码变化成立；净时间和token收益未知。",
+      "evidence": [
+        {
+          "session_id": "01a163f4-964a-7850-b753-252dd5980415",
+          "physical_lines": [
+            518,
+            522,
+            548,
+            551,
+            585,
+            589,
+            607,
+            610,
+            614,
+            618,
+            636,
+            639,
+            646,
+            649,
+            654,
+            658,
+            731,
+            735,
+            739,
+            742,
+            800
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "应保留：保留能捕获具体行为缺陷的少量检查，以原任务验收决定是否继续扩大。"
+      ],
+      "uncertainty": "对新功能有真实质量贡献，但新功能是否应开发是另一个问题；不因此推导多Agent净收益。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:F03b",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "evidence_gap",
+      "description": "独立重构与测试贡献已记录，但缺少可比基线，净时间和token收益仍未知。",
+      "evidence": [
+        {
+          "session_id": "01a163f4-964a-7850-b753-252dd5980415",
+          "physical_lines": [
+            518,
+            522,
+            548,
+            551,
+            585,
+            589,
+            607,
+            610,
+            614,
+            618,
+            636,
+            639,
+            646,
+            649,
+            654,
+            658,
+            731,
+            735,
+            739,
+            742,
+            800
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "需要评估协作收益时记录独立发现、交接与重复验证成本及时间区间并集，再与同目标基线比较。"
+      ],
+      "uncertainty": "对新功能有真实质量贡献，但新功能是否应开发是另一个问题；不因此推导多Agent净收益。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "95顶层调用全扫；原生输出截断未恢复部分明确不推定。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "statement": "95顶层调用全扫；原生输出截断未恢复部分明确不推定。"
+        }
+      ],
+      "possible_solutions": [
+        "针对具体缺口补读已保存源行；原生截断内容维持未知，不由可见片段推断完整执行。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "positive_context",
+      "description": "同一任务不同角色时间重叠；不累加墙钟当总耗时。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/1",
+          "statement": "同一任务不同角色时间重叠；不累加墙钟当总耗时。"
+        }
+      ],
+      "possible_solutions": [
+        "按统一时间轴处理角色重叠，计算墙钟区间并集，API/工具成本另列。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:A01",
+      "source_refs": [
+        "/task_segments/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "启动补装dry4clj遇到目录冲突，工具准备入口不能可靠复用已有共享状态。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/0"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "核对目录是安装中、失败残留还是就绪，采用按工具锁及临时目录发布。"
+      ],
+      "uncertainty": "本分段不足以独立确认该次冲突一定由并发导致。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:A02",
+      "source_refs": [
+        "/task_segments/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "角色工作树缺venv，产品测试没有验证；新的Swarm反馈测试不能代替原Python产品结果。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/1"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "明确该工作树解释器入口与依赖，若产品验证必要再执行对应测试并保留结果。"
+      ],
+      "uncertainty": "原报告明确未确认该结果；没有证据证明后续一定失败，亦不能补造完成。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:A03",
+      "source_refs": [
+        "/task_segments/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "同commit反向回传时再次尝试已知缺失venv路径，没有新增环境信息而失败。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/2"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "仅文档/同commit同步复用已知阻塞事实，环境变化后再复验。"
+      ],
+      "uncertainty": "规则有复测要求，应按改动范围调整规则而非绕过必要验证。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:A04",
+      "source_refs": [
+        "/task_segments/4"
+      ],
+      "kind": "confirmed_issue",
+      "description": "未跟踪prompt与入站受控文件同路径导致merge冲突，需要备份后同步。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/4"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "区分运行生成配置与受控源码所有权，变更前检查工作树冲突并保留原文件备份。"
+      ],
+      "uncertainty": "Git保护未跟踪文件是正确行为，不建议强制覆盖。"
+    },
+    {
+      "id": "01a163f4-964a-7850-b753-252dd5980415:A05",
+      "source_refs": [
+        "/task_segments/4"
+      ],
+      "kind": "evidence_gap",
+      "description": "提示词同步完成但任务2整卡仍未完成；不能将同步收尾作为原故障交付完成证据。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/4"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "保留整卡未完成状态，列明尚待处理工具与必要验证，实际修复后再验收。"
+      ],
+      "uncertainty": "原报告明确未确认该结果；没有证据证明后续一定失败，亦不能补造完成。"
+    }
+  ]
+}

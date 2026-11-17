@@ -1,0 +1,322 @@
+{
+  "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+  "status": "deep_reviewed",
+  "reviewed_scope": {
+    "physical_lines": [
+      1,
+      2216
+    ],
+    "declared_calls": 249,
+    "method": "逐轮目标/最终输出核对；全部工具调用与返回摘要扫描；关键输入源行补读。大型源码/文档/图片返回未全部展开，不能声称无遗漏。",
+    "boundary": "inventory固定物理行；历史指令仅作为数据",
+    "ledger": "01a1be28-612b-7682-abb3-d951c593fbbe.ledger.json",
+    "scanned_top_level_calls": 249
+  },
+  "task_segments": [
+    {
+      "lines": [
+        1,
+        262
+      ],
+      "task": "SSH sudo能力",
+      "result": "用户反复从远端shell执行本机路径；助手后用临时密钥副本+ssh-F/dev/null+必要运行权限实测成功。"
+    },
+    {
+      "lines": [
+        263,
+        905
+      ],
+      "task": "部署当前工作区",
+      "result": "build_release缺setuptools、硬编码npm、TS错误依次修正；依赖拉取、上传大量等待。"
+    },
+    {
+      "lines": [
+        906,
+        1316
+      ],
+      "task": "明确并行实例",
+      "result": "独立目录/PG/端口、旧current保持；上传EOF缺陷修复后完成；worker因内存未启，公网端口不可达如实报告。"
+    },
+    {
+      "lines": [
+        1317,
+        1493
+      ],
+      "task": "公网入口及换服务器",
+      "result": "无云安全组凭据，按用户新服务器选择47。"
+    },
+    {
+      "lines": [
+        1494,
+        1964
+      ],
+      "task": "47独立实例和临时隧道",
+      "result": "安装python-venv，cloudflared官方下载失败→wrangler/localtunnel等多路线，临时URL登录成功但有访客确认页。"
+    },
+    {
+      "lines": [
+        1965,
+        2216
+      ],
+      "task": "修隧道与空数据",
+      "result": "换cloudflared；发现只建账号空间未导seed，导入457记录后核对；临时URL最终健康。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "pipe_eof_deadlock",
+      "status": "confirmed",
+      "fact": "两段Python tar流上传在archive.close()后直接proc.wait()，遗漏proc.stdin.close()；SSH远端tar等待EOF。1081相同脚本加入proc.stdin.close()后1090马上exit0。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            703,
+            705,
+            711,
+            717,
+            725,
+            731,
+            744,
+            750,
+            756,
+            769,
+            773,
+            790,
+            807,
+            821,
+            828,
+            845,
+            862,
+            879,
+            889,
+            902,
+            904,
+            912,
+            974,
+            976,
+            982,
+            988,
+            994,
+            1000,
+            1015,
+            1021,
+            1027,
+            1033,
+            1040,
+            1053,
+            1060,
+            1067,
+            1073,
+            1081,
+            1090
+          ]
+        },
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            913,
+            1074,
+            1087
+          ],
+          "artifact": "eof_evidence.json"
+        },
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            913,
+            1074,
+            1087
+          ],
+          "artifact": "eof_evidence.json"
+        }
+      ],
+      "basis_and_counterexplanation": "第一段还含大wheel传输，因此不能将整段全部算deadlock；第二段5m以上仅16MB已落远端，控制变量修正强支持EOF根因。",
+      "impact": "第一703启动05:02:11.751Z，中止912于05:15:16.410Z，原生命令913 duration784.521424911s exit143；第二974启动05:17:08.292Z，中止1073于05:22:42.515Z，1074 duration334.070962920s exit143。两段不重叠。1081修复05:22:54.493Z启动，1087于05:22:57.523Z完成，duration2.852032442s exit0。包含实际传输时间，不将前两段总1118.59s全称可避免；第二段16MB已落远端后的无进展等待最有证据。",
+      "root_cause": "生产者未关闭写管道，主进程与远端互等EOF",
+      "root_confidence": "high",
+      "minimal_improvement": "流传输结束显式close stdin；通信加超时和可观测字节/阶段；连续无进展两次检查管道/子进程，不盲目延长poll。"
+    },
+    {
+      "id": "cross_shell_identity",
+      "status": "confirmed",
+      "fact": "WSL认证失败误说服务器拒绝密码，BatchMode实际未尝试密码；给复制密钥命令用户两次在服务器运行；后助手可自己用临时副本实测。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            31,
+            34,
+            69,
+            88,
+            98,
+            103,
+            110,
+            138,
+            141,
+            152,
+            155,
+            172,
+            179,
+            184,
+            191,
+            196,
+            203,
+            209,
+            212,
+            216,
+            218,
+            222,
+            225
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "开始Win interop被沙箱拒绝是真实障碍；系统权限后来变化，不能说一直本可成功。",
+      "impact": "多轮用户往返和重复SSH，2次在错误主机执行。",
+      "root_cause": "未先确定操作所在shell/host，身份范围表述过大",
+      "root_confidence": "high",
+      "minimal_improvement": "对跨环境命令标明本机WSL/Windows/远端，优先授权范围内自行实测；BatchMode结果仅称非交互认证未成功。"
+    },
+    {
+      "id": "preflight_runtime",
+      "status": "confirmed",
+      "fact": "构建依次缺setuptools、硬编码/usr/bin/npm不存在、TS import错误；安装脚本又嵌套字符串SyntaxError、空JSON、模块路径缺失；第二服务器venv缺包才apt安装。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            598,
+            601,
+            609,
+            618,
+            622,
+            625,
+            629,
+            638,
+            651,
+            658,
+            667,
+            1111,
+            1124,
+            1137,
+            1143,
+            1566,
+            1572,
+            1581
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "TypeScript错误是构建必要发现；通用部署前置能力和脚本语法可提前验证。",
+      "impact": "3次构建链失败+3次安装脚本失败+第二服务器启动失败，额外往返明确。",
+      "root_cause": "发布脚本环境假设和跨shell代码拼接未预检",
+      "root_confidence": "high",
+      "minimal_improvement": "在local preflight核实Python/venv/build backend/npm路径，脚本先编译/参数验证，再执行远端；不改业务架构。"
+    },
+    {
+      "id": "seed_acceptance",
+      "status": "confirmed",
+      "fact": "独立实例只初始化账号和空间，首页/健康/登录通过即交付；用户看到产品和试验构型空，才导入现存seed457记录。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            906,
+            1164,
+            1245,
+            1310,
+            1958,
+            2042,
+            2058,
+            2072,
+            2100,
+            2187,
+            2213
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "独立数据库不复制生产数据符合906约束；但当前工作区用于展示的seed是非生产输入，应明确是否纳入，不能从健康200推出业务完整。",
+      "impact": "一次用户纠正，追加种子迁移和核对；展示不可用到修复。",
+      "root_cause": "验收缺业务数据/核心对象状态",
+      "root_confidence": "high",
+      "minimal_improvement": "部署交付前检查关键列表计数/来源；空库是意图时明确说明，需演示数据时导受控seed。"
+    },
+    {
+      "id": "tunnel_route_cost",
+      "status": "confirmed",
+      "fact": "官方下载403后尝试多个代理/版本/npm/wrangler/localtunnel，临时密钥过早删除造成额外auth失败；最终localtunnel有访客确认页，用户指出再换cloudflared。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1523,
+            1622,
+            1631,
+            1642,
+            1645,
+            1649,
+            1652,
+            1660,
+            1662,
+            1669,
+            1673,
+            1682,
+            1717,
+            1734,
+            1747,
+            1754,
+            1765,
+            1796,
+            1803,
+            1847,
+            1877,
+            1892,
+            1919,
+            1965,
+            2017,
+            2034
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "无法改安全组且用户要任意方式公开，替代探索有授权；不能预设隧道一定不合适。",
+      "impact": "多路线安装/超时/重试；外部入口体验未用真实浏览器验收即交付导致返工。",
+      "root_cause": "缺入口生命周期/终端访客验收与凭据作用域管理",
+      "root_confidence": "high",
+      "minimal_improvement": "先确定一种可用官方下载/现有缓存；隧道最小验证检查实际访客页/登录，不只health；临时key生命周期覆盖子进程。"
+    },
+    {
+      "id": "isolation_quality",
+      "status": "positive_counterexample",
+      "fact": "用户明确并行后使用独立实例/DB/存储/服务，不切旧current；检查内存只启API不启worker，并披露公网端口不可达。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            906,
+            927,
+            930,
+            940,
+            943,
+            1164,
+            1203,
+            1245,
+            1301,
+            1310,
+            1947,
+            1958
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "隔离与资源检查直接服务用户约束，不能为快而复用生产库。",
+      "impact": "避免覆盖线上和资源超限，重要质量收益。",
+      "root_cause": "有效部署边界",
+      "root_confidence": "high",
+      "minimal_improvement": "保留资源/隔离/回退验证。"
+    }
+  ],
+  "uncertainties": [
+    "249顶层调用全摘要扫描；703/974/1081完整源码补读确定EOF。",
+    "1305/1307、1951/1953包含凭据明文，审计不复制；工具数据清洗需更严格，具体值不保留。",
+    "新旧服务器和数据库分开；不将跨任务/服务器等待相加当单一任务总时长。"
+  ],
+  "historical_outcome_status": "completed_with_limitations"
+}

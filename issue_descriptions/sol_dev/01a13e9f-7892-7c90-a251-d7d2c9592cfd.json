@@ -1,0 +1,434 @@
+{
+  "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+  "title": "重构试验构型与虚拟预测前端",
+  "source_audit": "sol_dev/01a13e9f-7892-7c90-a251-d7d2c9592cfd.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "保存按钮和后段数字孪生入口使用错误选择器/控件角色，分别完整等待12秒；全流程重跑会重复先前已过步骤。",
+      "evidence": [
+        {
+          "line": 140,
+          "output_line": 143
+        },
+        {
+          "line": 147,
+          "output_line": 150
+        },
+        {
+          "line": 181,
+          "output_line": 184
+        },
+        {
+          "line": 203,
+          "output_line": 206
+        },
+        {
+          "line": 224,
+          "output_line": 228
+        },
+        {
+          "line": 239,
+          "output_line": 242
+        },
+        {
+          "line": 278,
+          "output_line": 281
+        }
+      ],
+      "possible_solutions": [
+        "先读取控件真实语义，再写定位；失败场景用独立fixture定向重跑。"
+      ],
+      "uncertainty": "多构型/保存/隔离场景确实需要验收，不以等待次数证明测试无用。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "脚本预期特定未接入文案，实际返回500无效响应，文字不符导致12秒等待，延误区分后端状态和前端错误表达。",
+      "evidence": [
+        {
+          "line": 140,
+          "output_line": 143
+        },
+        {
+          "line": 147,
+          "output_line": 150
+        },
+        {
+          "line": 181,
+          "output_line": 184
+        },
+        {
+          "line": 203,
+          "output_line": 206
+        },
+        {
+          "line": 224,
+          "output_line": 228
+        },
+        {
+          "line": 239,
+          "output_line": 242
+        },
+        {
+          "line": 278,
+          "output_line": 281
+        }
+      ],
+      "possible_solutions": [
+        "按允许的未接入/服务错误契约断言状态，再单独核对用户可读提示。"
+      ],
+      "uncertainty": "原审计未将该500归因为本轮新业务缺陷；不要要求用假后端成功掩盖错误。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F01c",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "新增预测表单数字字段未声明number类型且误用whitespace规则，预测无法完成；两次等待失败后定位并修复。",
+      "evidence": [
+        {
+          "line": 140,
+          "output_line": 143
+        },
+        {
+          "line": 147,
+          "output_line": 150
+        },
+        {
+          "line": 181,
+          "output_line": 184
+        },
+        {
+          "line": 203,
+          "output_line": 206
+        },
+        {
+          "line": 224,
+          "output_line": 228
+        },
+        {
+          "line": 239,
+          "output_line": 242
+        },
+        {
+          "line": 278,
+          "output_line": 281
+        }
+      ],
+      "possible_solutions": [
+        "对数字和文本分别配置校验，先用局部表单交互验证有效数字可提交、无效值被拒绝。"
+      ],
+      "uncertainty": "两次12秒等待包含真实缺陷发现成本，不能删断言当提效。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F02a",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "实现后TypeScript检查发现chosen可能undefined，首次构建未通过，需修正类型/分支处理。",
+      "evidence": [
+        {
+          "line": 77
+        },
+        {
+          "line": 100,
+          "output_line": 103
+        },
+        {
+          "line": 107,
+          "output_line": 109
+        },
+        {
+          "line": 126,
+          "output_line": 128
+        },
+        {
+          "line": 188,
+          "output_line": 191
+        },
+        {
+          "line": 285
+        }
+      ],
+      "possible_solutions": [
+        "对无选中项明确分支并局部类型检查，稳定后生产构建。"
+      ],
+      "uncertainty": "这是开发中及时捕获的错误，不能据此推断最终交付仍有类型缺陷。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F02b",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "修复命令因工作目录错误找不到目标文件，产生一次无效FileNotFound修改尝试。",
+      "evidence": [
+        {
+          "line": 77
+        },
+        {
+          "line": 100,
+          "output_line": 103
+        },
+        {
+          "line": 107,
+          "output_line": 109
+        },
+        {
+          "line": 126,
+          "output_line": 128
+        },
+        {
+          "line": 188,
+          "output_line": 191
+        },
+        {
+          "line": 285
+        }
+      ],
+      "possible_solutions": [
+        "每条修改命令显式workdir，并按同一根目录构造相对路径。"
+      ],
+      "uncertainty": "影响限于已记载无效命令，没有文件被错误修改证据。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F02c",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "candidate_issue",
+      "description": "局部修正仍持续时多轮完整tsc+vite，成功Vite单次约55.37秒，可能有过早执行生产打包的成本。",
+      "evidence": [
+        {
+          "line": 77
+        },
+        {
+          "line": 100,
+          "output_line": 103
+        },
+        {
+          "line": 107,
+          "output_line": 109
+        },
+        {
+          "line": 126,
+          "output_line": 128
+        },
+        {
+          "line": 188,
+          "output_line": 191
+        },
+        {
+          "line": 285
+        }
+      ],
+      "possible_solutions": [
+        "局部类型检查和相关用例稳定后再跑最终生产构建。"
+      ],
+      "uncertainty": "后续业务仍变化且最终构建必要；类型失败常在打包前退出，不能把失败次数乘55秒。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F03",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "最终起初把3项既有失败概括为文案/源码断言，用户追问后承认其中taskItemId:undefined属于对象结构差异。 判断：失败分类过粗；没有证据是本次代码回归，模型核对未改相关实现并修正文档。 已知影响：一轮用户追问及更正文档。",
+      "evidence": [
+        {
+          "line": 346
+        },
+        {
+          "line": 353
+        },
+        {
+          "line": 367,
+          "output_line": 370
+        },
+        {
+          "line": 380
+        }
+      ],
+      "possible_solutions": [
+        "完成声明分别列回归、既有失败、环境阻塞及未知，不以文案标签包住结构断言。"
+      ],
+      "uncertainty": "原发现状态：confirmed_resolved_low_impact。仅按原审计证据说明，不推断未记载损失。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F04a",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "positive_context",
+      "description": "预测成功使用隔离夹具验证，同时明确真实后端缺适用模型查询、回流、持久化；没有把夹具成功冒充生产后端可用。",
+      "evidence": [
+        {
+          "line": 314,
+          "output_line": 318
+        },
+        {
+          "line": 346
+        },
+        {
+          "line": 452,
+          "output_line": 455
+        },
+        {
+          "line": 489,
+          "output_line": 491
+        },
+        {
+          "line": 506
+        },
+        {
+          "line": 518
+        }
+      ],
+      "possible_solutions": [
+        "保留模拟、真实接口和未接入能力的分别说明。"
+      ],
+      "uncertainty": "用户要求如实表达未接入，不能以未实现生产后端追溯判前端任务失败。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F04b",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "positive_context",
+      "description": "同步GitHub遭TLS失败，有限重试且改变连接参数，最终实际同步并核对远端；错误没有被隐藏。",
+      "evidence": [
+        {
+          "line": 314,
+          "output_line": 318
+        },
+        {
+          "line": 346
+        },
+        {
+          "line": 452,
+          "output_line": 455
+        },
+        {
+          "line": 489,
+          "output_line": 491
+        },
+        {
+          "line": 506
+        },
+        {
+          "line": 518
+        }
+      ],
+      "possible_solutions": [
+        "保留有限、基于错误调整参数的重试和远端提交核验。"
+      ],
+      "uncertainty": "外部TLS错误本身不证明业务开发质量差，不能把网络等待归模型净工时。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：11月2日回顾输出中自述耗时原因不能替代本会话调用证据；没有完整人工工时，不能估算总效率比例。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "recorded_limitation": "11月2日回顾输出中自述耗时原因不能替代本会话调用证据；没有完整人工工时，不能估算总效率比例。"
+        }
+      ],
+      "possible_solutions": [
+        "耗时结论仅从调用时间和输出推导；若需效率比例，另补人工工时和重叠区间数据。"
+      ],
+      "uncertainty": "11月2日回顾输出中自述耗时原因不能替代本会话调用证据；没有完整人工工时，不能估算总效率比例。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：原工具部分输出已截断，保留缺口而不恢复不存在的数据。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/1",
+          "recorded_limitation": "原工具部分输出已截断，保留缺口而不恢复不存在的数据。"
+        }
+      ],
+      "possible_solutions": [
+        "可用原行分段读取；历史工具已省略部分继续注明不可恢复。"
+      ],
+      "uncertainty": "原工具部分输出已截断，保留缺口而不恢复不存在的数据。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:A01",
+      "source_refs": [
+        "/task_segments/0",
+        "/findings/3"
+      ],
+      "kind": "evidence_gap",
+      "description": "真实适用模型查询接口尚缺，隔离预测夹具的成功不能证明按真实构型查询模型的生产路径可用。",
+      "evidence": [
+        {
+          "line": 346
+        }
+      ],
+      "possible_solutions": [
+        "将来接真实后端时补用实际构型、模型记录和查询响应的验证。"
+      ],
+      "uncertainty": "是已披露能力边界，不是当前前端范围内新增漏做。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:A02",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "evidence_gap",
+      "description": "真实回流能力尚缺，模拟预测成功没有验证结果实际写回业务来源。",
+      "evidence": [
+        {
+          "line": 346
+        }
+      ],
+      "possible_solutions": [
+        "回流接入后检查写入目标、来源关系和失败不写的实际后端行为。"
+      ],
+      "uncertainty": "不把后续能力要求追溯给本轮。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:A03",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "evidence_gap",
+      "description": "真实预测持久化尚缺，当前夹具成功不能证明重新进入或换上下文可从后端恢复结果。",
+      "evidence": [
+        {
+          "line": 346
+        }
+      ],
+      "possible_solutions": [
+        "接入持久化后补保存→新context读取的真实验证。"
+      ],
+      "uncertainty": "原报告已坦白披露，不是虚报后端完成。"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "session_id": "01a1521a-17dd-7443-b464-6c3bd2775421",
+  "source_audit": "terra/01a1521a-17dd-7443-b464-6c3bd2775421.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T11-00-04-01a1521a-17dd-7443-b464-6c3bd2775421.jsonl",
+  "snapshot_lines": 64,
+  "items": [
+    {
+      "id": "01a1521a-17dd-7443-b464-6c3bd2775421:F01a",
+      "kind": "confirmed_issue",
+      "description": "技能文件先读取错误路径，随后才按正确路径读取。",
+      "cause_status": "supported",
+      "context_from_chat": "用户要求只读历史Network/Console，不重试并保护凭据（第10行）。",
+      "trigger_or_change": "第16、19行Linux技能路径失败，23、26行改Windows路径；45、47行全量工具描述被截断；最终未发现DevTools。",
+      "cause_explanation": "第16、19行证实Linux路径不存在；第23、26行改读Windows技能路径。选择错误路径的内部原因未知。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1521a-17dd-7443-b464-6c3bd2775421",
+          "physical_lines": "第18、25、45、47行",
+          "what_it_supports": "本条具体调用、返回与后续结果的原始定位；解释见本条原因。"
+        },
+        {
+          "session_id": "01a1521a-17dd-7443-b464-6c3bd2775421",
+          "physical_lines": "10、16、19、23、26、39、45、47、60",
+          "what_it_supports": "用户约束、实际调用和返回或直接答复；对应上述判断。"
+        }
+      ],
+      "workflow_relevance": "本次是连接或工具检查，不涉及前端原型布局迭代。",
+      "necessary_cost": "只读确认工具、遵守隐私约束或直接回答属于必要工作。",
+      "possibly_avoidable_cost": "错误路径或宽输出可造成额外调用；时长和实际净损失未单独归因。",
+      "revised_possible_solutions": [
+        "使用技能目录映射中的实际根路径。"
+      ],
+      "remaining_uncertainty": "原审计根因置信：高：错误根路径及不加约束地输出工具描述；多余恢复和约4万字符截断；探索实际工具和资源本身合理。"
+    },
+    {
+      "id": "01a1521a-17dd-7443-b464-6c3bd2775421:F01b",
+      "kind": "confirmed_issue",
+      "description": "列举全部工具描述导致大量输出截断。",
+      "cause_status": "supported",
+      "context_from_chat": "用户要求只读历史Network/Console，不重试并保护凭据（第10行）。",
+      "trigger_or_change": "第16、19行Linux技能路径失败，23、26行改Windows路径；45、47行全量工具描述被截断；最终未发现DevTools。",
+      "cause_explanation": "第45行输出全部工具名和描述，第47行显示输出被截断；目的是核对工具可用性，无法证明截断影响了最终发现。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1521a-17dd-7443-b464-6c3bd2775421",
+          "physical_lines": "第18、25、45、47行",
+          "what_it_supports": "本条具体调用、返回与后续结果的原始定位；解释见本条原因。"
+        },
+        {
+          "session_id": "01a1521a-17dd-7443-b464-6c3bd2775421",
+          "physical_lines": "10、16、19、23、26、39、45、47、60",
+          "what_it_supports": "用户约束、实际调用和返回或直接答复；对应上述判断。"
+        }
+      ],
+      "workflow_relevance": "本次是连接或工具检查，不涉及前端原型布局迭代。",
+      "necessary_cost": "只读确认工具、遵守隐私约束或直接回答属于必要工作。",
+      "possibly_avoidable_cost": "错误路径或宽输出可造成额外调用；时长和实际净损失未单独归因。",
+      "revised_possible_solutions": [
+        "先按命名空间筛选工具名称，再读取候选详情。"
+      ],
+      "remaining_uncertainty": "原审计根因置信：高：错误根路径及不加约束地输出工具描述；多余恢复和约4万字符截断；探索实际工具和资源本身合理。"
+    },
+    {
+      "id": "01a1521a-17dd-7443-b464-6c3bd2775421:U01",
+      "kind": "evidence_gap",
+      "description": "原故障原因不可由本会话确认。",
+      "cause_status": "unknown",
+      "context_from_chat": "用户要求只读历史Network/Console，不重试并保护凭据（第10行）。",
+      "trigger_or_change": "第16、19行Linux技能路径失败，23、26行改Windows路径；45、47行全量工具描述被截断；最终未发现DevTools。",
+      "cause_explanation": "原聊天所见的边界：原故障原因不可由本会话确认。。现有可见记录不足以给未观测部分补造原因；相关调用和反馈见下列物理行。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1521a-17dd-7443-b464-6c3bd2775421",
+          "physical_lines": "10、16、19、23、26、39、45、47、60",
+          "what_it_supports": "用户约束、实际调用和返回或直接答复；对应上述判断。"
+        }
+      ],
+      "workflow_relevance": "本次是连接或工具检查，不涉及前端原型布局迭代。",
+      "necessary_cost": "只读确认工具、遵守隐私约束或直接回答属于必要工作。",
+      "possibly_avoidable_cost": "没有证据表明额外等待可避免；不推断净损失。",
+      "revised_possible_solutions": [
+        "在权限允许且确有必要时核对关联会话或原始日志；否则将当前判断限定在已审范围。"
+      ],
+      "remaining_uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "session_id": "01a166df-ec06-7462-ac10-863ed349bcfe",
+  "title": "对比这两个项目",
+  "source_audit": "terra/01a166df-ec06-7462-ac10-863ed349bcfe.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a166df-ec06-7462-ac10-863ed349bcfe:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "端到端脚本多次因选择器或表单可访问名称不匹配失败；随后检查真实DOM，为表单增加可访问名称并逐步修正脚本，最终通过；验证脚本从猜测选择器启动，导致多轮失败；其中缺少可访问名称是有价值的产品发现，不能把所有失败视为脚本错误。 影响或损失：多次重试和至少一次10秒等待；总工作时间不可直接归责",
+      "evidence": "第434、460、474–578行",
+      "possible_solutions": [
+        "先检查角色、名称、可见性和状态；把可访问性作为实现与验收边界。"
+      ],
+      "uncertainty": "原审计根因置信：中高：先验收DOM和语义不足；验证脚本从猜测选择器启动，导致多轮失败；其中缺少可访问名称是有价值的产品发现，不能把所有失败视为脚本错误。"
+    },
+    {
+      "id": "01a166df-ec06-7462-ac10-863ed349bcfe:F02a",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "独立审查发现试验级成果未进入任务及报告；父会话修复，子审查复测通过。",
+      "evidence": "子会话01a16708第95–117、125–140行；本会话第985、990、1250–1253行",
+      "possible_solutions": [
+        "以跨试验和任务/报告关联的实际ID验收成果展示。"
+      ],
+      "uncertainty": "原审计根因置信：高：作用域聚合遗漏及非递归候选筛选；原实现与跨入口业务流存在缺口；审查与红测是有效发现和修复，不是低效。"
+    },
+    {
+      "id": "01a166df-ec06-7462-ac10-863ed349bcfe:F02b",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "独立审查发现嵌套装备试验不能后续关联；父会话修复，子审查复测通过。",
+      "evidence": "子会话01a16708第95–117、125–140行；本会话第985、990、1250–1253行",
+      "possible_solutions": [
+        "覆盖嵌套对象的后续关联路径与身份保持。"
+      ],
+      "uncertainty": "原审计根因置信：高：作用域聚合遗漏及非递归候选筛选；原实现与跨入口业务流存在缺口；审查与红测是有效发现和修复，不是低效。"
+    },
+    {
+      "id": "01a166df-ec06-7462-ac10-863ed349bcfe:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "positive_context",
+      "description": "三次模块找不到发生在先写测试、后新增实现之前（第346、607、791行），属于合理红测，不计作环境错误。子代理审查时间与父轮重叠不可相加。",
+      "evidence": "源审计任务段定位：第10–268行；第275–1400行；第1412–1738行",
+      "possible_solutions": [
+        "保留原有证据边界与有意红测、成功复验或无问题的上下文，不将其误记为失败。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a166df-ec06-7462-ac10-863ed349bcfe:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "第1334行165项全通过、1342行构建成功、1360行浏览器后段通过；历史部分工具输出自带截断。",
+      "evidence": "源审计任务段定位：第10–268行；第275–1400行；第1412–1738行",
+      "possible_solutions": [
+        "保留快照的截断或损坏边界；如存在经授权且完整的原始记录，再按行核对缺失内容。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    }
+  ]
+}

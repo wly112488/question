@@ -1,0 +1,122 @@
+{
+  "session_id": "01a15327-05a4-7f60-99a0-e79a9e381792",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T15-53-48-01a15327-05a4-7f60-99a0-e79a9e381792.jsonl",
+  "snapshot_lines": 133,
+  "source_audit": "root_reuse/01a15327-05a4-7f60-99a0-e79a9e381792.json",
+  "items": [
+    {
+      "id": "01a15327-05a4-7f60-99a0-e79a9e381792:F01",
+      "cause_status": "supported",
+      "context_from_chat": "父会话第349行明确成果按试验与执行归属；本子会话实际只读检查持久化和报告来源，106至109行用小程序复现跨执行图表ID碰撞。",
+      "trigger_or_change": "一次读取或diff返回多个较长文件。",
+      "cause_explanation": "原调用选择大段或完整源码/diff，合并后的实际返回超过上限；这说明返回预算与检索目标不匹配。并不说明所有后续重读都无用，源码在父子协作期间也可能变化。",
+      "raw_evidence": [
+        {
+          "session_id": "01a15327-05a4-7f60-99a0-e79a9e381792",
+          "physical_lines": [
+            29,
+            34,
+            44,
+            48
+          ],
+          "what_it_supports": "读取参数与实际截断返回"
+        }
+      ],
+      "workflow_relevance": "不由用户调整样式或文字直接引起；以本事件实际输入、路径或验证边界解释。",
+      "necessary_cost": "掌握任务接口和相关实现。",
+      "possibly_avoidable_cost": "已截断部分的再次定位以及无关源码返回；不量化为分钟。",
+      "revised_possible_solutions": [
+        "先定位符号和相关行，合并读取时控制总输出；修改后的文件只补读必要差异。"
+      ],
+      "remaining_uncertainty": "没有对历史版本做重放，不能把纠正轮包络全部换算为可节省时间。"
+    },
+    {
+      "id": "01a15327-05a4-7f60-99a0-e79a9e381792:U01",
+      "cause_status": "unknown",
+      "context_from_chat": "父会话第349行明确成果按试验与执行归属；本子会话实际只读检查持久化和报告来源，106至109行用小程序复现跨执行图表ID碰撞。",
+      "trigger_or_change": "部分协作派发参数以密文保存。",
+      "cause_explanation": "可见父需求、子任务行为和回传，但加密参数本身无法从这份rollout还原。不能据此认定子代理没收到要求，也不能用父概述冒充完整派发输入。",
+      "raw_evidence": [
+        {
+          "session_id": "01a15327-05a4-7f60-99a0-e79a9e381792",
+          "physical_lines": [
+            11,
+            13
+          ],
+          "what_it_supports": "子会话/协作元数据或加密协作消息"
+        },
+        {
+          "session_id": "01a152af-ec8a-7a42-9cfc-20530cbbd5ed",
+          "physical_lines": [
+            349
+          ],
+          "what_it_supports": "可读父级用户需求"
+        }
+      ],
+      "workflow_relevance": "不由用户调整样式或文字直接引起；以本事件实际输入、路径或验证边界解释。",
+      "necessary_cost": "保留证据缺口。",
+      "possibly_avoidable_cost": "不能声称消除了未知派发成本。",
+      "revised_possible_solutions": [
+        "以现存明文父需求、子执行与回传标注已知边界；若要核对派发原文，需合法明文导出。"
+      ],
+      "remaining_uncertainty": "加密派发原文及其完整约束未知。"
+    },
+    {
+      "id": "01a15327-05a4-7f60-99a0-e79a9e381792:U02",
+      "cause_status": "supported",
+      "context_from_chat": "父会话第349行明确成果按试验与执行归属；本子会话实际只读检查持久化和报告来源，106至109行用小程序复现跨执行图表ID碰撞。",
+      "trigger_or_change": "子执行与父工作时间重叠。",
+      "cause_explanation": "这是并行子任务，子会话时长代表局部包络而非额外串行等待。应通过实际派发、回传与父任务关键路径计算，不能相加推导用户总耗时。",
+      "raw_evidence": [
+        {
+          "session_id": "01a15327-05a4-7f60-99a0-e79a9e381792",
+          "physical_lines": [
+            106,
+            130
+          ],
+          "what_it_supports": "子任务交付/复核时点"
+        },
+        {
+          "session_id": "01a152af-ec8a-7a42-9cfc-20530cbbd5ed",
+          "physical_lines": [
+            349,
+            1289
+          ],
+          "what_it_supports": "父级开始需求与集成交付"
+        }
+      ],
+      "workflow_relevance": "不由用户调整样式或文字直接引起；以本事件实际输入、路径或验证边界解释。",
+      "necessary_cost": "对子结果的集成及验收。",
+      "possibly_avoidable_cost": "没有证据支持把全部子审时长直接删掉。",
+      "revised_possible_solutions": [
+        "按父子重叠区间和实际等待关联计算耗时。"
+      ],
+      "remaining_uncertainty": "部分派发密文，精确关键路径仍受限。"
+    },
+    {
+      "id": "01a15327-05a4-7f60-99a0-e79a9e381792:P01",
+      "cause_status": "supported",
+      "context_from_chat": "父会话第349行明确成果按试验与执行归属；本子会话实际只读检查持久化和报告来源，106至109行用小程序复现跨执行图表ID碰撞。",
+      "trigger_or_change": "核对报告选图是否按执行记录隔离。",
+      "cause_explanation": "106/109行小程序构造两个执行记录的同chart.id，选择一个却匹配并保存两个，因为非taskBound分支只用chart.id当key；复现把身份碰撞与一般样式迭代区分开。",
+      "raw_evidence": [
+        {
+          "session_id": "01a15327-05a4-7f60-99a0-e79a9e381792",
+          "physical_lines": [
+            106,
+            109,
+            130
+          ],
+          "what_it_supports": "最小复现输出与最终重要发现"
+        }
+      ],
+      "workflow_relevance": "不由用户调整样式或文字直接引起；以本事件实际输入、路径或验证边界解释。",
+      "necessary_cost": "身份/来源隔离验证。",
+      "possibly_avoidable_cost": "无需每次全套重放；这次小复现本身有价值。",
+      "revised_possible_solutions": [
+        "保留跨执行复合身份回归，并只在涉及该边界时重跑相关用例。"
+      ],
+      "remaining_uncertainty": "没有对历史版本做重放，不能把纠正轮包络全部换算为可节省时间。"
+    }
+  ]
+}

@@ -1,0 +1,433 @@
+{
+  "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+  "source_audit": "sol_env/01a151ea-ea93-7f03-b94c-9b7dd1573ca4.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T10-08-32-01a151ea-ea93-7f03-b94c-9b7dd1573ca4.jsonl",
+  "snapshot_lines": 2385,
+  "items": [
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F01a",
+      "kind": "confirmed_issue",
+      "description": "Windows/WSL home及cwd项目配置覆盖没有先区分，实际启动器读取不同配置或在WSL找不到cmd，配置文件存在被误当正确加载。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "supported",
+      "cause_explanation": "同一 CODEX_HOME 下，/tmp 与挂载 Windows 工作目录返回不同 command；Windows 项目配置覆盖使 Linux 启动 cmd 后报 os2。是配置层与宿主边界混淆，并非单纯没从 WSL 启动。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            1474,
+            1626,
+            1629,
+            1679
+          ],
+          "what_it_supports": "同一 CODEX_HOME 下，/tmp 与挂载 Windows 工作目录返回不同 command；Windows 项目配置覆盖使 Linux 启动 cmd 后报 os2。是配置层与宿主边界混淆，并非单纯没从 WSL 启动。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先并列核对宿主、cwd、有效 MCP command，再选择一致的启动路径。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F01b",
+      "kind": "confirmed_issue",
+      "description": "多次保证重开会话即可获得工具又撤回，混淆当前模型工具目录与本机新CLI可测试能力；本可先做确定性新CLI握手。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "supported",
+      "cause_explanation": "配置写入和 npx 进程存在先被当成当前会话工具已可用；719、784、832逐步撤回。1008/1153的新 CLI 实测表明可独立核验，但不能证明当前线程热加载。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            719,
+            784,
+            832,
+            1008,
+            1153
+          ],
+          "what_it_supports": "配置写入和 npx 进程存在先被当成当前会话工具已可用；719、784、832逐步撤回。1008/1153的新 CLI 实测表明可独立核验，但不能证明当前线程热加载。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "以实际工具清单和一次受约束调用作验收，明确当前线程与新 CLI 的差异。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F01c",
+      "kind": "confirmed_issue",
+      "description": "MCP进程/注册状态与Chrome浏览器端点连通混为同层，存在启动等待和运行侧差异；反复配置未直接取得目标请求。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "supported",
+      "cause_explanation": "注册成功、工具清单、Chrome endpoint 可访问是三个独立条件。1153已列工具，1864仍连接超时，1892开启调试后1938才实际读取页面。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            1153,
+            1864,
+            1892,
+            1938
+          ],
+          "what_it_supports": "注册成功、工具清单、Chrome endpoint 可访问是三个独立条件。1153已列工具，1864仍连接超时，1892开启调试后1938才实际读取页面。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "按配置解析→MCP握手→浏览器连接→目标请求分层报告。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F02a",
+      "kind": "confirmed_issue",
+      "description": "为初始只读限制关闭导航时，也禁用了list_pages等必要只读能力，阻断目标页面发现。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "supported",
+      "cause_explanation": "为遵守最初只读范围关闭 navigation 分类，但该分类也隐藏 list_pages；433直接返回工具被禁用，随后628去除开关。只读意图合理，分类语义假设错误。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            10,
+            295,
+            433,
+            628,
+            631
+          ],
+          "what_it_supports": "为遵守最初只读范围关闭 navigation 分类，但该分类也隐藏 list_pages；433直接返回工具被禁用，随后628去除开关。只读意图合理，分类语义假设错误。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "用实际工具清单确认分类影响；保留读取所需工具，并通过任务指令限制导航。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F02b",
+      "kind": "confirmed_issue",
+      "description": "用户授权交互后仍保留categoryInput=false，导致无法发送测试消息，随后改走Computer Use额外等待且被拒绝。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "supported",
+      "cause_explanation": "categoryInput=false 最初符合只读要求，后续1967/1989用户扩大授权后仍沿用旧能力，2099无法输入。不是用户没授权；2234移除开关、2321验证输入工具后才闭合配置问题。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            295,
+            1967,
+            1989,
+            2099,
+            2234,
+            2321
+          ],
+          "what_it_supports": "categoryInput=false 最初符合只读要求，后续1967/1989用户扩大授权后仍沿用旧能力，2099无法输入。不是用户没授权；2234移除开关、2321验证输入工具后才闭合配置问题。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "授权范围变化时同时检查任务提示与实际工具配置，避免改走另一套系统后才发现可配置开关。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F02c",
+      "kind": "confirmed_issue",
+      "description": "反复短MCP探测连接多次触发Chrome确认，用户明确抱怨；连接方式增加授权弹窗负担。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "mixed",
+      "cause_explanation": "短命协议探测每次建立 Chrome MCP 连接并销毁进程，触发浏览器外部控制确认；用户545/560反映重复，565承认。浏览器确认属平台机制，重复短连接是可减少的触发因素。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            405,
+            545,
+            560,
+            565
+          ],
+          "what_it_supports": "短命协议探测每次建立 Chrome MCP 连接并销毁进程，触发浏览器外部控制确认；用户545/560反映重复，565承认。浏览器确认属平台机制，重复短连接是可减少的触发因素。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "集中一次连接完成受授权探测，避免仅为相同信息反复启动/销毁 MCP。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F03",
+      "kind": "confirmed_issue",
+      "description": "把mcp list Auth列Unsupported解释成启动/加载不支持，之后日志才显示实际No such file。 影响：误导用户重启/换环境，延迟真实日志定位。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "supported",
+      "cause_explanation": "mcp list 的 Auth 列 Unsupported 表示该鉴权方式不适用，却在1311/1356被读成未加载；真正启动错误后来1474才由日志 os2 定位。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            1298,
+            1311,
+            1356,
+            1474
+          ],
+          "what_it_supports": "mcp list 的 Auth 列 Unsupported 表示该鉴权方式不适用，却在1311/1356被读成未加载；真正启动错误后来1474才由日志 os2 定位。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先核对表头及错误所属列，再用握手日志确认启动失败。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F04a",
+      "kind": "confirmed_issue",
+      "description": "跨bash/PowerShell拼接的美元符号和here-string多次被错误解析，至少两次自动化语法失败，后EncodedCommand才解决。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "supported",
+      "cause_explanation": "嵌套 bash 双引号展开了 PowerShell $_，674报 /bin/bash.CommandLine；1956又以相冲突的单引号承载 here-string，1959解析失败。680与1973改正确引用/EncodedCommand后绕过传参问题。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            672,
+            674,
+            680,
+            683,
+            1956,
+            1959,
+            1973
+          ],
+          "what_it_supports": "嵌套 bash 双引号展开了 PowerShell $_，674报 /bin/bash.CommandLine；1956又以相冲突的单引号承载 here-string，1959解析失败。680与1973改正确引用/EncodedCommand后绕过传参问题。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "跨壳长文本采用明确编码参数或单一宿主脚本传递，先检查语法边界。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F04b",
+      "kind": "confirmed_issue",
+      "description": "用户把/tmp路径命令在PowerShell运行失败，指令未清晰标明应在哪个宿主和shell执行。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "supported",
+      "cause_explanation": "1679给出 Linux cd /tmp 却未在步骤内明确用户先进入 WSL，1686实际在 PS 将其解析成 C:\\tmp。1693补充宿主和一步式 WSL 命令。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            1679,
+            1686,
+            1693
+          ],
+          "what_it_supports": "1679给出 Linux cd /tmp 却未在步骤内明确用户先进入 WSL，1686实际在 PS 将其解析成 C:\\tmp。1693补充宿主和一步式 WSL 命令。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "每段可复制命令标明执行终端，并为用户当前 PowerShell 提供完整入口。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F04c",
+      "kind": "confirmed_issue",
+      "description": "执行搜索时JavaScript对象语法错误（1324/1369），增加与故障本身无关的调用失败。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "supported",
+      "cause_explanation": "1324与1369的搜索对象把 q 属性引号写成不闭合的字符串，两次均在调用工具前报 Unexpected identifier site。重试复用了相同语法错误。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            1324,
+            1326,
+            1369,
+            1371
+          ],
+          "what_it_supports": "1324与1369的搜索对象把 q 属性引号写成不闭合的字符串，两次均在调用工具前报 Unexpected identifier site。重试复用了相同语法错误。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "缩小为一个合法查询对象再扩展；语法失败后先修结构再重试。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:F05",
+      "kind": "positive_context",
+      "description": "初始尊重只读，后按用户授权更改范围；无目标请求证据时不把429/CSP认定根因，Computer Use拒绝后明确未发送。 影响：避免虚假成功/凭空归因。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "not_applicable",
+      "cause_explanation": "34未将429列表请求冒充回复请求；1938无记录仍报告缺口，2193明确测试未发送且不把自动化拒绝当站点根因。最初只读限制以及后续系统拒绝均得到保留。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            10,
+            34,
+            1938,
+            2184,
+            2193
+          ],
+          "what_it_supports": "34未将429列表请求冒充回复请求；1938无记录仍报告缺口，2193明确测试未发送且不把自动化拒绝当站点根因。最初只读限制以及后续系统拒绝均得到保留。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留脱敏、限定目标页面、区分工具限制与站点故障的机制。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:U01",
+      "kind": "evidence_gap",
+      "description": "全部191顶层调用已摘要扫描；长子CLI输出有历史工具端截断，只能据可见内容判断，不伪称已还原隐藏全部执行。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "unknown",
+      "cause_explanation": "674原生命令输出截断至11237 tokens；现有摘要不足以逐行确认所有进程和异常。缺口来自输出预算与冗长结果，不代表隐藏了特定错误。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            672,
+            674
+          ],
+          "what_it_supports": "674原生命令输出截断至11237 tokens；现有摘要不足以逐行确认所有进程和异常。缺口来自输出预算与冗长结果，不代表隐藏了特定错误。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "对需要判断的进程字段定向输出，或在固定原记录范围补读被截断源返回。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:U02",
+      "kind": "evidence_gap",
+      "description": "网页“无法加载回复”的原失败请求证据始终缺失，429/CSP等候选原因未证实，历史结果未解决。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "unknown",
+      "cause_explanation": "原要求禁止制造新请求，而实际1938既有记录中找不到加载/发送请求；后来授权测试又因输入关闭及系统拒绝未发出。故缺少原失败请求状态，无法定位 ChatGPT 根因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            10,
+            1938,
+            1967,
+            1989,
+            2099,
+            2184,
+            2193
+          ],
+          "what_it_supports": "原要求禁止制造新请求，而实际1938既有记录中找不到加载/发送请求；后来授权测试又因输入关闭及系统拒绝未发出。故缺少原失败请求状态，无法定位 ChatGPT 根因。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "在获得授权后采集一次实际失败的脱敏请求路径、状态与错误码，或由用户提供相同最小证据。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:U03",
+      "kind": "positive_context",
+      "description": "MCP fresh codex exec是独立CLI，不是thread_spawn，不算注册子代理但计API等待成本。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "not_applicable",
+      "cause_explanation": "1008等使用 shell 启动独立 codex exec --ephemeral，1153返回该进程工具清单；这是新 CLI 验证环境，并无 thread_spawn 父子机制证据。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            1008,
+            1153,
+            1829
+          ],
+          "what_it_supports": "1008等使用 shell 启动独立 codex exec --ephemeral，1153返回该进程工具清单；这是新 CLI 验证环境，并无 thread_spawn 父子机制证据。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留独立进程边界，报告其工具/配置适用于该进程而非自动继承至原线程。"
+      ]
+    },
+    {
+      "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4:A01",
+      "kind": "evidence_gap",
+      "description": "最后已恢复输入工具目录，但先前授权的测试消息仍未实际发送；“输入能力恢复”和目标交互完成是不同结果。",
+      "context_from_chat": "用户起初只允许读取既有网络/控制台记录，禁止发送、重试或配置（10）；151授权安装配置，1967/1989再授权发送与重试。",
+      "trigger_or_change": "为诊断原 ChatGPT 加载/发送故障，依次引入 Chrome MCP、跨 Windows/WSL 启动和输入能力。",
+      "workflow_relevance": "此会话是浏览器诊断与工具配置，不是前端原型样式迭代。应按每次授权变化判断必要动作。",
+      "necessary_cost": "区分工具注册、进程启动、浏览器握手和目标请求记录，遵守最初只读约束及系统访问拒绝。",
+      "possibly_avoidable_cost": "未经实际能力探测的保证、重复跨层试配与引用错误会增加往返；无法核算净耗时。",
+      "remaining_uncertainty": "仅能确定所列环节，不能由此解释原页面故障。",
+      "cause_status": "unknown",
+      "cause_explanation": "2321只证明新 CLI 有输入工具且 list_pages 成功，2336仍明确测试消息未发送。配置验收与业务故障验收未等同；现有快照没有后续成功发送。",
+      "raw_evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            2321,
+            2336
+          ],
+          "what_it_supports": "2321只证明新 CLI 有输入工具且 list_pages 成功，2336仍明确测试消息未发送。配置验收与业务故障验收未等同；现有快照没有后续成功发送。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "在当时授权和访问策略允许下，再以一次真实发送/加载及网络结果验证；没有结果则维持未解决。"
+      ]
+    }
+  ]
+}

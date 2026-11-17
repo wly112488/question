@@ -1,0 +1,54 @@
+{
+  "session_id": "01a1a527-bec9-7751-9d41-392526bb30c7",
+  "title": "替换左上角 Logo",
+  "source_audit": "terra/01a1a527-bec9-7751-9d41-392526bb30c7.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a1a527-bec9-7751-9d41-392526bb30c7:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "技能内容和带内嵌图片的搜索输出过宽并被截断。",
+      "evidence": "第51、55、59、63、67、70行",
+      "possible_solutions": [
+        "限制搜索结果和字段，不输出图片数据。"
+      ],
+      "uncertainty": "原审计根因置信：高：宽输出和串联多个无关检查；信息噪声掩盖命令各部分状态；实际替换和后续验证成功，退出码2不代表替换失败。"
+    },
+    {
+      "id": "01a1a527-bec9-7751-9d41-392526bb30c7:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "组合命令后半搜索缺目录返回2，前半替换实际成功，状态容易被混淆。",
+      "evidence": "第51、55、59、63、67、70行",
+      "possible_solutions": [
+        "分别记录修改与辅助搜索的结果和退出状态。"
+      ],
+      "uncertainty": "原审计根因置信：高：宽输出和串联多个无关检查；信息噪声掩盖命令各部分状态；实际替换和后续验证成功，退出码2不代表替换失败。"
+    },
+    {
+      "id": "01a1a527-bec9-7751-9d41-392526bb30c7:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "视觉图片内容未以文本保留；自动检查可证实加载和尺寸，审美质量依截图。",
+      "evidence": "源审计任务段定位：第12、40、47、67、70、83–98行",
+      "possible_solutions": [
+        "如原截图仍可获得且在授权范围内，结合对应文字及时间点复核；否则保持未知。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    }
+  ]
+}

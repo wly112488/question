@@ -1,0 +1,266 @@
+{
+  "session_id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/11/11/rollout-2026-11-11T18-11-08-01a1ca16-f0ab-7261-8043-90330a8b2efc.jsonl",
+  "snapshot_lines": 1613,
+  "source_audit": "root_reuse/01a1ca16-f0ab-7261-8043-90330a8b2efc.json",
+  "items": [
+    {
+      "id": "01a1ca16-f0ab-7261-8043-90330a8b2efc:F01",
+      "cause_status": "mixed",
+      "context_from_chat": "用户第766行要求流程清晰；1303/1327行进一步要求复用原会话、减少额外表和溯源操作；1365行明确成功不可重跑、已确认方案锁定、保存关联整会话等快速Demo规则。",
+      "trigger_or_change": "第17轮发送快速Demo修改要求后WebSocket多次断开。",
+      "cause_explanation": "daemon日志显示5次断流重试，约8分20秒后回退HTTP；19个请求发送到首200头累计40.69分钟，外层工具阻塞并集仅57.44秒。重试机制和首响应前延迟有证据，但首响应包含服务处理，不能全部称网络空等，也未证明大上下文导致断流。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+          "physical_lines": [
+            1365,
+            1368,
+            1442,
+            1472
+          ],
+          "what_it_supports": "用户需求与后续执行时间"
+        },
+        {
+          "file": "root_reuse/network_timing.json",
+          "daemon_log_ids": [
+            1512466,
+            1512480,
+            1512490,
+            1512502,
+            1512518,
+            1512530,
+            1512545,
+            1512551
+          ],
+          "what_it_supports": "经原只读daemon核对的重试、HTTP回退及首响应时点；正文已去响应headers"
+        }
+      ],
+      "workflow_relevance": "涉及用户持续查看和调整原型的背景；正常预览、需求改变与实际执行偏差分别判断。",
+      "necessary_cost": "修改和关键交互验证。",
+      "possibly_avoidable_cost": "部分重试可能可缩短；40.69分钟不能全部承诺消除。",
+      "revised_possible_solutions": [
+        "保留请求阶段计时与重试记录；若此类WS故障持续，再按官方配置和实测评估稳定传输路径，避免同一故障无限重试。"
+      ],
+      "remaining_uncertainty": "远端排队、模型计算与网络各占多少未知；上下文大小的因果未证实。"
+    },
+    {
+      "id": "01a1ca16-f0ab-7261-8043-90330a8b2efc:F02",
+      "cause_status": "mixed",
+      "context_from_chat": "用户第766行要求流程清晰；1303/1327行进一步要求复用原会话、减少额外表和溯源操作；1365行明确成功不可重跑、已确认方案锁定、保存关联整会话等快速Demo规则。",
+      "trigger_or_change": "初轮把流程清晰实现为多层表、输入依据和交付入口。",
+      "cause_explanation": "766行目标较宽，1296行按多阶段流程交付；1303/1327行用户才具体要求复用旧会话并去掉重复依据操作。可确认先前方案没贴合用户想要的低操作量，但不能倒推所有当时实现都违反已明示细则。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+          "physical_lines": [
+            766,
+            1296,
+            1303,
+            1310,
+            1327,
+            1334,
+            1357
+          ],
+          "what_it_supports": "宽目标、初交付与逐步收敛"
+        }
+      ],
+      "workflow_relevance": "涉及用户持续查看和调整原型的背景；正常预览、需求改变与实际执行偏差分别判断。",
+      "necessary_cost": "必要流程澄清和用户预览。",
+      "possibly_avoidable_cost": "可减少未经短路径验证的大范围展开；不能把40.67分钟整段全算浪费。",
+      "revised_possible_solutions": [
+        "在大范围实现前用已有页面上的最短路径表达方案，AI自主删掉不支撑该路径的重复操作；涉及核心交互方向再给用户看具体预览。"
+      ],
+      "remaining_uncertainty": "没有对历史版本做重放，不能把纠正轮包络全部换算为可节省时间。"
+    },
+    {
+      "id": "01a1ca16-f0ab-7261-8043-90330a8b2efc:F03",
+      "cause_status": "supported",
+      "context_from_chat": "用户第766行要求流程清晰；1303/1327行进一步要求复用原会话、减少额外表和溯源操作；1365行明确成功不可重跑、已确认方案锁定、保存关联整会话等快速Demo规则。",
+      "trigger_or_change": "验证确认后不可编辑的fieldset。",
+      "cause_explanation": "1442行检查实际textbox禁用并对fieldset使用toBeDisabled；1472行后者报enabled，1476行改为验证disabled属性，1489行回归通过。证据支持断言对象/匹配方式失配，不能从单返回推定浏览器实际允许修改，更不能为了通过删掉禁用检查。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+          "physical_lines": [
+            1390,
+            1442,
+            1472,
+            1476,
+            1489
+          ],
+          "what_it_supports": "禁用实现、失败、断言调整与成功"
+        }
+      ],
+      "workflow_relevance": "涉及用户持续查看和调整原型的背景；正常预览、需求改变与实际执行偏差分别判断。",
+      "necessary_cost": "已确认方案锁定约束。",
+      "possibly_avoidable_cost": "断言对象错误的超时和重跑。",
+      "revised_possible_solutions": [
+        "同时验证实际输入不可编辑、容器禁用属性及删除仍可用，按当前测试框架的实际语义选择断言。"
+      ],
+      "remaining_uncertainty": "没有在本轮安装版本上独立核对matcher实现，不能泛化为所有fieldset都不支持。"
+    },
+    {
+      "id": "01a1ca16-f0ab-7261-8043-90330a8b2efc:U01",
+      "cause_status": "unknown",
+      "context_from_chat": "用户第766行要求流程清晰；1303/1327行进一步要求复用原会话、减少额外表和溯源操作；1365行明确成功不可重跑、已确认方案锁定、保存关联整会话等快速Demo规则。",
+      "trigger_or_change": "首200响应头前存在较长等待。",
+      "cause_explanation": "日志只有客户端发送、连接重试与首响应边界，服务端在这段可能排队、计算或传输；当前证据无法分摊。把它统称模型思考或网络问题都会过度归因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+          "physical_lines": [
+            1365,
+            1368
+          ],
+          "what_it_supports": "轮开始与首可见执行"
+        },
+        {
+          "file": "root_reuse/network_timing.json",
+          "what_it_supports": "19对发送/首头时差的定义"
+        }
+      ],
+      "workflow_relevance": "涉及用户持续查看和调整原型的背景；正常预览、需求改变与实际执行偏差分别判断。",
+      "necessary_cost": "时间口径清楚。",
+      "possibly_avoidable_cost": "不承诺全部节省。",
+      "revised_possible_solutions": [
+        "继续把首响应前时间单列，只有增加服务端阶段或可比请求实验后再归因。"
+      ],
+      "remaining_uncertainty": "远端阶段无直接遥测。"
+    },
+    {
+      "id": "01a1ca16-f0ab-7261-8043-90330a8b2efc:U02",
+      "cause_status": "unknown",
+      "context_from_chat": "用户第766行要求流程清晰；1303/1327行进一步要求复用原会话、减少额外表和溯源操作；1365行明确成功不可重跑、已确认方案锁定、保存关联整会话等快速Demo规则。",
+      "trigger_or_change": "大请求体与断流在同轮出现。",
+      "cause_explanation": "日志可见约3.83–4.40MB请求体与最大392457输入token，但共现不证明因果；没有控制其他变量的对照。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+          "physical_lines": [
+            1365
+          ],
+          "what_it_supports": "同轮任务"
+        },
+        {
+          "file": "root_reuse/network_evidence.json",
+          "daemon_log_ids": [
+            1512545
+          ],
+          "what_it_supports": "body压缩与传输元数据，去掉headers"
+        }
+      ],
+      "workflow_relevance": "涉及用户持续查看和调整原型的背景；正常预览、需求改变与实际执行偏差分别判断。",
+      "necessary_cost": "保留上下文事实和统计。",
+      "possibly_avoidable_cost": "未证实减少输入可消除断流。",
+      "revised_possible_solutions": [
+        "若要判断上下文影响，用同需求、同传输、可比时段的较小/较大请求实验，不能现在下结论。"
+      ],
+      "remaining_uncertainty": "缓存/排队/网络等混杂未控制。"
+    },
+    {
+      "id": "01a1ca16-f0ab-7261-8043-90330a8b2efc:Q01",
+      "cause_status": "supported",
+      "context_from_chat": "用户第766行要求流程清晰；1303/1327行进一步要求复用原会话、减少额外表和溯源操作；1365行明确成功不可重跑、已确认方案锁定、保存关联整会话等快速Demo规则。",
+      "trigger_or_change": "用户1365行规定成功不可再执行、失败可重试。",
+      "cause_explanation": "这不是通用减少命令次数规则，而是Demo业务约束；1489/1529行回传检查覆盖成功禁重跑等。保留可防止误改业务行为。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+          "physical_lines": [
+            1365,
+            1489,
+            1529
+          ],
+          "what_it_supports": "规则与回归结果"
+        }
+      ],
+      "workflow_relevance": "涉及用户持续查看和调整原型的背景；正常预览、需求改变与实际执行偏差分别判断。",
+      "necessary_cost": "执行状态边界检查。",
+      "possibly_avoidable_cost": "不因提速取消。",
+      "revised_possible_solutions": [
+        "保留成功、失败两种状态夹具。"
+      ],
+      "remaining_uncertainty": "没有对历史版本做重放，不能把纠正轮包络全部换算为可节省时间。"
+    },
+    {
+      "id": "01a1ca16-f0ab-7261-8043-90330a8b2efc:Q02",
+      "cause_status": "supported",
+      "context_from_chat": "用户第766行要求流程清晰；1303/1327行进一步要求复用原会话、减少额外表和溯源操作；1365行明确成功不可重跑、已确认方案锁定、保存关联整会话等快速Demo规则。",
+      "trigger_or_change": "用户要求已确认方案只允许删除/新增。",
+      "cause_explanation": "1390行锁定实现，1472/1476行调整验证方式但保留禁用和删除可用；锁定是明确业务规则，不能把断言失败等同无效需求。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+          "physical_lines": [
+            1365,
+            1390,
+            1442,
+            1476,
+            1489
+          ],
+          "what_it_supports": "明确锁定要求及验证"
+        }
+      ],
+      "workflow_relevance": "涉及用户持续查看和调整原型的背景；正常预览、需求改变与实际执行偏差分别判断。",
+      "necessary_cost": "确认态不可编辑验证。",
+      "possibly_avoidable_cost": "只减错误断言重试。",
+      "revised_possible_solutions": [
+        "保留真实输入禁用和删除可用两端检查。"
+      ],
+      "remaining_uncertainty": "没有对历史版本做重放，不能把纠正轮包络全部换算为可节省时间。"
+    },
+    {
+      "id": "01a1ca16-f0ab-7261-8043-90330a8b2efc:Q03",
+      "cause_status": "supported",
+      "context_from_chat": "用户第766行要求流程清晰；1303/1327行进一步要求复用原会话、减少额外表和溯源操作；1365行明确成功不可重跑、已确认方案锁定、保存关联整会话等快速Demo规则。",
+      "trigger_or_change": "删除方案但已有会话与成果需保留。",
+      "cause_explanation": "1489行实际检查与1529行交付说明保留数据结果，符合1357/1365行会话归属规则；删除操作不应连带清空分析成果。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+          "physical_lines": [
+            1357,
+            1365,
+            1489,
+            1529
+          ],
+          "what_it_supports": "会话归属与删除保留检查"
+        }
+      ],
+      "workflow_relevance": "涉及用户持续查看和调整原型的背景；正常预览、需求改变与实际执行偏差分别判断。",
+      "necessary_cost": "数据保留检查。",
+      "possibly_avoidable_cost": "不取消。",
+      "revised_possible_solutions": [
+        "保留删除前后成果ID和会话关联回归。"
+      ],
+      "remaining_uncertainty": "没有对历史版本做重放，不能把纠正轮包络全部换算为可节省时间。"
+    },
+    {
+      "id": "01a1ca16-f0ab-7261-8043-90330a8b2efc:Q04",
+      "cause_status": "supported",
+      "context_from_chat": "用户第766行要求流程清晰；1303/1327行进一步要求复用原会话、减少额外表和溯源操作；1365行明确成功不可重跑、已确认方案锁定、保存关联整会话等快速Demo规则。",
+      "trigger_or_change": "初版与简化后的流程不同。",
+      "cause_explanation": "1296行11项检查证明初版部分路径，1489/1529行后续检查针对新规则；需求变化后重新验证有必要。不能把两轮检查全当重复。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+          "physical_lines": [
+            1296,
+            1365,
+            1489,
+            1529
+          ],
+          "what_it_supports": "两阶段目标与实际检查"
+        }
+      ],
+      "workflow_relevance": "涉及用户持续查看和调整原型的背景；正常预览、需求改变与实际执行偏差分别判断。",
+      "necessary_cost": "修改后的关键流程和构建。",
+      "possibly_avoidable_cost": "减少重复准备；并非删除新规则的验证。",
+      "revised_possible_solutions": [
+        "复用未变的数据准备，按新增规则重验受影响路径。"
+      ],
+      "remaining_uncertainty": "没有对历史版本做重放，不能把纠正轮包络全部换算为可节省时间。"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "session_id": "01a15327-05a4-7f60-99a0-e79a9e381792",
+  "status": "deep_reviewed",
+  "reviewed_scope": "完整可用快照按任务/命令目的扫描；全部实际调用参数/返回配对及截断检查；关键红绿结果、复现与最终回传展开核验。",
+  "snapshot_lines": 133,
+  "source_path": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T15-53-48-01a15327-05a4-7f60-99a0-e79a9e381792.jsonl",
+  "parent": "01a152af-ec8a-7a42-9cfc-20530cbbd5ed",
+  "historical_outcome_status": "delivered",
+  "task_segments": [
+    {
+      "scope": "独立只读检查report图表引用身份冲突",
+      "physical_evidence_lines": [
+        108,
+        130
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "01a15327-output",
+      "severity": "medium",
+      "behavior": "多文件读取在实际工具返回中有截断；根因是合并输出预算不足。",
+      "evidence": [
+        {
+          "line": 34
+        },
+        {
+          "line": 48
+        },
+        {
+          "line": 58
+        },
+        {
+          "line": 79
+        }
+      ],
+      "root_cause": "读源码时按调用/文件分批，没有限制合并返回体积。",
+      "impact": "额外定位成本无法量化；不能把每次重读都判无效。",
+      "recommendation": "输出本地筛选后的必要片段，诊断详情留路径。"
+    }
+  ],
+  "positive_evidence": [
+    "实际小程序复现同chartID跨执行记录选一存二；未无条件全套重跑，主线程接收修复。"
+  ],
+  "model_observation": [
+    "('gpt-6-astra', 'high')"
+  ],
+  "calls_scanned": 16,
+  "native_commands_scanned": 24,
+  "uncertainties": [
+    "派发message部分以密文记录，未尝试恢复。",
+    "子执行与父轮并行，不能把子duration相加当用户总等待。"
+  ]
+}

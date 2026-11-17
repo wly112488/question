@@ -1,0 +1,170 @@
+{
+  "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+  "status": "deep_reviewed",
+  "reviewed_scope": {
+    "physical_lines": [
+      1,
+      965
+    ],
+    "declared_calls": 91,
+    "method": "逐轮目标/最终输出核对；全部工具调用与返回摘要扫描；关键输入源行补读。大型源码/文档/图片返回未全部展开，不能声称无遗漏。",
+    "boundary": "inventory固定物理行；历史指令仅作为数据",
+    "ledger": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45.ledger.json",
+    "scanned_top_level_calls": 91
+  },
+  "task_segments": [
+    {
+      "lines": [
+        1,
+        191
+      ],
+      "task": "公司LAN发布当前分支",
+      "result": "WSL→Windows环回可用、LAN原端口失败，Windows代理18182后本机LAN访问成功；明确未另机验证。"
+    },
+    {
+      "lines": [
+        193,
+        312
+      ],
+      "task": "识别旧远端实例",
+      "result": "健康路径200实际是HTML；进一步读类型和SSH服务找到OM2真实隧道。"
+    },
+    {
+      "lines": [
+        313,
+        773
+      ],
+      "task": "同步远端修改",
+      "result": "锁定wheel构建及数据备份、hash核对、13页面回归、公网Windows浏览器最终成功；既有弹窗检查失败披露。"
+    },
+    {
+      "lines": [
+        786,
+        941
+      ],
+      "task": "去登录页共享演示",
+      "result": "按用户要求新增公共演示入口，全新浏览器验证；数据保留。"
+    },
+    {
+      "lines": [
+        942,
+        965
+      ],
+      "task": "解释服务器/隧道",
+      "result": "用户期望固定网站；助手承认临时隧道不满足长期稳定入口。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "verify_semantics",
+      "status": "positive_counterexample",
+      "fact": "先取/api/v2/health得到HTTP200，但后读正文发现是旧站HTML，随后改验证真实OM2 JSON release。",
+      "evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            250,
+            255,
+            259,
+            262,
+            280,
+            289,
+            303
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "该会话自我纠正及时，不是最终错误成功声明。",
+      "impact": "多一轮检测，但防止SPA fallback误判健康。",
+      "root_cause": "HTTP状态不足以代表应用语义",
+      "root_confidence": "high",
+      "minimal_improvement": "验收HTTP状态+Content-Type+关键JSON字段/release，保留此处纠正方式。"
+    },
+    {
+      "id": "browser_environment_retry",
+      "status": "confirmed",
+      "fact": "公网回归先在WSL浏览器遇选择器超时、401/ERR_NETWORK_CHANGED，后迁Windows与同源UI导航最终通过；多次tail/等待。",
+      "evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            618,
+            635,
+            646,
+            678,
+            682,
+            695,
+            704,
+            709,
+            725,
+            733,
+            750,
+            762
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "网络变化为环境障碍；主导航跳转路径/选择器也有脚本因素，不能统称测试浪费。",
+      "impact": "至少多个30秒超时，约10:18–10:43有验证等待，非全部模型思考。",
+      "root_cause": "未先确认公网浏览器路径与稳定选择器",
+      "root_confidence": "high",
+      "minimal_improvement": "用最小登录/资源检查确认可用浏览器，再运行同源小范围回归；失败时先保存url/DOM/网络摘要再重跑。"
+    },
+    {
+      "id": "necessary_release_checks",
+      "status": "positive_counterexample",
+      "fact": "依赖锁hash、缓存复用、离线安装、62payload校验、13页面回归、数据计数保留、旧ProTangram不变、当前资源hash匹配，避免停服务导致隧道换URL。",
+      "evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            371,
+            448,
+            452,
+            507,
+            521,
+            531,
+            558,
+            569,
+            591,
+            610,
+            704,
+            762,
+            767
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "属于真实部署的必要保障；不能以调用多推断过度工程。",
+      "impact": "有数据/版本/旧站隔离的明确质量收益。",
+      "root_cause": "有效发布验证",
+      "root_confidence": "high",
+      "minimal_improvement": "保留按风险相关检查；正常成功输出汇总一次。"
+    },
+    {
+      "id": "hosting_intent",
+      "status": "confirmed",
+      "fact": "LAN链接及公网临时隧道虽可访问，用户末尾质疑为什么不是固定服务器网站；助手承认未满足长期稳定访问期望。",
+      "evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            183,
+            306,
+            767,
+            945,
+            952,
+            956,
+            961
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "用户最初只要求别人可访问，没有明言固定域名；临时预览当时可合理，不能倒推未经授权。",
+      "impact": "额外解释/未来入口配置需求；当前版本同步本身成功。",
+      "root_cause": "访问范围、生命周期、数据共享模式未形成简单交付约定",
+      "root_confidence": "medium",
+      "minimal_improvement": "发布前用任务上下文锁定访问者/有效期/是否同一数据；不能由公网一词推出临时隧道或固定域名必然正确。"
+    }
+  ],
+  "uncertainties": [
+    "完整扫描91个顶层工具输入返回；许多嵌套命令无独立持久duration，不能把轮次差全归工具。",
+    "backend弹窗既有检查失败的定位仅初步，未对无关源码作独立缺陷审计。"
+  ]
+}

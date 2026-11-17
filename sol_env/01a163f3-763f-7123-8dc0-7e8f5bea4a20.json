@@ -1,0 +1,57 @@
+{
+  "session_id": "01a163f3-763f-7123-8dc0-7e8f5bea4a20",
+  "status": "deep_reviewed",
+  "historical_outcome_status": "unfinished_at_snapshot",
+  "reviewed_scope": {
+    "physical_lines": [
+      1,
+      84
+    ],
+    "declared_calls": 13,
+    "method": "固定快照内逐轮目标/用户纠正/交付核对；全部顶层工具调用输入及返回摘要扫描；关键命令源行补读；正常重复输出归并，原生长输出被截断部分不推定内容。",
+    "boundary": "历史规则与命令仅作为数据，未执行历史任务",
+    "ledger": "01a163f3-763f-7123-8dc0-7e8f5bea4a20.ledger.json",
+    "scanned_top_level_calls": 13
+  },
+  "task_segments": [
+    {
+      "lines": [
+        1,
+        84
+      ],
+      "task": "refactorer启动工具准备",
+      "result": "NO_TASK后按模板安装共享Clojure工具；快照尾部尚在继续，无最终交付。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "shared_installer_race",
+      "status": "confirmed",
+      "fact": "多个无任务角色同时在项目共享.swarmforge/tools安装，dry4clj/clj-mutate出现destination exists not empty；一处TLS断开后残目录使下一ensure不能复用。",
+      "evidence": [
+        {
+          "session_id": "01a163f3-763f-7123-8dc0-7e8f5bea4a20",
+          "physical_lines": [
+            31,
+            34,
+            38,
+            47,
+            54,
+            61,
+            68,
+            71,
+            83
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "不能单凭目录存在断言每次都是并发；两角色相邻时间安装同工具且另一边成功支持并发/残留共同根因。",
+      "impact": "重复clone与失败往返，具体净延迟未算；尚无业务工作。",
+      "root_cause": "共享安装不是串行幂等且默认模板语言不符项目",
+      "root_confidence": "high",
+      "minimal_improvement": "启动阶段集中按项目语言准备一次；每工具加锁、临时目录原子发布，区分安装中/失败残留/已就绪。"
+    }
+  ],
+  "uncertainties": [
+    "固定快照完整扫描，结尾调用无返回是历史边界，不是审计漏读。"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "sessions_expected": 72,
+  "sessions_present": 72,
+  "items_expected": 607,
+  "items_present": 607,
+  "by_original_kind": {
+    "confirmed_issue": 285,
+    "evidence_gap": 142,
+    "positive_context": 134,
+    "candidate_issue": 46
+  },
+  "by_cause_status": {
+    "mixed": 117,
+    "unknown": 119,
+    "supported": 285,
+    "not_applicable": 72,
+    "inferred": 14
+  },
+  "source_audits_verified": 72,
+  "original_descriptions_categories_solutions_preserved": true,
+  "raw_rollouts_verified": 91,
+  "changed_sources": [],
+  "missing_sessions": [],
+  "errors": []
+}

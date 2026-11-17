@@ -1,0 +1,336 @@
+{
+  "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+  "source_audit": "sol_dev/01a1344e-37a1-7072-8400-1de33cb00009.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T16-08-23-01a1344e-37a1-7072-8400-1de33cb00009.jsonl",
+  "snapshot_lines": 625,
+  "items": [
+    {
+      "id": "01a1344e-37a1-7072-8400-1de33cb00009:F01a",
+      "kind": "confirmed_issue",
+      "description": "确定按钮、来源展开/选择、checkbox、侧栏控件角色的定位或前提不符，多次完整12秒等待，重跑又重复前置场景；检查推进速度受初始化和旧定位影响。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "C负责真实UI协同只读审查；93明确专业独立而共享来源/文件/成果，用户暂停后恢复；550冻结版13场景、622新增旧报告到14。",
+        "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+        "physical_lines": [
+          93,
+          550,
+          622
+        ]
+      },
+      "trigger_or_change": "实际源码和交互改版后，新写脚本验证多个专业入口。",
+      "cause_explanation": "238/253/274/291显示Select、checkbox、侧栏和失效来源等待；288加入waitForURL、331加入展开/动画后等待并改名，395改可访问名后缀。名称/前置状态确不匹配，但291又有真实Maximum update depth，398“前置校准未保存”属于级联，不能把全部12秒当脚本错误。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            93,
+            550,
+            622
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            238,
+            253,
+            274,
+            288,
+            291,
+            331,
+            395,
+            398,
+            550
+          ],
+          "what_it_supports": "失败、脚本修正、真实循环及最终分类"
+        }
+      ],
+      "workflow_relevance": "原型看预览改文字排布会改变定位，重验必要；已知定位与前提应更新。",
+      "necessary_cost": "九/十二/十三场景按业务身份、隔离和成果传递验证必要。",
+      "possibly_avoidable_cost": "旧语义和动画未就绪后等完整timeout、全流程前置级联可能重复；不虚构净时间。",
+      "revised_possible_solutions": [
+        "先确认URL/分区/候选状态，按语义定位；后段失败定向复验，最终完整。"
+      ],
+      "remaining_uncertainty": "部分最初单个失败无法独立区分产品与脚本。"
+    },
+    {
+      "id": "01a1344e-37a1-7072-8400-1de33cb00009:F01b",
+      "kind": "confirmed_issue",
+      "description": "浏览器验证动态导入node_modules/.vite/deps/echarts.js，内部优化产物路径不稳定导致失败，未能执行后续业务验证。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "C负责真实UI协同只读审查；93明确专业独立而共享来源/文件/成果，用户暂停后恢复；550冻结版13场景、622新增旧报告到14。",
+        "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+        "physical_lines": [
+          93,
+          550,
+          622
+        ]
+      },
+      "trigger_or_change": "图表检查导入Vite内部echarts优化文件。",
+      "cause_explanation": "377明确Failed to fetch动态import；395改从已渲染ECharts实例读数据，550列真实数据核对通过，路径耦合造成检查失败而非证明库坏。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            93,
+            550,
+            622
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            377,
+            395,
+            550
+          ],
+          "what_it_supports": "具体失败与修正对照"
+        }
+      ],
+      "workflow_relevance": "HMR可能因正常迭代发生，验证不宜依赖内部产物文件。",
+      "necessary_cost": "实际图表数据核对必要。",
+      "possibly_avoidable_cost": "不稳定内部路径的失败可避免。",
+      "revised_possible_solutions": [
+        "使用已渲染图表实例或稳定公共入口，记录待验版本。"
+      ],
+      "remaining_uncertainty": "替代实现使用React实例细节也有维护成本。"
+    },
+    {
+      "id": "01a1344e-37a1-7072-8400-1de33cb00009:F01c",
+      "kind": "confirmed_issue",
+      "description": "实现仍在变化时执行多轮全套，源码/HMR和脚本前提混合失败；从1/9、2/9、5/9推进到冻结新context后的13/13、14/14，增加重复验证成本。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "C负责真实UI协同只读审查；93明确专业独立而共享来源/文件/成果，用户暂停后恢复；550冻结版13场景、622新增旧报告到14。",
+        "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+        "physical_lines": [
+          93,
+          550,
+          622
+        ]
+      },
+      "trigger_or_change": "主线程修复与C持续全套验证重叠。",
+      "cause_explanation": "550总结初轮为真实循环、定位、动画和HMR混合；冻结新context13/13，新增兼容场景622为14/14。可以支持固定验收批次，但不能证明每个重跑都因无冻结。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            93,
+            550,
+            622
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            291,
+            331,
+            398,
+            550,
+            622
+          ],
+          "what_it_supports": "混合失败与最终冻结结果"
+        }
+      ],
+      "workflow_relevance": "多轮预览符合用户工作方式，只在正式验收批次固定相关版本。",
+      "necessary_cost": "真实缺陷关闭与新旧兼容全程必要。",
+      "possibly_avoidable_cost": "版本漂移和级联前置可能重复；主子异步不能加总。",
+      "revised_possible_solutions": [
+        "批次标版本，局部修正先目标复验，最后冻结再全程。"
+      ],
+      "remaining_uncertainty": "13→14为新增合法范围。"
+    },
+    {
+      "id": "01a1344e-37a1-7072-8400-1de33cb00009:U01",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：未重新打开历史PNG审视觉，故仅确认真实浏览器执行与看图记录，不评价所有截图像素。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "C负责真实UI协同只读审查；93明确专业独立而共享来源/文件/成果，用户暂停后恢复；550冻结版13场景、622新增旧报告到14。",
+        "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+        "physical_lines": [
+          93,
+          550,
+          622
+        ]
+      },
+      "trigger_or_change": "历史记录包含截图/看图调用。",
+      "cause_explanation": "253保留image返回但本轮只读文本诊断，没有重新逐像素审PNG；550能支持真实浏览器场景，不等于证明每幅视觉排版无瑕疵。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            93,
+            550,
+            622
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            253,
+            550
+          ],
+          "what_it_supports": "图像返回和检查边界"
+        }
+      ],
+      "workflow_relevance": "中文样式/排布正是需看实图的原型背景；文本不能代替视觉。",
+      "necessary_cost": "如要视觉结论需原图核验。",
+      "possibly_avoidable_cost": "未知，不能把未重看说成历史没做。",
+      "revised_possible_solutions": [
+        "仅对需要视觉结论的原PNG补看并注明版本。"
+      ],
+      "remaining_uncertainty": "不能恢复已省略图片内容。"
+    },
+    {
+      "id": "01a1344e-37a1-7072-8400-1de33cb00009:U02",
+      "kind": "positive_context",
+      "description": "13→14源于合法新增旧报告兼容场景，不能据场景数变化指称先前虚报通过。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "C负责真实UI协同只读审查；93明确专业独立而共享来源/文件/成果，用户暂停后恢复；550冻结版13场景、622新增旧报告到14。",
+        "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+        "physical_lines": [
+          93,
+          550,
+          622
+        ]
+      },
+      "trigger_or_change": "旧报告兼容被追加。",
+      "cause_explanation": "622明确新增analysisProjectId旧报告场景，并重新跑此前13项；总数14不是对13次完成声明的否定。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            93,
+            550,
+            622
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            550,
+            622
+          ],
+          "what_it_supports": "原13与追加场景"
+        }
+      ],
+      "workflow_relevance": "正常迭代新增验收范围，不算此前虚报。",
+      "necessary_cost": "追加兼容和重跑相关原场景必要。",
+      "possibly_avoidable_cost": "无确认无效成本。",
+      "revised_possible_solutions": [
+        "保留每批场景清单和新增范围。"
+      ],
+      "remaining_uncertainty": "最终结果仅限声明的演示/本机路径，不扩成工程精度或跨设备。"
+    },
+    {
+      "id": "01a1344e-37a1-7072-8400-1de33cb00009:A01",
+      "kind": "positive_context",
+      "description": "只读UI审查明确没有浏览器时不能声称真实交互已验证；保留独立专业界面与共享来源/文件/成果的分工。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "C负责真实UI协同只读审查；93明确专业独立而共享来源/文件/成果，用户暂停后恢复；550冻结版13场景、622新增旧报告到14。",
+        "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+        "physical_lines": [
+          93,
+          550,
+          622
+        ]
+      },
+      "trigger_or_change": "初审当时没有可用浏览器。",
+      "cause_explanation": "93如实列无浏览器工具/模块/缓存，只读结论不冒称真实交互；550再在环境可用后给实测并限定模拟计算、无Word/PDF及后端验证。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            93,
+            550,
+            622
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            93,
+            550
+          ],
+          "what_it_supports": "前后工具能力和声明边界"
+        }
+      ],
+      "workflow_relevance": "先读业务再预览符合用户流程，不能要求当时不存在的验证。",
+      "necessary_cost": "能力探测和诚实限制必要。",
+      "possibly_avoidable_cost": "无确认浪费。",
+      "revised_possible_solutions": [
+        "保留源码审查与真实浏览器结论分栏。"
+      ],
+      "remaining_uncertainty": "没有浏览器时的UX仅代码判断。"
+    },
+    {
+      "id": "01a1344e-37a1-7072-8400-1de33cb00009:A02",
+      "kind": "evidence_gap",
+      "description": "报告提到真实无限渲染和snapshot缺陷，但本份子审摘要没有逐项展开触发/修复对应，不能将所有失败直接归入定位器问题或据摘要独立确认每项关闭。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "C负责真实UI协同只读审查；93明确专业独立而共享来源/文件/成果，用户暂停后恢复；550冻结版13场景、622新增旧报告到14。",
+        "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+        "physical_lines": [
+          93,
+          550,
+          622
+        ]
+      },
+      "trigger_or_change": "原目录保留无限渲染/snapshot摘要未展开的缺口。",
+      "cause_explanation": "本轮补读291实际循环，A187给稳定引用链；B251显示下游优先模型库覆盖成果snapshot，437称已关，550/622实测。可补具体成因，仍不能将C所有timeouts统一归这两项。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            93,
+            550,
+            622
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1344e-37a1-7072-8400-1de33cb00009",
+          "physical_lines": [
+            291,
+            550,
+            622
+          ],
+          "what_it_supports": "循环/最终实际验证"
+        },
+        {
+          "session_id": "01a1344d-92a0-7b50-a9d1-44f18d0afca0",
+          "physical_lines": [
+            187
+          ],
+          "what_it_supports": "循环依赖链"
+        },
+        {
+          "session_id": "01a1344d-f5e4-7fa1-aeeb-82bfc085c92a",
+          "physical_lines": [
+            251,
+            437
+          ],
+          "what_it_supports": "snapshot覆盖和修后复核"
+        }
+      ],
+      "workflow_relevance": "两项是业务行为，不因原型迭代正常而取消。",
+      "necessary_cost": "跨角色关联实测、拒绝盲归因必要。",
+      "possibly_avoidable_cost": "未知各缺陷净修复成本。",
+      "revised_possible_solutions": [
+        "把每个失败绑定具体触发/版本与关闭结果，未归因部分继续未知。"
+      ],
+      "remaining_uncertainty": "补充原因不修改原条目证据缺口类别。"
+    }
+  ]
+}

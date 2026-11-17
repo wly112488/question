@@ -1,0 +1,252 @@
+{
+  "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+  "source_audit": "sol_env/01a1a42d-5e15-7fa0-afe5-aadeffbce7a2.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/11/04/rollout-2026-11-04T09-29-59-01a1a42d-5e15-7fa0-afe5-aadeffbce7a2.jsonl",
+  "snapshot_lines": 900,
+  "items": [
+    {
+      "id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2:F01",
+      "kind": "confirmed_issue",
+      "description": "先断言交接包没有记录并让用户给地址，用户要求再找后在新版ZIP中找到完整seed；此间已编写旧HTML VFS导入并验证405旧记录。 影响：一次用户纠正、替代导入实现被放弃；约数百行临时逻辑非最终所需。",
+      "context_from_chat": "12要打开预览，221要求恢复原版数据；464要别人可见。615根据实际预览提出20列、分页及拖拽计数调整。",
+      "trigger_or_change": "恢复原构型/科目数据，生成公网展示，再调整工作台表格。",
+      "workflow_relevance": "615的表格偏好是用户正常看预览后迭代。源数据漏找、快照选错、按钮被遮挡和公网失败是独立可观察问题。",
+      "necessary_cost": "备份、导入原seed并保留固定修订、只读分享隔离、关键分页与编辑回归必要。",
+      "possibly_avoidable_cost": "未盘点交接包即断言缺数据、错误会话及测试预期可减少；隧道实际网络失败不等于全部浪费。",
+      "remaining_uncertainty": "不从有限检查推断其他环境或业务均已成功。",
+      "cause_status": "supported",
+      "cause_explanation": "237只搜现工作区/库后257/272扩大为交接包没有数据；279纠正后仍先实现旧HTML VFS导入，397才查新版ZIP seed并得457记录。权威源版本未先盘点，导致405记录替代路线。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            237,
+            257,
+            272,
+            279,
+            299,
+            353,
+            385,
+            397,
+            407,
+            426,
+            452,
+            457
+          ],
+          "what_it_supports": "237只搜现工作区/库后257/272扩大为交接包没有数据；279纠正后仍先实现旧HTML VFS导入，397才查新版ZIP seed并得457记录。权威源版本未先盘点，导致405记录替代路线。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先列交接ZIP及seed清单，缺失判断限于已搜范围，再考虑替代重建。"
+      ]
+    },
+    {
+      "id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2:F02",
+      "kind": "confirmed_issue",
+      "description": "临时公网快照可访问且只读，但打开旧空会话111；用户指出后改当前数据+明确session。 影响：一轮用户纠正及重新生成/构建/公网验证。",
+      "context_from_chat": "12要打开预览，221要求恢复原版数据；464要别人可见。615根据实际预览提出20列、分页及拖拽计数调整。",
+      "trigger_or_change": "恢复原构型/科目数据，生成公网展示，再调整工作台表格。",
+      "workflow_relevance": "615的表格偏好是用户正常看预览后迭代。源数据漏找、快照选错、按钮被遮挡和公网失败是独立可观察问题。",
+      "necessary_cost": "备份、导入原seed并保留固定修订、只读分享隔离、关键分页与编辑回归必要。",
+      "possibly_avoidable_cost": "未盘点交接包即断言缺数据、错误会话及测试预期可减少；隧道实际网络失败不等于全部浪费。",
+      "remaining_uncertainty": "不从有限检查推断其他环境或业务均已成功。",
+      "cause_status": "supported",
+      "cause_explanation": "500复制数据库作只读快照并以页面/权限验收528；但未核对最新工作台session，540指出后572改实时来源、588指定最近session，604验证3表。可达与只读不等于目标业务状态正确。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            500,
+            503,
+            528,
+            533,
+            540,
+            572,
+            588,
+            604,
+            607
+          ],
+          "what_it_supports": "500复制数据库作只读快照并以页面/权限验收528；但未核对最新工作台session，540指出后572改实时来源、588指定最近session，604验证3表。可达与只读不等于目标业务状态正确。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "分享前固定构建版本、数据源、会话ID并核对用户正在看的关键内容。"
+      ]
+    },
+    {
+      "id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2:F03a",
+      "kind": "confirmed_issue",
+      "description": "首个测试脚本把API实际201响应误判为应当200，产生测试自身误报，之后修正。",
+      "context_from_chat": "12要打开预览，221要求恢复原版数据；464要别人可见。615根据实际预览提出20列、分页及拖拽计数调整。",
+      "trigger_or_change": "恢复原构型/科目数据，生成公网展示，再调整工作台表格。",
+      "workflow_relevance": "615的表格偏好是用户正常看预览后迭代。源数据漏找、快照选错、按钮被遮挡和公网失败是独立可观察问题。",
+      "necessary_cost": "备份、导入原seed并保留固定修订、只读分享隔离、关键分页与编辑回归必要。",
+      "possibly_avoidable_cost": "未盘点交接包即断言缺数据、错误会话及测试预期可减少；隧道实际网络失败不等于全部浪费。",
+      "remaining_uncertainty": "不从有限检查推断其他环境或业务均已成功。",
+      "cause_status": "supported",
+      "cause_explanation": "705新增夹具假设创建会话应200，709实际201且已返回创建对象，713只修断言。失败在测试契约假设，非产品创建失败。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            705,
+            709,
+            713
+          ],
+          "what_it_supports": "705新增夹具假设创建会话应200，709实际201且已返回创建对象，713只修断言。失败在测试契约假设，非产品创建失败。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先按API创建契约设置201断言，避免把成功状态当错误。"
+      ]
+    },
+    {
+      "id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2:F03b",
+      "kind": "confirmed_issue",
+      "description": "真实点击下一页被布局遮挡，分页入口不可操作；CSS修正后复验通过。",
+      "context_from_chat": "12要打开预览，221要求恢复原版数据；464要别人可见。615根据实际预览提出20列、分页及拖拽计数调整。",
+      "trigger_or_change": "恢复原构型/科目数据，生成公网展示，再调整工作台表格。",
+      "workflow_relevance": "615的表格偏好是用户正常看预览后迭代。源数据漏找、快照选错、按钮被遮挡和公网失败是独立可观察问题。",
+      "necessary_cost": "备份、导入原seed并保留固定修订、只读分享隔离、关键分页与编辑回归必要。",
+      "possibly_avoidable_cost": "未盘点交接包即断言缺数据、错误会话及测试预期可减少；隧道实际网络失败不等于全部浪费。",
+      "remaining_uncertainty": "不从有限检查推断其他环境或业务均已成功。",
+      "cause_status": "supported",
+      "cause_explanation": "725定位到真实下一页按钮但assistant-toggle拦截pointer events；731调整布局后756通过。是控件遮挡，不是仅selector找不到或正常偏好变化。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            725,
+            731,
+            756
+          ],
+          "what_it_supports": "725定位到真实下一页按钮但assistant-toggle拦截pointer events；731调整布局后756通过。是控件遮挡，不是仅selector找不到或正常偏好变化。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "为浮动控件和分页保留互不遮挡区域，保留真实点击检查。"
+      ]
+    },
+    {
+      "id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2:F03c",
+      "kind": "positive_context",
+      "description": "10项真实行为验证覆盖20空列不计入数据、拖拽总量不变、分页编辑保存和原始数据不改；改动后重跑有实际依据。",
+      "context_from_chat": "12要打开预览，221要求恢复原版数据；464要别人可见。615根据实际预览提出20列、分页及拖拽计数调整。",
+      "trigger_or_change": "恢复原构型/科目数据，生成公网展示，再调整工作台表格。",
+      "workflow_relevance": "615的表格偏好是用户正常看预览后迭代。源数据漏找、快照选错、按钮被遮挡和公网失败是独立可观察问题。",
+      "necessary_cost": "备份、导入原seed并保留固定修订、只读分享隔离、关键分页与编辑回归必要。",
+      "possibly_avoidable_cost": "未盘点交接包即断言缺数据、错误会话及测试预期可减少；隧道实际网络失败不等于全部浪费。",
+      "remaining_uncertainty": "不从有限检查推断其他环境或业务均已成功。",
+      "cause_status": "not_applicable",
+      "cause_explanation": "756验证20列/拖拽/保存，762修改精确边界分页策略后783再次验证有新变更依据；测试同时抓到725真实遮挡。不能因一处201误报否定整组收益。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            709,
+            725,
+            756,
+            762,
+            783
+          ],
+          "what_it_supports": "756验证20列/拖拽/保存，762修改精确边界分页策略后783再次验证有新变更依据；测试同时抓到725真实遮挡。不能因一处201误报否定整组收益。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留独立数据夹具和关键交互合同，修改相关行为时复验。"
+      ]
+    },
+    {
+      "id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2:F04",
+      "kind": "confirmed_issue",
+      "description": "本机验证通过后公网旧隧道TLS/readyConnections0，换存活隧道仍ERR_NETWORK_CHANGED/Failed to fetch，用户转问日志。 影响：多次公网重试及等待；不能宣称公网最终通过，最终回答只给验证日志。",
+      "context_from_chat": "12要打开预览，221要求恢复原版数据；464要别人可见。615根据实际预览提出20列、分页及拖拽计数调整。",
+      "trigger_or_change": "恢复原构型/科目数据，生成公网展示，再调整工作台表格。",
+      "workflow_relevance": "615的表格偏好是用户正常看预览后迭代。源数据漏找、快照选错、按钮被遮挡和公网失败是独立可观察问题。",
+      "necessary_cost": "备份、导入原seed并保留固定修订、只读分享隔离、关键分页与编辑回归必要。",
+      "possibly_avoidable_cost": "未盘点交接包即断言缺数据、错误会话及测试预期可减少；隧道实际网络失败不等于全部浪费。",
+      "remaining_uncertainty": "不从有限检查推断其他环境或业务均已成功。",
+      "cause_status": "mixed",
+      "cause_explanation": "802旧隧道readyConnections0并TLS EOF；切至健康connector后857文件与871bundle仍ERR_NETWORK_CHANGED，863/871单资源curl又200。支持传输/浏览器环境不稳定，不能确认单一隧道或产品根因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            794,
+            802,
+            809,
+            816,
+            839,
+            857,
+            863,
+            871,
+            875
+          ],
+          "what_it_supports": "802旧隧道readyConnections0并TLS EOF；切至健康connector后857文件与871bundle仍ERR_NETWORK_CHANGED，863/871单资源curl又200。支持传输/浏览器环境不稳定，不能确认单一隧道或产品根因。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "区分connector健康、资源获取与实际浏览器三层，固定可用宿主后做一次目标流程验证。"
+      ]
+    },
+    {
+      "id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2:U01",
+      "kind": "evidence_gap",
+      "description": "表格本机修改已验证，但公网入口未闭环，最后转交日志问题；本机通过不能据此宣称他人已能使用。",
+      "context_from_chat": "12要打开预览，221要求恢复原版数据；464要别人可见。615根据实际预览提出20列、分页及拖拽计数调整。",
+      "trigger_or_change": "恢复原构型/科目数据，生成公网展示，再调整工作台表格。",
+      "workflow_relevance": "615的表格偏好是用户正常看预览后迭代。源数据漏找、快照选错、按钮被遮挡和公网失败是独立可观察问题。",
+      "necessary_cost": "备份、导入原seed并保留固定修订、只读分享隔离、关键分页与编辑回归必要。",
+      "possibly_avoidable_cost": "未盘点交接包即断言缺数据、错误会话及测试预期可减少；隧道实际网络失败不等于全部浪费。",
+      "remaining_uncertainty": "不从有限检查推断其他环境或业务均已成功。",
+      "cause_status": "unknown",
+      "cause_explanation": "本机756/783已通过，公网857/871仍失败；875用户转问日志，快照没有随后成功。因此公网交付未闭环是证据边界，不是已证明表格代码有错。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            756,
+            783,
+            857,
+            871,
+            875,
+            888
+          ],
+          "what_it_supports": "本机756/783已通过，公网857/871仍失败；875用户转问日志，快照没有随后成功。因此公网交付未闭环是证据边界，不是已证明表格代码有错。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "补同一公网地址、会话与实际外部浏览器的访问/资源/表格结果。"
+      ]
+    },
+    {
+      "id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2:U02",
+      "kind": "positive_context",
+      "description": "并发工作区git diff含其他会话改动，不能将整个差异归为本会话的工作或缺陷。",
+      "context_from_chat": "12要打开预览，221要求恢复原版数据；464要别人可见。615根据实际预览提出20列、分页及拖拽计数调整。",
+      "trigger_or_change": "恢复原构型/科目数据，生成公网展示，再调整工作台表格。",
+      "workflow_relevance": "615的表格偏好是用户正常看预览后迭代。源数据漏找、快照选错、按钮被遮挡和公网失败是独立可观察问题。",
+      "necessary_cost": "备份、导入原seed并保留固定修订、只读分享隔离、关键分页与编辑回归必要。",
+      "possibly_avoidable_cost": "未盘点交接包即断言缺数据、错误会话及测试预期可减少；隧道实际网络失败不等于全部浪费。",
+      "remaining_uncertainty": "不从有限检查推断其他环境或业务均已成功。",
+      "cause_status": "not_applicable",
+      "cause_explanation": "549与794 git差异同时包括workbench/css等正在变化文件，当前会话只可由实际patch定位贡献。共享工作区状态不能按整份diff归因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            549,
+            705,
+            731,
+            762,
+            794
+          ],
+          "what_it_supports": "549与794 git差异同时包括workbench/css等正在变化文件，当前会话只可由实际patch定位贡献。共享工作区状态不能按整份diff归因。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留调用级修改证据；跨会话比较以时间/patch/提交定位，未明来源标未知。"
+      ]
+    }
+  ]
+}

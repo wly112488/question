@@ -1,0 +1,67 @@
+{
+  "session_id": "01a1cf3f-b072-7fa2-b71d-0f7a2868e771",
+  "title": "创建 GitHub 仓库",
+  "source_audit": "terra/01a1cf3f-b072-7fa2-b71d-0f7a2868e771.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a1cf3f-b072-7fa2-b71d-0f7a2868e771:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "前两次工具发现输出过宽被截断，第三次才按工具名筛选。",
+      "evidence": "第19、22、26、29、33、35行",
+      "possible_solutions": [
+        "先筛工具名称，按需读取候选详情。"
+      ],
+      "uncertainty": "原审计根因置信：高：匹配描述而非先筛名称且直接输出完整对象；大量无关工具定义进入输出且重复搜索；合理解释是先探索可用能力。"
+    },
+    {
+      "id": "01a1cf3f-b072-7fa2-b71d-0f7a2868e771:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "首次技能路径读取失败，随后纠正。",
+      "evidence": "第19、22、26、29、33、35行",
+      "possible_solutions": [
+        "按技能目录映射展开根路径。"
+      ],
+      "uncertainty": "原审计根因置信：高：匹配描述而非先筛名称且直接输出完整对象；大量无关工具定义进入输出且重复搜索；合理解释是先探索可用能力。"
+    },
+    {
+      "id": "01a1cf3f-b072-7fa2-b71d-0f7a2868e771:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "连接不具创建工具有证据，但不能据此证明CLI或浏览器不可用。",
+      "evidence": "源审计任务段定位：第12、19、26、33、38、46、50、52、55行；第67、73、80、83行",
+      "possible_solutions": [
+        "在相同访问环境和数据状态下复验相关页面，并记录实际反馈；无法复验时保持未确认。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a1cf3f-b072-7fa2-b71d-0f7a2868e771:A01",
+      "source_refs": [
+        "/task_segments/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "任务“询问能否创建GitHub仓库及再次检查”：连接工具未发现创建仓库能力，提供手动路径；是否有CLI等其他路径未查明",
+      "evidence": "第12、19、26、33、38、46、50、52、55行",
+      "possible_solutions": [
+        "核对对应交付或实际用户环境的最终结果；无法获得证据时明确保留未确认状态。"
+      ],
+      "uncertainty": "任务中断、用户取消、环境限制或后续指令均可能解释未完成，不能直接推断违令。"
+    }
+  ]
+}

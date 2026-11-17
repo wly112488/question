@@ -1,0 +1,49 @@
+{
+  "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+  "status": "deep_reviewed",
+  "reviewed_scope": {
+    "snapshot_lines": 52,
+    "tool_calls_scanned": 5,
+    "parent": "01a19c5d-dca8-7590-a6b1-cc876c7f865d"
+  },
+  "task_segments": [
+    {
+      "lines": [
+        1,
+        52
+      ],
+      "goal": "refactor_review：只读检查恢复模块及验收代码",
+      "result": "5次调用读取计划、入口、映射、存储和对照脚本，快照内无最终回传。"
+    }
+  ],
+  "findings": [
+    {
+      "state": "unresolved_evidence_gap",
+      "fact": "子代理执行约46秒后快照结束，无最终输出；主线程随后再派final_review。",
+      "sources": [
+        {
+          "line": 44,
+          "output_line": 49
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "line": 893
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "line": 953
+        }
+      ],
+      "judgment": "存在无交付的检查启动成本，但无法确认根因是模型、运行时或中断，不与后续审查时间相加。",
+      "counter_explanation": "固定快照/生命周期信息不足。",
+      "confirmed_loss": "5次只读调用未见可消费回传；净阻塞主线程时间未知。",
+      "root_cause_confidence": "low",
+      "minimum_change": "需要审查回传时保留可观察的任务完成/中断状态；此处不据此建议增加或减少并行。"
+    }
+  ],
+  "uncertainties": [
+    "派发消息以密文记录；52行快照没有task_complete。",
+    "长成功代码读取在原工具层已截断。"
+  ],
+  "historical_outcome_status": "unfinished_in_snapshot; no final review result observed"
+}

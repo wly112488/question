@@ -1,0 +1,201 @@
+{
+  "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+  "source_audit": "sol_dev/01a19c91-0415-7252-8b5e-59f2ede97fb5.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/11/02/rollout-2026-11-02T22-01-51-01a19c91-0415-7252-8b5e-59f2ede97fb5.jsonl",
+  "snapshot_lines": 52,
+  "items": [
+    {
+      "id": "01a19c91-0415-7252-8b5e-59f2ede97fb5:F01",
+      "kind": "evidence_gap",
+      "description": "子代理执行约46秒后快照结束，无最终输出；主线程随后再派final_review。 判断：存在无交付的检查启动成本，但无法确认根因是模型、运行时或中断，不与后续审查时间相加。 已知影响：5次只读调用未见可消费回传；净阻塞主线程时间未知。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "初始refactor_review只读检查恢复入口、映射、存储和验收脚本，固定快照52行。",
+        "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+        "physical_lines": [
+          31,
+          35,
+          44,
+          49
+        ]
+      },
+      "trigger_or_change": "最后一次读取49成功后快照结束。",
+      "cause_explanation": "31/35/44均是真实读取，49返回结构清单；没有最终消息或明确终止原因，不能把它解释成模型主动放弃或运行时崩溃。完成状态不可确认，是历史生命周期证据缺失。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+          "physical_lines": [
+            31,
+            35,
+            44,
+            49
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+          "physical_lines": [
+            31,
+            33,
+            35,
+            40,
+            44,
+            49
+          ],
+          "what_it_supports": "已执行阅读及末次成功返回"
+        }
+      ],
+      "workflow_relevance": "为保真重构准备审查，不属于原型样式多轮反馈。",
+      "necessary_cost": "阅读映射/存储/测试必要。",
+      "possibly_avoidable_cost": "5次读取无最终可消费回传是可见启动成本，净阻塞未知。",
+      "revised_possible_solutions": [
+        "保留完成/中断状态和可消费中间结果，关联后续final_review而不叠加耗时。"
+      ],
+      "remaining_uncertainty": "固定快照外是否有结果未知；原id和类别不变。"
+    },
+    {
+      "id": "01a19c91-0415-7252-8b5e-59f2ede97fb5:U01",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：派发消息以密文记录；52行快照没有task_complete。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "初始refactor_review只读检查恢复入口、映射、存储和验收脚本，固定快照52行。",
+        "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+        "physical_lines": [
+          31,
+          35,
+          44,
+          49
+        ]
+      },
+      "trigger_or_change": "最后一次读取49成功后快照结束。",
+      "cause_explanation": "31/35/44均是真实读取，49返回结构清单；没有最终消息或明确终止原因，不能把它解释成模型主动放弃或运行时崩溃。完成状态不可确认，是历史生命周期证据缺失。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+          "physical_lines": [
+            31,
+            35,
+            44,
+            49
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+          "physical_lines": [
+            31,
+            33,
+            35,
+            40,
+            44,
+            49
+          ],
+          "what_it_supports": "已执行阅读及末次成功返回"
+        }
+      ],
+      "workflow_relevance": "为保真重构准备审查，不属于原型样式多轮反馈。",
+      "necessary_cost": "阅读映射/存储/测试必要。",
+      "possibly_avoidable_cost": "5次读取无最终可消费回传是可见启动成本，净阻塞未知。",
+      "revised_possible_solutions": [
+        "保留完成/中断状态和可消费中间结果，关联后续final_review而不叠加耗时。"
+      ],
+      "remaining_uncertainty": "固定快照外是否有结果未知；原id和类别不变。"
+    },
+    {
+      "id": "01a19c91-0415-7252-8b5e-59f2ede97fb5:A01",
+      "kind": "evidence_gap",
+      "description": "52行固定快照只有5次只读调用，没有最终审查结论或task_complete，因此不能把本子任务标成已交付有效审查。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "初始refactor_review只读检查恢复入口、映射、存储和验收脚本，固定快照52行。",
+        "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+        "physical_lines": [
+          31,
+          35,
+          44,
+          49
+        ]
+      },
+      "trigger_or_change": "最后一次读取49成功后快照结束。",
+      "cause_explanation": "31/35/44均是真实读取，49返回结构清单；没有最终消息或明确终止原因，不能把它解释成模型主动放弃或运行时崩溃。完成状态不可确认，是历史生命周期证据缺失。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+          "physical_lines": [
+            31,
+            35,
+            44,
+            49
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+          "physical_lines": [
+            31,
+            33,
+            35,
+            40,
+            44,
+            49
+          ],
+          "what_it_supports": "已执行阅读及末次成功返回"
+        }
+      ],
+      "workflow_relevance": "为保真重构准备审查，不属于原型样式多轮反馈。",
+      "necessary_cost": "阅读映射/存储/测试必要。",
+      "possibly_avoidable_cost": "5次读取无最终可消费回传是可见启动成本，净阻塞未知。",
+      "revised_possible_solutions": [
+        "保留完成/中断状态和可消费中间结果，关联后续final_review而不叠加耗时。"
+      ],
+      "remaining_uncertainty": "固定快照外是否有结果未知；原id和类别不变。"
+    },
+    {
+      "id": "01a19c91-0415-7252-8b5e-59f2ede97fb5:U02",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：长成功代码读取在原工具层已截断。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "初始refactor_review只读检查恢复入口、映射、存储和验收脚本，固定快照52行。",
+        "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+        "physical_lines": [
+          31,
+          35,
+          44,
+          49
+        ]
+      },
+      "trigger_or_change": "33及40返回过长源码。",
+      "cause_explanation": "返回自身含truncated标记，最后49也只是部分结构；无法从快照重证未显示的代码或判它未读。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+          "physical_lines": [
+            31,
+            35,
+            44,
+            49
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+          "physical_lines": [
+            33,
+            40,
+            49
+          ],
+          "what_it_supports": "原工具截断与有效返回"
+        }
+      ],
+      "workflow_relevance": "代码阅读取证需边界。",
+      "necessary_cost": "读取相关接口必要。",
+      "possibly_avoidable_cost": "未来结构提取可缩减输出，现省略不可恢复。",
+      "revised_possible_solutions": [
+        "保留已见范围，需证时补可用原始段。"
+      ],
+      "remaining_uncertainty": "不声称全源码已独立验证。"
+    }
+  ]
+}

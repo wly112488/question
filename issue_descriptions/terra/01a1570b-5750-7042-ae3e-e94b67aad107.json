@@ -1,0 +1,41 @@
+{
+  "session_id": "01a1570b-5750-7042-ae3e-e94b67aad107",
+  "title": "检查 Chrome DevTools 工具",
+  "source_audit": "terra/01a1570b-5750-7042-ae3e-e94b67aad107.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a1570b-5750-7042-ae3e-e94b67aad107:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "工具列表为空是该会话时点事实，不能推广到其他会话。",
+      "evidence": "源审计任务段定位：第10、16、18、21行",
+      "possible_solutions": [
+        "在权限允许且确有必要时核对关联会话或原始日志；否则将当前判断限定在已审范围。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a1570b-5750-7042-ae3e-e94b67aad107:A01",
+      "source_refs": [
+        "/task_segments/0"
+      ],
+      "kind": "positive_context",
+      "description": "任务“仅列当前实际暴露的Chrome DevTools工具”：过滤ALL_TOOLS为空，正确报告未加载；约6.13秒",
+      "evidence": "第10、16、18、21行",
+      "possible_solutions": [
+        "保留明确限定范围的核对、复验或直接答复机制。"
+      ],
+      "uncertainty": "成功结论限于源报告所记录的时点、样本和验证范围。"
+    }
+  ]
+}

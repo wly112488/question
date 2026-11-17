@@ -1,0 +1,120 @@
+{
+  "session_id": "01a1cef3-8520-7bd2-85f9-20f07ffdba13",
+  "title": "明确数据对象划分",
+  "source_audit": "root_reuse/01a1cef3-8520-7bd2-85f9-20f07ffdba13.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "quality_preserved",
+    "uncertainties",
+    "model_observation",
+    "builds",
+    "source_path",
+    "snapshot_lines",
+    "source_sha256",
+    "audit_method"
+  ],
+  "items": [
+    {
+      "id": "01a1cef3-8520-7bd2-85f9-20f07ffdba13:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "明确要求沿用已有任务中心和组件，仍新增任务中心并切换左侧入口；后续按原页面恢复。 影响记录：三个相关执行段合计29.18分钟是观测包络，不能全部认定浪费；回退段3.46分钟含必要验证。",
+      "evidence": [
+        {
+          "line": 541
+        },
+        {
+          "line": 546
+        },
+        {
+          "line": 676
+        },
+        {
+          "line": 679
+        },
+        {
+          "line": 686
+        },
+        {
+          "line": 698
+        }
+      ],
+      "possible_solutions": [
+        "执行前从现有代码核对将复用的入口/组件，目标约束简记；只在业务存在实质歧义时询问用户。"
+      ],
+      "uncertainty": "high；[\"用户中断并非自动模型错误；不能把全部范围澄清都算返工。\"]；避免偏离后潜在缩短5–10分钟仅合理估计，未重放验证。"
+    },
+    {
+      "id": "01a1cef3-8520-7bd2-85f9-20f07ffdba13:F02",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "并行读取已存在，但大合并返回被截断后再读；全会话12个外层返回有截断标志。 影响记录：703712文本字符为此前逐输出统计口径；不能由字符数换算节省分钟。",
+      "evidence": [
+        {
+          "scope": "外层工具返回统计，见metrics.json该session"
+        }
+      ],
+      "possible_solutions": [
+        "调用端先筛选字段和范围，输出过大时保存本地并返回索引。"
+      ],
+      "uncertainty": "[\"用户中断并非自动模型错误；不能把全部范围澄清都算返工。\"]"
+    },
+    {
+      "id": "01a1cef3-8520-7bd2-85f9-20f07ffdba13:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "positive_context",
+      "description": "用户中断并非自动模型错误；不能把全部范围澄清都算返工。",
+      "evidence": {
+        "source_audit": "root_reuse/01a1cef3-8520-7bd2-85f9-20f07ffdba13.json",
+        "source_pointer": "/uncertainties/0"
+      },
+      "possible_solutions": [
+        "按当时用户要求与任务边界评估，保留合理的新需求、主动中断和并行关系，不追溯认定为错误。"
+      ],
+      "uncertainty": "这是原审计明确的边界或未知项，不据此认定历史产品一定有缺陷。"
+    },
+    {
+      "id": "01a1cef3-8520-7bd2-85f9-20f07ffdba13:Q01",
+      "source_refs": [
+        "/quality_preserved/0"
+      ],
+      "kind": "positive_context",
+      "description": "12项资源浏览检查",
+      "evidence": {
+        "source_audit": "root_reuse/01a1cef3-8520-7bd2-85f9-20f07ffdba13.json",
+        "source_pointer": "/quality_preserved/0"
+      },
+      "possible_solutions": [
+        "保留该有证据价值的检查或执行机制；优化其他步骤时验证这一保障仍存在。"
+      ],
+      "uncertainty": "成功反例用于约束优化方案，不作为待修复问题。"
+    },
+    {
+      "id": "01a1cef3-8520-7bd2-85f9-20f07ffdba13:Q02",
+      "source_refs": [
+        "/quality_preserved/1"
+      ],
+      "kind": "positive_context",
+      "description": "15项浏览器检查与build；原任务路由恢复后再验",
+      "evidence": {
+        "source_audit": "root_reuse/01a1cef3-8520-7bd2-85f9-20f07ffdba13.json",
+        "source_pointer": "/quality_preserved/1"
+      },
+      "possible_solutions": [
+        "保留该有证据价值的检查或执行机制；优化其他步骤时验证这一保障仍存在。"
+      ],
+      "uncertainty": "成功反例用于约束优化方案，不作为待修复问题。"
+    }
+  ],
+  "scope_notes": "逐份完整读取现有审计报告后展开；保留全部findings、uncertainties及显式质量反例。未在本阶段跨会话筛选或排序。"
+}

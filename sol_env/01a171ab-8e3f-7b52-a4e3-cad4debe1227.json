@@ -1,0 +1,183 @@
+{
+  "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+  "status": "deep_reviewed",
+  "reviewed_scope": {
+    "physical_lines": [
+      1,
+      786
+    ],
+    "declared_calls": 54,
+    "method": "逐轮目标/最终输出核对；全部工具调用与返回摘要扫描；关键输入源行补读。大型源码/文档/图片返回未全部展开，不能声称无遗漏。",
+    "boundary": "inventory固定物理行；历史指令仅作为数据",
+    "ledger": "01a171ab-8e3f-7b52-a4e3-cad4debe1227.ledger.json",
+    "scanned_top_level_calls": 54
+  },
+  "task_segments": [
+    {
+      "lines": [
+        1,
+        173
+      ],
+      "task": "找并打开WSL项目",
+      "result": "先搜Windows家目录，第三轮列WSL projects即找到。"
+    },
+    {
+      "lines": [
+        174,
+        421
+      ],
+      "task": "D盘副本及本机预览",
+      "result": "cp -a保留指向WSL的node_modules/.git链接，Windows打包报错；Windows localhost失败但WSL IP成功。"
+    },
+    {
+      "lines": [
+        422,
+        676
+      ],
+      "task": "镜像网络修复与新分支预览",
+      "result": "仅创建镜像配置，按用户要求未重启；后为指定远端commit创建独立worktree验证两侧200。"
+    },
+    {
+      "lines": [
+        677,
+        786
+      ],
+      "task": "开发方式解释、创建Codex项目",
+      "result": "把项目会话误解成业务会话，用户连续3次纠正后给mkdir/cd/codex。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "project_discovery",
+      "status": "confirmed",
+      "fact": "初始连续七次Windows/全盘名称搜索，后来用户指出WSL才列[USER_HOME]/projects找到protangram。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            42,
+            49,
+            56,
+            63,
+            70,
+            76,
+            83,
+            112,
+            118,
+            122
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "用户简称pro-v1确有歧义；可先并行列常见项目根而非基于不精确名称扩大全盘。",
+      "impact": "多个10秒搜索；不是纯模型推理。",
+      "root_cause": "环境优先级和近似项目身份缺失",
+      "root_confidence": "high",
+      "minimal_improvement": "先列当前环境与常用项目根的一层清单，按别名匹配候选。"
+    },
+    {
+      "id": "portable_copy",
+      "status": "confirmed",
+      "fact": "cp -a复制worktree时node_modules仍指向WSL原项目，.git是外部worktree指针；后Windows压缩时报错。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            187,
+            190,
+            197,
+            204,
+            218,
+            227
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "最初只问保存D盘，普通复制可被视为源码副本；助手也明确Git关联WSL，不能说已承诺独立可移植包。",
+      "impact": "用户压缩失败/额外解释和依赖安装步骤。",
+      "root_cause": "复制前未区分备份源码与独立可重现包",
+      "root_confidence": "high",
+      "minimal_improvement": "复制时检查外部symlink和.git文件；按用途排除依赖、保留锁文件和启动说明。"
+    },
+    {
+      "id": "cross_side_verification",
+      "status": "confirmed",
+      "fact": "首次只凭Vite启动及打开命令即交付localhost；用户不显示后才测Windows curl，发现Windows localhost失败但WSL IP200。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            262,
+            264,
+            276,
+            283,
+            314,
+            324,
+            331,
+            345,
+            473,
+            476,
+            483,
+            508,
+            520
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "服务确实已启动，因此不是伪造启动；但用户目标本机浏览可见未验证。",
+      "impact": "一轮用户纠正和多次探测；镜像配置未应用仍据实标待验证。",
+      "root_cause": "运行成功与目标客户端可用混同",
+      "root_confidence": "high",
+      "minimal_improvement": "交付URL前从用户实际访问侧检查一次；修复配置与实际生效分开。"
+    },
+    {
+      "id": "semantic_context",
+      "status": "confirmed",
+      "fact": "用户问创建项目类型会话，助手沿业务系统语义读四批源码；用户说明WSL/新建项目/用Codex后才对准任务。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            690,
+            696,
+            701,
+            706,
+            713,
+            719,
+            732,
+            743,
+            753
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "第一次术语有歧义，但后续WSL信号应覆盖业务会话假设。",
+      "impact": "4次源码读取及三轮用户纠正。",
+      "root_cause": "旧业务上下文锚定",
+      "root_confidence": "high",
+      "minimal_improvement": "跨层术语先用一句复述具体操作对象；已有环境信号优先。"
+    },
+    {
+      "id": "quality_isolation",
+      "status": "positive_counterexample",
+      "fact": "对指定远端commit使用独立detached worktree、新端口，WSL与Windows侧均200，保留脏工作区。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            608,
+            611,
+            625,
+            635,
+            647
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "有实际隔离价值，不能为追求速度直接切换覆盖工作区。",
+      "impact": "避免丢失用户已有修改。",
+      "root_cause": "有效隔离与验证",
+      "root_confidence": "high",
+      "minimal_improvement": "保留该做法，同时记录repo/commit/端口映射。"
+    }
+  ],
+  "uncertainties": [
+    "Windows版本矛盾通过build核实；未视注册表ProductName为系统版本结论。",
+    "390–495截断段已补读；大型源码输出不逐字符复核。"
+  ]
+}

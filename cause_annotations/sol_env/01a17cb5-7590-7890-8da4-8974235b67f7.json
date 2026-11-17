@@ -1,0 +1,396 @@
+{
+  "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+  "source_audit": "sol_env/01a17cb5-7590-7890-8da4-8974235b67f7.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/27/rollout-2026-10-27T17-33-49-01a17cb5-7590-7890-8da4-8974235b67f7.jsonl",
+  "snapshot_lines": 2364,
+  "items": [
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:F01a",
+      "kind": "confirmed_issue",
+      "description": "只检查WSL预定browse位置即判断需要构建并等待确认，漏查Windows已有编译入口，用户指出后才发现。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "supported",
+      "cause_explanation": "277只查WSL预定可执行文件后申请构建；399/402其实已列出Windows dist，423仍说需构建，430用户提醒才运行现成exe。能力发现没有把跨环境已有入口纳入结论。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            277,
+            280,
+            292,
+            399,
+            402,
+            423,
+            430,
+            436
+          ],
+          "what_it_supports": "277只查WSL预定可执行文件后申请构建；399/402其实已列出Windows dist，423仍说需构建，430用户提醒才运行现成exe。能力发现没有把跨环境已有入口纳入结论。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先核对技能精确安装目录和跨环境入口，区分未找到与不可启动。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:F01b",
+      "kind": "candidate_issue",
+      "description": "发现已安装browse后仍多轮启动失败，包括两次15秒超时，直到改用现有Windows Node/Playwright才完成截图；已安装不代表可启动。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "mixed",
+      "cause_explanation": "现成exe确有server脚本解析问题439，指定脚本后505启动15秒超时；Linux Chromium566也失败，Windows Node+Playwright598成功。存在真实环境障碍，不能说发现exe就必然可用；可减少反复猜入口。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            439,
+            495,
+            505,
+            563,
+            566,
+            595,
+            598
+          ],
+          "what_it_supports": "现成exe确有server脚本解析问题439，指定脚本后505启动15秒超时；Linux Chromium566也失败，Windows Node+Playwright598成功。存在真实环境障碍，不能说发现exe就必然可用；可减少反复猜入口。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "用一个页面的最小启动/截图预检比较可用入口，确认成功后复用。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:F02",
+      "kind": "confirmed_issue",
+      "description": "V0.4检查脚本打印HTML脚本内容，工具记录原始输出约977443 tokens并截断；之后转提取摘要才有效；多处大源码rg同样截断。 影响：上下文/捕获额度消耗巨大，关键证据被截断；该数字为工具报告原token_count非本次实际模型读入量。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "supported",
+      "cause_explanation": "801 HTMLParser把内联script/style内容也纳入TEXT_HEAD，804生成近百万token原始输出；1993整行rg又命中bundle导致487254token。文本数量限制未限制超长单项。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            801,
+            804,
+            810,
+            813,
+            1993,
+            1997
+          ],
+          "what_it_supports": "801 HTMLParser把内联script/style内容也纳入TEXT_HEAD，804生成近百万token原始输出；1993整行rg又命中bundle导致487254token。文本数量限制未限制超长单项。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "排除script/style和base64，限制每项字符；对bundle按符号或DOM语义摘要提取。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:F03",
+      "kind": "candidate_issue",
+      "description": "多轮讨论和文档修订后用户提醒新增功能配置按钮，助手才核对最新HTML并承认前面未纳入。 影响：文档与原型语义偏差，多轮讨论后需合并补充。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "mixed",
+      "cause_explanation": "讨论主要沿用刚修订文档，直到1987用户提醒才读取新增FunctionConfiguration并2016承认漏纳入。没有证据要求助手实时监控所有外部修改，但当前产品判断缺一次版本核对。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            1906,
+            1916,
+            1987,
+            1993,
+            2011,
+            2016
+          ],
+          "what_it_supports": "讨论主要沿用刚修订文档，直到1987用户提醒才读取新增FunctionConfiguration并2016承认漏纳入。没有证据要求助手实时监控所有外部修改，但当前产品判断缺一次版本核对。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "涉及现有功能边界前核对原型mtime和新增入口；区分文档基线与最新原型。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:F04a",
+      "kind": "positive_context",
+      "description": "148、64、120个云端操作均有清单/成功回执/分批检查，最后120操作遇内错、EOF后先读现状确认下一个未执行锚点再续跑；20原图及3新图保留。 影响：失败恢复不重复写入的明确收益；API等待应算服务时间。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "not_applicable",
+      "cause_explanation": "148/64/120操作由大文档结构修订产生；成功回执、checkpoint与现状锚点让失败续跑不重复写，最终1117块及20原图/3新图验证。不是148次模型独立往返。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            1630,
+            1748,
+            1753,
+            1833,
+            1886,
+            2134,
+            2222,
+            2259,
+            2284,
+            2295
+          ],
+          "what_it_supports": "148/64/120操作由大文档结构修订产生；成功回执、checkpoint与现状锚点让失败续跑不重复写，最终1117块及20原图/3新图验证。不是148次模型独立往返。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留批次日志、恢复前现状判断及一次最终结构/资源比对。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:F04b",
+      "kind": "confirmed_issue",
+      "description": "120操作云端批次受到API内部错误与EOF中断，必须恢复续写；最终已通过现状检查避免重复写入。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "mixed",
+      "cause_explanation": "2215明确文档引擎内部错误，2252传输EOF；客户端只知失败，无法从错误确认平台内部根因或是否已落写，故先读锚点再续跑是必要恢复。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            2215,
+            2222,
+            2226,
+            2252,
+            2256,
+            2259
+          ],
+          "what_it_supports": "2215明确文档引擎内部错误，2252传输EOF；客户端只知失败，无法从错误确认平台内部根因或是否已落写，故先读锚点再续跑是必要恢复。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留按现状检查再重试，并对可恢复错误设有界退避；不盲目重放整批。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:U01",
+      "kind": "evidence_gap",
+      "description": "Word/图像原本身不另开读取，业务真实性不独立背书；依据历史工具和结构核对。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "unknown",
+      "cause_explanation": "工具1753/1886/2295证明计划结构、文本和图片ID保留，但不独立证明Word原始业务真实性或截图内容正确。缺口来自验证层级而非已有内容被证伪。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            1753,
+            1886,
+            2295
+          ],
+          "what_it_supports": "工具1753/1886/2295证明计划结构、文本和图片ID保留，但不独立证明Word原始业务真实性或截图内容正确。缺口来自验证层级而非已有内容被证伪。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "如需业务背书，另按指定原文件与关键截图逐项对照；保持结构验收结论范围。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:U02",
+      "kind": "positive_context",
+      "description": "大量写入已在单脚本批次内执行，不把148次云端API误算148次模型调用。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "not_applicable",
+      "cause_explanation": "703/721等循环在单工具脚本中执行多API，1630计划148操作、1748批次结束。API数、顶层工具数和模型轮次不同。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            703,
+            717,
+            721,
+            735,
+            1630,
+            1748
+          ],
+          "what_it_supports": "703/721等循环在单工具脚本中执行多API，1630计划148操作、1748批次结束。API数、顶层工具数和模型轮次不同。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留批次执行，分别计API等待、工具进程和模型交互。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:A01",
+      "kind": "evidence_gap",
+      "description": "V0.1截图任务未找到CFG审批页而保留缺口，13张截图完成不代表所有要求页面均覆盖。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "unknown",
+      "cause_explanation": "138要按站点补图，769披露当前站点无CFG审批/协作界面，764确认UI-3-14仍占位。未用不相干截图伪造覆盖，不能判为丢图；缺对应实现或证据。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            138,
+            764,
+            769
+          ],
+          "what_it_supports": "138要按站点补图，769披露当前站点无CFG审批/协作界面，764确认UI-3-14仍占位。未用不相干截图伪造覆盖，不能判为丢图；缺对应实现或证据。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "获得对应页面后补真实图；否则在交付清单明确未覆盖功能。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:A02",
+      "kind": "evidence_gap",
+      "description": "V0.4有两处页面不存在而采用占位，23图完成仍不能证明缺页功能已呈现。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "unknown",
+      "cause_explanation": "1383明确UI-7-6与UI-15-1无页面；1378回查相应占位无图。这是原型能力/覆盖缺口，不是23张截图全部完成的同义反证。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            1378,
+            1383
+          ],
+          "what_it_supports": "1383明确UI-7-6与UI-15-1无页面；1378回查相应占位无图。这是原型能力/覆盖缺口，不是23张截图全部完成的同义反证。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "分别列已完成图与无对应页占位，待实现或提供目标页再补。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:A03",
+      "kind": "confirmed_issue",
+      "description": "模块/子功能概述的初次总览粒度与用户要求不符，用户纠正后才按52子功能进行64操作改写。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "mixed",
+      "cause_explanation": "1765模块总体概述与1773类比可理解为模块级表；1778据此举例，1785才明确是模块内部子功能，随后1788确认并在1807授权后修改。原记录应补充：这是修改前的粒度澄清，没有先错误写入云文档。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            1765,
+            1773,
+            1778,
+            1785,
+            1788,
+            1795,
+            1807,
+            1833
+          ],
+          "what_it_supports": "1765模块总体概述与1773类比可理解为模块级表；1778据此举例，1785才明确是模块内部子功能，随后1788确认并在1807授权后修改。原记录应补充：这是修改前的粒度澄清，没有先错误写入云文档。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "对类似歧义先给一个模块内的短样例定位层级；保留确认前不修改机制。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:A04",
+      "kind": "candidate_issue",
+      "description": "产品数据流讨论先展开模型/后端实现细节，后来才承认具体算法待确认；讨论可能超出已知产品证据。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "mixed",
+      "cause_explanation": "1923用户要求思考模型关系和未考虑问题，展开讨论有授权；1939再次校正模型形成层，1951/1963指出算法/后端职责，1956/1968才明确待专业确认。问题在把业务设想与实现待定边界混讲，不是禁止探索。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            1923,
+            1939,
+            1944,
+            1951,
+            1956,
+            1963,
+            1968
+          ],
+          "what_it_supports": "1923用户要求思考模型关系和未考虑问题，展开讨论有授权；1939再次校正模型形成层，1951/1963指出算法/后端职责，1956/1968才明确待专业确认。问题在把业务设想与实现待定边界混讲，不是禁止探索。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "用业务输入/期望输出说明关系，同时把算法可行性和存储方案标待专业确认。"
+      ]
+    },
+    {
+      "id": "01a17cb5-7590-7890-8da4-8974235b67f7:A05",
+      "kind": "evidence_gap",
+      "description": "末轮user token再次过期，授权链接发出后等待用户，本快照没有新的实际读取成功结果。",
+      "context_from_chat": "138要求Word为唯一原文来源、图片按真实原型补；后续用户逐步调整范围、编号、概述粒度和产品逻辑，2039再要求合并总体架构。",
+      "trigger_or_change": "文档导入与真实原型截图、后续增量修订以及新版本原型信息。",
+      "workflow_relevance": "用户边看原型边调整功能和文案是正常工作方式；新要求带来的修订不自动算错误。依赖当前原型作判断时需核对现状。",
+      "necessary_cost": "保留Word原文、逐张真实截图、云端版本保护、图片保留与结构回读均服务明确约束。",
+      "possibly_avoidable_cost": "能力入口误判、巨量bundle输出和未核对现状可能增加往返；API运行和用户授权等待分开，不能全称可省。",
+      "remaining_uncertainty": "只能确定聊天与工具记录支持的机制，不推断平台内部实现。",
+      "cause_status": "unknown",
+      "cause_explanation": "2325显示bot ready但user refresh token expired；2341发新设备流程，2361等待用户。快照无后续确认，不能将发链接等同已恢复连接，也不能推断刷新为何失效。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+          "physical_lines": [
+            2325,
+            2337,
+            2341,
+            2361
+          ],
+          "what_it_supports": "2325显示bot ready但user refresh token expired；2341发新设备流程，2361等待用户。快照无后续确认，不能将发链接等同已恢复连接，也不能推断刷新为何失效。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "完成用户确认后的设备登录，再以明确user读取目标文档验证。"
+      ]
+    }
+  ]
+}

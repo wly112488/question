@@ -1,0 +1,54 @@
+{
+  "session_id": "01a1521a-17dd-7443-b464-6c3bd2775421",
+  "title": "核对 ChatGPT 故障记录",
+  "source_audit": "terra/01a1521a-17dd-7443-b464-6c3bd2775421.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a1521a-17dd-7443-b464-6c3bd2775421:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "技能文件先读取错误路径，随后才按正确路径读取。",
+      "evidence": "第18、25、45、47行",
+      "possible_solutions": [
+        "使用技能目录映射中的实际根路径。"
+      ],
+      "uncertainty": "原审计根因置信：高：错误根路径及不加约束地输出工具描述；多余恢复和约4万字符截断；探索实际工具和资源本身合理。"
+    },
+    {
+      "id": "01a1521a-17dd-7443-b464-6c3bd2775421:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "列举全部工具描述导致大量输出截断。",
+      "evidence": "第18、25、45、47行",
+      "possible_solutions": [
+        "先按命名空间筛选工具名称，再读取候选详情。"
+      ],
+      "uncertainty": "原审计根因置信：高：错误根路径及不加约束地输出工具描述；多余恢复和约4万字符截断；探索实际工具和资源本身合理。"
+    },
+    {
+      "id": "01a1521a-17dd-7443-b464-6c3bd2775421:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "原故障原因不可由本会话确认。",
+      "evidence": "源审计任务段定位：第10、39–60行",
+      "possible_solutions": [
+        "在权限允许且确有必要时核对关联会话或原始日志；否则将当前判断限定在已审范围。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    }
+  ]
+}

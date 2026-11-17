@@ -1,0 +1,139 @@
+{
+  "session_id": "01a133fe-6308-7ea0-a68b-38ef3896b9f6",
+  "title": "Read swarmforge instructions",
+  "source_audit": "sol_env/01a133fe-6308-7ea0-a68b-38ef3896b9f6.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "historical_outcome_status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a133fe-6308-7ea0-a68b-38ef3896b9f6:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "positive_context",
+      "description": "红灯后实现通过；交接门槛触发自审，补非ASCII输入验证，7例通过。 影响：自审增加一个实际边界断言，有质量收益。",
+      "evidence": [
+        {
+          "session_id": "01a133fe-6308-7ea0-a68b-38ef3896b9f6",
+          "physical_lines": [
+            162,
+            176,
+            178,
+            185,
+            188,
+            194,
+            206,
+            209,
+            215,
+            218,
+            225,
+            229,
+            232,
+            240,
+            252,
+            255,
+            259,
+            262
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "应保留：保留小而相关的行为断言与交接自审。"
+      ],
+      "uncertainty": "首个红灯是namespace未有实现，适用于新函数；不是业务回归，也不宜把所有红灯当低效。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a133fe-6308-7ea0-a68b-38ef3896b9f6:F02",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "candidate_issue",
+      "description": "两轮均收到两封Cleaner同commit回传，重复读取共同规则约15k字符、merge同commit、运行相同测试。 影响：4次回传消费，其中2次同SHA重复；测试每次约0.3–0.4秒，主要成本是模型/上下文往返，未知精确秒数。",
+      "evidence": [
+        {
+          "session_id": "01a133fe-6308-7ea0-a68b-38ef3896b9f6",
+          "physical_lines": [
+            334,
+            337,
+            350,
+            353,
+            366,
+            369,
+            382,
+            385,
+            391,
+            394,
+            398,
+            401,
+            405,
+            408,
+            529,
+            532,
+            538,
+            541,
+            545,
+            548,
+            552,
+            555,
+            568,
+            571,
+            577,
+            580,
+            584,
+            587,
+            591,
+            594
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "同SHA已审已测时复用结果，只消费消息状态；保留不同commit的必要复测。"
+      ],
+      "uncertainty": "消息可能是协议预期的Task和Cleaner双返回；未确认是Bug，不能直接取消必要交接。但第二封无代码变化可增量确认。 根因置信：medium；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a133fe-6308-7ea0-a68b-38ef3896b9f6:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "Coder记录的质量指标依据已有artifacts核对，未独立重新生成coverage；现有报告不能证明该角色复算出覆盖率。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "statement": "68顶层调用全扫；记录指标来自已存在artifacts，不声称Coder独立复算coverage。"
+        }
+      ],
+      "possible_solutions": [
+        "若需要独立验证该指标，用同commit、同测试配置重新生成coverage并核对artifacts；否则保留来源为既有产物的表述。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a133fe-6308-7ea0-a68b-38ef3896b9f6:A01",
+      "source_refs": [
+        "/task_segments/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "角色启动时缺少helper PATH，不能接任务；逐命令加prefix后才能运行，启动入口前提未准备完整。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/0"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "在相同实际子shell预检helper路径并修正启动环境，避免模型读规则后才发现入口不可执行。"
+      ],
+      "uncertainty": "后续prefix已成功、NO_TASK停止符合规则；不将无任务当业务实现失败。"
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "session_id": "01a1339e-d169-7c10-ab99-168d8d2d9b82",
+  "title": "验证飞书文档连接能力",
+  "source_audit": "sol_env/01a1339e-d169-7c10-ab99-168d8d2d9b82.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties",
+    "historical_outcome_status"
+  ],
+  "items": [
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "用户明确仅做飞书后，仍下载并解包63个LibreOffice依赖并处理UNO/路径/共享库故障，最终再次被用户纠正。 影响：至少十余次Word运行/环境探测及下载；与飞书更新并行，不能把整个2700.68秒轮次都归Word。",
+      "evidence": [
+        {
+          "session_id": "01a1339e-d169-7c10-ab99-168d8d2d9b82",
+          "physical_lines": [
+            961,
+            1374,
+            1386,
+            1500,
+            1504,
+            1524,
+            1531,
+            1538,
+            1559,
+            1588,
+            1615,
+            1668
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "用户改变交付目标后更新当前交付清单，取消不服务当前成果的后台工作。"
+      ],
+      "uncertainty": "初始842确实要求Word，但后续961明确收窄；1315要求增量已有成果不构成恢复Word交付的明确授权。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:F02",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "增量脚本replace先observe，update再observe，写后observe；循环每次至少三次全文fetch，39个云端修改序列。 影响：可确认额外API往返；没有逐API完整计时，不给精确节省秒数。",
+      "evidence": [
+        {
+          "session_id": "01a1339e-d169-7c10-ab99-168d8d2d9b82",
+          "physical_lines": [
+            1498,
+            1507,
+            1524,
+            1538,
+            1559,
+            1582,
+            1606,
+            1615
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "一次基线读取确定差异；写成功更新revision/局部状态；在风险边界或最终汇总回读，冲突时重新读取。"
+      ],
+      "uncertainty": "每次获取revision可防并发覆盖，写后验证有价值；重复获取同一版本和完整正文可缓存。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:F03",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "positive_context",
+      "description": "追加数字后回读定位唯一段落，删除后复核正文长度恢复；独立创建后回读；后来明确整体网页尚未核验。 影响：防止写入回执成功而实际状态错误；验证的质量收益明确。",
+      "evidence": [
+        {
+          "session_id": "01a1339e-d169-7c10-ab99-168d8d2d9b82",
+          "physical_lines": [
+            643,
+            779,
+            782,
+            786,
+            789,
+            793,
+            796,
+            804,
+            807,
+            811,
+            814,
+            818,
+            821,
+            1758
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "应保留：继续区分API回执、正文回读和网页呈现三个层次。"
+      ],
+      "uncertainty": "符合用户修改后的明确授权；应保留这些验证，不能统称低效。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:F04a",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "confirmed_issue",
+      "description": "用户身份token过期而bot可用，顶层验证不足以说明用户文档读取能力；身份混用会导致错误能力结论。",
+      "evidence": [
+        {
+          "session_id": "01a1339e-d169-7c10-ab99-168d8d2d9b82",
+          "physical_lines": [
+            1958,
+            1978,
+            1994,
+            2063,
+            2071,
+            2087,
+            2102
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "分别检查user/bot，并以任务所需身份实读目标文档；失效时走官方授权再复验。"
+      ],
+      "uncertainty": "环境/身份必须实测；不是CLI本身不支持也不是所有认证失败。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:F04b",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "confirmed_issue",
+      "description": "Windows直接调用WSL CLI缺少Node PATH，login shell成功；已有安装因调用入口不同而失败。",
+      "evidence": [
+        {
+          "session_id": "01a1339e-d169-7c10-ab99-168d8d2d9b82",
+          "physical_lines": [
+            1958,
+            1978,
+            1994,
+            2063,
+            2071,
+            2087,
+            2102
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "复用已实测成功的WSL login-shell入口，并保存宿主、用户、CLI位置。"
+      ],
+      "uncertainty": "环境/身份必须实测；不是CLI本身不支持也不是所有认证失败。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:F05",
+      "source_refs": [
+        "/findings/4"
+      ],
+      "kind": "candidate_issue",
+      "description": "简单问答轮65–84秒，无工具；日志指导约840.7秒，含6个web搜索/打开与本机检查。 影响：可定位搜索反复与大上下文；模型/API/排队剩余无法拆分。",
+      "evidence": [
+        {
+          "session_id": "01a1339e-d169-7c10-ab99-168d8d2d9b82",
+          "physical_lines": [
+            1817,
+            1829,
+            1843,
+            1864,
+            1871,
+            1878,
+            1885,
+            1894,
+            1905,
+            1919
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "报告工具等待、授权、用户空档、未知非工具时间；只针对可观测重复搜索优化。"
+      ],
+      "uncertainty": "日志仅有总轮次和工具壁钟；不能证明无工具时间全为思考、也不能由自述推定生成原因。 根因置信：medium；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "第一轮和部分巨大文档返回在摘要中截断；未逐字符阅读全部官方源码。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "statement": "第一轮和部分巨大文档返回在摘要中截断；未逐字符阅读全部官方源码。"
+        }
+      ],
+      "possible_solutions": [
+        "按固定物理行分页补读相关输入/返回；原生已截断的部分保持未知。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "positive_context",
+      "description": "助手历史自述不直接当根因证据。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/1",
+          "statement": "助手历史自述不直接当根因证据。"
+        }
+      ],
+      "possible_solutions": [
+        "保留以实际调用、退出码和时间戳核对根因的做法，助手自述单列为待验证解释。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:U03",
+      "source_refs": [
+        "/uncertainties/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "源日志356/402含裸凭据，reader通用脱敏未可靠覆盖；再次输出全文可能泄露。本目录仅记位置，不复制值。",
+      "evidence": [
+        {
+          "session_id": "01a1339e-d169-7c10-ab99-168d8d2d9b82",
+          "physical_lines": [
+            356,
+            402
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "报告只保留类型和源行；输出前按这些位置核对脱敏。"
+      ],
+      "uncertainty": "未证明凭据被外部使用；不能声称通用正则可靠识别全部裸秘密。"
+    },
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:U04",
+      "source_refs": [
+        "/uncertainties/3"
+      ],
+      "kind": "positive_context",
+      "description": "主子代理并行时间不相加。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/3",
+          "statement": "主子代理并行时间不相加。"
+        }
+      ],
+      "possible_solutions": [
+        "保留并行区间并集计时；主子墙钟不相加，无基线不声称净提速。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82:A01",
+      "source_refs": [
+        "/task_segments/2"
+      ],
+      "kind": "evidence_gap",
+      "description": "增量云端修改和正文回读成功，但因未登录未核验网页整体排版，最终视觉交付仍有证据缺口。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/2"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "在合法可访问的网页入口检查整体布局和图文位置；无法核验时继续明确该边界。"
+      ],
+      "uncertainty": "原报告明确未确认该结果；没有证据证明后续一定失败，亦不能补造完成。"
+    }
+  ]
+}

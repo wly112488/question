@@ -1,0 +1,210 @@
+{
+  "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+  "status": "deep_reviewed",
+  "reviewed_scope": {
+    "snapshot_lines": 2365,
+    "tool_calls_scanned": 263,
+    "method": "逐条用户/助手消息；全部调用输入/输出的分块语义扫描；展开关键失败和修复；长代码/成功数据输出归并。不是对191个源码模块重新做代码审计。",
+    "related_sessions": [
+      "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+      "01a19ca4-7516-75c3-ab58-2da993c3b76d"
+    ]
+  },
+  "task_segments": [
+    {
+      "lines": [
+        12,
+        663
+      ],
+      "goal": "完整保留确认HTML行为，渐进恢复React工程；包含路由、状态、文件、草稿及行为对照",
+      "assessment": "识别HTML与邻近旧源码不一致，使用AST与source map恢复而非直接打包旧源码，符合当时要求。"
+    },
+    {
+      "lines": [
+        664,
+        2274
+      ],
+      "goal": "用户免除截图像素差异，继续功能/数据迁移与验收",
+      "assessment": "按要求停止像素检查，后续主要是基线用例更新、存储迁移、架构整理及新旧入口对照。"
+    },
+    {
+      "lines": [
+        2281,
+        2365
+      ],
+      "goal": "打开HTML、寻找可维护源码和tang目录",
+      "assessment": "均提供路径/命令。多次询问源码地址是交付导航不够直达的低影响信号，不能据此认定功能实现失败。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "DEV-REACT-1",
+      "state": "confirmed_resolved",
+      "fact": "验收时开发服务与依赖/源码仍在变化：先出现Outdated Optimize Dep/导出不匹配，后一次仅入口注释保存触发热重载，导致参数上移按钮超时；冻结后原用例通过。",
+      "sources": [
+        {
+          "line": 375,
+          "output_line": 378,
+          "call_index": 46
+        },
+        {
+          "line": 2072,
+          "output_line": 2075,
+          "call_index": 237
+        },
+        {
+          "line": 2086,
+          "output_line": 2089,
+          "call_index": 239
+        },
+        {
+          "line": 2108,
+          "output_line": 2111,
+          "call_index": 242
+        },
+        {
+          "line": 2116,
+          "output_line": 2119,
+          "call_index": 243
+        }
+      ],
+      "judgment": "可避免的验收环境扰动，与必要回归检查分开。",
+      "counter_explanation": "早期模块恢复确实需要不断重建；新失败并非都由HMR造成，任务卡片另有开发/生产执行语义差异。",
+      "confirmed_loss": "末次物理对象失败18.309秒，稳定后定向复测22.915秒；两者属异步测试区间，不与主线程墙钟重复相加。早期重复构建/全套回归的净多耗时无法可靠隔离。",
+      "root_cause_confidence": "high",
+      "minimum_change": "在浏览器验收批次启动前固定源码及lockfile指纹；测试期间禁止写入被Vite监视的源码/注释，改动后重启并只先跑受影响场景。"
+    },
+    {
+      "id": "DEV-REACT-2",
+      "state": "confirmed_resolved",
+      "fact": "自动化前端基线用例依赖开发机API代理，physical/feedback在刷新时超时；独立探测localhost:3001同样超时。最终增加前端本地数据验收的API夹具，并保留专业执行端口独立成功/失败适配。",
+      "sources": [
+        {
+          "line": 1948,
+          "output_line": 1951,
+          "call_index": 224
+        },
+        {
+          "line": 2051,
+          "output_line": 2055,
+          "call_index": 235
+        },
+        {
+          "line": 2065,
+          "output_line": 2068,
+          "call_index": 236
+        },
+        {
+          "line": 2116,
+          "output_line": 2119,
+          "call_index": 243
+        }
+      ],
+      "judgment": "测试边界初始化太晚，增加了与产品行为无关的超时。",
+      "counter_explanation": "真实外部服务不可用的保护行为本来就是验收要求；夹具不能证明端到端后端可用，模型最终没有这样宣称。",
+      "confirmed_loss": "重启后physical-current一次43.215秒失败；后续3秒API探测exit28。不可将所有刷新失败都追溯为同一根因。",
+      "root_cause_confidence": "high",
+      "minimum_change": "开始浏览器回归前声明每类场景的外部依赖：本地行为对照使用固定夹具；真实API可用性单独探测，超时就单列阻塞。"
+    },
+    {
+      "id": "DEV-REACT-3",
+      "state": "confirmed_resolved",
+      "fact": "file://到HTTP运行改变浏览器存储来源，需新增迁移；新增导出初版遗漏真实tangram主题/展开键，且异步读文件再读元数据可形成混合快照。子审实际复现并回传，主线程补测修复。",
+      "sources": [
+        {
+          "line": 1147
+        },
+        {
+          "session_id": "01a19ca4-7516-75c3-ab58-2da993c3b76d",
+          "line": 273,
+          "output_line": 276
+        },
+        {
+          "session_id": "01a19ca4-7516-75c3-ab58-2da993c3b76d",
+          "line": 307,
+          "output_line": 310
+        },
+        {
+          "line": 1359,
+          "output_line": 1362,
+          "call_index": 158
+        },
+        {
+          "line": 1366,
+          "output_line": 1369,
+          "call_index": 159
+        }
+      ],
+      "judgment": "数据保真要求已在原始提示明确；迁移是必要工作，新工具设计依赖猜测的命名空间而未先用实际键清单，造成可复现的中间缺陷。交付前已关闭，不能称最终数据丢失。",
+      "counter_explanation": "新增迁移工具是为满足原要求而补足，不是无关扩 scope；独立审查在这里产生实际价值。",
+      "confirmed_loss": "两项Important补丁与至少2项新增迁移单元测试、浏览器复现/复测；没有最终用户实际数据损失证据。",
+      "root_cause_confidence": "high",
+      "minimum_change": "跨来源/跨存储重构先列实际键、数据库、文件ID及快照一致性不变量，再实现导入导出，验收覆盖中途写入与目标已有数据。"
+    },
+    {
+      "id": "DEV-REACT-4",
+      "state": "confirmed_resolved",
+      "fact": "一次tail读取data URL堆栈，原始工具报告约10879659 tokens/42470058 bytes省略；另一次rg fixtures报告753278 tokens/1964535 bytes省略。模型随后增加bounded stack和真实事件边界。",
+      "sources": [
+        {
+          "line": 1045,
+          "output_line": 1048,
+          "call_index": 127
+        },
+        {
+          "line": 1055,
+          "output_line": 1058,
+          "call_index": 128
+        },
+        {
+          "line": 1817,
+          "output_line": 1820,
+          "call_index": 207
+        }
+      ],
+      "judgment": "按行tail/head不能限制单行bundle/base64/序列化fixture大小，巨大中间输出掩盖有效错误。工具标注原始token数不等于这些token全部进入模型上下文。",
+      "counter_explanation": "读取错误详情是合理的，问题是输出边界；第一次极长堆栈可能难以预见。",
+      "confirmed_loss": "返回被截断并需重新定位有效错误；不能从原始token估算实际计费或延迟。",
+      "root_cause_confidence": "high",
+      "minimum_change": "对bundle、data URL及JSON fixture先做字节限长/结构字段抽取，错误保留类型、首个业务栈与退出码；不要只按行截断。"
+    },
+    {
+      "id": "DEV-REACT-5",
+      "state": "not_a_defect",
+      "fact": "大量历史用例在确认HTML本身也失败，模型将它们保留为历史证据并更新当前基线用例；最终66项自动化、开发/生产11套70组、三个入口58地址对照均有输出。",
+      "sources": [
+        {
+          "line": 328
+        },
+        {
+          "line": 2197,
+          "output_line": 2200
+        },
+        {
+          "line": 2218,
+          "output_line": 2221
+        },
+        {
+          "line": 2250,
+          "output_line": 2253
+        },
+        {
+          "line": 2259,
+          "output_line": 2262
+        },
+        {
+          "line": 2274
+        }
+      ],
+      "judgment": "不能把必要质量检查、故意红灯测试或保留基线异常统称浪费；完成声明基本对应工具证据。",
+      "root_cause_confidence": "high",
+      "minimum_change": "保留这种先跑原基线再判回归的做法；只在环境被固定后做最终全套。"
+    }
+  ],
+  "uncertainties": [
+    "初期refactor_review子会话快照在52行结束，无最终回传；主会话后续list_agents仅剩root，无法判断是否中断或外部生命周期问题。",
+    "部分原工具结果在写入历史时已截断，重读源行不能恢复被执行器省略的字节；不据省略部分作确定缺陷结论。",
+    "派发和子代理消息部分以密文记录，无法逐字恢复派发要求；以agent_path、只读行为、最终回传及主线程响应关联。",
+    "日志跨夜且有恢复环境变化，不能将两轮总跨度当持续模型耗时。"
+  ]
+}

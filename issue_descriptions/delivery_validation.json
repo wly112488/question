@@ -1,0 +1,19 @@
+{
+  "reports": 72,
+  "all_items": 607,
+  "by_kind": {
+    "confirmed_issue": 285,
+    "evidence_gap": 142,
+    "positive_context": 134,
+    "candidate_issue": 46
+  },
+  "source_elements_expected_and_mapped": 382,
+  "groups": 120,
+  "assigned_ids": 607,
+  "source_audits_unchanged": 72,
+  "per_report_inputs_unchanged": true,
+  "raw_rollouts_unchanged": 91,
+  "descriptions_and_solutions_preserved": true,
+  "errors": [],
+  "complete": true
+}

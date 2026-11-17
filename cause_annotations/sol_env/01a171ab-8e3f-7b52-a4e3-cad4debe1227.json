@@ -1,0 +1,287 @@
+{
+  "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+  "source_audit": "sol_env/01a171ab-8e3f-7b52-a4e3-cad4debe1227.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/25/rollout-2026-10-25T14-07-15-01a171ab-8e3f-7b52-a4e3-cad4debe1227.jsonl",
+  "snapshot_lines": 786,
+  "items": [
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F01",
+      "kind": "confirmed_issue",
+      "description": "初始连续七次Windows/全盘名称搜索，后来用户指出WSL才列[USER_HOME]/projects找到protangram。 影响：多个10秒搜索；不是纯模型推理。",
+      "context_from_chat": "12要打开旧pro-v1，112指定WSL；174只问预览包存D盘，422要求真实修Windows→WSL localhost并按需确认；690转问项目类型会话，753才明确Codex。",
+      "trigger_or_change": "旧项目定位、跨平台复制/预览、新分支预览和概念问答先后变化。",
+      "workflow_relevance": "677用户明确认为UI适配可快速预览，后续视觉迭代属于目标背景；但本组问题是定位、可移植性和客户端连接，不是把用户持续改样式当错误。",
+      "necessary_cost": "确认项目身份、源/目标环境、真实预览入口及保护脏工作区必要。",
+      "possibly_avoidable_cost": "可少用不匹配别名扩大全盘搜索、交付前预检外链和Windows入口；不把正常预览重开算浪费。",
+      "cause_status": "mixed",
+      "cause_explanation": "补充原描述：49其实已经搜索/home，不是七次全只搜Windows；但按pro-v1/pro_v1精确别名未匹配protangram，随后仍扩Windows/全盘。112指出WSL后118列projects清单、122找到近似项目名。根因是搜索策略过早锁定精确别名及宿主优先级，不能说完全没看Linux。",
+      "raw_evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            12,
+            42,
+            49,
+            56,
+            63,
+            70,
+            76,
+            83,
+            112,
+            118,
+            122
+          ],
+          "what_it_supports": "原用户范围、实际命令/输出与后续验证"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先列常用项目根一层清单并按别名匹配候选，再用精确路径深入。"
+      ],
+      "remaining_uncertainty": "仅支持可见环境/决策差异，不推定模型内部动机或省时反事实。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F02a",
+      "kind": "confirmed_issue",
+      "description": "cp -a保留node_modules指向WSL原项目的外部链接，D盘副本并非依赖自足，Windows压缩报错。",
+      "context_from_chat": "12要打开旧pro-v1，112指定WSL；174只问预览包存D盘，422要求真实修Windows→WSL localhost并按需确认；690转问项目类型会话，753才明确Codex。",
+      "trigger_or_change": "旧项目定位、跨平台复制/预览、新分支预览和概念问答先后变化。",
+      "workflow_relevance": "677用户明确认为UI适配可快速预览，后续视觉迭代属于目标背景；但本组问题是定位、可移植性和客户端连接，不是把用户持续改样式当错误。",
+      "necessary_cost": "确认项目身份、源/目标环境、真实预览入口及保护脏工作区必要。",
+      "possibly_avoidable_cost": "可少用不匹配别名扩大全盘搜索、交付前预检外链和Windows入口；不把正常预览重开算浪费。",
+      "cause_status": "supported",
+      "cause_explanation": "187 cp -a按保留属性复制，227原/目标node_modules都仍指向WSL原目录；Windows压缩遇这种Linux绝对symlink不能打包完整依赖。174未明确要求可移植包，故成本是用途确认/源链接检查不足，而非违反已承诺独立包。",
+      "raw_evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            174,
+            187,
+            197,
+            218,
+            227
+          ],
+          "what_it_supports": "原用户范围、实际命令/输出与后续验证"
+        }
+      ],
+      "revised_possible_solutions": [
+        "源码保存排除依赖并保留锁文件/恢复说明；若需独立包，按目标环境恢复实际依赖后验证。"
+      ],
+      "remaining_uncertainty": "仅支持可见环境/决策差异，不推定模型内部动机或省时反事实。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F02b",
+      "kind": "confirmed_issue",
+      "description": "复制worktree时.git仍是指向外部WSL Git目录的指针，D盘副本Git关联依赖原环境。",
+      "context_from_chat": "12要打开旧pro-v1，112指定WSL；174只问预览包存D盘，422要求真实修Windows→WSL localhost并按需确认；690转问项目类型会话，753才明确Codex。",
+      "trigger_or_change": "旧项目定位、跨平台复制/预览、新分支预览和概念问答先后变化。",
+      "workflow_relevance": "677用户明确认为UI适配可快速预览，后续视觉迭代属于目标背景；但本组问题是定位、可移植性和客户端连接，不是把用户持续改样式当错误。",
+      "necessary_cost": "确认项目身份、源/目标环境、真实预览入口及保护脏工作区必要。",
+      "possibly_avoidable_cost": "可少用不匹配别名扩大全盘搜索、交付前预检外链和Windows入口；不把正常预览重开算浪费。",
+      "cause_status": "supported",
+      "cause_explanation": "204显示.git是外部gitdir文件，不是独立Git数据库；cp -a复制的是worktree指针，D盘源码仍依赖WSL主仓库。Git关联是原项目布局特性，不是复制内容损坏。",
+      "raw_evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            174,
+            187,
+            197,
+            204
+          ],
+          "what_it_supports": "原用户范围、实际命令/输出与后续验证"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保存前明确源码副本、独立仓库或交付包用途；独立仓库用可复现导出/克隆，不保留失效外部指针。"
+      ],
+      "remaining_uncertainty": "仅支持可见环境/决策差异，不推定模型内部动机或省时反事实。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F03",
+      "kind": "confirmed_issue",
+      "description": "首次只凭Vite启动及打开命令即交付localhost；用户不显示后才测Windows curl，发现Windows localhost失败但WSL IP200。 影响：一轮用户纠正和多次探测；镜像配置未应用仍据实标待验证。",
+      "context_from_chat": "12要打开旧pro-v1，112指定WSL；174只问预览包存D盘，422要求真实修Windows→WSL localhost并按需确认；690转问项目类型会话，753才明确Codex。",
+      "trigger_or_change": "旧项目定位、跨平台复制/预览、新分支预览和概念问答先后变化。",
+      "workflow_relevance": "677用户明确认为UI适配可快速预览，后续视觉迭代属于目标背景；但本组问题是定位、可移植性和客户端连接，不是把用户持续改样式当错误。",
+      "necessary_cost": "确认项目身份、源/目标环境、真实预览入口及保护脏工作区必要。",
+      "possibly_avoidable_cost": "可少用不匹配别名扩大全盘搜索、交付前预检外链和Windows入口；不把正常预览重开算浪费。",
+      "cause_status": "mixed",
+      "cause_explanation": "264 Vite就绪并监听0.0.0.0仅证明WSL服务，276给localhost并称已尝试打开，283用户不显示；324 Windows localhost失败、331 WSL IP200。确定是目标消费侧未验；具体NAT转发内部失效原因未查清，不能沿用其他会话http-kit地址族原因到本Vite服务。",
+      "raw_evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            262,
+            264,
+            276,
+            283,
+            324,
+            331,
+            408,
+            415,
+            483
+          ],
+          "what_it_supports": "原用户范围、实际命令/输出与后续验证"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先从Windows实际入口查当前地址，临时可用IP与尚未修好的localhost分别报告。"
+      ],
+      "remaining_uncertainty": "仅支持可见环境/决策差异，不推定模型内部动机或省时反事实。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F04",
+      "kind": "confirmed_issue",
+      "description": "用户问创建项目类型会话，助手沿业务系统语义读四批源码；用户说明WSL/新建项目/用Codex后才对准任务。 影响：4次源码读取及三轮用户纠正。",
+      "context_from_chat": "12要打开旧pro-v1，112指定WSL；174只问预览包存D盘，422要求真实修Windows→WSL localhost并按需确认；690转问项目类型会话，753才明确Codex。",
+      "trigger_or_change": "旧项目定位、跨平台复制/预览、新分支预览和概念问答先后变化。",
+      "workflow_relevance": "677用户明确认为UI适配可快速预览，后续视觉迭代属于目标背景；但本组问题是定位、可移植性和客户端连接，不是把用户持续改样式当错误。",
+      "necessary_cost": "确认项目身份、源/目标环境、真实预览入口及保护脏工作区必要。",
+      "possibly_avoidable_cost": "可少用不匹配别名扩大全盘搜索、交付前预检外链和Windows入口；不把正常预览重开算浪费。",
+      "cause_status": "inferred",
+      "cause_explanation": "690词语在业务和Codex均可解释；696–713沿现有业务Session源码核对，719回答ProTangram。732/743/753逐步明确WSL新项目/Codex，说明初次歧义真实存在；四批源码是错误层级的取证，后续应以新线索覆盖业务锚定，不把用户概念澄清叫需求返工。",
+      "raw_evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            677,
+            690,
+            696,
+            701,
+            706,
+            713,
+            719,
+            732,
+            743,
+            753
+          ],
+          "what_it_supports": "原用户范围、实际命令/输出与后续验证"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先用一句具体对象复述区分业务会话与开发工具会话；已有WSL/Codex线索后直接给对应操作。"
+      ],
+      "remaining_uncertainty": "仅支持可见环境/决策差异，不推定模型内部动机或省时反事实。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F05",
+      "kind": "positive_context",
+      "description": "对指定远端commit使用独立detached worktree、新端口，WSL与Windows侧均200，保留脏工作区。 影响：避免丢失用户已有修改。",
+      "context_from_chat": "12要打开旧pro-v1，112指定WSL；174只问预览包存D盘，422要求真实修Windows→WSL localhost并按需确认；690转问项目类型会话，753才明确Codex。",
+      "trigger_or_change": "旧项目定位、跨平台复制/预览、新分支预览和概念问答先后变化。",
+      "workflow_relevance": "677用户明确认为UI适配可快速预览，后续视觉迭代属于目标背景；但本组问题是定位、可移植性和客户端连接，不是把用户持续改样式当错误。",
+      "necessary_cost": "确认项目身份、源/目标环境、真实预览入口及保护脏工作区必要。",
+      "possibly_avoidable_cost": "可少用不匹配别名扩大全盘搜索、交付前预检外链和Windows入口；不把正常预览重开算浪费。",
+      "cause_status": "supported",
+      "cause_explanation": "608 detached worktree检出指定远端，611有commit，625使用新端口，635同时WSL和WindowsIP200，647保留原5173和未提交文件。隔离正例有效于用户已有脏工作区且需看不同分支。",
+      "raw_evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            608,
+            611,
+            625,
+            635,
+            647
+          ],
+          "what_it_supports": "原用户范围、实际命令/输出与后续验证"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留repo/commit/数据/端口映射和独立worktree验证，避免为预览覆盖用户当前修改。"
+      ],
+      "remaining_uncertainty": "仅支持可见环境/决策差异，不推定模型内部动机或省时反事实。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:U01",
+      "kind": "positive_context",
+      "description": "Windows版本信息存在显示矛盾，审计依据build核实，没有仅用注册表ProductName认定版本。",
+      "context_from_chat": "12要打开旧pro-v1，112指定WSL；174只问预览包存D盘，422要求真实修Windows→WSL localhost并按需确认；690转问项目类型会话，753才明确Codex。",
+      "trigger_or_change": "旧项目定位、跨平台复制/预览、新分支预览和概念问答先后变化。",
+      "workflow_relevance": "677用户明确认为UI适配可快速预览，后续视觉迭代属于目标背景；但本组问题是定位、可移植性和客户端连接，不是把用户持续改样式当错误。",
+      "necessary_cost": "确认项目身份、源/目标环境、真实预览入口及保护脏工作区必要。",
+      "possibly_avoidable_cost": "可少用不匹配别名扩大全盘搜索、交付前预检外链和Windows入口；不把正常预览重开算浪费。",
+      "cause_status": "supported",
+      "cause_explanation": "440/455的ProductName写Windows10但build26200/25H2，461/465又核对网络模式与支持条件。最终按build/实际能力判断而非单个名称，避免把显示标签当系统事实。",
+      "raw_evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            440,
+            451,
+            452,
+            455,
+            461,
+            465
+          ],
+          "what_it_supports": "原用户范围、实际命令/输出与后续验证"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留版本字段交叉核对及实际能力检查，不把名称矛盾当文件乱码。"
+      ],
+      "remaining_uncertainty": "仅支持可见环境/决策差异，不推定模型内部动机或省时反事实。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:U02",
+      "kind": "evidence_gap",
+      "description": "390–495截断段已补读；大型源码输出不逐字符复核。",
+      "context_from_chat": "12要打开旧pro-v1，112指定WSL；174只问预览包存D盘，422要求真实修Windows→WSL localhost并按需确认；690转问项目类型会话，753才明确Codex。",
+      "trigger_or_change": "旧项目定位、跨平台复制/预览、新分支预览和概念问答先后变化。",
+      "workflow_relevance": "677用户明确认为UI适配可快速预览，后续视觉迭代属于目标背景；但本组问题是定位、可移植性和客户端连接，不是把用户持续改样式当错误。",
+      "necessary_cost": "确认项目身份、源/目标环境、真实预览入口及保护脏工作区必要。",
+      "possibly_avoidable_cost": "可少用不匹配别名扩大全盘搜索、交付前预检外链和Windows入口；不把正常预览重开算浪费。",
+      "cause_status": "unknown",
+      "cause_explanation": "38等原生返回有truncated标记；393–483可见网络证据足够限定故障层，但未展开的全部源码不在本轮完整证明范围。原生截断无法由摘要还原，不给未读实现编原因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            38,
+            398,
+            440,
+            455,
+            465,
+            483
+          ],
+          "what_it_supports": "原用户范围、实际命令/输出与后续验证"
+        }
+      ],
+      "revised_possible_solutions": [
+        "仅补读与具体因果相关的保存源行，无法恢复部分继续未知。"
+      ],
+      "remaining_uncertainty": "仅支持可见环境/决策差异，不推定模型内部动机或省时反事实。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:A01",
+      "kind": "evidence_gap",
+      "description": "镜像网络配置已创建，但按用户要求未重启应用；固定快照没有证明该配置已生效并永久修复localhost。",
+      "context_from_chat": "12要打开旧pro-v1，112指定WSL；174只问预览包存D盘，422要求真实修Windows→WSL localhost并按需确认；690转问项目类型会话，753才明确Codex。",
+      "trigger_or_change": "旧项目定位、跨平台复制/预览、新分支预览和概念问答先后变化。",
+      "workflow_relevance": "677用户明确认为UI适配可快速预览，后续视觉迭代属于目标背景；但本组问题是定位、可移植性和客户端连接，不是把用户持续改样式当错误。",
+      "necessary_cost": "确认项目身份、源/目标环境、真实预览入口及保护脏工作区必要。",
+      "possibly_avoidable_cost": "可少用不匹配别名扩大全盘搜索、交付前预检外链和Windows入口；不把正常预览重开算浪费。",
+      "cause_status": "supported",
+      "cause_explanation": "473/476仅写mirrored配置，483明确需wsl --shutdown并等待确认，508仍nat，520再次说明未生效。因此永久修复缺证来自未应用配置，而非已应用后验证失败；等待遵守当时重启边界，不应标自主性不足。",
+      "raw_evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            422,
+            473,
+            476,
+            483,
+            508,
+            520,
+            647
+          ],
+          "what_it_supports": "原用户范围、实际命令/输出与后续验证"
+        }
+      ],
+      "revised_possible_solutions": [
+        "用户允许重启后再应用并从真实Windows入口验收；在此前继续标配置已写/未生效，不重复宣称已修。"
+      ],
+      "remaining_uncertainty": "仅支持可见环境/决策差异，不推定模型内部动机或省时反事实。"
+    }
+  ]
+}

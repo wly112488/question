@@ -1,0 +1,106 @@
+{
+  "session_id": "01a1d554-be0f-7a31-8950-bc9ff1c9f2f9",
+  "title": "读取抖音作品前10条评论",
+  "source_audit": "terra/01a1d554-be0f-7a31-8950-bc9ff1c9f2f9.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a1d554-be0f-7a31-8950-bc9ff1c9f2f9:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "先称没有可用Playwright或Chromium，用户两次提示后找到Windows项目依赖并成功运行；把当前模块解析路径或WSL环境的失败泛化为机器范围不存在；当时WSL浏览器确缺库，局部结论合理。 影响或损失：额外两个用户轮次；无法将轮间空档算作工作时间",
+      "evidence": "第215、222、285、292、295、328、335、355、358、371、381、386行",
+      "possible_solutions": [
+        "限定结论到已检查的环境和路径；下载前优先检查已知项目依赖和浏览器缓存。"
+      ],
+      "uncertainty": "原审计根因置信：高：未区分Windows与WSL及项目本地依赖解析范围；把当前模块解析路径或WSL环境的失败泛化为机器范围不存在；当时WSL浏览器确缺库，局部结论合理。"
+    },
+    {
+      "id": "01a1d554-be0f-7a31-8950-bc9ff1c9f2f9:F02",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "登录后脚本对主评论fetch未设超时，轮询约70秒后中断，随后复用脚本再等待至少30秒；等待无输出的操作缺少请求级上限；尝试访问服务本身有必要。 影响或损失：首轮外层等待至少70秒、后轮至少30秒；不是模型推理",
+      "evidence": "第505、507、511–544、620–629行",
+      "possible_solutions": [
+        "每个网络阶段设超时并输出阶段状态；重试先验证阻塞原因或变更条件。"
+      ],
+      "uncertainty": "原审计根因置信：高：第505行main fetch无AbortSignal，只有回复请求有超时；等待无输出的操作缺少请求级上限；尝试访问服务本身有必要。"
+    },
+    {
+      "id": "01a1d554-be0f-7a31-8950-bc9ff1c9f2f9:F03",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "前两次安装只输出 output 丢失进程句柄，随后重复启动相同 pip 安装，第三次才保留 session_id 并轮询；后台任务状态被丢失而重复同一安装；缓慢下载本身是网络问题，不能断言前两进程确实均仍运行。 影响或损失：两次外层各等待30秒后重复启动；无法计算真正可避免耗时",
+      "evidence": "第167、169、180、182、186、188、192–203行",
+      "possible_solutions": [
+        "保留 session_id、退出码和输出，先轮询原进程再重试。"
+      ],
+      "uncertainty": "原审计根因置信：高：代码仅 text(r.output)，随后改用完整 JSON；后台任务状态被丢失而重复同一安装；缓慢下载本身是网络问题，不能断言前两进程确实均仍运行。"
+    },
+    {
+      "id": "01a1d554-be0f-7a31-8950-bc9ff1c9f2f9:F04",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "confirmed_issue",
+      "description": "主评论获取返回 NO_MAIN_COMMENTS 后，未改变脚本或会话便原样重跑，仍返回同样结果；下一次才改变网址；一次重试没有改变已知条件；偶发请求可能恢复，因此不是逻辑上绝无价值。 影响或损失：重复运行约8秒",
+      "evidence": "第401、404、408、411、415、418行",
+      "possible_solutions": [
+        "重试先确认新假设或设置有界次数；记录失败阶段。"
+      ],
+      "uncertainty": "原审计根因置信：高：命令与环境一致；一次重试没有改变已知条件；偶发请求可能恢复，因此不是逻辑上绝无价值。"
+    },
+    {
+      "id": "01a1d554-be0f-7a31-8950-bc9ff1c9f2f9:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "positive_context",
+      "description": "首次接口返回19条，代码只打印前10条；服务端返回条数不等同主动翻页。",
+      "evidence": "源审计任务段定位：第12、75、124、215、222、328、335、378、381、386行；第393、455、462、485、492、505–544、570、577、620–634行",
+      "possible_solutions": [
+        "保留原有证据边界与有意红测、成功复验或无问题的上下文，不将其误记为失败。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a1d554-be0f-7a31-8950-bc9ff1c9f2f9:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "部分工具原始输出已在历史记录中截断，无法恢复被截掉的内容。",
+      "evidence": "源审计任务段定位：第12、75、124、215、222、328、335、378、381、386行；第393、455、462、485、492、505–544、570、577、620–634行",
+      "possible_solutions": [
+        "保留快照的截断或损坏边界；如存在经授权且完整的原始记录，再按行核对缺失内容。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a1d554-be0f-7a31-8950-bc9ff1c9f2f9:A02",
+      "source_refs": [
+        "/task_segments/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "任务“检查前10条下作者回应”：登录后尝试但请求卡住，未获得回复",
+      "evidence": "第393、455、462、485、492、505–544、570、577、620–634行",
+      "possible_solutions": [
+        "核对对应交付或实际用户环境的最终结果；无法获得证据时明确保留未确认状态。"
+      ],
+      "uncertainty": "任务中断、用户取消、环境限制或后续指令均可能解释未完成，不能直接推断违令。"
+    }
+  ]
+}

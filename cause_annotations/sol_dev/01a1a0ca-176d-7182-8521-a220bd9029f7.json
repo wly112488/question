@@ -1,0 +1,2954 @@
+{
+  "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+  "source_audit": "sol_dev/01a1a0ca-176d-7182-8521-a220bd9029f7.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/11/03/rollout-2026-11-03T17-42-41-01a1a0ca-176d-7182-8521-a220bd9029f7.jsonl",
+  "snapshot_lines": 6545,
+  "items": [
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F01a",
+      "kind": "confirmed_issue",
+      "description": "193已明确通用与CFG功能混合，939仍硬套CFG顶层和右键创建，946用户再要求不要硬套；局部参考被扩大成全局产品组织规则，增加反复澄清。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "参考旧版工作空间组织时，助手给出CFG分组和右键菜单方案，用户要求适配当前业务。",
+      "cause_explanation": "193已要求混合通用与CFG业务，939又从参考产品的目录和交互推导整体组织；946说明这种推导未充分适配。需要更正旧描述可能引发的过强解释：939确实保留通用/未关联分组，不能说完全排除了通用分析。可以支持的是把参考布局和菜单过早作为当前方案，是否属于硬性规则并未经过可操作原型确认。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            939,
+            946
+          ],
+          "what_it_supports": "混合业务要求、含通用分组的方案及用户不要硬套的纠正"
+        }
+      ],
+      "workflow_relevance": "适用；围绕页面持续调整是目标，问题在把局部参考提前推广，不在发生了多轮设计讨论。",
+      "necessary_cost": "比较两版业务组织并画方案、用户看后调整是必要成本。",
+      "possibly_avoidable_cost": "可能避免的是在未对照通用/CFG两条实际路径前输出较强的目录和交互规则；无法量化净时间。",
+      "revised_possible_solutions": [
+        "保留参考界面作为候选，分别走一遍普通CSV分析与CFG功能路径，再确定共同入口。",
+        "在图中明确哪些结构仅为建议，保留当前会话和通用资源语义供用户预览确认。"
+      ],
+      "remaining_uncertainty": "用户946没有逐项说明939哪些部分不适配，不能认定整套图均错误。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F01b",
+      "kind": "confirmed_issue",
+      "description": "989把CFG一概排除为计算输入，1152用户重申有些功能确以CFG为参数、有些只关联绘图，1165承认二分偏差；真实输入与组织关联被反复混同。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户984把CFG解释为关联，助手989将这一解释推广到所有功能；1152又明确部分功能以CFG为输入。",
+      "cause_explanation": "原聊天显示984确有“CFG是关联不是输入参数”的当时指示，989不是无来源臆造。问题是未将此理解限定到正在讨论的组织/绘图关系，也未保留193/198已出现的按具体功能决定输入的条件；1152明确两种用途后1165才恢复。原因含局部陈述的过度概括与逐步明确的需求，不能把后来的完整分类全部追溯为早期违约。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            198,
+            984,
+            989,
+            1077,
+            1152,
+            1165
+          ],
+          "what_it_supports": "早期按功能区分、用户局部表述、助手泛化及后续两类用途澄清"
+        }
+      ],
+      "workflow_relevance": "适用；业务含义在原型讨论中逐步明确，需保留澄清成本，但统一排除计算输入会误导真实功能。",
+      "necessary_cost": "确认业务关系和检查现有sessionId/cfgId使用方式必要。",
+      "possibly_avoidable_cost": "可减少的是把一句局部说明扩成全局约束造成的再次纠正。",
+      "revised_possible_solutions": [
+        "用两行功能实例记录CFG在本功能中是输入还是组织关联，不为全部功能设统一答案。",
+        "变更关系解释时对照已知通用分析和工程计算实例，明确暂未确认的例外。"
+      ],
+      "remaining_uncertainty": "984与1152范围不同，不能证明用户最初已完整说明全部例外；模型内部为何遗漏既有分类只能推断。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F01c",
+      "kind": "confirmed_issue",
+      "description": "6410把完整装配模型与CFG简化为一一对应，6502又明确这不适合作系统基础约定并收回；未确认关系先成为强规则，容易误导后续归属设计。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户6405询问模型与CFG是否一一对应，助手6410作有限定的肯定，6502收回其作为系统基础关系的适用性。",
+      "cause_explanation": "6410区分完整装配模型与单个装备模型，说明并非完全无条件的一一对应；但它依据可视化表达直接推导业务基数，未先确认模型记录、装配版本与CFG记录的真实关系。后续讨论归属、来源、会话复用时该简化不够用，6502明确更正。可支持“用展示概念替代业务关系核验”，不能证明因此已有数据库改坏。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            6405,
+            6410,
+            6502
+          ],
+          "what_it_supports": "用户关系提问、有限定的回答及后续撤回"
+        }
+      ],
+      "workflow_relevance": "适用业务语义迭代；这几轮主要是方案讨论，不能把新关系设计当已实施回归。",
+      "necessary_cost": "澄清模型、装备和CFG的不同含义必要。",
+      "possibly_avoidable_cost": "可能避免的是未经实体/版本关系确认即给出可被当作基础约定的肯定。",
+      "revised_possible_solutions": [
+        "先区分模型资源、完整装配视图和CFG实体，再按现有引用关系回答基数。"
+      ],
+      "remaining_uncertainty": "未见这些末轮讨论后的实施，实际数据模型基数与方案落地结果仍未验证。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F01d",
+      "kind": "confirmed_issue",
+      "description": "6530用数据独立引用解释共享，却遗漏用户强调的基础归属前提，6537再次指出其他会话需先打开来源CFG，6542才补基础归属方案。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "讨论跨会话共享时，助手6530强调独立数据和引用，用户6537补充必须先有来源CFG的基础归属。",
+      "cause_explanation": "6530回答了“多处使用是否要复制”，但没有把“数据先归谁、通过哪个业务上下文可取得”作为前提，因而引用机制代替了完整归属方案。6537指出现有使用路径，6542承认基础归属漏讲并改为来源CFG/科目下保存、会话引用。源代码是否必须如此仍只按该轮用户描述，不能拿6542建议当后端现状。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            6530,
+            6537,
+            6542
+          ],
+          "what_it_supports": "引用方案遗漏归属、用户补充现有路径及助手修正"
+        }
+      ],
+      "workflow_relevance": "适用；用户是在原型后逐步校准业务含义，纠正的是解释缺前提，非正常新增需求本身。",
+      "necessary_cost": "讨论来源、归属与复用之间关系必要。",
+      "possibly_avoidable_cost": "可能避免的是只回答复用技术机制，导致用户再次解释业务前提。",
+      "revised_possible_solutions": [
+        "画一条先保存/归属、再被其他会话取得的完整数据生命周期，分别标业务归属与引用关系。"
+      ],
+      "remaining_uncertainty": "6542为最终讨论方案，无后续实现和运行证据；基础归属具体存储字段待查证。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F02",
+      "kind": "confirmed_issue",
+      "description": "4466已明确新任务仅改表格显示、字段行和空表，助手4472先读了表格文件，最终4481却回答先前旧网址/后端问题；4488用户直接指出不是在改表格吗，随后4494才恢复实施。 判断：最新任务被旧主题的待回答内容挤掉，是可确认的任务连续性失败。 已知影响：至少一次无关最终答复和用户纠正轮；查表文件的工作可复用，不将其全算浪费。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户4466已切换为仅统一表头显示的明确任务，助手读取表格后却回复旧网址存储问题。",
+      "cause_explanation": "4472说明执行已经进入最新任务，但4481最终答复仍接续先前待解释的旧站主题；4488用户指出偏题，4494才恢复表格实施。这是答复选择未绑定当前任务的可见失配。长会话旧主题残留是合理推断，无法从日志直接证明内部记忆机制或压缩导致。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            4466,
+            4472,
+            4481,
+            4488,
+            4494
+          ],
+          "what_it_supports": "最新表格指令、正确读取、无关最终答复及恢复"
+        }
+      ],
+      "workflow_relevance": "适用；用户切换到具体表格预览改动是合法任务推进，助手需沿最新目标执行。",
+      "necessary_cost": "阅读sheet与现有改动可复用，不算无效成本。",
+      "possibly_avoidable_cost": "无关最终回复与用户纠正轮可以避免；不把整个间隔算浪费。",
+      "revised_possible_solutions": [
+        "结束前用当前用户动词和范围核对交付：这一轮应报告表头改动、引用保持和实际检查。"
+      ],
+      "remaining_uncertainty": "可确认上下文失配，不能确认内部触发因素或准确损失分钟。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F03",
+      "kind": "confirmed_issue",
+      "description": "6005宣布测点/回放事件已接表并给可操作预览，要求用户导入带测点模型；6012用户问具体哪个，6067核对后承认两个示例不在导入列表，已有平台模型没有自动配置测点。直到新加示例并在6200→6209跑浏览器，才有7测点、活动表加减速过程证据。 判断：构建成功没有覆盖用户从入口取得测试输入的路径，初次交付实际不可按说明验收。 已知影响：用户至少追问具体模型并另下补入口请求；后增模型列表和浏览器验证；无法把期间用户离开时间归模型。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "完成模型测点与表格联动后给用户导入带测点模型的验证说明，但实际选择列表没有此输入。",
+      "cause_explanation": "6005以构建和事件代码连通为交付依据，未覆盖用户从导入入口获得合适模型的先决条件；6067发现示例只存在源代码，平台列表既未列示也未自动配置测点。6074要求加入前端后，6200/6209才从真实弹窗取得示例并出现7测点和加减速表。原因是验证边界从处理逻辑起步，漏了测试输入可达性。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            6005,
+            6067,
+            6074,
+            6200,
+            6209
+          ],
+          "what_it_supports": "初始交付说明、入口无示例、追加要求及实际贯通验证"
+        }
+      ],
+      "workflow_relevance": "适用；用户要从预览直接体验联动，代码中有示例不足以满足这一体验。补示例是后续明确动作，但首份操作说明确实不可照做。",
+      "necessary_cost": "接事件、构建和一次从入口导入/播放的轻量检查必要。",
+      "possibly_avoidable_cost": "可避免用户追问哪个模型、再发现列表没有的返程；不能把用户等待或后续全部功能增加都算浪费。",
+      "revised_possible_solutions": [
+        "给操作说明前，在相同导入列表选择一个真实可获得输入并验证目标活动表。",
+        "演示数据若仅在代码中，应明确标示未接入口，并把可导入示例作为本次验证前提处理。"
+      ],
+      "remaining_uncertainty": "6209证明该测试会话成功，不证明每个用户既有会话都已预加模型。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F04",
+      "kind": "confirmed_issue",
+      "description": "多次入口拆分后用户3641发现导入模型消失；助手3697承认拆分时移除，3658等恢复，3685→3687实测独立导入平台实物、中央三维打开且保留数据表，2ef6aae推送。 判断：已存在且应保留的功能入口在重构中丢失，属于交付回归。 已知影响：一次用户发现回归和修复交付轮，无模型数据丢失证据。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "将添加CFG从模型入口拆开后，用户发现原有导入模型入口消失。",
+      "cause_explanation": "2491/2499把复用的资源选择器改成CFG专用并移走模型栏关联入口，后续3641反馈模型导入没了，3697承认拆分遗漏。功能概念解耦时没有逐项保留独立模型导入路径，导致既有入口回归；3687的实际检查验证恢复后CFG入口与模型导入互相独立。不能由此推断模型数据丢失。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2491,
+            2499,
+            3641,
+            3687,
+            3697
+          ],
+          "what_it_supports": "入口拆分改动、用户回归反馈、恢复检查和明确承认"
+        }
+      ],
+      "workflow_relevance": "适用；结构和菜单迭代正常，既有仍需使用的导入功能在迭代中消失属于独立问题。",
+      "necessary_cost": "分开CFG与模型入口、轻量点检两条路径必要。",
+      "possibly_avoidable_cost": "缺少入口清单使回归由用户发现并增加恢复轮。",
+      "revised_possible_solutions": [
+        "拆入口时列出旧入口承载的动作，逐项给出拆分后的可见入口，并各点一次。"
+      ],
+      "remaining_uncertainty": "无法从现有证据确认最早哪一次提交独自引入全部丢失；拆分链和恢复事实可确认。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F05a",
+      "kind": "confirmed_issue",
+      "description": "723→726、2491→2494修改相对路径与workdir不符，重复出现文件找不到，半套改动需重跑补齐。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "两次将仓库根相对路径的Python编辑脚本放在web-v2工作目录运行。",
+      "cause_explanation": "723和2491的命令workdir均已在web-v2，但脚本仍读取web-v2/src/workbench.tsx，路径被重复加前缀；726/2494直接报FileNotFoundError。绝对路径patch先成功、后续相对脚本失败，使本次修改部分完成；原因是同一调用内不同路径约定混用，后面编译错误是这一不完整状态的后果。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            723,
+            726,
+            2491,
+            2494,
+            2499,
+            2502
+          ],
+          "what_it_supports": "两次workdir与相对路径冲突及后续半套改动"
+        }
+      ],
+      "workflow_relevance": "原型改动本身正常；工作目录失配与用户需求变化无关。",
+      "necessary_cost": "修改与构建需要执行，但找错文件不是必要步骤。",
+      "possibly_avoidable_cost": "两次失败编辑、补齐和额外编译探测可减少。",
+      "revised_possible_solutions": [
+        "同一批命令统一以仓库根执行，前端构建显式使用--prefix web-v2；脚本使用该根下相对路径。"
+      ],
+      "remaining_uncertainty": "不假定每次后续编译都完全由此产生；2502有直接符号不同步证据。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F05b",
+      "kind": "confirmed_issue",
+      "description": "2616→2619在没有package.json的仓库根目录运行build，npm未能执行目标前端校验。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "2616在仓库根完成源码编辑后直接npm run build。",
+      "cause_explanation": "2619明确根目录不存在package.json，实际前端包在web-v2。编辑脚本适合仓库根而构建适合子包的两个目录需求未显式区分，构建根本没有进入目标检查。不是npm依赖损坏或用户改需求。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2616,
+            2619,
+            2631,
+            2644
+          ],
+          "what_it_supports": "根目录构建ENOENT及随后子目录构建结果"
+        }
+      ],
+      "workflow_relevance": "与原型迭代无直接关系，是命令定位失误。",
+      "necessary_cost": "前端构建是必要校验。",
+      "possibly_avoidable_cost": "该次ENOENT及重新运行可避免；不重复计入正确构建成本。",
+      "revised_possible_solutions": [
+        "从仓库根统一用npm --prefix web-v2 run build，避免随编辑命令继承错误目录。"
+      ],
+      "remaining_uncertainty": "无须推断工具安装或包管理器问题。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F05c",
+      "kind": "confirmed_issue",
+      "description": "1359→1363浏览器缺运行库无法启动，1372复用已安装的库后可跑；之前验证过的启动环境未复用。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "运行浏览器检查时未带已有的共享库路径。",
+      "cause_explanation": "1359直接启动验证脚本，1363明确Chromium因缺libnspr4.so退出；1372添加既有runtime目录的LD_LIBRARY_PATH后检查能进入界面，1393又把环境检测写入脚本。说明二进制存在，但该启动进程找不到库；不是业务页面加载慢。之前环境未复用是可见配置差异，是否跨轮遗忘只能推断。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            1359,
+            1363,
+            1372,
+            1393
+          ],
+          "what_it_supports": "启动错误、复用已有库目录和脚本中固化环境"
+        }
+      ],
+      "workflow_relevance": "实际预览检查必要；运行库失败属于检查环境成本。",
+      "necessary_cost": "首次确认浏览器运行能力以及失败后定位所缺库必要。",
+      "possibly_avoidable_cost": "已知环境不复用而重复失败可能避免，不能因此取消浏览器检查。",
+      "revised_possible_solutions": [
+        "沿用已成功的浏览器启动封装，统一注入现存runtime路径并检测存在性。"
+      ],
+      "remaining_uncertainty": "不说明系统全局未安装库，也不建议安装新工具；证据仅限当前进程搜索路径。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F05d",
+      "kind": "confirmed_issue",
+      "description": "5401→5404再次拼错已知浏览器可执行路径，漏linux64目录层导致启动失败。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "5401手写浏览器路径时漏了chrome-headless-shell-linux64目录。",
+      "cause_explanation": "5404明确executable不存在，而5316/5354已使用含linux64层的成功启动路径。复制环境参数时重写了路径造成确定性定位错误，与前端变更无关。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            5354,
+            5363,
+            5401,
+            5404
+          ],
+          "what_it_supports": "先前有效路径、实际成功和后续缺目录层失败"
+        }
+      ],
+      "workflow_relevance": "与原型样式迭代无直接关系。",
+      "necessary_cost": "复查左侧布局需要截图。",
+      "possibly_avoidable_cost": "重复拼写可执行路径产生的一次启动失败可避免。",
+      "revised_possible_solutions": [
+        "复用同一OM2_CHROMIUM变量或已验证启动代码，避免每个临时脚本重写路径。"
+      ],
+      "remaining_uncertainty": "没有证据表明浏览器版本在两次调用之间改变。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F05e",
+      "kind": "confirmed_issue",
+      "description": "5316新browser context未建立登录就等资源列表，5337耗尽30秒后5350才证实停在/login；错误前提被当加载慢等待。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "新浏览器上下文直接进入受保护会话路径，并等待会话资源列表。",
+      "cause_explanation": "5316未先走预览登录端点，5337等待30秒超时，5350确认实际停在/login；5354先访问preview/open再进入会话，5363得到资源和截图。等待条件建立在登录态已存在的错误前提上；新context没有旧Cookie是最直接解释，不是页面资源加载慢。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            5316,
+            5337,
+            5350,
+            5354,
+            5363
+          ],
+          "what_it_supports": "直接导航、超时、登录页诊断和建立预览会话后成功"
+        }
+      ],
+      "workflow_relevance": "适用实际预览验证；后续5609免登录是新要求，不能回溯认为当时产品不应要求认证。",
+      "necessary_cost": "在独立上下文建立合法预览登录和检查页面必要。",
+      "possibly_avoidable_cost": "可避免把认证重定向当加载等待而耗尽30秒。",
+      "revised_possible_solutions": [
+        "进入会话前使用既有preview/open流程，并先断言URL未停在/login，再等待资源。"
+      ],
+      "remaining_uncertainty": "不需要保存用户凭据；已有预览端点足以解释此次修复。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F06",
+      "kind": "confirmed_issue",
+      "description": "用户4827要求先核对之前分页约定再决定修改；助手读代码和自写文档后4897称当前约定每页100行；4904用户再次问是否以前谈定，4909承认未确认过，100来自当前实现。 判断：把实现默认值提升成用户约定，决策来源失真。 已知影响：一轮额外澄清；100→20修改是用户后续明确新决定，不能全算纠错成本。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户要求查以前是否约定分页，助手以当前源码和文档的100行值作回答。",
+      "cause_explanation": "4897把实现规则称为约定，4904追问后4909承认没有讨论确认；证据来源是当前代码与自写文档，不是用户历史决定。根因是没有区分“现状实现”“文档记录”“用户确认”的来源等级。4916/4918明确20行是后来的新决定，应保留为正常需求变更。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            4827,
+            4897,
+            4904,
+            4909,
+            4916,
+            4918
+          ],
+          "what_it_supports": "追溯约定要求、实现值回答、承认未确认及后续新决定"
+        }
+      ],
+      "workflow_relevance": "适用；用户先了解现状再通过预览决定修改是正常工作方式。",
+      "necessary_cost": "读取现行分页实现并说明行为必要。",
+      "possibly_avoidable_cost": "将实现包装为既有确认导致的澄清轮可避免；100改20不全部算纠错。",
+      "revised_possible_solutions": [
+        "分别报告当前实现值与能找到的历史确认记录；未找到确认时直接标未确认，等待用户新决定。"
+      ],
+      "remaining_uncertainty": "没有证据确认100行最初为何选取，不能补造早期产品动机。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F07a",
+      "kind": "confirmed_issue",
+      "description": "5803按源码行区间读取内嵌资源，5806原工具标75947 tokens并省略71947；行数上限没有限制单行资源字节量，需重读有效代码。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "查询旧源码模型回放时按文件行区间和宽关键词输出源码。",
+      "cause_explanation": "5803使用sed前260行和多条rg，5806输出含内嵌长资源并标75947 tokens。行数或head无法约束单行资源长度，所以大段非决策信息挤占了有效实现内容。可确认输出放大机制；不能从原截断返回恢复全部被省略文本。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            5803,
+            5806,
+            5825
+          ],
+          "what_it_supports": "读取方式、原输出截断规模及在该源码范围内的结论"
+        }
+      ],
+      "workflow_relevance": "原型功能溯源需要查源码，宽大输出不是用户迭代必需成本。",
+      "necessary_cost": "确定模型预览是否含视频/回放以及资源入口必要。",
+      "possibly_avoidable_cost": "内嵌资源被整段输出和有效代码需另读可能避免，无法折算净时间。",
+      "revised_possible_solutions": [
+        "先列符号/文件命中，再读函数附近片段；对超长行或data URI只报告位置和长度，不输出资源值。"
+      ],
+      "remaining_uncertainty": "仅凭截断片段不能认定所有命中或资源内容；不据此强判功能不存在。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F07b",
+      "kind": "confirmed_issue",
+      "description": "6289宽泛匹配浏览器等工具后打印整段描述清单，6291原输出21382 tokens且未有效呈现，发现动作输出过量。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "为找可访问浏览器能力，宽匹配后直接打印完整工具描述。",
+      "cause_explanation": "6289把browser/playwright/computer/screenshot匹配项的整对象输出，6291标21382 tokens且截断。发现目标只需要工具名和简短说明，输出完整schema放大了信息量；这是输出选择问题，不是调用发现工具本身不合理。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            6289,
+            6291,
+            6295,
+            6298
+          ],
+          "what_it_supports": "宽匹配全对象输出、截断和随后实际能力探测"
+        }
+      ],
+      "workflow_relevance": "需要定位用户当前预览的访问能力，但完整清单并非迭代必需信息。",
+      "necessary_cost": "检查当前会话可用工具与一次连接探测合理。",
+      "possibly_avoidable_cost": "过量schema输出和其中不可见信息可减少。",
+      "revised_possible_solutions": [
+        "先输出候选工具名与短描述，仅对最终需要的一个读取完整参数。"
+      ],
+      "remaining_uncertainty": "工具可用性会变，不能仅因已有Playwright而认定所有新能力探测都无价值。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F08a",
+      "kind": "positive_context",
+      "description": "功能常可见、独立CFG按钮、临时表即时入树、20条分页、字段编辑、本地免登录和模型统一搜索都是持续新增或明确的要求，须按当时范围判断。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户在原型预览后逐步明确功能常显、CFG入口、即时资源树、分页、字段编辑、免登录与模型入口要求。",
+      "cause_explanation": "原聊天2177/2219明确无输入也要露功能；2461要求CFG独立；3762把未保存已关联表即时入树；4703增加字段编辑，4916改20行，5609去登录，6074增加可导入模型。它们改变了当轮目标或补充交互含义，本身不构成早轮遗漏。用户实际看页面再调的机制有效，不能由需求次数推导执行能力差。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2177,
+            2219,
+            2461,
+            3762,
+            4703,
+            4916,
+            5609,
+            6074,
+            6331
+          ],
+          "what_it_supports": "逐轮新增或澄清要求的直接用户消息"
+        }
+      ],
+      "workflow_relevance": "直接适用；这是用户明确的原型工作方式。",
+      "necessary_cost": "查看预览、反馈文字与排布、对应修改和轻量再看是必要循环。",
+      "possibly_avoidable_cost": "只有脱离当时范围的过度实现或真实执行失败可能重复；不能将这些需求轮整体计为可省成本。",
+      "revised_possible_solutions": [
+        "保留快速预览反馈循环，并在每轮记录新增决定的生效时点，避免以新要求追溯判错。"
+      ],
+      "remaining_uncertainty": "部分语音用词有歧义，具体含义仍需结合紧邻澄清，不能把每条当最初完整需求。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F08b",
+      "kind": "positive_context",
+      "description": "必要浏览器检查实际发现按钮遮挡、导入入口丢失、Excel依赖不足；多轮最终build、提交和push有记录，不应只按调用数判浪费。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "核心交互检查暴露实际遮挡、入口和Excel读取问题，并支持修复后交付。",
+      "cause_explanation": "3308真实pointer被AI按钮拦截，3641用户发现导入入口缺失，2735定位Excel依赖，3385/3687分别验证修复后关键路径；这些结果说明轻量浏览器与原文件检查能发现编译不覆盖的问题。有效条件是检查围绕用户可走路径及目标状态，而非仅堆调用数。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2735,
+            2784,
+            3308,
+            3314,
+            3385,
+            3641,
+            3687
+          ],
+          "what_it_supports": "实际运行问题、修正和成功检查"
+        }
+      ],
+      "workflow_relevance": "适用；用户要求轻验收并不等于取消必要的真实预览点检。",
+      "necessary_cost": "构建、关键点击和一次恢复检查是必要质量成本。",
+      "possibly_avoidable_cost": "能减少失效前提和重复宽泛检查，不能把发现缺陷的检查本身算浪费。",
+      "revised_possible_solutions": [
+        "保留与当前变更直接相关的轻量检查，如入口、点击可达、导入原文件和目标活动表。"
+      ],
+      "remaining_uncertainty": "个别构建成功不能证明所有场景，检查覆盖仍按实际输出限定。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:F08c",
+      "kind": "positive_context",
+      "description": "SSH认证拒绝和静态部署缺后端均如实说明，发布包标uploaded=false，没有把本地build或打包宣称线上部署成功。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "请求外网部署时实际SSH认证失败；静态部署成功后又缺应用后端。",
+      "cause_explanation": "3999/4018显示认证被拒，4070包明确uploaded=false，4075报告尚未发布；4221/4226根据页面/API行为解释静态资源与后端缺口。把构建、打包、认证和上线分开表达避免了虚报完成。有效条件是后续仍以实际线上业务响应验证，不能只看托管平台部署完成。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3999,
+            4018,
+            4070,
+            4075,
+            4221,
+            4226
+          ],
+          "what_it_supports": "认证失败、未上传标记、未发布声明和静态后端诊断"
+        }
+      ],
+      "workflow_relevance": "部署是原型外网查看的延伸，认证与后端部署不属于样式反馈本身。",
+      "necessary_cost": "确认目标环境、准备可审阅构建和报告真实阻塞必要。",
+      "possibly_avoidable_cost": "不能把无法获得认证直接算模型可避免成本；更早核对运行模式可少走构建设置返程。",
+      "revised_possible_solutions": [
+        "保留分阶段状态报告，并在外网交付前分别确认前端资源、API内容和可写业务路径。"
+      ],
+      "remaining_uncertainty": "静态平台背后的配置未完整可见，不能补造服务器最终上线结果。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:U01",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：原工具返回90处标截断，其被历史工具省略的内容无法从物理行恢复；当前审计没有以省略内容构造事实。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "部分历史工具返回在写入原日志时已被工具裁剪。",
+      "cause_explanation": "5806明确长源码返回被截断，6291工具清单亦截断；此次可以确认原始记录本身含省略，回查物理行只能恢复其已保存部分，不能补回工具当时未记录的完整内容。原条目90处的总量沿用原目录，此次不以剩余不可见内容作新根因证据。造成某个缺口的具体业务影响须逐事件限定。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            5803,
+            5806,
+            6289,
+            6291
+          ],
+          "what_it_supports": "输出放大及原日志层面的截断标记"
+        }
+      ],
+      "workflow_relevance": "影响原型历史审计证据完整性；不是需求迭代错误。",
+      "necessary_cost": "对关键证据回读原行并保留不足必要。",
+      "possibly_avoidable_cost": "源执行阶段可避免大输出；本次审计无法靠反复读同一省略行恢复已丢内容。",
+      "revised_possible_solutions": [
+        "对关键结论寻找同段后续成功/失败和明确交付证据；没有则标证据缺口。",
+        "未来原始检查只输出必要摘要和固定目标断言，避免长行/整对象清单。"
+      ],
+      "remaining_uncertainty": "省略部分不可恢复，不能保证原90处每一处都影响结论，也不能虚构遗漏内容。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:U02",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：有其他任务/未提交表格和CSS变化，多次仅暂存自己hunk；未归因所有并发源码变化或每次patch失配。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "会话中同时有表格最大化、网格和CSS等另行修改，助手只暂存自己的改动。",
+      "cause_explanation": "3927的脚本明确从HEAD恢复并排除另行编辑的grid/maximize区域，只暂存本任务hunk，4018又看到其他未提交表格文件。说明当前文件可能在本轮阅读和patch之间变化；但4510/4516、5131/5151本身只能证明上下文失配，不能证明每次均由并发写入造成。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3927,
+            4018,
+            4510,
+            4516,
+            5131,
+            5151
+          ],
+          "what_it_supports": "保留其他修改的具体暂存策略、未提交状态及patch失配"
+        }
+      ],
+      "workflow_relevance": "用户多条原型改动并行存在于同一工作树时适用；不能把所有变化都算本任务错误。",
+      "necessary_cost": "识别归属、保护其他改动和只提交自己hunk必要。",
+      "possibly_avoidable_cost": "可通过即时读目标片段减少陈旧patch，但不能据此计算全部并发成本。",
+      "revised_possible_solutions": [
+        "失败后重新读取当前目标区域，再生成小范围patch；保留提交前差异归属记录。"
+      ],
+      "remaining_uncertainty": "缺各写入者完整时间线，无法把每次文件变化归到某个任务或模型。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:U03",
+      "kind": "positive_context",
+      "description": "原报告只引用凭据/认证和图片来源行，避免将敏感值带入交付目录。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "历史认证、预览访问及截图记录可能含敏感值，审计只保留事件位置。",
+      "cause_explanation": "4212原调用使用授权访问信息，5350明确是登录页；这些信息支持认证上下文，但值本身与原因分析无关。本轮也只引用物理行和行为，不复制凭据、访问令牌或图像数据。有效机制是把认证事实和认证值分开。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            4212,
+            4221,
+            5350
+          ],
+          "what_it_supports": "授权访问、实际页面结果及登录状态来源，仅引用位置"
+        }
+      ],
+      "workflow_relevance": "与原型迭代无直接关系，适用于审计交付的数据最小化。",
+      "necessary_cost": "保留认证状态和来源位置必要。",
+      "possibly_avoidable_cost": "复制敏感值对解释原因没有收益，应避免。",
+      "revised_possible_solutions": [
+        "继续只记录物理行、认证状态和返回结果；需要补证时在原日志范围内查状态，不传播值。"
+      ],
+      "remaining_uncertainty": "不能保证原始日志或历史工具自动脱敏完全覆盖所有敏感信息；该正例只描述本轮输出原则。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:U04",
+      "kind": "evidence_gap",
+      "description": "末9轮归属/引用/回流仅为产品讨论，最后方案未实施，不能当已验证后端能力。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "末段用户持续讨论模型/CFG、数据归属、回流和跨会话共享。",
+      "cause_explanation": "6405之后的6410、6502、6530、6542为解释和方案答复，末条6542仍是建议关系和流程，快照结束没有相应修改、接口返回或验证结果。因此缺口来自历史停在设计讨论阶段，不是可以由报告推断已落地。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            6405,
+            6410,
+            6502,
+            6530,
+            6537,
+            6542
+          ],
+          "what_it_supports": "末段问题与方案答复，没有交付实现的直接证据"
+        }
+      ],
+      "workflow_relevance": "直接适用；原型阶段允许先讨论再决定，不应把每次方案输出都当实施承诺。",
+      "necessary_cost": "业务澄清是必要投入。",
+      "possibly_avoidable_cost": "不能把未授权/未继续实施的部分算无效执行；可避免的是后续把讨论误写成已验证能力。",
+      "revised_possible_solutions": [
+        "若后续要实施，先确定最终归属规则和最小验证路径，再取得保存/跨会话读取的实际返回。"
+      ],
+      "remaining_uncertainty": "快照以后的实施未知，当前证据只支持方案状态。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:U05",
+      "kind": "positive_context",
+      "description": "历史多数为gpt-6-sol且中途设置变化，没有对照试验支持换模型结论。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "历史使用某模型并有设置变动，但没有受控模型对比。",
+      "cause_explanation": "本次原聊天中的问题有可观察的局部机制，如4472已读表格却4481偏答、5316缺预览登录后5337超时；这些证据可以定位执行前提或答复失配，不能隔离模型、上下文长度、任务复杂度和设置差异。正例是保留这种因果边界，不由模型标签推导替换方案。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            4472,
+            4481,
+            5316,
+            5337,
+            5354,
+            5363
+          ],
+          "what_it_supports": "可归到具体行为/前提的事件，而非模型对照实验"
+        }
+      ],
+      "workflow_relevance": "适用全部原型迭代；迭代次数和需求变化本身不是换模型证据。",
+      "necessary_cost": "按实际任务和调用结果判断原因必要。",
+      "possibly_avoidable_cost": "无对照的模型归因与试验不是本次需要新增的成本。",
+      "revised_possible_solutions": [
+        "保留基于具体失败机制的改进；模型因果不足处明确未知，不推荐仅凭标签替换。"
+      ],
+      "remaining_uncertainty": "未重跑也不允许做模型试验，因此不能确认模型独立效应。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L00",
+      "kind": "positive_context",
+      "description": "读取/探测的一批非零退出包括rg无匹配、候选文件/临时目录不存在、尚非Git仓库以及同批混合成功/失败；原报告按实际返回补查，没有把源码中的Error字符串当运行异常。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "只读探测返回非零或源码包含Error，但其含义不一定是产品执行失败。",
+      "cause_explanation": "263/267同批列目录成功而Git状态报尚非仓库；2721同时显示schema名称和猜表名失败；1363还混有源码输出和真正浏览器启动错误。不同子调用必须拆看退出码、错误类型和目的，rg无匹配或候选不存在可能是正常排除。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            263,
+            267,
+            1363,
+            2721,
+            2728
+          ],
+          "what_it_supports": "混合子调用和诊断探测的不同返回语义"
+        }
+      ],
+      "workflow_relevance": "与原型目标无直接冲突；调查现状和候选路径属于必要探索。",
+      "necessary_cost": "少量只读探测和根据结果缩小范围必要。",
+      "possibly_avoidable_cost": "可减少重复猜测，但不能机械把每个非零码算故障或等待。",
+      "revised_possible_solutions": [
+        "继续按子调用、实际退出原因和后续利用结果判定；单独记录产品失败与正常探测排除。"
+      ],
+      "remaining_uncertainty": "本条不宣称全部非零都正常；具体故障已在独立条目保留。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L01",
+      "kind": "confirmed_issue",
+      "description": "预览服务启动遇18182或18186端口已占用，进程退出，需要查看监听进程后复用或换端口，首次启动没有成功。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "启动本地预览时选定端口已有监听者。",
+      "cause_explanation": "404显示18182无法bind，5286显示18186 address already in use；5290随后查监听，5297换18187。直接原因是端口冲突，是否既有进程可复用、由哪个任务启动需额外进程信息，不能全归为应用缺陷。启动前未确认端口和预览实例身份是可减少重复的环节。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            402,
+            404,
+            5284,
+            5286,
+            5290,
+            5297
+          ],
+          "what_it_supports": "两次绑定冲突及查监听后换端口"
+        }
+      ],
+      "workflow_relevance": "本地实际预览是原型必需；多份预览并存会增加实例识别成本。",
+      "necessary_cost": "确认正确代码/数据库对应的预览实例必要。",
+      "possibly_avoidable_cost": "可以少一次已占用端口启动；不能把必要启动全部算浪费。",
+      "revised_possible_solutions": [
+        "复用前先核对监听进程、工作目录和数据目录；不匹配时选择空闲端口并记录本轮入口。"
+      ],
+      "remaining_uncertainty": "缺完整进程生命周期，不能确定冲突实例归属或是否应终止。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L02",
+      "kind": "positive_context",
+      "description": "exit130来自明确Ctrl-C终止异步测试/待用服务，不能把它当应用崩溃或追加失败统计。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "助手明确向异步会话发送Ctrl-C。",
+      "cause_explanation": "455调用write_stdin传入控制字符，458对应exit130，而同批浏览器检查exit0并列出核心通过项。这一退出有显式停止动作解释，不能当应用自发崩溃。有效条件是把会话ID与主动终止调用配对。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            455,
+            458
+          ],
+          "what_it_supports": "明确控制字符与exit130同一批返回"
+        }
+      ],
+      "workflow_relevance": "与原型样式迭代无直接关系，是异步任务生命周期管理。",
+      "necessary_cost": "不再需要的进程收尾合理。",
+      "possibly_avoidable_cost": "不应为主动停止再启动无关修复或重复失败调查。",
+      "revised_possible_solutions": [
+        "保留停止原因和目标会话ID，统计时区分人工终止与异常退出。"
+      ],
+      "remaining_uncertainty": "不由exit130推断目标程序在终止前已完成所有工作。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L03a",
+      "kind": "confirmed_issue",
+      "description": "早期脚本仍寻找“先导入”tab，而当前页面没有该元素，5秒等待后才更正脚本/界面前提。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "界面入口重构后，既有浏览器脚本仍等待先导入tab。",
+      "cause_explanation": "596明确该tab不存在而非不可点击，610/624更新相应流程与检查，637通过。根因是测试脚本保留旧界面结构前提，和当前数据优先工作台不同；不能由此认定新的页面必须恢复旧tab。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            593,
+            596,
+            610,
+            624,
+            637
+          ],
+          "what_it_supports": "旧定位器失败、更新检查与最终通过"
+        }
+      ],
+      "workflow_relevance": "适用；原型入口变化会使定位器过时，必要适配不同于产品回归。",
+      "necessary_cost": "保持轻量核心路径脚本与当前入口一致必要。",
+      "possibly_avoidable_cost": "等待不存在的旧控件5秒后才发现前提变了可减少。",
+      "revised_possible_solutions": [
+        "改入口时同步更新相应检查的起点，先读当前可访问结构再使用旧名称。"
+      ],
+      "remaining_uncertainty": "610同时改了界面状态，不能把整轮所有修改只解释成测试变化。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L03b",
+      "kind": "candidate_issue",
+      "description": "成果数据表summary解析到元素却因隐藏状态无法点击，脚本等待失败；需要区分测试未展开正确分区和实际可达性问题。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "脚本定位成果区summary存在，但其布局状态不可见。",
+      "cause_explanation": "783解析到数据表summary却不可见并等待10秒；795实际把journey-mode网格改为单列、隐藏不参与布局的outline/details，也调整成果表结构，803继续清理旧样式。说明不只是元素名拼错，页面重构的布局/分区可见性至少参与了修复；是否脚本未先进入正确阶段独立造成失败，现有片段不足隔离。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            780,
+            783,
+            795,
+            803,
+            812
+          ],
+          "what_it_supports": "隐藏元素失败及随后的布局和成果结构修正"
+        }
+      ],
+      "workflow_relevance": "适用原型布局迭代；实际不可见控件应保留为候选可达性问题，不能一概归正常需求改变。",
+      "necessary_cost": "查看截图、确认当前阶段和可见区域必要。",
+      "possibly_avoidable_cost": "若先确认阶段/可见性可少超时；实际CSS修复属于必要质量成本。",
+      "revised_possible_solutions": [
+        "在点击前确认当前成果阶段及summary可见性；若位于被压缩/隐藏布局，修布局后用同一真实点击验证。"
+      ],
+      "remaining_uncertainty": "无法从这些同时变化分离测试阶段错误和产品CSS各自贡献，保留mixed。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L03c",
+      "kind": "confirmed_issue",
+      "description": "改版后的设备角色、标题、添加数据标签和CFG选项与旧脚本预期不符，5/10秒等待后逐次更新并最终通过。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "CFG和工作台界面持续改版后，旧脚本的精确名称、标题和选项前提失效。",
+      "cause_explanation": "1382找不到设备角色精确label，1393改为实际combobox前缀；1403等旧标题不存在；1446添加数据精确名称计数0，1458改前缀匹配。1639元素存在却找不到目标option，1651增加保存后URL等待与CFG库核验。前几项有定位器与可访问名失配的明确机制，CFG选项还含创建完成/数据就绪前提，不能统一说成单纯名称过时。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            1382,
+            1393,
+            1403,
+            1446,
+            1458,
+            1639,
+            1651
+          ],
+          "what_it_supports": "各类定位失败、名称适配及CFG保存后等待的具体改变"
+        }
+      ],
+      "workflow_relevance": "适用；在快速改版中更新测试正常，但应避免把不同失败全靠放宽名字掩盖。",
+      "necessary_cost": "对改动入口做必要定位和等待适配。",
+      "possibly_avoidable_cost": "逐次耗尽5/10秒再发现旧名称或缺选项的重复可减少。",
+      "revised_possible_solutions": [
+        "按失败层级检查：元素是否存在、可访问名是否变化、选项数据是否已保存加载；只更新与实际变更相符的断言。"
+      ],
+      "remaining_uncertainty": "未单独重跑隔离每个子修复，CFG option不出现的最初数据原因仍未完全确认。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L04a",
+      "kind": "confirmed_issue",
+      "description": "移除输出tab后仍留旧类型/状态引用，TypeScript校验失败，需要补齐引用更新后才能build。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "把输出从底部tab移到结果选择后，旧setBottom输出状态调用未一起修改。",
+      "cause_explanation": "2010类型错误明确仅允许history|null却仍传output|null；2023把输出切换改为selectOutput或清空bottom。状态联合类型与调用点未同步，构建及时拦截此不完整重构。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2007,
+            2010,
+            2023
+          ],
+          "what_it_supports": "类型错误及替换旧状态调用的具体修复"
+        }
+      ],
+      "workflow_relevance": "界面组织变化是正常目标，遗留状态引用是独立实现问题。",
+      "necessary_cost": "编译检查和补齐引用必要。",
+      "possibly_avoidable_cost": "可避免首次漏改旧调用，不能把编译拦截本身当浪费。",
+      "revised_possible_solutions": [
+        "改变状态类型/移除tab时检索全部写入点，用一次类型检查确认调用与新表示一致。"
+      ],
+      "remaining_uncertainty": "只证明该类型残留，不推断其他输出功能全部失效。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L04b",
+      "kind": "positive_context",
+      "description": "来源继承采用新语义后旧CFG数组断言失败，检查新规则并更新断言后实际验证通过；不是所有红灯都证明当前业务错。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "成果继承来源表的CFG关系后，旧脚本仍比较原CFG数组。",
+      "cause_explanation": "2104出现实际一个CFG与预期两个不符；邻近代码以输出来源表推导输入，2108进一步补输出对应输入和流程可用条件，2126核心浏览器检查通过。旧断言与新语义冲突是合理解释，但修复还含等待创建完成及业务调用更新，不能仅凭最后通过证明此前所有差异都只在测试。正例应保留的是检查语义后再改断言的做法。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2101,
+            2104,
+            2108,
+            2126
+          ],
+          "what_it_supports": "数组断言失败、来源输入/等待相关修改和最终通过"
+        }
+      ],
+      "workflow_relevance": "适用；新的来源继承关系可能合法改变预期，需按当时业务含义核对。",
+      "necessary_cost": "比较输入来源与成果归属、修正旧预期必要。",
+      "possibly_avoidable_cost": "避免盲目把红灯当产品错或盲目放宽断言；无法单独量化这次适配的可省部分。",
+      "revised_possible_solutions": [
+        "保留与具体来源表对应的期望值，并记录规则变化；不同原因的等待和业务修复分别说明。"
+      ],
+      "remaining_uncertainty": "返回中同时存在业务代码和测试变化，不能严格隔离每一项修复贡献。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L04c",
+      "kind": "confirmed_issue",
+      "description": "相对路径修改失败留下半套改动，导入/导出符号不同步使后续编译失败，再补齐后build成功。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "CFG选择器重命名时，部分绝对路径patch成功而相对编辑脚本失败。",
+      "cause_explanation": "2491/2494表明资源组件导出已改但workbench调用文件未读到；2502报WorkbenchModelPicker无导出与隐式any，2499补改引用后2516构建通过。直接机制是半套文件改动造成接口符号不一致；其上游路径冲突与F05a同一事件，不能重复累计成本。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2491,
+            2494,
+            2499,
+            2502,
+            2516
+          ],
+          "what_it_supports": "路径失败留下不一致接口、编译反馈和后续成功"
+        }
+      ],
+      "workflow_relevance": "与用户迭代方向无关，属于实施完整性。",
+      "necessary_cost": "类型检查发现跨文件引用问题和补齐必要。",
+      "possibly_avoidable_cost": "统一路径可避免这一半套状态及额外失败编译；与F05a关联不重复算时。",
+      "revised_possible_solutions": [
+        "跨文件重命名保持同一目录基准，编辑失败即检查本批哪些文件已变，再完成对应引用后构建。"
+      ],
+      "remaining_uncertainty": "2502由旧构建句柄返回，时间上与补改重叠，不把它误认为补改后仍失败。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L04d",
+      "kind": "confirmed_issue",
+      "description": "拆分弹窗时留下多余大括号，编译器报Unexpected token，修正JSX结构后构建通过。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "拆开新建会话弹窗并移除条件fragment后，JSX闭合结构残留。",
+      "cause_explanation": "2631显式替换条件大括号/fragment，2634返回两个TS1381 Unexpected token，随后2644构建通过。可确认是结构编辑未成对完成，不能由编译器提示推导业务逻辑错误或数据损坏。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2616,
+            2631,
+            2634,
+            2641,
+            2644
+          ],
+          "what_it_supports": "弹窗结构替换、括号语法反馈与成功构建"
+        }
+      ],
+      "workflow_relevance": "新建弹窗改动是正常需求，语法残留是独立实现失误。",
+      "necessary_cost": "构建检查应保留，修正成对结构必要。",
+      "possibly_avoidable_cost": "用局部结构化patch可减少广泛字符串替换留下残余的机会。",
+      "revised_possible_solutions": [
+        "移除条件块时以完整JSX区块核对成对括号，先做类型检查再继续布局修改。"
+      ],
+      "remaining_uncertainty": "2634也含前一个异步构建结果，不据返回顺序夸大失败次数。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L05",
+      "kind": "confirmed_issue",
+      "description": "跨轮复用已失效异步进程ID，write_stdin返回Unknown process id，无法从该句柄继续获取结果。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "后续轮次继续轮询此前的异步进程ID。",
+      "cause_explanation": "2363明确Unknown process id 21581，说明工具端句柄已不可用；2369改为重新构建和读取预览代码，2377检查现有服务。句柄失效的具体原因可能是进程结束、会话清理或工具生命周期变化，日志没有足够信息区分；能确定的是跨轮把旧ID当仍有效。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2360,
+            2363,
+            2369,
+            2377
+          ],
+          "what_it_supports": "失效句柄返回与重新确认服务/构建状态"
+        }
+      ],
+      "workflow_relevance": "与原型迭代无直接关系，跨轮恢复工作状态时适用。",
+      "necessary_cost": "恢复后确认代码与预览状态必要。",
+      "possibly_avoidable_cost": "可少一次对失效句柄的轮询；不能认定原服务因此崩溃或原结果全丢。",
+      "revised_possible_solutions": [
+        "跨轮先检查句柄可用性和服务实际状态，失效时读取已有产物/状态而不沿用旧会话假设。"
+      ],
+      "remaining_uncertainty": "原进程确切退出原因和原先完整输出未知。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L06a",
+      "kind": "confirmed_issue",
+      "description": "实际Excel读取500来自预览venv缺openpyxl，而锁文件已声明依赖；运行环境不完整，导致用户数据文件无法打开，补齐后原文件读取成功。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户Excel打不开后，直接以同一预览venv读取原上传文件。",
+      "cause_explanation": "2732/2735显示read_table进入_excel_rows时import openpyxl失败，2756检查锁文件并补现有依赖，2769安装成功，2784同一文件读出1行10列。直接原因是运行venv缺少声明的Excel依赖，而不是表格关联、字段显示或原文件已损坏；环境为何未完整同步没有更早证据。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2732,
+            2735,
+            2756,
+            2769,
+            2780,
+            2784
+          ],
+          "what_it_supports": "原文件复现路径、缺模块、依赖核对与同文件成功"
+        }
+      ],
+      "workflow_relevance": "适用实际导入预览；在用户原型中支持Excel是业务路径，修复不能被表格布局迭代解释掉。",
+      "necessary_cost": "用原文件验证一次、核对运行环境与依赖声明必要。",
+      "possibly_avoidable_cost": "如果预览环境启动时核对必需依赖，可避免把500暴露给用户及后续定位；不虚构此前漏装责任。",
+      "revised_possible_solutions": [
+        "让预览启动使用项目声明的完整运行依赖；导入验收分别保留CSV和小型Excel原文件路径检查。"
+      ],
+      "remaining_uncertainty": "不能由一次模块缺失推断所有部署环境都缺依赖；500的更完整服务器栈若原返回截断，仍以可见import失败限定。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L06b",
+      "kind": "confirmed_issue",
+      "description": "诊断时先猜artifacts数据库表名，实际为om2_artifacts，查询失败后才查schema更正，增加一次无效探测。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "诊断文件存储时先列sqlite表名，却在同一脚本继续使用猜测的artifacts表。",
+      "cause_explanation": "2718的查询固定artifacts，2721已打印实际om2_artifacts并报no such table，2725使用实际表名后2728成功。直接原因是未把刚发现的schema用于下一查询，或提前写死了未经核对表名；这是一次只读诊断失误，不是数据库缺表故障。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2718,
+            2721,
+            2725,
+            2728
+          ],
+          "what_it_supports": "猜测SQL、实际schema、失败与更正成功"
+        }
+      ],
+      "workflow_relevance": "与原型迭代无直接关系，属于诊断定位。",
+      "necessary_cost": "只读查找上传文件与存储元信息必要。",
+      "possibly_avoidable_cost": "先确认schema再查询可避免一次无效SQL。",
+      "revised_possible_solutions": [
+        "沿模型定义或sqlite_master取得真实表名后再写具体查询。"
+      ],
+      "remaining_uncertainty": "不据此认定数据库结构有设计问题。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L07a",
+      "kind": "confirmed_issue",
+      "description": "临时外网链接发生TLS35错误或20秒超时，需要换隧道并重新验证HTTP200；该阶段链接暂不可用。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "只读外网演示链接先发生TLS连接失败，后再次20秒超时。",
+      "cause_explanation": "3067/3074为curl35且本地HTTP200；3431也显示本地示例200而外网超时，换隧道后3093/3458远端页面和数据都200。问题位于对外隧道/网络访问链路而非已证实的本地页面故障，但记录不足以区分边缘隧道失效、代理/TLS和临时网络环境。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3063,
+            3067,
+            3071,
+            3074,
+            3084,
+            3093,
+            3428,
+            3431,
+            3435,
+            3458
+          ],
+          "what_it_supports": "本地与外网对比、TLS/超时及新隧道恢复"
+        }
+      ],
+      "workflow_relevance": "外网给用户看原型相关；临时链路成本不能自动算成前端需求反复。",
+      "necessary_cost": "对本地和远端分别检查、换链路后确认页面与数据均可达必要。",
+      "possibly_avoidable_cost": "可避免未经远端验证就继续分发失效链接；链路本身的净故障时间不能归模型。",
+      "revised_possible_solutions": [
+        "演示前分别验证本地服务、外网页面和会话数据；失败时先分层确认再换隧道并更新唯一有效入口。"
+      ],
+      "remaining_uncertainty": "不能确认具体网络根因或保证临时地址后续持续有效。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L07b",
+      "kind": "confirmed_issue",
+      "description": "重新复制的只读快照已含同名访客，启动脚本再次创建导致username unique constraint失败，预览服务未能启动；更换身份后恢复。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "复制包含访客的预览快照后，启动脚本无条件再创建同名用户。",
+      "cause_explanation": "3417明确om2_users.username唯一约束失败，3421把固定访客名改成带随机后缀并重新启动。直接机制是种子初始化不具备重复运行/快照重用的幂等性，已有数据状态与初始化假设冲突；不是业务用户在界面提交重复。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3415,
+            3417,
+            3421,
+            3431
+          ],
+          "what_it_supports": "预览启动唯一键失败、唯一身份修正及本地200"
+        }
+      ],
+      "workflow_relevance": "与样式迭代无直接关系，影响只读原型分享环境可用性。",
+      "necessary_cost": "准备隔离只读预览和认证身份必要。",
+      "possibly_avoidable_cost": "重复创建固定身份导致的一次启动失败可避免。",
+      "revised_possible_solutions": [
+        "初始化时先查现有演示身份并复用，或为隔离快照生成明确唯一身份；保持权限不变。"
+      ],
+      "remaining_uncertainty": "未读取全部快照生成过程，已有同名用户的最初写入来源不能进一步确认；不复制报错中的认证值。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L08a",
+      "kind": "confirmed_issue",
+      "description": "保存会话按钮可访问名包含状态，脚本按精确纯名称等待10秒失败，后改稳定名称。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "按钮内含保存状态文字后，脚本使用精确保存会话名称定位。",
+      "cause_explanation": "3273页面文字可见保存会话和未保存状态，但exact locator找不到；3285给通用Big按钮显式aria-label={label}，稳定其名称。原因是按钮可访问名由子内容共同组成而检查期待纯标签，不是按钮完全消失。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3271,
+            3273,
+            3277,
+            3285
+          ],
+          "what_it_supports": "实际页面文字、精确定位失败及显式稳定名称修正"
+        }
+      ],
+      "workflow_relevance": "适用原型文案/状态排布变化；状态文本加入可能合理，但定位与可访问名应稳定。",
+      "necessary_cost": "点击保存并验证结果必要。",
+      "possibly_avoidable_cost": "等待一个实际上名称不同的控件10秒可减少。",
+      "revised_possible_solutions": [
+        "为主要操作保留稳定可访问名称，把保存状态独立表达；检查通过角色和该名称定位。"
+      ],
+      "remaining_uncertainty": "未单独隔离验证所有Big按钮，不能据此次修正宣称全局可访问性完善。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L08b",
+      "kind": "confirmed_issue",
+      "description": "AI助手按钮真实覆盖“展开数据表”并拦截pointer，用户操作和浏览器检查均可能无法点击，修布局后通过。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "数据表收起/展开按钮靠右放置，与悬浮AI入口重叠。",
+      "cause_explanation": "3308真实点击日志显示assistant-toggle反复拦截pointer，元素自身已可见可用；3314把标题栏对齐改为左侧，3385同类核心路径通过。根因是两个可交互控件共享屏幕位置，重叠层覆盖点击目标；加等待或强制点击不会解决真实用户可达性。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3306,
+            3308,
+            3314,
+            3385
+          ],
+          "what_it_supports": "明确覆盖元素、布局改变与最终点击通过"
+        }
+      ],
+      "workflow_relevance": "直接适用布局预览；这是应保留的真实质量问题，不是因用户正常调样式就取消。",
+      "necessary_cost": "实际点击、查看布局并调整位置必要。",
+      "possibly_avoidable_cost": "若布局改动后对相邻交互区域做一次点检，可在用户前发现；不把必要检查算浪费。",
+      "revised_possible_solutions": [
+        "保留收起展开按钮与AI入口的独立点击区域，以用户实际点击验证而非force掩盖遮挡。"
+      ],
+      "remaining_uncertainty": "只验证记录中的视口；其他响应式尺寸的重叠情况未知。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L08c",
+      "kind": "confirmed_issue",
+      "description": "草稿确认dialog拦截新建数据表，检查无法继续；按流程处理/修复后全场景通过。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "会话切换/恢复检查中仍有未保存草稿确认框，随后脚本点击新建表被拦截。",
+      "cause_explanation": "3357明确dialog在前景拦截点击，3365同时修改正式资源恢复并把previousUrl读取前加等待session URL，3385通过。可确认测试状态机没有先达成预期会话/草稿状态；但这一批同时改应用与脚本，不能把弹框存在本身等同于错误保护逻辑，也不能断言唯一原因是按钮submit或某个未见事件处理。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3354,
+            3357,
+            3365,
+            3385
+          ],
+          "what_it_supports": "草稿确认框拦截、会话等待/恢复相关改变与最终通过"
+        }
+      ],
+      "workflow_relevance": "适用；原型要保留草稿保护，同时让切换后预览行为清楚。正常确认框不是缺陷，出现在错误测试状态才需定位。",
+      "necessary_cost": "检查保存、放弃、取消和会话恢复的关键顺序必要。",
+      "possibly_avoidable_cost": "可避免在未确认弹框/URL状态时持续点后方按钮的超时。",
+      "revised_possible_solutions": [
+        "对每次切换明确处理草稿弹框并等待目标session稳定；若不应出现，再按dirty来源调查应用状态。"
+      ],
+      "remaining_uncertainty": "没有隔离各项修改的实验，弹框意外出现的最初内部原因仍不完全确认。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L09",
+      "kind": "evidence_gap",
+      "description": "用既有连接记录和密钥尝试root/ubuntu均publickey拒绝，腾讯发布包虽生成但未上传/上线，实际发布结果未完成。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "请求部署腾讯云时，既有服务器记录下root和ubuntu均无法用现有认证登录。",
+      "cause_explanation": "3999/4011/4018明确publickey拒绝，4022询问正确主机/用户/密钥位置；4070显示打包成功但uploaded=false，4075如实说明未发布。缺口原因是目标认证条件未满足，而非构建未完成。两次相同root尝试之间未见足以解释新认证条件的成功证据，可能有重复探测，但不能声称一定有可用密钥可自行找出。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3995,
+            3999,
+            4008,
+            4011,
+            4013,
+            4018,
+            4022,
+            4070,
+            4075
+          ],
+          "what_it_supports": "实际认证失败、缺信息询问、打包与未发布状态"
+        }
+      ],
+      "workflow_relevance": "部署为外网预览目标的延伸，不属于常规文字/排布调整。",
+      "necessary_cost": "一次非交互认证核验、准备构建包和确认真实部署参数必要。",
+      "possibly_avoidable_cost": "相同认证前提未变时重复尝试可能减少；等待用户确认不算模型执行耗时。",
+      "revised_possible_solutions": [
+        "确认准确主机、登录用户和已授权密钥路径后再部署；在实际远端业务检查前维持未发布状态。"
+      ],
+      "remaining_uncertainty": "快照内未完成认证，无法确认远端服务配置、上传或最终上线情况。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L10a",
+      "kind": "confirmed_issue",
+      "description": "EdgeOne静态前端即使build成功，/api/v2/me返回非API内容使页面读取undefined[0]，缺真正后端运行/路由，静态发布不能满足当前应用。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户把需Python API的OM2应用作为静态前端发布；纠正构建设置后页面仍不可用。",
+      "cause_explanation": "4106日志显示最初跳过安装且复制源index，4175后构建完成；4208先遇访问401，4212授权浏览器检查后4221实际前端报undefined[0]且me路径200，4226解释响应不是所需用户API数据。根因分两阶段：前端构建输出配置先不完整，之后静态托管没有承载应用API运行/路由；构建平台完成不等于整套应用可运行。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            4106,
+            4175,
+            4205,
+            4208,
+            4212,
+            4221,
+            4226
+          ],
+          "what_it_supports": "前后构建日志、访问层认证和实际应用/API启动异常"
+        }
+      ],
+      "workflow_relevance": "外网查看原型相关；不能把其后端前提与纯前端样式调整混为一谈。",
+      "necessary_cost": "核对构建产物、取得合法预览访问并检查API响应必要。",
+      "possibly_avoidable_cost": "更早说明该版本是前后端应用，可避免只反复调静态构建却期望业务可用。",
+      "revised_possible_solutions": [
+        "发布前明确此版本所需运行进程和API路由，外网检查同时核对内容类型/数据结构和一条业务路径。",
+        "若目标仅静态可交互原型，应先明确选择浏览器本地存储方案的范围，而非把现有后端应用直接当静态版。"
+      ],
+      "remaining_uncertainty": "4221没有展示完整me响应正文，非API内容判断由可见状态与4226诊断支持；精确托管配置未全面可见。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L10b",
+      "kind": "evidence_gap",
+      "description": "旧站访问返回401或链接过期，无法从线上页面确认它当前真实创建流程；报告改查本地源码的localStorage实现。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "为核查旧站创建能力而访问旧EdgeOne地址，入口被平台认证拦截。",
+      "cause_explanation": "4387返回EdgeOne401/访问受限或过期页面且api为空，不能从此判断旧应用的当前业务逻辑；4391转查对应本地源码，4415显示localStorage，4481据此纠正旧解释。不能把平台401当旧站创建功能坏了，也不能由本地代码证明线上所部署版本百分百相同。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            4371,
+            4377,
+            4387,
+            4391,
+            4415,
+            4481
+          ],
+          "what_it_supports": "明确旧站、平台认证阻断及转查本地实现"
+        }
+      ],
+      "workflow_relevance": "适用版本对比；用户问原型为何能用，先分辨站点和版本必要。",
+      "necessary_cost": "一次合法访问探测和查对应本地实现必要。",
+      "possibly_avoidable_cost": "在认证未变时反复请求401不能补业务证据。",
+      "revised_possible_solutions": [
+        "如需确认线上现状，取得有效预览访问后只读查看真实创建路径；否则将结论限定为对应本地版本。"
+      ],
+      "remaining_uncertainty": "线上当前部署代码和可写行为仍缺直接证据。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L11a",
+      "kind": "confirmed_issue",
+      "description": "两次表格patch、两次CSSpatch因上下文与实际行不符失败，随后读对应片段、拆小patch才成功。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "表格与CSS改动的patch上下文和当前文件不一致，多次失败后才重读缩小patch。",
+      "cause_explanation": "4510/4516及5131/5151均为expected lines找不到，4520/5135/5142读取当前区域，4527/5155/5169再改。直接原因是生成patch的行假设失效；3927存在其他修改的事实，故可能有并发变化，也可能是初次未精确读取或生成时抄错，不能统一硬归并发或编码损坏。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3927,
+            4508,
+            4510,
+            4514,
+            4516,
+            4520,
+            4527,
+            5129,
+            5131,
+            5135,
+            5142,
+            5149,
+            5151,
+            5155,
+            5169
+          ],
+          "what_it_supports": "失败上下文、重新读取和分块修正，及并发修改反解释"
+        }
+      ],
+      "workflow_relevance": "适用快速迭代下同一文件多次变化；需求变化是背景，陈旧上下文重试是独立可减少成本。",
+      "necessary_cost": "保护他人改动并重新读当前目标必要。",
+      "possibly_avoidable_cost": "同一失败后仍凭旧上下文重试可减少；不把成功的小patch检查算浪费。",
+      "revised_possible_solutions": [
+        "首次失配后先直接读当前UTF-8目标区域，再拆成最小相关patch；不要照原失败块盲试。"
+      ],
+      "remaining_uncertainty": "缺每次写入的完整来源，无法确认四次失败各自是否由并发、生成错误或前一改动导致。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L11b",
+      "kind": "confirmed_issue",
+      "description": "工具JS多余括号导致SyntaxError，目标读取命令未执行，需要修正工具脚本后重试。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "只读样式搜索调用的工具JavaScript多写一个右括号。",
+      "cause_explanation": "5081代码在赋值的exec_command后出现多余括号，5083工具解释器直接SyntaxError，5087改成合法text(await...)后重试。错误发生于编排层，shell目标读取未执行，和项目JSX或样式无关。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            5081,
+            5083,
+            5087
+          ],
+          "what_it_supports": "错误工具代码、解析反馈和更正调用"
+        }
+      ],
+      "workflow_relevance": "与原型迭代无直接关系。",
+      "necessary_cost": "查样式定位规则必要。",
+      "possibly_avoidable_cost": "一次语法失败和重发可避免。",
+      "revised_possible_solutions": [
+        "对简单读取沿用最短已验证工具调用模板，保持赋值与text包装二选一的完整结构。"
+      ],
+      "remaining_uncertainty": "不据此推断目标项目有语法错误。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L12",
+      "kind": "confirmed_issue",
+      "description": "左导航检查给两个元素同样“当前会话资源”aria-label，strict mode无法唯一定位，后改唯一标签再验证。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "左资源滚动容器新增后，与外层aside用了相同aria-label。",
+      "cause_explanation": "5213明确getByLabel解析为两个元素并strict violation；5217把内层改为会话资源列表，消除命名冲突，5239构建通过。直接原因是嵌套区域命名重复且定位器未限制角色/范围。它首先是可访问定位歧义，不能由此声称用户无法看到或点击任何资源。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            5211,
+            5213,
+            5217,
+            5239
+          ],
+          "what_it_supports": "两个实际匹配对象、唯一标签修正和构建"
+        }
+      ],
+      "workflow_relevance": "适用资源树布局重构；独立命名有助于稳定检查与辅助技术导航。",
+      "necessary_cost": "对变更后资源区域做一次定位与可见检查必要。",
+      "possibly_avoidable_cost": "可避免新增嵌套标签时复制相同名称造成的一次检查失败。",
+      "revised_possible_solutions": [
+        "为不同职责区域使用区分明确的名称，或在检查中按角色/父级范围定位；保留唯一目标断言。"
+      ],
+      "remaining_uncertainty": "5239仅构建通过，不能单凭它说该次浏览器断言已经重新全部通过。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L13",
+      "kind": "evidence_gap",
+      "description": "一脚本10.2秒无stdout；另一脚本初读source buttons为空，后点击未抛错但activeTab仍空，缺少目标表真正打开的明确断言，不能提升成严密端到端证明。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "来源按钮点击验证只保存了空输出或未明确目标表的日志。",
+      "cause_explanation": "5576与5589都只text(r.output)，5578在10.2秒无输出，因而若exec仍运行其session_id也没有被保留展示；5593先取source buttons为空，后点击无显式错误但active tab仍空。早取列表可能发生于页面尚未就绪，active选择器也可能与实际结构不符；缺少断言使这几种解释无法区分，不能直接说功能坏或已严密通过。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            5576,
+            5578,
+            5589,
+            5593
+          ],
+          "what_it_supports": "仅输出output的调用、空日志及活动表为空的实际结果"
+        }
+      ],
+      "workflow_relevance": "适用用户要点输入来源看到表格的真实预览目标。",
+      "necessary_cost": "一次验证来源按钮是否打开正确表必要。",
+      "possibly_avoidable_cost": "可避免丢失异步执行句柄和只打印结果而不判断目标的重复检查。",
+      "revised_possible_solutions": [
+        "保留exec完整状态与会话ID，等待脚本完成；明确断言目标表ID/名称为当前活动表，再记录结果。"
+      ],
+      "remaining_uncertainty": "无法确认首脚本完成、退出或后台异常原因；后一脚本的空active文本不足以判定真实打开状态。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L14a",
+      "kind": "evidence_gap",
+      "description": "首轮模型UI检查无stdout/无截图，单凭退出过程不能确认测点联动成功；后来检查页面、导入demo并取得7测点与活动表证据才补齐。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "新增可导入测点示例后的首轮UI检查未留下完成日志或截图。",
+      "cause_explanation": "6162只输出exec.output，6164在10.2秒无输出，6169检查产物，6185页面仍是空模型工作区；6200显式切模型功能页、开导入弹窗、选示例并播放，6209才有7测点与加减速活动表。最初检查存在页面前置状态未落实与异步结果未跟踪两种可见风险；最终证据补齐成功，但不能倒推空输出时就已成功。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            6162,
+            6164,
+            6169,
+            6176,
+            6185,
+            6200,
+            6209
+          ],
+          "what_it_supports": "首检查输出不足、实际页面状态及后续明确操作/结果"
+        }
+      ],
+      "workflow_relevance": "直接适用；用户需通过预览体验联动，截图与测试状态应有清楚来源。",
+      "necessary_cost": "确认模型页、导入示例和活动数据表必要。",
+      "possibly_avoidable_cost": "可避免无结果时重新猜测并重复检查；保留完整异步状态可减少证据丢失。",
+      "revised_possible_solutions": [
+        "从明确初始功能页执行导入，保留exec会话与退出信息，并断言测点数和活动表名后截图。"
+      ],
+      "remaining_uncertainty": "没有首脚本最终结果，无法确认它因隐藏入口、等待还是进程生命周期结束而未完成。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L14b",
+      "kind": "confirmed_issue",
+      "description": "截图路径先猜在临时数据目录，文件不存在；后find确认实际在项目verification，增加一次无效定位。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "已有截图路径相对项目保存，却先到临时预览数据目录查找。",
+      "cause_explanation": "6200/6209声明verification/workbench相对项目路径，6251却拼到/tmp/om2-ui-alignment-preview，6254不存在，6258/6261查回项目verification。直接原因是把预览数据目录与脚本产物目录混同，不是截图未生成。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            6200,
+            6209,
+            6251,
+            6254,
+            6258,
+            6261
+          ],
+          "what_it_supports": "保存位置、错误猜测与实际文件发现"
+        }
+      ],
+      "workflow_relevance": "预览截图交付相关，但与用户改布局本身无关。",
+      "necessary_cost": "确认截图可读取并查看必要。",
+      "possibly_avoidable_cost": "沿生成调用的workdir解析相对路径可少一次无效文件查找。",
+      "revised_possible_solutions": [
+        "产物生成时同时记录绝对输出路径，后续直接沿该路径读取。"
+      ],
+      "remaining_uncertainty": "不推断其他截图均在同一目录，应各依生成调用确认。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L14c",
+      "kind": "candidate_issue",
+      "description": "Chrome DevTools未运行时再次尝试连接，已有可用Playwright路径；环境能力没有完全复用，产生无效连接探测。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "在已有可用Playwright验证后又探测Chrome DevTools连接。",
+      "cause_explanation": "6295尝试list_pages，6298返回找不到DevToolsActivePort，而6209刚有Playwright成功证据。直接失败是该Chrome服务未运行/不可发现；但工具能力可能变化，且用户当前浏览器与独立测试上下文不同，一次能力探测有合理目的，不足单独证明浪费。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            6200,
+            6209,
+            6289,
+            6295,
+            6298
+          ],
+          "what_it_supports": "已成功独立浏览器、能力发现和Chrome连接不可用"
+        }
+      ],
+      "workflow_relevance": "若要查看用户实际页面则适用，独立测试会话不能替代用户当前会话。",
+      "necessary_cost": "一次核对当前可访问浏览器能力合理。",
+      "possibly_avoidable_cost": "只有在环境前提未变时继续重复同类连接才可能避免；本次整清单输出另列F07b。",
+      "revised_possible_solutions": [
+        "记住当前Chrome连接不可用的状态，复用已成功的Playwright做独立复现，并明确其与用户会话的边界。"
+      ],
+      "remaining_uncertainty": "不能由工具存在推断其后台Chrome已启动；不知道当时是否具备读取用户已开浏览器的其他通道。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:L14d",
+      "kind": "evidence_gap",
+      "description": "用户给的无端口localhost URL访问5秒超时，无法据该请求确认用户本人会话状态；截图来自测试会话，不等于已给用户会话预加模型。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户页面地址未带本地服务端口，尝试该地址5秒未连通。",
+      "cause_explanation": "6316请求无端口localhost，6319超时；6324明确截图是测试时手动导入demo的状态，示例未预加进用户现有会话。地址不可达和会话内容未预置是两个边界：请求失败不能证明用户页面实际空/坏，测试截图也不能证明对方会话已有模型。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            6316,
+            6319,
+            6324,
+            6209
+          ],
+          "what_it_supports": "用户地址探测超时和测试会话/用户会话的明确区分"
+        }
+      ],
+      "workflow_relevance": "直接适用；反复看实际预览需确保双方指向同一服务、前端版本和会话。",
+      "necessary_cost": "核对用户真实入口和当前页面状态必要。",
+      "possibly_avoidable_cost": "可避免把验证截图入口说成用户现有会话状态导致额外困惑。",
+      "revised_possible_solutions": [
+        "给预览链接时记录服务端口、会话与是否需手动导入；若无法访问用户地址，明确仅确认独立测试会话。"
+      ],
+      "remaining_uncertainty": "用户浏览器所用端口代理、缓存版本和真实会话数据仍未知，不能以本地curl结果替代。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:A01",
+      "kind": "evidence_gap",
+      "description": "数据查询慢的解释基于源码中潜在顺序扫描和解析，没有实测性能，无法确认哪个环节占主要延迟或量化优化收益。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户询问关联查询为何慢，助手按源代码分析潜在读取路径。",
+      "cause_explanation": "60提出耗时现象，63/80读取关联查询与前端请求链，89列出整空间收集、连续请求、文件解析等源码开销，并明确实际慢在哪还需接口和数据库耗时。未见性能采样或相同数据量前后对照，故只能提供候选机制，不能排出主要瓶颈或收益。这里缺测量也符合当时先解释架构的范围，不是已承诺性能优化未验收。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            60,
+            63,
+            80,
+            89
+          ],
+          "what_it_supports": "性能疑问、源码调查方式和答复中的实测边界"
+        }
+      ],
+      "workflow_relevance": "这一段为架构解释，原型样式/文字迭代背景不直接适用。",
+      "necessary_cost": "先解释持久化与运行时关联汇总区别必要。",
+      "possibly_avoidable_cost": "无证据说明当时必须做性能基准；可避免的是把候选开销说成已证实主因。",
+      "revised_possible_solutions": [
+        "若后续要优化，先对用户实际慢页面采接口分段和数据库耗时，再针对主要路径选择索引或按需加载。"
+      ],
+      "remaining_uncertainty": "没有请求耗时、数据规模、冷/热缓存和网络状态，无法确定主因或量化收益。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:A02",
+      "kind": "candidate_issue",
+      "description": "用户说流程清晰/入口唯一后，实现成必须下一步的三步向导，874用户要求先画功能栏新建方案，895承认工作台改偏；存在把流程清晰过度解释为强制步骤的方案偏差。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户要流程清晰、入口唯一，助手把工作台实施成三步向导。",
+      "cause_explanation": "673/695提供目标，但没有明确要求强制顺序；867实施准备数据/处理分析/整理成果，874要求新建放功能栏并先ASCII，895承认强制下一步改偏。可以推断助手用线性向导作为清晰流程的默认解，压缩了专业工作台自由操作；同时874给了更具体的新方案要求，不能把该要求完整追溯到673。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            673,
+            695,
+            867,
+            874,
+            895
+          ],
+          "what_it_supports": "抽象目标、实际三步实现和用户后续具体化/助手承认"
+        }
+      ],
+      "workflow_relevance": "直接适用；用户看实现后调整正常，候选问题在未确认就选了限制较强的交互。",
+      "necessary_cost": "把抽象目标画成方案、通过预览发现不合适必要。",
+      "possibly_avoidable_cost": "可避免在确认是否允许自由跳转前完成整套强制阶段交互。",
+      "revised_possible_solutions": [
+        "先以简短框图展示同页功能栏和阶段向导的操作差异，用一条真实分析路径确认所需自由度后再改。"
+      ],
+      "remaining_uncertainty": "此前无绝对禁止向导的明确指令；方案偏差不等于违反当时不存在的硬约束。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:A03",
+      "kind": "candidate_issue",
+      "description": "用户提出CFG独立选择后先得到ASCII方案，2473又反馈根本没看见按钮，随后才真正实现可见入口；方案与当前已上线状态的说明可能不清。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户2461要求不复用模型关联CFG并快速展示类似表，助手先给ASCII，2473问看不到按钮。",
+      "cause_explanation": "2461同时含产品调整与“展示类似的表”措辞，2466的ASCII确回应了展示设计的部分，且没有明确宣称代码已部署；但对按钮只是拟议位置还是当前可见入口未说明，用户于是去页面找，2491/2499才实施。原因更接近设计状态与已实现状态的沟通边界，而非确定拒绝执行。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            2461,
+            2466,
+            2473,
+            2491,
+            2499,
+            2516
+          ],
+          "what_it_supports": "请求双重含义、方案答复、用户找按钮及随后实施"
+        }
+      ],
+      "workflow_relevance": "直接适用；用户需要迅速看到真实原型，ASCII和实际预览必须标清阶段。",
+      "necessary_cost": "用框图快速对齐新入口合理。",
+      "possibly_avoidable_cost": "可以减少用户在未改页面寻找方案按钮的返程。",
+      "revised_possible_solutions": [
+        "给图时用一句话标示这是拟改位置或已实现状态；获明确实施意图后直接提供可点击入口及轻量核验。"
+      ],
+      "remaining_uncertainty": "2461并非毫无歧义的“立刻写代码”，不把先画图本身判为已确认错误。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:A04",
+      "kind": "evidence_gap",
+      "description": "创建/关闭说明阶段如实指出关闭会话尚未实现，后续删除/确认处理不自动证明已有完整“关闭会话”功能。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户询问会话如何新建和关闭，后续答复明确当前关闭入口尚未补。",
+      "cause_explanation": "3468是功能询问，3488解释外网只读隐藏新建、本地可新建，并直说关闭未实现；3507另要删除。删除、切换与关闭语义不同，后续出现删除并不能补证完整关闭行为。缺口来自当时实现范围和记录未给关闭测试，不应由一个询问就认定已有承诺实现而漏做。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3468,
+            3488,
+            3507
+          ],
+          "what_it_supports": "用户问法、关闭未实现声明及独立删除新要求"
+        }
+      ],
+      "workflow_relevance": "适用；用户通过原型发现操作概念需要细化。",
+      "necessary_cost": "解释只读预览与本地编辑差别、澄清关闭/删除行为必要。",
+      "possibly_avoidable_cost": "可避免的是将删除交付误称已满足关闭；没有证据支持额外浪费分钟。",
+      "revised_possible_solutions": [
+        "如后续要求关闭，先确定它是否仅关闭当前视图/保留会话以及草稿处理，再取得对应实际点击结果。"
+      ],
+      "remaining_uncertainty": "截至相关记录未确认独立关闭入口的实现与验收，不补造完成。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:A05",
+      "kind": "candidate_issue",
+      "description": "加CFG曾与加载/展示模型耦合，用户要求区分来源入口后才改成显式查看模型；单次动作承担多个意图可能使操作结果难预测。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户要求资源来源和入口低耦合，并指出加CFG不应直接切三维。",
+      "cause_explanation": "3704追问多个来源与资源何时展示，3750问添加CFG为何直接显示模型，3755承认把加入构型与打开模型处理耦合，3950改为加CFG只分组、显式查看才加载。直接原因是复用一个处理动作同时修改工程上下文与中央展示状态。3762同时提出未保存关联表即入树的新规则，不能以它追溯说此前按保存入树的设计早就违反要求。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            3704,
+            3750,
+            3755,
+            3762,
+            3776,
+            3950
+          ],
+          "what_it_supports": "耦合行为反馈、明确承认、树规则新变化和后续交付"
+        }
+      ],
+      "workflow_relevance": "直接适用；用户逐步调整预览组织方式，动作副作用和合法新树规则应分别解释。",
+      "necessary_cost": "梳理添加CFG/导入模型/打开数据的独立意图必要。",
+      "possibly_avoidable_cost": "可避免把结构关联自动变为视图跳转而打断当前表/图；新即时入树实现属于新增需求成本。",
+      "revised_possible_solutions": [
+        "将加入资源、关联归属和打开模型做成独立命令，默认保持当前内容，只有明确打开才改变中央视图。"
+      ],
+      "remaining_uncertainty": "未把早期全部实现视为违反后来规则；3950声明已点检恢复，但末轮基础归属方案仍未实施。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:A06",
+      "kind": "confirmed_issue",
+      "description": "面对“旧网址能新建”，先只依据新版实现断言必有可写后端；用户明确旧站后才查到localStorage并纠正，产品/版本上下文误配导致错误技术解释。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户问旧网址为何能新建，助手先以新版OM2后端写入方式作概括解释。",
+      "cause_explanation": "4340没有明确是哪一个旧地址，4364先用条件句解释本地新版，随后却进一步断言此前能新建说明有可写后端；4371给出旧站后4391/4415查到对应版本localStorage，4481纠正。可确认是从当前项目架构过度推到未识别的旧版本，未先限定对象；第一次条件性解释本身有合理部分，错误在泛化。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            4340,
+            4364,
+            4371,
+            4391,
+            4415,
+            4481
+          ],
+          "what_it_supports": "模糊旧地址、过强推断、版本识别与本地存储证据"
+        }
+      ],
+      "workflow_relevance": "适用不同前端原型版本的比较；用户正常对照旧体验不应被当成要求切换后端架构。",
+      "necessary_cost": "确认旧版路径和存储实现必要。",
+      "possibly_avoidable_cost": "可避免先给普遍技术结论再纠正的一轮。",
+      "revised_possible_solutions": [
+        "未识别版本时保持条件性回答；先核对对应入口和持久化调用，再解释它与当前版本的差异。"
+      ],
+      "remaining_uncertainty": "旧站线上401仍未解除，本地版本实现与当时线上版本完全一致尚未直接证明。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:A07",
+      "kind": "candidate_issue",
+      "description": "语音/截图描述字段行与编号存在歧义，助手一度隐藏可见字段名，4658用户再明确保留字段、只去字段行编号后才恢复。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户用语音/截图描述字段所在行的空白编号，助手先理解成隐藏字段。",
+      "cause_explanation": "4466原要求保留字段以供绘图，4595/4611“字段名称这里空”等表达有歧义；4651隐藏可见字段，4658明确要字段、只去该行序号后4696恢复。根因是未区分行号单元格与字段内容单元格，把“空”作用范围扩到整行。保留模型字段满足引用但不满足可见字段的实际意图；用户澄清成本中有合理的图文语义确认部分。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            4466,
+            4595,
+            4611,
+            4651,
+            4658,
+            4696
+          ],
+          "what_it_supports": "原字段保留要求、歧义措辞、误改和精准澄清/恢复"
+        }
+      ],
+      "workflow_relevance": "直接适用；文字与排布反复调整是目标，候选问题是动手前没有用最小表样确定“空”的位置。",
+      "necessary_cost": "快速看表头预览、明确行号与数据行区别必要。",
+      "possibly_avoidable_cost": "可避免整体隐藏字段后再恢复的实现往返。",
+      "revised_possible_solutions": [
+        "先用两列三行的小表标出坐标行、字段行、行号格和数据行；只改被指向的格子与编号。"
+      ],
+      "remaining_uncertainty": "未重看原截图像素，原语音转写可能有误，不能断定用户起初文字已毫无歧义。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:A08",
+      "kind": "candidate_issue",
+      "description": "表格高度语音需求被解释成添加展开按钮，用户随后要求移除；存在把高度拖动诉求扩成新操作入口的偏差。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户描述表格可拖到展开高度，助手添加展开按钮，之后用户明确要删按钮。",
+      "cause_explanation": "4768语音文字“没有展开表格以及这个”不够明确，4820新增明显展开按钮并提高分隔条上限；4827/4866澄清只要拖动到该高度并删按钮，4897完成。根因是把“展开高度”这个尺寸参照解释成新操作入口，同时真实拖动范围的修改与用户意图相符。属于部分误解与逐步明确并存。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            4768,
+            4820,
+            4827,
+            4866,
+            4897
+          ],
+          "what_it_supports": "原措辞、加按钮/拖动范围实现及后续删除澄清"
+        }
+      ],
+      "workflow_relevance": "直接适用；用户通过预览修正排布和操作入口，不能把所有反馈都算错误。",
+      "necessary_cost": "调整分隔条上限和查看实际高度必要。",
+      "possibly_avoidable_cost": "多加再删按钮的局部往返可能避免，不把正确高度改动或分页新要求计入。",
+      "revised_possible_solutions": [
+        "把高度参照与是否保留独立按钮分开理解；先满足明确的拖动范围，仅在确认需要时新增入口。"
+      ],
+      "remaining_uncertainty": "4768文本歧义较强，不能证明当时已经明确禁止该按钮。"
+    },
+    {
+      "id": "01a1a0ca-176d-7182-8521-a220bd9029f7:A09",
+      "kind": "positive_context",
+      "description": "最初按此前约定参考ProTangram查不到视频，用户提供正确OM2路径后才确认是状态回放、转子和测点数据；没有捏造视频文件。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "用户以 OM2 为当前原型，参考 ProTangram 的业务组织持续调整入口、会话、CFG、表格和模型，并通过实际页面决定下一步；193要求兼容构型相关和通用分析，271/301及3155要求重构内容但保持验收轻量。后续文字、排布、表格和归属要求逐轮增加，应按各轮当时范围判断。",
+        "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+        "physical_lines": [
+          193,
+          271,
+          301,
+          3155
+        ]
+      },
+      "trigger_or_change": "用户询问原源码是否有模型播放，先查先前提供的ProTangram，后收到另一个OM2目录。",
+      "cause_explanation": "115明确给过ProTangram源码作为参考，5734只说原来的源码；5825在这份代码范围内说未找到视频，5832才提供另一OM2目录，5881确认状态回放而非视频文件。按当时可见来源开始调查合理，后续新路径带来新证据；不应把首次未查尚未给出的目录当失误。有效之处是对不存在证据不编造视频，并在新证据下更正范围。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            193,
+            271,
+            301,
+            3155
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+          "physical_lines": [
+            115,
+            5734,
+            5803,
+            5825,
+            5832,
+            5881
+          ],
+          "what_it_supports": "原参考路径、查询范围限定、新目录和模型状态回放证据"
+        }
+      ],
+      "workflow_relevance": "适用；多版原型功能溯源需明确版本，用户追加来源是正常协作。",
+      "necessary_cost": "查已知源码、收到新目录后对比回放实现必要。",
+      "possibly_avoidable_cost": "宽源码输出问题另列F07a，不能把合法更换调查来源的全部调用算浪费。",
+      "revised_possible_solutions": [
+        "保留先说明所查版本、区分视频文件与数据驱动回放的机制；新目录出现时更新结论而不强守旧解释。"
+      ],
+      "remaining_uncertainty": "不能确认用户5734所指原版在当时是否唯一可知；现有已给路径支持首轮选择的合理性。"
+    }
+  ]
+}

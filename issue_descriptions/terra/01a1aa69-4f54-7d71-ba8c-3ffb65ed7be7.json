@@ -1,0 +1,80 @@
+{
+  "session_id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+  "title": "适配前端设计",
+  "source_audit": "terra/01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "浏览器验证把异步提交的202状态预期为200，导致脚本失败。",
+      "evidence": "第880、896、903、917行",
+      "possible_solutions": [
+        "对照接口契约验证异步状态码。"
+      ],
+      "uncertainty": "原审计根因置信：高：断言预期与实际返回不同，选择器未匹配界面；测试自身状态码与选择器假设不符，造成回归脚本返工；实际发现接口行为是合理验证的一部分，不等于产品故障。"
+    },
+    {
+      "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "修正状态码后选择器又等待15秒失败，随后修正并运行成功。",
+      "evidence": "第880、896、903、917行",
+      "possible_solutions": [
+        "使用实际可访问标签和页面状态条件定位。"
+      ],
+      "uncertainty": "原审计根因置信：高：断言预期与实际返回不同，选择器未匹配界面；测试自身状态码与选择器假设不符，造成回归脚本返工；实际发现接口行为是合理验证的一部分，不等于产品故障。"
+    },
+    {
+      "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7:F02",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "走查脚本多次因路径、旧数据、异步页面和选择器失败后重跑；测试状态和同步条件不稳定导致重复准备；逐次修复继续走查产生了有价值的流程证据。 影响或损失：至少四次失败，不将整轮409秒归为浪费",
+      "evidence": "第575、589、605、630行",
+      "possible_solutions": [
+        "为每次运行使用隔离数据、等待页面稳定并从检查点继续。"
+      ],
+      "uncertainty": "原审计根因置信：中：测试状态隔离和界面同步不足；测试状态和同步条件不稳定导致重复准备；逐次修复继续走查产生了有价值的流程证据。"
+    },
+    {
+      "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "第22行请求末句未完成，后续不实现该部分合理；不得把隔夜用户空档算工作时间。",
+      "evidence": "源审计任务段定位：第22、163、366、373、404行；第411、458、476、488、502、514、526、532、666、673、685、692行；第702、740、747、777、784、917、947行",
+      "possible_solutions": [
+        "用调用起止和用户交互记录核对时间归属；缺少证据时不把空档归因于模型工作。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "positive_context",
+      "description": "第341行会话菜单测试一次失败；修正唯一名称后第355行末尾返回完整PASS，不能把其最终验收说成未通过。",
+      "evidence": "源审计任务段定位：第22、163、366、373、404行；第411、458、476、488、502、514、526、532、666、673、685、692行；第702、740、747、777、784、917、947行",
+      "possible_solutions": [
+        "保留原有证据边界与有意红测、成功复验或无问题的上下文，不将其误记为失败。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "session_id": "01a1570b-5750-7042-ae3e-e94b67aad107",
+  "source_audit": "terra/01a1570b-5750-7042-ae3e-e94b67aad107.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/20/rollout-2026-10-20T10-02-03-01a1570b-5750-7042-ae3e-e94b67aad107.jsonl",
+  "snapshot_lines": 24,
+  "items": [
+    {
+      "id": "01a1570b-5750-7042-ae3e-e94b67aad107:U01",
+      "kind": "evidence_gap",
+      "description": "工具列表为空是该会话时点事实，不能推广到其他会话。",
+      "cause_status": "supported",
+      "context_from_chat": "用户只要求列出当前实际可调用的特定DevTools工具，禁止按配置猜测（第10行）。",
+      "trigger_or_change": "第16行按名称前缀过滤，18行返回空，21行说明未加载。",
+      "cause_explanation": "原聊天所见的边界：工具列表为空是该会话时点事实，不能推广到其他会话。。现有可见记录不足以给未观测部分补造原因；相关调用和反馈见下列物理行。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1570b-5750-7042-ae3e-e94b67aad107",
+          "physical_lines": "10、16、18、21",
+          "what_it_supports": "用户约束、实际调用和返回或直接答复；对应上述判断。"
+        }
+      ],
+      "workflow_relevance": "本次是连接或工具检查，不涉及前端原型布局迭代。",
+      "necessary_cost": "只读确认工具、遵守隐私约束或直接回答属于必要工作。",
+      "possibly_avoidable_cost": "没有证据表明额外等待可避免；不推断净损失。",
+      "revised_possible_solutions": [
+        "在权限允许且确有必要时核对关联会话或原始日志；否则将当前判断限定在已审范围。"
+      ],
+      "remaining_uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a1570b-5750-7042-ae3e-e94b67aad107:A01",
+      "kind": "positive_context",
+      "description": "任务“仅列当前实际暴露的Chrome DevTools工具”：过滤ALL_TOOLS为空，正确报告未加载；约6.13秒",
+      "cause_status": "not_applicable",
+      "context_from_chat": "用户只要求列出当前实际可调用的特定DevTools工具，禁止按配置猜测（第10行）。",
+      "trigger_or_change": "第16行按名称前缀过滤，18行返回空，21行说明未加载。",
+      "cause_explanation": "原聊天所示正向或反例：任务“仅列当前实际暴露的Chrome DevTools工具”：过滤ALL_TOOLS为空，正确报告未加载；约6.13秒。这是该时点和条件下的结果，不作为错误归因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1570b-5750-7042-ae3e-e94b67aad107",
+          "physical_lines": "10、16、18、21",
+          "what_it_supports": "用户约束、实际调用和返回或直接答复；对应上述判断。"
+        }
+      ],
+      "workflow_relevance": "本次是连接或工具检查，不涉及前端原型布局迭代。",
+      "necessary_cost": "只读确认工具、遵守隐私约束或直接回答属于必要工作。",
+      "possibly_avoidable_cost": "没有证据表明额外等待可避免；不推断净损失。",
+      "revised_possible_solutions": [
+        "保留明确限定范围的核对、复验或直接答复机制。"
+      ],
+      "remaining_uncertainty": "成功结论限于源报告所记录的时点、样本和验证范围。"
+    }
+  ]
+}

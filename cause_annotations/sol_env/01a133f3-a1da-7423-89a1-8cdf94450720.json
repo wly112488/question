@@ -1,0 +1,162 @@
+{
+  "session_id": "01a133f3-a1da-7423-89a1-8cdf94450720",
+  "source_audit": "sol_env/01a133f3-a1da-7423-89a1-8cdf94450720.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T14-29-27-01a133f3-a1da-7423-89a1-8cdf94450720.jsonl",
+  "snapshot_lines": 122,
+  "items": [
+    {
+      "id": "01a133f3-a1da-7423-89a1-8cdf94450720:F01",
+      "kind": "positive_context",
+      "description": "真实探测出网络/socket限制；一次含rm清理的探测被自动审批拒绝，去掉清理后得到tmux拒绝证据；最终明确未完成。 影响：拒绝探测0秒，修正探测0.1秒；未制造成功。",
+      "context_from_chat": "用户9明确先检查已有工具、不重复安装并完成真实双Agent；无法闭环要披露。77另要求开启沙箱权限。",
+      "trigger_or_change": "只读环境预检后发现网络、目录与Unix socket受限。",
+      "workflow_relevance": "基础设施部署验证，非前端样式/文字/排布迭代，不能据视觉工作方式解释权限阻塞。",
+      "necessary_cost": "依用户要求核对依赖和官方two-pack当前规则、验证实际权限有必要。",
+      "possibly_avoidable_cost": "已有阻塞证据后可少输出无关工具和减少低增量查找；没有净耗时基线。",
+      "remaining_uncertainty": "日志只记录实际权限拒绝，不能从宿主内视图确定外部沙箱管理层的所有可调入口。",
+      "cause_status": "supported",
+      "cause_explanation": "16 Git失败是failed to open socket Operation not permitted，55独立tmux socket仍同拒绝，49因rm式探测被自动审核拒绝后去掉清理。现有工具齐备而执行边界不满足，70正确报告未启动Agent。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133f3-a1da-7423-89a1-8cdf94450720",
+          "physical_lines": [
+            9,
+            16,
+            39,
+            49,
+            53,
+            55,
+            70
+          ],
+          "what_it_supports": "原用户要求、权限失败和实际探测/后续回答"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留最小非破坏探测及分阶段未完成报告，环境具备后再继续真实闭环。"
+      ]
+    },
+    {
+      "id": "01a133f3-a1da-7423-89a1-8cdf94450720:F02a",
+      "kind": "candidate_issue",
+      "description": "确认沙箱阻塞后仍列出约2万字符全量工具，输出范围大于定位权限问题所需，增加上下文负担。",
+      "context_from_chat": "用户9明确先检查已有工具、不重复安装并完成真实双Agent；无法闭环要披露。77另要求开启沙箱权限。",
+      "trigger_or_change": "只读环境预检后发现网络、目录与Unix socket受限。",
+      "workflow_relevance": "基础设施部署验证，非前端样式/文字/排布迭代，不能据视觉工作方式解释权限阻塞。",
+      "necessary_cost": "依用户要求核对依赖和官方two-pack当前规则、验证实际权限有必要。",
+      "possibly_avoidable_cost": "已有阻塞证据后可少输出无关工具和减少低增量查找；没有净耗时基线。",
+      "remaining_uncertainty": "日志只记录实际权限拒绝，不能从宿主内视图确定外部沙箱管理层的所有可调入口。",
+      "cause_status": "inferred",
+      "cause_explanation": "61在socket阻塞已确认后打印全ALL_TOOLS，63返回约2万字符；可理解为寻找额外执行/权限入口，但多数工具描述与沙箱改变无关。重复是否无用取决于是否确有其他入口，记录未找到。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133f3-a1da-7423-89a1-8cdf94450720",
+          "physical_lines": [
+            55,
+            61,
+            63,
+            70
+          ],
+          "what_it_supports": "原用户要求、权限失败和实际探测/后续回答"
+        }
+      ],
+      "revised_possible_solutions": [
+        "按权限/执行能力筛选工具目录，已有事实足以说明阻塞时停止列全量。"
+      ]
+    },
+    {
+      "id": "01a133f3-a1da-7423-89a1-8cdf94450720:F02b",
+      "kind": "candidate_issue",
+      "description": "权限问答继续四次网页查询/打开，约19秒工具壁钟；权威核对合理，但后续增量信息较少。",
+      "context_from_chat": "用户9明确先检查已有工具、不重复安装并完成真实双Agent；无法闭环要披露。77另要求开启沙箱权限。",
+      "trigger_or_change": "只读环境预检后发现网络、目录与Unix socket受限。",
+      "workflow_relevance": "基础设施部署验证，非前端样式/文字/排布迭代，不能据视觉工作方式解释权限阻塞。",
+      "necessary_cost": "依用户要求核对依赖和官方two-pack当前规则、验证实际权限有必要。",
+      "possibly_avoidable_cost": "已有阻塞证据后可少输出无关工具和减少低增量查找；没有净耗时基线。",
+      "remaining_uncertainty": "日志只记录实际权限拒绝，不能从宿主内视图确定外部沙箱管理层的所有可调入口。",
+      "cause_status": "mixed",
+      "cause_explanation": "77是新权限请求，83读openai-docs后90/97两次搜索、104打开、111点击。核对官方当前权限说明有明确任务依据；首搜索93混入Self-hosted等无关结果使后续收窄，不能把四次查证全部视为重复。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133f3-a1da-7423-89a1-8cdf94450720",
+          "physical_lines": [
+            77,
+            82,
+            83,
+            90,
+            93,
+            97,
+            100,
+            104,
+            107,
+            111,
+            114,
+            119
+          ],
+          "what_it_supports": "原用户要求、权限失败和实际探测/后续回答"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先以明确Codex权限页与本机会话事实查证，只为尚未解答的具体问题追加检索。"
+      ]
+    },
+    {
+      "id": "01a133f3-a1da-7423-89a1-8cdf94450720:U01",
+      "kind": "evidence_gap",
+      "description": "大型README与网页返回摘要扫描，未逐字符核对全部文档。",
+      "context_from_chat": "用户9明确先检查已有工具、不重复安装并完成真实双Agent；无法闭环要披露。77另要求开启沙箱权限。",
+      "trigger_or_change": "只读环境预检后发现网络、目录与Unix socket受限。",
+      "workflow_relevance": "基础设施部署验证，非前端样式/文字/排布迭代，不能据视觉工作方式解释权限阻塞。",
+      "necessary_cost": "依用户要求核对依赖和官方two-pack当前规则、验证实际权限有必要。",
+      "possibly_avoidable_cost": "已有阻塞证据后可少输出无关工具和减少低增量查找；没有净耗时基线。",
+      "remaining_uncertainty": "日志只记录实际权限拒绝，不能从宿主内视图确定外部沙箱管理层的所有可调入口。",
+      "cause_status": "unknown",
+      "cause_explanation": "README/网页返回很长且受保存预算，当前可见片段不能代替全部规则审读；这是证据范围，不证明执行实际违反未读条款。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133f3-a1da-7423-89a1-8cdf94450720",
+          "physical_lines": [
+            23,
+            32,
+            86,
+            107,
+            114
+          ],
+          "what_it_supports": "原用户要求、权限失败和实际探测/后续回答"
+        }
+      ],
+      "revised_possible_solutions": [
+        "仅针对需要判断的规则补读已保存内容，未保存部分保持未知。"
+      ]
+    },
+    {
+      "id": "01a133f3-a1da-7423-89a1-8cdf94450720:A01",
+      "kind": "evidence_gap",
+      "description": "本次双Agent实际部署/协作验证因Git/tmux socket权限被阻塞，固定快照没有完成目标；助手已明确披露，不能当作部署成功。",
+      "context_from_chat": "用户9明确先检查已有工具、不重复安装并完成真实双Agent；无法闭环要披露。77另要求开启沙箱权限。",
+      "trigger_or_change": "只读环境预检后发现网络、目录与Unix socket受限。",
+      "workflow_relevance": "基础设施部署验证，非前端样式/文字/排布迭代，不能据视觉工作方式解释权限阻塞。",
+      "necessary_cost": "依用户要求核对依赖和官方two-pack当前规则、验证实际权限有必要。",
+      "possibly_avoidable_cost": "已有阻塞证据后可少输出无关工具和减少低增量查找；没有净耗时基线。",
+      "remaining_uncertainty": "日志只记录实际权限拒绝，不能从宿主内视图确定外部沙箱管理层的所有可调入口。",
+      "cause_status": "supported",
+      "cause_explanation": "用户要真实启动/交接/测试，实际网络socket及tmux socket拒绝使安装启动前提不成立；119说明当前对话内未能提高固定权限。没有Handoff/测试记录不能报告成功。",
+      "raw_evidence": [
+        {
+          "session_id": "01a133f3-a1da-7423-89a1-8cdf94450720",
+          "physical_lines": [
+            9,
+            16,
+            55,
+            70,
+            77,
+            119
+          ],
+          "what_it_supports": "原用户要求、权限失败和实际探测/后续回答"
+        }
+      ],
+      "revised_possible_solutions": [
+        "在后续用户允许且具备权限的环境先复验前提，再做真实双Agent；本轮审计不变更环境。"
+      ]
+    }
+  ]
+}

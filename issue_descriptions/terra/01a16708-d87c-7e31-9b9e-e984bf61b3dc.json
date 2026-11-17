@@ -1,0 +1,54 @@
+{
+  "session_id": "01a16708-d87c-7e31-9b9e-e984bf61b3dc",
+  "title": "",
+  "source_audit": "terra/01a16708-d87c-7e31-9b9e-e984bf61b3dc.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a16708-d87c-7e31-9b9e-e984bf61b3dc:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "连续批量读取多个源码/差异文件，多次达到历史输出截断上限；审查上下文可能丢失并迫使后续定点重读；大量阅读对独立审查有合理用途，截断本身不能证明发现遗漏。 影响或损失：至少4次输出明确标注截断，额外时间不可量化",
+      "evidence": "第17、20、27、30、34、37、41、44、48、51、55、58、67、70行",
+      "possible_solutions": [
+        "先按功能边界定位调用链，再逐段读取；发现截断后针对必要范围补查。"
+      ],
+      "uncertainty": "原审计根因置信：高：同次命令组合过多文件与输出预算不匹配；审查上下文可能丢失并迫使后续定点重读；大量阅读对独立审查有合理用途，截断本身不能证明发现遗漏。"
+    },
+    {
+      "id": "01a16708-d87c-7e31-9b9e-e984bf61b3dc:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "子会话时间包含于父轮时间，不能叠加。审查基于当时工作树，不能推断后续版本状态。",
+      "evidence": "源审计任务段定位：第12–117、125–140行",
+      "possible_solutions": [
+        "用调用起止和用户交互记录核对时间归属；缺少证据时不把空档归因于模型工作。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a16708-d87c-7e31-9b9e-e984bf61b3dc:A01",
+      "source_refs": [
+        "/task_segments/0"
+      ],
+      "kind": "positive_context",
+      "description": "任务“对父会话的CFG试验流程做独立审查及修复复核”：发现试验级成果遗漏及嵌套装备试验无法后续关联两个问题；修复后复跑16项通过，退出0",
+      "evidence": "第12–117、125–140行",
+      "possible_solutions": [
+        "保留明确限定范围的核对、复验或直接答复机制。"
+      ],
+      "uncertainty": "成功结论限于源报告所记录的时点、样本和验证范围。"
+    }
+  ]
+}

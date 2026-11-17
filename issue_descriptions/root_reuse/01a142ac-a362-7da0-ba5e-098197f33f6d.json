@@ -1,0 +1,250 @@
+{
+  "session_id": "01a142ac-a362-7da0-ba5e-098197f33f6d",
+  "title": "整理业务流程可视化成果",
+  "source_audit": "root_reuse/01a142ac-a362-7da0-ba5e-098197f33f6d.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "source_path",
+    "snapshot_lines",
+    "reviewed_scope",
+    "historical_outcome_status",
+    "task_segments",
+    "findings",
+    "positive_evidence",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a142ac-a362-7da0-ba5e-098197f33f6d:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "真实项目根已找到，但生成命令仍按用户目录相对docs落盘，随后还需搬入项目。 影响记录：两次截图外层共23.2秒，后续定位/中转/搬移另有成本不可精确剥离；最终纠正，无已知产物丢失。",
+      "evidence": [
+        {
+          "line": 74
+        },
+        {
+          "line": 134
+        },
+        {
+          "line": 141
+        },
+        {
+          "line": 144
+        },
+        {
+          "line": 148
+        },
+        {
+          "line": 151
+        },
+        {
+          "line": 208
+        },
+        {
+          "line": 222
+        }
+      ],
+      "possible_solutions": [
+        "发现repo根后将后续读写固定workdir或绝对路径。"
+      ],
+      "uncertainty": "[\"历史用fallbackHTML而非drawio仍满足用户允许更合适可视化方式，不能认定违规。\", \"未独立重绘/渲染历史产物；此处质量结论限于执行记录。\"]"
+    },
+    {
+      "id": "01a142ac-a362-7da0-ba5e-098197f33f6d:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "Windows截图请求指向未生成文件的项目路径，两次ERR_FILE_NOT_FOUND后改Downloads中转。 影响记录：两次截图外层共23.2秒，后续定位/中转/搬移另有成本不可精确剥离；最终纠正，无已知产物丢失。",
+      "evidence": [
+        {
+          "line": 74
+        },
+        {
+          "line": 134
+        },
+        {
+          "line": 141
+        },
+        {
+          "line": 144
+        },
+        {
+          "line": 148
+        },
+        {
+          "line": 151
+        },
+        {
+          "line": 208
+        },
+        {
+          "line": 222
+        }
+      ],
+      "possible_solutions": [
+        "跨系统操作前检查同一实际文件的两侧路径映射，按错误证据定位。"
+      ],
+      "uncertainty": "[\"历史用fallbackHTML而非drawio仍满足用户允许更合适可视化方式，不能认定违规。\", \"未独立重绘/渲染历史产物；此处质量结论限于执行记录。\"]"
+    },
+    {
+      "id": "01a142ac-a362-7da0-ba5e-098197f33f6d:F02a",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "一次连读三份Skill使多层输出截断，未形成必要信息预算。 影响记录：无关上下文和重搜，不能量化为分钟。",
+      "evidence": [
+        {
+          "line": 15
+        },
+        {
+          "line": 18
+        },
+        {
+          "line": 24
+        },
+        {
+          "line": 27
+        },
+        {
+          "line": 67
+        }
+      ],
+      "possible_solutions": [
+        "按当前任务选择必要技能，分次读取必须完整的指令并核对未截断。"
+      ],
+      "uncertainty": "[\"历史用fallbackHTML而非drawio仍满足用户允许更合适可视化方式，不能认定违规。\", \"未独立重绘/渲染历史产物；此处质量结论限于执行记录。\"]"
+    },
+    {
+      "id": "01a142ac-a362-7da0-ba5e-098197f33f6d:F02b",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "从用户目录广搜素材命中大量无关微信图片，随后才限制到项目素材。 影响记录：无关上下文和重搜，不能量化为分钟。",
+      "evidence": [
+        {
+          "line": 15
+        },
+        {
+          "line": 18
+        },
+        {
+          "line": 24
+        },
+        {
+          "line": 27
+        },
+        {
+          "line": 67
+        }
+      ],
+      "possible_solutions": [
+        "先定位项目和已知素材目录，按文件类型与用途缩小检索。"
+      ],
+      "uncertainty": "[\"历史用fallbackHTML而非drawio仍满足用户允许更合适可视化方式，不能认定违规。\", \"未独立重绘/渲染历史产物；此处质量结论限于执行记录。\"]"
+    },
+    {
+      "id": "01a142ac-a362-7da0-ba5e-098197f33f6d:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "positive_context",
+      "description": "历史用fallbackHTML而非drawio仍满足用户允许更合适可视化方式，不能认定违规。",
+      "evidence": {
+        "source_audit": "root_reuse/01a142ac-a362-7da0-ba5e-098197f33f6d.json",
+        "source_pointer": "/uncertainties/0"
+      },
+      "possible_solutions": [
+        "按当时用户要求与任务边界评估，保留合理的新需求、主动中断和并行关系，不追溯认定为错误。"
+      ],
+      "uncertainty": "这是原审计明确的边界或未知项，不据此认定历史产品一定有缺陷。"
+    },
+    {
+      "id": "01a142ac-a362-7da0-ba5e-098197f33f6d:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "未独立重绘/渲染历史产物；此处质量结论限于执行记录。",
+      "evidence": {
+        "source_audit": "root_reuse/01a142ac-a362-7da0-ba5e-098197f33f6d.json",
+        "source_pointer": "/uncertainties/1"
+      },
+      "possible_solutions": [
+        "将结论限定为历史记录所支持范围；以后需要验证效果时，在对应版本的隔离副本中做相关检查或重放。"
+      ],
+      "uncertainty": "这是原审计明确的边界或未知项，不据此认定历史产品一定有缺陷。"
+    },
+    {
+      "id": "01a142ac-a362-7da0-ba5e-098197f33f6d:P01",
+      "source_refs": [
+        "/positive_evidence/0"
+      ],
+      "kind": "positive_context",
+      "description": "真实读取源文revision47并下载现有七张界面图，无强行生成截图",
+      "evidence": {
+        "source_audit": "root_reuse/01a142ac-a362-7da0-ba5e-098197f33f6d.json",
+        "source_pointer": "/positive_evidence/0"
+      },
+      "possible_solutions": [
+        "保留该有证据价值的检查或执行机制；优化其他步骤时验证这一保障仍存在。"
+      ],
+      "uncertainty": "成功反例用于约束优化方案，不作为待修复问题。"
+    },
+    {
+      "id": "01a142ac-a362-7da0-ba5e-098197f33f6d:P02",
+      "source_refs": [
+        "/positive_evidence/1"
+      ],
+      "kind": "positive_context",
+      "description": "最终HTML/PNG存在且七处图片引用全部resolve，第239行支持",
+      "evidence": {
+        "source_audit": "root_reuse/01a142ac-a362-7da0-ba5e-098197f33f6d.json",
+        "source_pointer": "/positive_evidence/1"
+      },
+      "possible_solutions": [
+        "保留该有证据价值的检查或执行机制；优化其他步骤时验证这一保障仍存在。"
+      ],
+      "uncertainty": "成功反例用于约束优化方案，不作为待修复问题。"
+    },
+    {
+      "id": "01a142ac-a362-7da0-ba5e-098197f33f6d:P03",
+      "source_refs": [
+        "/positive_evidence/2"
+      ],
+      "kind": "positive_context",
+      "description": "daemon恢复后检查当前状态，没有重新生成全套成果",
+      "evidence": {
+        "source_audit": "root_reuse/01a142ac-a362-7da0-ba5e-098197f33f6d.json",
+        "source_pointer": "/positive_evidence/2"
+      },
+      "possible_solutions": [
+        "保留该有证据价值的检查或执行机制；优化其他步骤时验证这一保障仍存在。"
+      ],
+      "uncertainty": "成功反例用于约束优化方案，不作为待修复问题。"
+    },
+    {
+      "id": "01a142ac-a362-7da0-ba5e-098197f33f6d:P04",
+      "source_refs": [
+        "/positive_evidence/3"
+      ],
+      "kind": "positive_context",
+      "description": "HTML/PNG图像预览是必要质量动作，不建议取消",
+      "evidence": {
+        "source_audit": "root_reuse/01a142ac-a362-7da0-ba5e-098197f33f6d.json",
+        "source_pointer": "/positive_evidence/3"
+      },
+      "possible_solutions": [
+        "保留该有证据价值的检查或执行机制；优化其他步骤时验证这一保障仍存在。"
+      ],
+      "uncertainty": "成功反例用于约束优化方案，不作为待修复问题。"
+    }
+  ],
+  "scope_notes": "逐份完整读取现有审计报告后展开；保留全部findings、uncertainties及显式质量反例。未在本阶段跨会话筛选或排序。"
+}

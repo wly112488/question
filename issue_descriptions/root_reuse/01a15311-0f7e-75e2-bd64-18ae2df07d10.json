@@ -1,0 +1,89 @@
+{
+  "session_id": "01a15311-0f7e-75e2-bd64-18ae2df07d10",
+  "title": "子会话 /root/workspace_backend",
+  "source_audit": "root_reuse/01a15311-0f7e-75e2-bd64-18ae2df07d10.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "snapshot_lines",
+    "source_path",
+    "parent",
+    "historical_outcome_status",
+    "task_segments",
+    "findings",
+    "positive_evidence",
+    "model_observation",
+    "calls_scanned",
+    "native_commands_scanned",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a15311-0f7e-75e2-bd64-18ae2df07d10:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "多文件读取在实际工具返回中有截断；根因是合并输出预算不足。 影响记录：额外定位成本无法量化；不能把每次重读都判无效。",
+      "evidence": [
+        {
+          "line": 26
+        }
+      ],
+      "possible_solutions": [
+        "输出本地筛选后的必要片段，诊断详情留路径。"
+      ],
+      "uncertainty": "[\"派发message部分以密文记录，未尝试恢复。\", \"子执行与父轮并行，不能把子duration相加当用户总等待。\"]"
+    },
+    {
+      "id": "01a15311-0f7e-75e2-bd64-18ae2df07d10:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "派发message部分以密文记录，未尝试恢复。",
+      "evidence": {
+        "source_audit": "root_reuse/01a15311-0f7e-75e2-bd64-18ae2df07d10.json",
+        "source_pointer": "/uncertainties/0"
+      },
+      "possible_solutions": [
+        "用父子两端实际执行、任务ID、时间和commit关联；缺少明文派发输入时保留不可恢复边界。"
+      ],
+      "uncertainty": "这是原审计明确的边界或未知项，不据此认定历史产品一定有缺陷。"
+    },
+    {
+      "id": "01a15311-0f7e-75e2-bd64-18ae2df07d10:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "positive_context",
+      "description": "子执行与父轮并行，不能把子duration相加当用户总等待。",
+      "evidence": {
+        "source_audit": "root_reuse/01a15311-0f7e-75e2-bd64-18ae2df07d10.json",
+        "source_pointer": "/uncertainties/1"
+      },
+      "possible_solutions": [
+        "按当时用户要求与任务边界评估，保留合理的新需求、主动中断和并行关系，不追溯认定为错误。"
+      ],
+      "uncertainty": "这是原审计明确的边界或未知项，不据此认定历史产品一定有缺陷。"
+    },
+    {
+      "id": "01a15311-0f7e-75e2-bd64-18ae2df07d10:P01",
+      "source_refs": [
+        "/positive_evidence/0"
+      ],
+      "kind": "positive_context",
+      "description": "初次15项、后19项、最终28项后端测试；多轮有意增加失败回归再修复，未当错误率。",
+      "evidence": {
+        "source_audit": "root_reuse/01a15311-0f7e-75e2-bd64-18ae2df07d10.json",
+        "source_pointer": "/positive_evidence/0"
+      },
+      "possible_solutions": [
+        "保留该有证据价值的检查或执行机制；优化其他步骤时验证这一保障仍存在。"
+      ],
+      "uncertainty": "成功反例用于约束优化方案，不作为待修复问题。"
+    }
+  ],
+  "scope_notes": "逐份完整读取现有审计报告后展开；保留全部findings、uncertainties及显式质量反例。未在本阶段跨会话筛选或排序。"
+}

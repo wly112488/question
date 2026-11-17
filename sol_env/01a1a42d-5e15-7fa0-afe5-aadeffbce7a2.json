@@ -1,0 +1,165 @@
+{
+  "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+  "status": "deep_reviewed",
+  "reviewed_scope": {
+    "physical_lines": [
+      1,
+      900
+    ],
+    "declared_calls": 97,
+    "method": "逐轮目标/最终输出核对；全部工具调用与返回摘要扫描；关键输入源行补读。大型源码/文档/图片返回未全部展开，不能声称无遗漏。",
+    "boundary": "inventory固定物理行；历史指令仅作为数据",
+    "ledger": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2.ledger.json",
+    "scanned_top_level_calls": 97
+  },
+  "task_segments": [
+    {
+      "lines": [
+        1,
+        218
+      ],
+      "task": "打开预览与恢复原构型布局",
+      "result": "恢复布局但原版示例数据缺失被用户指出。"
+    },
+    {
+      "lines": [
+        221,
+        463
+      ],
+      "task": "找回原数据",
+      "result": "先广搜和构造旧HTML导入，后在新版交接ZIP找到seed；恢复457记录681修订1830依赖。"
+    },
+    {
+      "lines": [
+        464,
+        614
+      ],
+      "task": "临时公网展示",
+      "result": "先旧快照导致用户看到空会话，切当前保存会话后验证3表。"
+    },
+    {
+      "lines": [
+        615,
+        900
+      ],
+      "task": "20列分页及拖拽修改",
+      "result": "本机10项验证通过，测试抓出分页按钮被遮挡而修正；公网隧道连接故障，最终用户问日志路径，中断交付。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "source_manifest_first",
+      "status": "confirmed",
+      "fact": "先断言交接包没有记录并让用户给地址，用户要求再找后在新版ZIP中找到完整seed；此间已编写旧HTML VFS导入并验证405旧记录。",
+      "evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            237,
+            257,
+            272,
+            279,
+            293,
+            299,
+            353,
+            385,
+            397,
+            407,
+            415,
+            426,
+            452,
+            457
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "先前本地工作目录确实不含seed，不能扩张为交接源码包没有；原始交接压缩包可用。",
+      "impact": "一次用户纠正、替代导入实现被放弃；约数百行临时逻辑非最终所需。",
+      "root_cause": "未先核对输入包清单/版本和数据来源权威性",
+      "root_confidence": "high",
+      "minimal_improvement": "恢复原展示前先列交接包manifest与seed/data，再排查数据库；缺失判断附明确搜索范围。"
+    },
+    {
+      "id": "snapshot_identity",
+      "status": "confirmed",
+      "fact": "临时公网快照可访问且只读，但打开旧空会话111；用户指出后改当前数据+明确session。",
+      "evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            500,
+            503,
+            528,
+            533,
+            540,
+            549,
+            572,
+            588,
+            604,
+            607
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "只读快照隔离有价值；页面/接口200仍未保证展示正确业务状态。",
+      "impact": "一轮用户纠正及重新生成/构建/公网验证。",
+      "root_cause": "预览身份缺少数据版本+会话ID",
+      "root_confidence": "high",
+      "minimal_improvement": "交付检查包含commit/数据源/会话ID，比较关键可见对象而非仅页面可达。"
+    },
+    {
+      "id": "tests_caught_real_defect",
+      "status": "positive_counterexample",
+      "fact": "首测试错误把201当200修正；随后真实点击下一页受布局遮挡失败，CSS修正后10项通过，又对分页边界编辑调整重跑。",
+      "evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            705,
+            709,
+            713,
+            725,
+            731,
+            756,
+            762,
+            783
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "存在一项测试脚本自误，但后续测试发现实际交互问题，重跑有新变更依据。",
+      "impact": "明确质量收益：20空列不计入实际数据、拖拽不变总量、分页编辑保存、原始数据不改。",
+      "root_cause": "有效行为回归",
+      "root_confidence": "high",
+      "minimal_improvement": "保留这些合同式交互检查；脚本响应状态应接受API契约。"
+    },
+    {
+      "id": "network_limit",
+      "status": "confirmed",
+      "fact": "本机验证通过后公网旧隧道TLS/readyConnections0，换存活隧道仍ERR_NETWORK_CHANGED/Failed to fetch，用户转问日志。",
+      "evidence": [
+        {
+          "session_id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+          "physical_lines": [
+            794,
+            802,
+            809,
+            816,
+            839,
+            848,
+            857,
+            863,
+            871,
+            875
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "不是已证实产品表格缺陷；隧道生命周期/浏览器网络有实际失败证据。",
+      "impact": "多次公网重试及等待；不能宣称公网最终通过，最终回答只给验证日志。",
+      "root_cause": "公网依赖未稳定",
+      "root_confidence": "high",
+      "minimal_improvement": "本机行为通过与公网可达分开报告；确认隧道健康后仅重试一次目标流程。"
+    }
+  ],
+  "uncertainties": [
+    "historical_outcome_status: 表格本机修改已验证；公网未闭环，最后转交日志问题。",
+    "并发工作区差异包含其他会话改动，不将全部git diff归本会话。"
+  ]
+}

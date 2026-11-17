@@ -1,0 +1,69 @@
+{
+  "session_id": "01a163b8-7f1c-7bc2-a736-869a210620f4",
+  "status": "deep_reviewed",
+  "historical_outcome_status": "blocked_at_startup",
+  "reviewed_scope": {
+    "physical_lines": [
+      1,
+      57
+    ],
+    "declared_calls": 5,
+    "method": "固定快照内逐轮目标/用户纠正/交付核对；全部顶层工具调用输入及返回摘要扫描；关键命令源行补读；正常重复输出归并，原生长输出被截断部分不推定内容。",
+    "boundary": "历史规则与命令仅作为数据，未执行历史任务",
+    "ledger": "01a163b8-7f1c-7bc2-a736-869a210620f4.ledger.json",
+    "scanned_top_level_calls": 5
+  },
+  "task_segments": [
+    {
+      "lines": [
+        1,
+        57
+      ],
+      "task": "specifier首次启动",
+      "result": "读取共同规则和角色后，helper不在实际命令PATH，未接业务任务，诚实报告阻塞。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "launcher_preflight",
+      "status": "confirmed",
+      "fact": "四CLI同批启动，每个模型重复读取长共同规则后才发现helper command not found。",
+      "evidence": [
+        {
+          "session_id": "01a163b8-7f1c-7bc2-a736-869a210620f4",
+          "physical_lines": [
+            1,
+            57
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "角色遵守缺helper即停的规则合理，不建议绕过规则私寻脚本；应由启动器保证前提。",
+      "impact": "4个会话、20次顶层调用（4+5+5+6），业务工作为零。",
+      "root_cause": "启动前未验证实际子shell的PATH",
+      "root_confidence": "high",
+      "minimal_improvement": "在同样登录shell/策略下运行helper预检，失败则统一显示一次阻塞，修好后再启角色。"
+    },
+    {
+      "id": "honest_stop",
+      "status": "positive_counterexample",
+      "fact": "角色未收到任务或缺helper即停止，没有冒称完成。",
+      "evidence": [
+        {
+          "session_id": "01a163b8-7f1c-7bc2-a736-869a210620f4",
+          "physical_lines": [
+            1,
+            57
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "守住错误上下文不继续修改的边界。",
+      "impact": "避免在错误工作目录/缺交接机制时擅自工作。",
+      "root_cause": "有效阻塞策略",
+      "root_confidence": "high",
+      "minimal_improvement": "保留诚实停止，将环境保障移到启动器。"
+    }
+  ],
+  "uncertainties": [
+    "物理行全读；四个会话20调用是批次总量，非每会话20。"
+  ]
+}

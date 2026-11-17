@@ -1,0 +1,201 @@
+{
+  "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+  "title": "Read and follow swarmforge prompts",
+  "source_audit": "sol_env/01a133fe-6311-7151-971e-609dbd22b715.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "historical_outcome_status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "PATH只对单条命令注入，下一次裸用helper又command not found；require返回入口存在后工具命令也仍不在PATH，重复失败。",
+      "evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            32,
+            35,
+            47,
+            76,
+            79,
+            83,
+            179,
+            182
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "由实际启动器统一注入helper及工具PATH，或在交接中给出稳定绝对入口。"
+      ],
+      "uncertainty": "局部prefix不影响下一独立shell是预期；角色后续正确区分存在、启动、分析，未掩盖故障。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "工具绝对路径存在，但包装器引用不存在的task，实际启动失败；入口存在检查无法检出这类缺陷。",
+      "evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            186,
+            189,
+            200,
+            203,
+            235,
+            238
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "修生成器task映射，重新生成后用最小输入实际启动确认。"
+      ],
+      "uncertainty": "局部prefix不影响下一独立shell是预期；角色后续正确区分存在、启动、分析，未掩盖故障。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:F01c",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "CRAP覆盖率调用缺少clj，导致两轮覆盖率复验均无法执行；测试通过不等于该指标已独立核实。",
+      "evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            277,
+            280,
+            435,
+            438
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "在需要指标的运行入口先验证clj与覆盖率命令，环境不能满足时保留未验证状态。"
+      ],
+      "uncertainty": "局部prefix不影响下一独立shell是预期；角色后续正确区分存在、启动、分析，未掩盖故障。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:F02",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "positive_context",
+      "description": "Cleaner真实读全diff、检查结构及测试，保留无必要改动；指出指标coverage无法独立验证。 影响：独立复核成立；质量收益局限于差异/测试确认与诚实限定。",
+      "evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            151,
+            154,
+            158,
+            161,
+            172,
+            175,
+            270,
+            273,
+            311,
+            314,
+            318,
+            321,
+            345,
+            348,
+            375,
+            413,
+            416,
+            422,
+            425,
+            438,
+            445,
+            484
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "应保留：无必要变化时允许纯审阅；将证据已验证/无法验证明确写handoff。"
+      ],
+      "uncertainty": "未发现须改业务代码，也未独立抓到非ASCII问题，该补测来自Coder自审；不能把角色存在直接当额外缺陷收益。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:F03",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "首次handoff因AUDIT_REQUIRED拒绝，实际重读差异后成功；两轮各有一次。 影响：4次交接尝试、2次后补审阅；原生耗时均<1秒，主要模型往返未知。",
+      "evidence": [
+        {
+          "session_id": "01a133fe-6311-7151-971e-609dbd22b715",
+          "physical_lines": [
+            336,
+            339,
+            345,
+            348,
+            356,
+            359,
+            451,
+            454,
+            462,
+            465,
+            469,
+            472
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "第一次交接前完成已要求的差异审阅并保存commit范围。"
+      ],
+      "uncertainty": "这不是普通命令错误，审计门槛意在避免未审交接；应预先准备完整diff，不建议删除门槛。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "审计完整扫描58次调用，但长源码/README只重点展开，也未独立重跑；其余代码细节与当前环境可复现性没有新增证据。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "statement": "58个顶层调用全扫；源码/README长返回仅重点读取，无独立重跑。"
+        }
+      ],
+      "possible_solutions": [
+        "需核实某条源码结论时按源行分页补读相关保存内容。",
+        "需验证可复现性时另在授权隔离环境按同commit运行最小验证，不把历史通过当当前结果。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a133fe-6311-7151-971e-609dbd22b715:A01",
+      "source_refs": [
+        "/task_segments/2"
+      ],
+      "kind": "evidence_gap",
+      "description": "质量指标审阅阶段未重新验证coverage，报告只确认已有指标内容与部分源码的一致性；不能把队列完成理解为覆盖率独立复算通过。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/2"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "明确保留指标来源；若独立coverage是验收要求，先补足clj入口再生成并核对。"
+      ],
+      "uncertainty": "原报告明确未确认该结果；没有证据证明后续一定失败，亦不能补造完成。"
+    }
+  ]
+}

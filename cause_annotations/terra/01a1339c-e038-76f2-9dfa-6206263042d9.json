@@ -1,0 +1,54 @@
+{
+  "session_id": "01a1339c-e038-76f2-9dfa-6206263042d9",
+  "source_audit": "terra/01a1339c-e038-76f2-9dfa-6206263042d9.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T12-54-41-01a1339c-e038-76f2-9dfa-6206263042d9.jsonl",
+  "snapshot_lines": 15,
+  "items": [
+    {
+      "id": "01a1339c-e038-76f2-9dfa-6206263042d9:U01",
+      "kind": "positive_context",
+      "description": "无可确认的问题；无工具调用或重试。",
+      "cause_status": "not_applicable",
+      "context_from_chat": "用户要求只回复连接成功（第9行）。",
+      "trigger_or_change": "助手第12行准确回复；没有工具调用。",
+      "cause_explanation": "原聊天所示正向或反例：无可确认的问题；无工具调用或重试。。这是该时点和条件下的结果，不作为错误归因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1339c-e038-76f2-9dfa-6206263042d9",
+          "physical_lines": "9、12",
+          "what_it_supports": "用户约束、实际调用和返回或直接答复；对应上述判断。"
+        }
+      ],
+      "workflow_relevance": "本次是连接或工具检查，不涉及前端原型布局迭代。",
+      "necessary_cost": "只读确认工具、遵守隐私约束或直接回答属于必要工作。",
+      "possibly_avoidable_cost": "没有证据表明额外等待可避免；不推断净损失。",
+      "revised_possible_solutions": [
+        "保留原有证据边界与有意红测、成功复验或无问题的上下文，不将其误记为失败。"
+      ],
+      "remaining_uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a1339c-e038-76f2-9dfa-6206263042d9:A01",
+      "kind": "positive_context",
+      "description": "任务“只回复连接成功”：准确回复；约3.99秒",
+      "cause_status": "not_applicable",
+      "context_from_chat": "用户要求只回复连接成功（第9行）。",
+      "trigger_or_change": "助手第12行准确回复；没有工具调用。",
+      "cause_explanation": "原聊天所示正向或反例：任务“只回复连接成功”：准确回复；约3.99秒。这是该时点和条件下的结果，不作为错误归因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1339c-e038-76f2-9dfa-6206263042d9",
+          "physical_lines": "9、12",
+          "what_it_supports": "用户约束、实际调用和返回或直接答复；对应上述判断。"
+        }
+      ],
+      "workflow_relevance": "本次是连接或工具检查，不涉及前端原型布局迭代。",
+      "necessary_cost": "只读确认工具、遵守隐私约束或直接回答属于必要工作。",
+      "possibly_avoidable_cost": "没有证据表明额外等待可避免；不推断净损失。",
+      "revised_possible_solutions": [
+        "保留明确限定范围的核对、复验或直接答复机制。"
+      ],
+      "remaining_uncertainty": "成功结论限于源报告所记录的时点、样本和验证范围。"
+    }
+  ]
+}

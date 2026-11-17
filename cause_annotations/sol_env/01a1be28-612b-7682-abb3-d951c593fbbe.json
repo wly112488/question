@@ -1,0 +1,603 @@
+{
+  "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+  "source_audit": "sol_env/01a1be28-612b-7682-abb3-d951c593fbbe.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/11/09/rollout-2026-11-09T10-34-39-01a1be28-612b-7682-abb3-d951c593fbbe.jsonl",
+  "snapshot_lines": 2216,
+  "items": [
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F01",
+      "kind": "confirmed_issue",
+      "description": "两段Python tar流上传在archive.close()后直接proc.wait()，遗漏proc.stdin.close()；SSH远端tar等待EOF。1081相同脚本加入proc.stdin.close()后1090马上exit0。 影响：第一703启动05:02:11.751Z，中止912于05:15:16.410Z，原生命令913 duration784.521424911s exit143；第二974启动05:17:08.292Z，中止1073于05:22:42.515Z，1074 duration334.070962920s exit143。两段不重叠。1081修复05:22:54.493Z启动，1087于05:22:57.523Z完成，duration2.852032442s exit0。包含实际传输时间，不将前两段总1118.59s全称可避免；第二段16MB已落远端后的无进展等待最有证据。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "第一段含wheel传输；第二段同脚本对比最强支持EOF，无法精确量化所有停滞。",
+      "cause_status": "supported",
+      "cause_explanation": "703/974 archive.close后直接proc.wait仍持有SSH stdin写端，远端tar等待EOF而父进程等待退出。974与1081完整命令唯一关键差异是proc.stdin.close。两段不重叠：703开始05:02:11.751Z，912中止05:15:16.410Z，913原生duration784.521424911s/exit143；974开始05:17:08.292Z，1073中止05:22:42.515Z，1074原生334.070962920s/143；1081于05:22:54.493Z修复，1087完成05:22:57.523Z，2.852032442s/0。两段含实际传输，不能全称可省。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            703,
+            705,
+            912,
+            913,
+            974,
+            976,
+            1073,
+            1074,
+            1081,
+            1087,
+            1090
+          ],
+          "what_it_supports": "703/974 archive.close后直接proc.wait仍持有SSH stdin写端，远端tar等待EOF而父进程等待退出。974与1081完整命令唯一关键差异是proc.stdin.close。两段不重叠：703开始05:02:11.751Z，912中止05:15:16.410Z，913原生duration784.521424911s/exit143；974开始05:17:08.292Z，1073中止05:22:42.515Z，1074原生334.070962920s/143；1081于05:22:54.493Z修复，1087完成05:22:57.523Z，2.852032442s/0。两段含实际传输，不能全称可省。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "写完显式close stdin，为等待设置超时与字节/阶段进度；无进展时先查EOF和子进程。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F02a",
+      "kind": "confirmed_issue",
+      "description": "BatchMode未尝试密码，却被解释成服务器拒绝密码；认证结果被扩大，误导后续操作。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "BatchMode禁止密码交互，Permission denied列出可选方式不能证明已尝试密码；103已明确纠正。认证结果范围被扩大。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            69,
+            88,
+            98,
+            103
+          ],
+          "what_it_supports": "BatchMode禁止密码交互，Permission denied列出可选方式不能证明已尝试密码；103已明确纠正。认证结果范围被扩大。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "只描述实际尝试的身份和认证方式，未尝试密码不判断密码错误。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F02b",
+      "kind": "confirmed_issue",
+      "description": "给出的本机密钥复制命令被用户两次在远端shell运行，宿主和shell位置不清引发失败与往返。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "mixed",
+      "cause_explanation": "172虽写WSL，用户当前已在远端110，179/191两次在远端执行本机路径；184解释后仍未先完成退出确认，196才给exit/hostname步骤。141/218也有真实权限阻碍，不能说助手最初一直可自行成功。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            110,
+            141,
+            155,
+            172,
+            179,
+            184,
+            191,
+            196,
+            203,
+            218,
+            225
+          ],
+          "what_it_supports": "172虽写WSL，用户当前已在远端110，179/191两次在远端执行本机路径；184解释后仍未先完成退出确认，196才给exit/hostname步骤。141/218也有真实权限阻碍，不能说助手最初一直可自行成功。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先按提示符完成退出和hostname确认；权限允许后自行实测，避免让用户继续复制错主机命令。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03a",
+      "kind": "confirmed_issue",
+      "description": "发布构建缺少setuptools，构建backend前提未满足即启动，形成一次构建链失败。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "598使用no-build-isolation，601无法导入setuptools.build_meta，609安装backend后进入下一阶段。发布环境缺构建前提。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            598,
+            601,
+            609,
+            618
+          ],
+          "what_it_supports": "598使用no-build-isolation，601无法导入setuptools.build_meta，609安装backend后进入下一阶段。发布环境缺构建前提。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "发布前核对构建backend或使用项目允许的隔离构建。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03b",
+      "kind": "confirmed_issue",
+      "description": "发布脚本硬编码/usr/bin/npm，而实际环境该路径不存在，构建入口不可移植。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "598调用参数传/usr/bin/npm，618该路径不存在；625实际npm位于用户目录，629改入口。更正：证据是本次参数硬编码，不能认定脚本默认永远硬编码。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            598,
+            618,
+            622,
+            625,
+            629
+          ],
+          "what_it_supports": "598调用参数传/usr/bin/npm，618该路径不存在；625实际npm位于用户目录，629改入口。更正：证据是本次参数硬编码，不能认定脚本默认永远硬编码。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "解析有效npm路径并预检，再传发布脚本。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03c",
+      "kind": "confirmed_issue",
+      "description": "TypeScript import错误使构建失败，修正后才通过；这是构建发现的实际代码问题。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "更正原原因：638已过tsc进入Vite，失败是发行stage漏docs/prototypes的raw HTML资产；651将该目录加入ROOTS后667构建成功。不是已证实TypeScript语法错误，而是打包输入清单不完整。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            629,
+            638,
+            651,
+            658,
+            667
+          ],
+          "what_it_supports": "更正原原因：638已过tsc进入Vite，失败是发行stage漏docs/prototypes的raw HTML资产；651将该目录加入ROOTS后667构建成功。不是已证实TypeScript语法错误，而是打包输入清单不完整。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "在干净stage构建，核对源码引用的raw/原型资产纳入发行。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03d",
+      "kind": "confirmed_issue",
+      "description": "安装脚本嵌套字符串产生SyntaxError，远端执行前没有先校验生成代码。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "1108外层三单引号脚本内再次使用同类bootstrap引号，1111本地SyntaxError；尚未执行远端安装。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1108,
+            1111,
+            1115
+          ],
+          "what_it_supports": "1108外层三单引号脚本内再次使用同类bootstrap引号，1111本地SyntaxError；尚未执行远端安装。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "生成脚本先编译校验，避免嵌套相同字符串定界符。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03e",
+      "kind": "confirmed_issue",
+      "description": "安装链收到空JSON却继续解析，导致失败；调用输出与解析前提未被核验。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "1115通过sudo python3 -发送代码，又令代码从sys.stdin.readline读追加JSON；解释器占用stdin后运行时读到空串，1124解JSON失败。1128改PAYLOAD_JSON。不是云API返回空JSON。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1115,
+            1124,
+            1128
+          ],
+          "what_it_supports": "1115通过sudo python3 -发送代码，又令代码从sys.stdin.readline读追加JSON；解释器占用stdin后运行时读到空串，1124解JSON失败。1128改PAYLOAD_JSON。不是云API返回空JSON。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "将脚本和数据分通道传递，避免stdin兼作源码和运行时数据。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03f",
+      "kind": "confirmed_issue",
+      "description": "安装脚本运行时模块路径缺失，说明工作目录/导入路径假设与远端实际环境不一致。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "1128导入目录/source/rewrite，但974上传排除了展开source，只留source.tar.gz；1137缺provision_cloud。1143先解压后1164成功。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            974,
+            1128,
+            1137,
+            1143,
+            1164
+          ],
+          "what_it_supports": "1128导入目录/source/rewrite，但974上传排除了展开source，只留source.tar.gz；1137缺provision_cloud。1143先解压后1164成功。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "先核对发行目录形态并解压源码，再验证模块存在后导入。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03g",
+      "kind": "confirmed_issue",
+      "description": "第二服务器缺python-venv包，启动后才安装，服务器前置能力未预检。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "1566远端Python有但ensurepip缺失，venv创建失败；1572安装python3.12-venv后推进。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1566,
+            1572,
+            1581
+          ],
+          "what_it_supports": "1566远端Python有但ensurepip缺失，venv创建失败；1572安装python3.12-venv后推进。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "远端preflight检查venv/ensurepip能力并准备声明前提。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F04",
+      "kind": "confirmed_issue",
+      "description": "独立实例只初始化账号和空间，首页/健康/登录通过即交付；用户看到产品和试验构型空，才导入现存seed457记录。 影响：一次用户纠正，追加种子迁移和核对；展示不可用到修复。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "906禁止写生产数据，独立空库符合隔离；但1958交付仅验首页/健康/登录，未说明seed未导入。2042用户发现空列表，2058已有seed，2100导457条。验收遗漏展示数据状态。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            906,
+            1164,
+            1958,
+            2042,
+            2058,
+            2072,
+            2100,
+            2213
+          ],
+          "what_it_supports": "906禁止写生产数据，独立空库符合隔离；但1958交付仅验首页/健康/登录，未说明seed未导入。2042用户发现空列表，2058已有seed，2100导457条。验收遗漏展示数据状态。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留独立库，交付前确认演示seed范围并核对关键列表计数。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F05a",
+      "kind": "candidate_issue",
+      "description": "cloudflared官方获取403后探索多个代理、版本与替代隧道，多路线安装及超时重试增加成本，路线停止条件不清。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "mixed",
+      "cause_explanation": "1631官方403是真障碍；wrangler1754仍下载同一GitHub二进制，换包装器未改变失败前提。2017内含二进制包才成功。公网授权使替代探索必要，但重复来源可识别。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1523,
+            1631,
+            1645,
+            1649,
+            1660,
+            1682,
+            1717,
+            1754,
+            1765,
+            1796,
+            1877,
+            2017
+          ],
+          "what_it_supports": "1631官方403是真障碍；wrangler1754仍下载同一GitHub二进制，换包装器未改变失败前提。2017内含二进制包才成功。公网授权使替代探索必要，但重复来源可识别。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "按实际下载源/网络前提比较路线，相同失败时停止换包装器。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F05b",
+      "kind": "confirmed_issue",
+      "description": "临时密钥在相关子进程仍需使用前被删除，导致额外SSH认证失败。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "1660 Popen后立即unlink临时key，子进程尚未读；1662报key不存在，1669认证失败，1673延后清理。父子生命周期竞态。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1660,
+            1662,
+            1669,
+            1673
+          ],
+          "what_it_supports": "1660 Popen后立即unlink临时key，子进程尚未读；1662报key不存在，1669认证失败，1673延后清理。父子生命周期竞态。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "凭据保持到认证或子进程结束，再finally清理。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F05c",
+      "kind": "confirmed_issue",
+      "description": "localtunnel健康/登录检查通过后交付，但外部访客需确认页，用户体验没有从实际访客入口核验，之后换cloudflared。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "supported",
+      "cause_explanation": "1919健康200后1958交付localtunnel；1965用户截图后1972识别访客反滥用确认页。自动探测没有代表普通访客入口体验。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1919,
+            1958,
+            1965,
+            1972,
+            2034
+          ],
+          "what_it_supports": "1919健康200后1958交付localtunnel；1965用户截图后1972识别访客反滥用确认页。自动探测没有代表普通访客入口体验。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "以无特殊头的真实访客浏览器检查入口、登录及目标页。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F06a",
+      "kind": "positive_context",
+      "description": "用户明确并行后使用独立实例/DB/存储/服务，不切旧current；检查内存只启API不启worker，并披露公网端口不可达。 影响：避免覆盖线上和资源超限，重要质量收益。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "not_applicable",
+      "cause_explanation": "906约束驱动独立实例，1164/1245/1301确认新旧服务与旧current，1310披露资源不足不启worker、公网未通。保护线上有明确收益。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            906,
+            1164,
+            1203,
+            1245,
+            1301,
+            1310,
+            1947,
+            1958
+          ],
+          "what_it_supports": "906约束驱动独立实例，1164/1245/1301确认新旧服务与旧current，1310披露资源不足不启worker、公网未通。保护线上有明确收益。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留资源余量、独立数据/服务及旧站不变验证。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F06b",
+      "kind": "evidence_gap",
+      "description": "内存约束下只启API未启worker；API健康不证明依赖后台任务的业务路径已能使用。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "unknown",
+      "cause_explanation": "1164/1310因内存余量不启worker，1958第二实例也未启。API健康不能证明后台计算完成，快照没有该路径验收。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1164,
+            1310,
+            1322,
+            1958
+          ],
+          "what_it_supports": "1164/1310因内存余量不启worker，1958第二实例也未启。API健康不能证明后台计算完成，快照没有该路径验收。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "需要计算时补资源、worker与真实任务验证；否则明确仅API展示范围。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F06c",
+      "kind": "confirmed_issue",
+      "description": "前一并行实例公网端口不可达，且缺云安全组凭据不能直接修改；当时外部访问目标未达成。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "mixed",
+      "cause_explanation": "1301监听0.0.0.0且本机健康，1310外部18181超时、本机防火墙未拦。云安全组是合理疑因，缺云规则直接证据，不能当已确定内部原因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1203,
+            1301,
+            1310,
+            1487
+          ],
+          "what_it_supports": "1301监听0.0.0.0且本机健康，1310外部18181超时、本机防火墙未拦。云安全组是合理疑因，缺云规则直接证据，不能当已确定内部原因。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "补获准外部探测与云入口规则，或使用已授权可用入口再实测。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:U01",
+      "kind": "positive_context",
+      "description": "249顶层调用全摘要扫描；703/974/1081完整源码补读确定EOF。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "not_applicable",
+      "cause_explanation": "直接比较703/974/1081输入与913/1074/1087原生duration/退出码，支持EOF原因；正常poll数量不是独立根因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            703,
+            913,
+            974,
+            1074,
+            1081,
+            1087
+          ],
+          "what_it_supports": "直接比较703/974/1081输入与913/1074/1087原生duration/退出码，支持EOF原因；正常poll数量不是独立根因。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "保留原生时长及准确源行，分开传输、停滞和两段非重叠区间。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:U02",
+      "kind": "confirmed_issue",
+      "description": "源行1305/1307及1951/1953含明文凭据，工具数据清洗存在风险；本目录仅保留位置，不复制值。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不保留值；是否已轮换、谁读取过未知。",
+      "cause_status": "mixed",
+      "cause_explanation": "1305/1307和1951/1953工具调用/返回持久记录明文凭据；初始化敏感数据被当普通文本传递/输出。仅核对源位置元数据，不复制值；无法证明外部泄露或滥用。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1305,
+            1307,
+            1951,
+            1953
+          ],
+          "what_it_supports": "1305/1307和1951/1953工具调用/返回持久记录明文凭据；初始化敏感数据被当普通文本传递/输出。仅核对源位置元数据，不复制值；无法证明外部泄露或滥用。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "用受控文件/通道传递并抑制敏感输出，只回执创建与验证状态。"
+      ]
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:U03",
+      "kind": "positive_context",
+      "description": "新旧服务器和数据库分开；不将跨任务/服务器等待相加当单一任务总时长。",
+      "context_from_chat": "12问远端sudo；906要求从当前工作区部署并行实例，独立目录/服务/DB/存储，保持旧current和生产数据；1487核对第二服务器，1494授权开始。",
+      "trigger_or_change": "跨Windows/WSL身份检查、构建、流上传及两服务器隔离部署与公开访问。",
+      "workflow_relevance": "此为部署任务，不是原型样式迭代；应验证当前工作区展示状态，不能仅以健康200替代业务验收。",
+      "necessary_cost": "身份/sudo、资源/端口、构建、旧站隔离、数据保护和实际入口验证必要。",
+      "possibly_avoidable_cost": "脚本语法、管道关闭、打包清单及验收缺项可减少重复；下载、传输与用户空档不全算可省。",
+      "remaining_uncertainty": "不推断不可见的云网络、权限实现或模型内部耗时。",
+      "cause_status": "not_applicable",
+      "cause_explanation": "906与1487/1494为不同服务器阶段，1164/1947资源与数据库不同；含用户切换空档，不可简单相加为一个任务关键路径。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            906,
+            1164,
+            1310,
+            1487,
+            1494,
+            1947
+          ],
+          "what_it_supports": "906与1487/1494为不同服务器阶段，1164/1947资源与数据库不同；含用户切换空档，不可简单相加为一个任务关键路径。"
+        }
+      ],
+      "revised_possible_solutions": [
+        "按服务器和目标划阶段，再按时间区间/重叠计时。"
+      ]
+    }
+  ]
+}

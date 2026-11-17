@@ -1,0 +1,230 @@
+{
+  "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+  "status": "deep_reviewed",
+  "reviewed_scope": {
+    "physical_lines": [
+      1,
+      2385
+    ],
+    "declared_calls": 191,
+    "method": "逐轮目标/最终输出核对；全部工具调用与返回摘要扫描；关键输入源行补读。大型源码/文档/图片返回未全部展开，不能声称无遗漏。",
+    "boundary": "inventory固定物理行；历史指令仅作为数据",
+    "ledger": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4.ledger.json",
+    "scanned_top_level_calls": 191
+  },
+  "task_segments": [
+    {
+      "lines": [
+        1,
+        150
+      ],
+      "task": "只读回溯429/CSP",
+      "result": "未连Chrome，只依据用户现象，不假归因扩展；后用户151明确授权配置。"
+    },
+    {
+      "lines": [
+        151,
+        650
+      ],
+      "task": "Windows MCP配置和探测",
+      "result": "禁导航误禁list_pages，反复短连接弹确认；没有读取目标请求。"
+    },
+    {
+      "lines": [
+        651,
+        1187
+      ],
+      "task": "工具目录无法加载",
+      "result": "先多次声称无法注入/需新开；后codex exec验证并区分Windows/WSL配置与startup grace。"
+    },
+    {
+      "lines": [
+        1188,
+        1757
+      ],
+      "task": "跨cwd/config层复查",
+      "result": "Unsupported被误读；后发现Windows cwd配置覆盖及cmd不在WSL。"
+    },
+    {
+      "lines": [
+        1758,
+        1949
+      ],
+      "task": "Windows CLI直接读取",
+      "result": "模型不支持后选可用模型；Chrome连接超时，用户启用调试后读取摘要，旧故障证据未保留。"
+    },
+    {
+      "lines": [
+        1950,
+        2199
+      ],
+      "task": "用户授权重试及发测试消息",
+      "result": "MCP输入被自身禁用，转Computer Use又被系统拒绝；测试未发。"
+    },
+    {
+      "lines": [
+        2200,
+        2385
+      ],
+      "task": "恢复输入能力与交接",
+      "result": "移除categoryInput=false并新会话工具验证；网页根因仍未证实。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "layer_confusion",
+      "status": "confirmed",
+      "fact": "多次将配置存在、进程存在、工具注册、当前模型可调用、浏览器连接混为一层；给出重开会话保证又撤回。实际同时有Windows/WSL home、cwd项目覆盖、startup等待、Chrome运行侧差异。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            223,
+            244,
+            295,
+            302,
+            338,
+            347,
+            405,
+            433,
+            638,
+            719,
+            784,
+            832,
+            1008,
+            1031,
+            1068,
+            1153,
+            1181,
+            1311,
+            1356,
+            1363,
+            1474,
+            1626,
+            1629,
+            1679
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "当前会话确实不能热注入，但本机可创建新CLI验证，1008以后实际证明能做；应早用确定性握手/日志。",
+      "impact": "至少10余轮用户追问和多次配置/启动试验；时间含API/CLI等待，不能全算思考。",
+      "root_cause": "缺分层状态图与每层可反驳检查",
+      "root_confidence": "high",
+      "minimal_improvement": "先列host/cwd/config路径/启动器/握手tools/list/浏览器端点五项证据，逐层唯一诊断，未知不保证。"
+    },
+    {
+      "id": "disabled_tool_dependency",
+      "status": "confirmed",
+      "fact": "最初为只读限制禁导航同时禁用list_pages，后纠正；用户1967/1989授权交互后categoryInput=false仍保留，导致无法发送，绕Computer Use再确认并被拒绝；最后才移除。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            295,
+            302,
+            405,
+            433,
+            545,
+            560,
+            565,
+            628,
+            631,
+            2099,
+            2200,
+            2234,
+            2321,
+            2336
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "初始只读设置有依据，后续用户授权改变后应更新能力配置；Chrome自身授权弹窗不是重复询问用户意图。",
+      "impact": "反复短MCP连接多次弹窗，用户545/560抱怨；多次子CLI API与工具等待。",
+      "root_cause": "能力限制未按新授权重新推导且核心依赖未查明",
+      "root_confidence": "high",
+      "minimal_improvement": "先用tools/list核对目标操作所需只读/输入能力，再维持一个常驻连接；授权变更后仅更新必要开关。"
+    },
+    {
+      "id": "status_semantics",
+      "status": "confirmed",
+      "fact": "把mcp list Auth列Unsupported解释成启动/加载不支持，之后日志才显示实际No such file。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            1298,
+            1311,
+            1356,
+            1379,
+            1457,
+            1460,
+            1474
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "表头可据输出区分Auth与Status；Unsupported本身不足诊断工具加载。",
+      "impact": "误导用户重启/换环境，延迟真实日志定位。",
+      "root_cause": "未将状态值映射其列/协议含义",
+      "root_confidence": "high",
+      "minimal_improvement": "解释报错先保留列名/来源；认证方式不支持与server运行失败分开。"
+    },
+    {
+      "id": "shell_boundary",
+      "status": "confirmed",
+      "fact": "跨bash→PowerShell多处$引用/here-string解析错误，用户也把/tmp命令在PS运行失败；后EncodedCommand解决。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            672,
+            674,
+            680,
+            683,
+            1686,
+            1693,
+            1956,
+            1959,
+            1973,
+            1975
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "当前任务跨OS复杂，但多次错误可通过单一脚本文件或原生shell入口降低。",
+      "impact": "至少两次工具语法失败和一次用户命令失败；另外1324/1369 JS搜索对象语法错误。",
+      "root_cause": "命令在多层shell插值与运行位置不清",
+      "root_confidence": "high",
+      "minimal_improvement": "给用户指令显式标shell；自动化写脚本文件/结构化参数跨边界执行，避免拼接嵌套代码。"
+    },
+    {
+      "id": "safe_unknown",
+      "status": "positive_counterexample",
+      "fact": "初始尊重只读，后按用户授权更改范围；无目标请求证据时不把429/CSP认定根因，Computer Use拒绝后明确未发送。",
+      "evidence": [
+        {
+          "session_id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+          "physical_lines": [
+            10,
+            34,
+            109,
+            151,
+            1938,
+            1943,
+            1967,
+            1989,
+            2184,
+            2193
+          ]
+        }
+      ],
+      "basis_and_counterexplanation": "不能按最初只读要求判后续授权交互违约；仍未查明网页故障。",
+      "impact": "避免虚假成功/凭空归因。",
+      "root_cause": "有效证据边界",
+      "root_confidence": "high",
+      "minimal_improvement": "保留。"
+    }
+  ],
+  "uncertainties": [
+    "全部191顶层调用已摘要扫描；长子CLI输出有历史工具端截断，只能据可见内容判断，不伪称已还原隐藏全部执行。",
+    "原网页故障始终缺失败回复请求证据，historical_outcome_status=unresolved。",
+    "MCP fresh codex exec是独立CLI，不是thread_spawn，不算注册子代理但计API等待成本。"
+  ]
+}

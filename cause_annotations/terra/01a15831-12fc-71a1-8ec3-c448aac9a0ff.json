@@ -1,0 +1,59 @@
+{
+  "session_id": "01a15831-12fc-71a1-8ec3-c448aac9a0ff",
+  "source_audit": "terra/01a15831-12fc-71a1-8ec3-c448aac9a0ff.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/20/rollout-2026-10-20T15-22-53-01a15831-12fc-71a1-8ec3-c448aac9a0ff.jsonl",
+  "snapshot_lines": 41,
+  "items": [
+    {
+      "id": "01a15831-12fc-71a1-8ec3-c448aac9a0ff:F01",
+      "kind": "confirmed_issue",
+      "description": "问候前先尝试错误技能路径，再读正确技能及参考；简单问候出现可避免路径失败与三次读取；当时技能要求启动时调用，不能归咎为无理由使用技能。 影响或损失：首次失败到第二次调用约5.14秒；全轮24.6秒不等于纯额外损失",
+      "cause_status": "supported",
+      "context_from_chat": "用户只问“在吗”（第10行）。",
+      "trigger_or_change": "先尝试Linux技能路径失败，随后读取Windows路径和参考，再直接回答。",
+      "cause_explanation": "第16、19行显示使用的技能路径不存在；第23、26行读取了另一位置。历史要求使用技能是合理上下文，无法确定为何先选错路径。",
+      "raw_evidence": [
+        {
+          "session_id": "01a15831-12fc-71a1-8ec3-c448aac9a0ff",
+          "physical_lines": "第17、24、31行",
+          "what_it_supports": "本条具体调用、返回与后续结果的原始定位；解释见本条原因。"
+        },
+        {
+          "session_id": "01a15831-12fc-71a1-8ec3-c448aac9a0ff",
+          "physical_lines": "10、16、19、23、26、30、33、38",
+          "what_it_supports": "历史用户要求、检查与答复，支持上述时间顺序及证据边界。"
+        }
+      ],
+      "workflow_relevance": "环境连接、目录选择或问候检查；不是前端原型样式迭代。",
+      "necessary_cost": "核实实际环境和用户所指、保护已有工作或直接回答是必要成本。",
+      "possibly_avoidable_cost": "可避免的路径尝试或相同条件重试仅限有记录部分；用户空档和命令外层等待不等于纯损失。",
+      "revised_possible_solutions": [
+        "技能引用使用已列根路径；将无关参考延后至实际需要。"
+      ],
+      "remaining_uncertainty": "原审计根因置信：中：路径映射与强制启动流程；简单问候出现可避免路径失败与三次读取；当时技能要求启动时调用，不能归咎为无理由使用技能。"
+    },
+    {
+      "id": "01a15831-12fc-71a1-8ec3-c448aac9a0ff:A01",
+      "kind": "positive_context",
+      "description": "任务“确认在线”：正常回应；该轮24.6秒",
+      "cause_status": "not_applicable",
+      "context_from_chat": "用户只问“在吗”（第10行）。",
+      "trigger_or_change": "先尝试Linux技能路径失败，随后读取Windows路径和参考，再直接回答。",
+      "cause_explanation": "原聊天所示正向或反例：任务“确认在线”：正常回应；该轮24.6秒。这是该时点和条件下的结果，不作为错误归因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a15831-12fc-71a1-8ec3-c448aac9a0ff",
+          "physical_lines": "10、16、19、23、26、30、33、38",
+          "what_it_supports": "历史用户要求、检查与答复，支持上述时间顺序及证据边界。"
+        }
+      ],
+      "workflow_relevance": "环境连接、目录选择或问候检查；不是前端原型样式迭代。",
+      "necessary_cost": "核实实际环境和用户所指、保护已有工作或直接回答是必要成本。",
+      "possibly_avoidable_cost": "现有证据不足以量化可避免成本。",
+      "revised_possible_solutions": [
+        "保留明确限定范围的核对、复验或直接答复机制。"
+      ],
+      "remaining_uncertainty": "成功结论限于源报告所记录的时点、样本和验证范围。"
+    }
+  ]
+}

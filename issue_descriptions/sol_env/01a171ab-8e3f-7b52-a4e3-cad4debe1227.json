@@ -1,0 +1,233 @@
+{
+  "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+  "title": "打开之前的 pro-v1 项目",
+  "source_audit": "sol_env/01a171ab-8e3f-7b52-a4e3-cad4debe1227.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "初始连续七次Windows/全盘名称搜索，后来用户指出WSL才列[USER_HOME]/projects找到protangram。 影响：多个10秒搜索；不是纯模型推理。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            42,
+            49,
+            56,
+            63,
+            70,
+            76,
+            83,
+            112,
+            118,
+            122
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "先列当前环境与常用项目根的一层清单，按别名匹配候选。"
+      ],
+      "uncertainty": "用户简称pro-v1确有歧义；可先并行列常见项目根而非基于不精确名称扩大全盘。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F02a",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "cp -a保留node_modules指向WSL原项目的外部链接，D盘副本并非依赖自足，Windows压缩报错。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            187,
+            190,
+            197,
+            204,
+            218,
+            227
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "按源码副本用途排除node_modules并保留锁文件/安装说明，或在目标环境独立恢复依赖。"
+      ],
+      "uncertainty": "最初只要求保存D盘，未明确承诺独立可移植包；外部链接事实和压缩失败不等于违反该承诺。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F02b",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "复制worktree时.git仍是指向外部WSL Git目录的指针，D盘副本Git关联依赖原环境。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            187,
+            190,
+            197,
+            204,
+            218,
+            227
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "复制前检查.git类型及用途；仅源码导出可排除Git运行指针，需独立仓库时采用明确的仓库导出/克隆方式。"
+      ],
+      "uncertainty": "助手已披露Git关联WSL，不能认定其隐瞒；需要明确副本预期用途。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F03",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "首次只凭Vite启动及打开命令即交付localhost；用户不显示后才测Windows curl，发现Windows localhost失败但WSL IP200。 影响：一轮用户纠正和多次探测；镜像配置未应用仍据实标待验证。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            262,
+            264,
+            276,
+            283,
+            314,
+            324,
+            331,
+            345,
+            473,
+            476,
+            483,
+            508,
+            520
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "交付URL前从用户实际访问侧检查一次；修复配置与实际生效分开。"
+      ],
+      "uncertainty": "服务确实已启动，因此不是伪造启动；但用户目标本机浏览可见未验证。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F04",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "confirmed_issue",
+      "description": "用户问创建项目类型会话，助手沿业务系统语义读四批源码；用户说明WSL/新建项目/用Codex后才对准任务。 影响：4次源码读取及三轮用户纠正。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            690,
+            696,
+            701,
+            706,
+            713,
+            719,
+            732,
+            743,
+            753
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "跨层术语先用一句复述具体操作对象；已有环境信号优先。"
+      ],
+      "uncertainty": "第一次术语有歧义，但后续WSL信号应覆盖业务会话假设。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:F05",
+      "source_refs": [
+        "/findings/4"
+      ],
+      "kind": "positive_context",
+      "description": "对指定远端commit使用独立detached worktree、新端口，WSL与Windows侧均200，保留脏工作区。 影响：避免丢失用户已有修改。",
+      "evidence": [
+        {
+          "session_id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+          "physical_lines": [
+            608,
+            611,
+            625,
+            635,
+            647
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "应保留：保留该做法，同时记录repo/commit/端口映射。"
+      ],
+      "uncertainty": "有实际隔离价值，不能为追求速度直接切换覆盖工作区。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "positive_context",
+      "description": "Windows版本信息存在显示矛盾，审计依据build核实，没有仅用注册表ProductName认定版本。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "statement": "Windows版本矛盾通过build核实；未视注册表ProductName为系统版本结论。"
+        }
+      ],
+      "possible_solutions": [
+        "保留用实际build和运行能力核对版本的机制，ProductName仅作辅助。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "390–495截断段已补读；大型源码输出不逐字符复核。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/1",
+          "statement": "390–495截断段已补读；大型源码输出不逐字符复核。"
+        }
+      ],
+      "possible_solutions": [
+        "按具体结论补读对应保存源码；390–495已补读不代表其余大型源码已逐字符审核。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227:A01",
+      "source_refs": [
+        "/task_segments/2"
+      ],
+      "kind": "evidence_gap",
+      "description": "镜像网络配置已创建，但按用户要求未重启应用；固定快照没有证明该配置已生效并永久修复localhost。",
+      "evidence": [
+        {
+          "audit_pointers": [
+            "/task_segments/2"
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "在用户允许的维护窗口应用配置后，从Windows实际入口复验并记录重启后结果。"
+      ],
+      "uncertainty": "未重启是遵守用户要求，不是擅自遗漏；后续worktree两侧200只证明那次实际预览。"
+    }
+  ]
+}

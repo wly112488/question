@@ -1,0 +1,589 @@
+{
+  "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+  "source_audit": "sol_dev/01a17bf6-6ab3-7e41-8ece-a068b62b7208.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/27/rollout-2026-10-27T14-05-09-01a17bf6-6ab3-7e41-8ece-a068b62b7208.jsonl",
+  "snapshot_lines": 811,
+  "items": [
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:F01a",
+      "kind": "confirmed_issue",
+      "description": "浏览器脚本把专业导航当button，将实际“放弃修改”写成“丢弃”，各等待15秒；后段失败重跑又重复前置创建/保存/隔离。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "新浏览器脚本验证身份重构。",
+      "cause_explanation": "320实际页面已有五专业名称，脚本却在session-capability-tabs按button找智能实验设计；345实际“放弃修改并离开”，脚本找“丢弃”。脚本角色/名称与已有UI不符，用户此次还要求保留UI，不能称这些是用户新改文案造成。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            320,
+            345
+          ],
+          "what_it_supports": "实际页面文字与等待定位"
+        }
+      ],
+      "workflow_relevance": "反复原型背景适用后续，但本轮主要行为重构；不改UI约束更支持先读现有语义。",
+      "necessary_cost": "创建、未保存离开、跨试验隔离验证必要。",
+      "possibly_avoidable_cost": "两项各15秒旧定位及前置重跑可减少。",
+      "revised_possible_solutions": [
+        "用现有UI角色/可访问名写脚本，失败先对照页面，不修改产品迎合脚本。"
+      ],
+      "remaining_uncertainty": "同条后续保存/打开失败不全部归同一根因。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:F01b",
+      "kind": "candidate_issue",
+      "description": "保存按钮阶段也发生一次15秒超时，但原报告认为可能混有旧存储/导航读取问题，尚不能归为纯选择器错误。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "388在保存对话框阶段等按钮。",
+      "cause_explanation": "实际返回位于数据/成果页，期待dialog里的精确“保存”未出现；399同时修存储key与来源查询。可证前置状态没有达到，但这些改动并不能单独证明是按钮文案、存储失败还是HMR导致，原目录待分类应继续保留。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            388,
+            399,
+            485,
+            576
+          ],
+          "what_it_supports": "当时页面、后续多项修复与稳定复验"
+        }
+      ],
+      "workflow_relevance": "保存操作验收不是不必要原型迭代。",
+      "necessary_cost": "保证快照/保存真实性必要。",
+      "possibly_avoidable_cost": "等待未出现dialog的15秒可先以状态断言缩短；净归因未知。",
+      "revised_possible_solutions": [
+        "补查打开dialog与保存状态链，先断言前置成功，分别验证存储与定位。"
+      ],
+      "remaining_uncertainty": "没有单变量复现，不能把399某一修改当已确认根因。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:F01c",
+      "kind": "candidate_issue",
+      "description": "打开试验入口阶段发生15秒超时，可能涉及旧存储/导航读取而非单纯文案，原报告未独立完成归因。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "项目关联后导航到试验列表。",
+      "cause_explanation": "468URL带projectId但页面只显示“项目/选择项目”，没有打开试验；476新增fixture持久化与session.projectId断言，485重启稳定服务。说明project前提/状态恢复是关键，不能只叫button角色错；为何记录没读到仍缺单独证据。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            468,
+            476,
+            485,
+            576
+          ],
+          "what_it_supports": "失败页面与新增前置检查"
+        }
+      ],
+      "workflow_relevance": "源关系改造应保留试验导航，不是排布变化借口。",
+      "necessary_cost": "跨项目/任务书引用及重入必要。",
+      "possibly_avoidable_cost": "未核fixture与导航状态就等15秒可能避免。",
+      "revised_possible_solutions": [
+        "导航前确认项目持久化/关联，落地页断言目标项目后再点试验。"
+      ],
+      "remaining_uncertainty": "HMR、存储与实现混合修改，具体最初触发未唯一归因。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:F02a",
+      "kind": "confirmed_issue",
+      "description": "154和463附近修改命令混用cwd，相对路径再次带frontend导致FileNotFound，两次修改无效。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "154/463脚本在frontend目录运行但路径再加frontend。",
+      "cause_explanation": "156和468FileNotFound直接对应输入路径，cwd根混用导致无效修改，不由身份业务规则变化造成。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            154,
+            156,
+            463,
+            468
+          ],
+          "what_it_supports": "命令路径与错误"
+        }
+      ],
+      "workflow_relevance": "频繁迭代跨目录背景有关，但重复前缀非必要成本。",
+      "necessary_cost": "相关实现/测试更新必要。",
+      "possibly_avoidable_cost": "两次无效路径尝试可避免。",
+      "revised_possible_solutions": [
+        "所有相对路径以固定根为准，显式workdir。"
+      ],
+      "remaining_uncertainty": "无错写别文件证据。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:F02b",
+      "kind": "confirmed_issue",
+      "description": "147行npm命令退出254，校验未按预期执行，随后更正并继续构建/回归。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "147在仓库根写代码后直接npm run build。",
+      "cause_explanation": "147workdir是项目根，构建入口在frontend，150exit254；与154随后在frontend运行形成对照，根目录npm执行前提不符。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            147,
+            150,
+            154
+          ],
+          "what_it_supports": "实际cwd和退出"
+        }
+      ],
+      "workflow_relevance": "不是用户样式请求造成。",
+      "necessary_cost": "生产构建必要。",
+      "possibly_avoidable_cost": "错误入口的失败可避免。",
+      "revised_possible_solutions": [
+        "统一npm --prefix frontend或frontend工作目录。"
+      ],
+      "remaining_uncertainty": "150stdout重定向，详细npm错误不在该返回，根因主要由输入与下一步对照支持。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:F02c",
+      "kind": "candidate_issue",
+      "description": "持续实现修改期间多次完整构建和全测试，局部失败可能重复付出完整前置成本。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "身份、来源和保存快照持续修改。",
+      "cause_explanation": "399/505仍实质修存储与试验捕获逻辑，485完整build/测试，576最终结果。因此多数改后检查必要；仅在局部失败尚未修时跑全套可能重复，不能按构建数直接扣减。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            399,
+            485,
+            505,
+            576
+          ],
+          "what_it_supports": "实质改动与校验交错"
+        }
+      ],
+      "workflow_relevance": "用户原型迭代允许多轮，但此轮身份不变量比像素更重要。",
+      "necessary_cost": "247回归和7端到端必要。",
+      "possibly_avoidable_cost": "可先局部类型/存储断言再全套；净收益未知。",
+      "revised_possible_solutions": [
+        "按实际改动定位检查，冻结后最终全链。"
+      ],
+      "remaining_uncertainty": "没有每轮耗时分解。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:F03",
+      "kind": "confirmed_issue",
+      "description": "用户要在WSL进入既有项目用Codex，模型先查运行服务并给VSCode/前后端启动，再解释桌面Ctrl+O并查官方文档；用户说一行cd后输入codex，最终两行答复即可。 判断：把环境/产品入口过早限定成桌面应用，没利用当前CLI语境；增加不必要研究和解释。 已知影响：759至796轮约76.08秒/4调用，随后用户再纠正一轮8.81秒；不包含用户未回复时间。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "705“打开项目”存在歧义，759才指定Codex。",
+      "cause_explanation": "763已查codex --help但796仍给桌面Ctrl+O；803用户说明cd再codex，808才给终端两行。最初探查合理，后续未利用当前CLI语境导致过度展开。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            705,
+            759,
+            763,
+            796,
+            803,
+            808
+          ],
+          "what_it_supports": "歧义澄清与错入口"
+        }
+      ],
+      "workflow_relevance": "用户要切回原项目，不是看前端服务；UI预览背景在此不适用。",
+      "necessary_cost": "确认原工程与preview目录有别必要。",
+      "possibly_avoidable_cost": "明确CLI语境后仍桌面研究/解释可能避免，不计用户回复间隔。",
+      "revised_possible_solutions": [
+        "终端语境先给cd路径和codex，明确要桌面时再展开。"
+      ],
+      "remaining_uncertainty": "不能据最初“打开”断言一开始就禁止桌面答案。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:F04a",
+      "kind": "confirmed_issue",
+      "description": "lint基线比较首次把带npm日志的stdout当纯JSON解析失败，需要额外一轮提取后才能核对实际结果。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "lint基线输出含npm日志。",
+      "cause_explanation": "407从首个[开始json.loads，410JSONDecodeError；419改找[{后422读到27 errors/7 warnings。机器结果混入npm前导/日志使首个方括号并非JSON数组。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            407,
+            410,
+            419,
+            422
+          ],
+          "what_it_supports": "解析位置与成功对照"
+        }
+      ],
+      "workflow_relevance": "校验实现，不是用户UI变更。",
+      "necessary_cost": "与基线比较必要。",
+      "possibly_avoidable_cost": "一次解析重试可避免。",
+      "revised_possible_solutions": [
+        "使用纯JSON产物或明确解析边界并校验起点，不任取首个[。"
+      ],
+      "remaining_uncertainty": "422还含同数不同rule消息，最终576以基线声明，不将全旧lint当本轮引入。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:F04b",
+      "kind": "confirmed_issue",
+      "description": "清理证据文件命令被执行器拒绝，产生一次无效请求；改为仅指定证据文件的文件API后继续。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "545清理旧failure.png并复制证据。",
+      "cause_explanation": "547执行器明确拒绝rm -f风格，552改Path.unlink指定同一文件后继续；属于执行策略限制，不证明文件范围破坏。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            545,
+            547,
+            552
+          ],
+          "what_it_supports": "拒绝理由与更窄替代"
+        }
+      ],
+      "workflow_relevance": "不适用样式迭代，是证据归档。",
+      "necessary_cost": "保留新证据并避免过时失败图必要。",
+      "possibly_avoidable_cost": "已知策略下用文件API可免一次拒绝。",
+      "revised_possible_solutions": [
+        "按具体文件API清理，拒绝后不重复同形命令。"
+      ],
+      "remaining_uncertainty": "没有数据丢失；拒绝不是业务故障。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:U01",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：源码大输出多处在原工具层截断，无法凭此做全源码审计；本报告限执行行为。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "大输出仅部分留存。",
+      "cause_explanation": "345/388等返回保留截断标记，无法从中重新审全部源码；本轮根据具体可见错误，不构造未显示实现。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            345,
+            388
+          ],
+          "what_it_supports": "原工具截断"
+        }
+      ],
+      "workflow_relevance": "原型源码可长，取证需边界。",
+      "necessary_cost": "关键输入/返回对照必要。",
+      "possibly_avoidable_cost": "未来限字节可预防；本历史不可恢复。",
+      "revised_possible_solutions": [
+        "需要具体语义时补读已留原行相关段，省略部分维持未知。"
+      ],
+      "remaining_uncertainty": "无法做完整源码重审。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:U02",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：全部既有测试断言变更未逐条重审源码语义；用户明确允许更新错误历史流程，不能仅以测试数变化判错。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "12禁止恢复旧Demo流程并允许清理遗留身份；测试随新正式trialId变动。",
+      "cause_explanation": "576有247测试和最终七场景，但不能单靠总数证明每条测试更改合理；应按12目标对照。保留旧错误流程断言并非自动正确，更新也非自动放水。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576
+          ],
+          "what_it_supports": "当时规范与验证边界"
+        }
+      ],
+      "workflow_relevance": "业务原型规则已确认，本轮按该规则重构；不能拿旧源码当规范。",
+      "necessary_cost": "更新过时断言和完整回归必要。",
+      "possibly_avoidable_cost": "未逐条证实无效改测成本。",
+      "revised_possible_solutions": [
+        "需判断具体断言时对照用户规则、前后行为和旧数据兼容。"
+      ],
+      "remaining_uncertainty": "本轮未对所有测试逐条新代码审计。"
+    },
+    {
+      "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208:U03",
+      "kind": "positive_context",
+      "description": "历史使用gpt-6.1-sol xhigh，不能把后来模型选择偏好追溯当本轮违令。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "12要求实际统一试验身份并保留现有UI/主要路径，不自动提交，历史ID/成果/文件保留；576给247测试和7场景；705后转到打开原WSL项目，759指定Codex，803明确CLI两行。",
+        "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+        "physical_lines": [
+          12,
+          576,
+          705,
+          759,
+          803
+        ]
+      },
+      "trigger_or_change": "历史模型设置与后来选择不同。",
+      "cause_explanation": "12与后续消息是该轮可见任务，行为错误可由具体调用解释，不能把后来的模型偏好追溯要求。",
+      "raw_evidence": [
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            576,
+            705,
+            759,
+            803
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+          "physical_lines": [
+            12,
+            759,
+            803
+          ],
+          "what_it_supports": "当时用户约束"
+        }
+      ],
+      "workflow_relevance": "与原型样式迭代无直接关系。",
+      "necessary_cost": "保持历史条件必要。",
+      "possibly_avoidable_cost": "无模型对照损失证据。",
+      "revised_possible_solutions": [
+        "不从单会话对模型因果排序。"
+      ],
+      "remaining_uncertainty": "没有控制变量比较。"
+    }
+  ]
+}

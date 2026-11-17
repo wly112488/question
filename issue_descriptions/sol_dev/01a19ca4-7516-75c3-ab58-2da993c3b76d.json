@@ -1,0 +1,288 @@
+{
+  "session_id": "01a19ca4-7516-75c3-ab58-2da993c3b76d",
+  "title": "",
+  "source_audit": "sol_dev/01a19ca4-7516-75c3-ab58-2da993c3b76d.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "positive_context",
+      "description": "子审对真实存储键遗漏给出最小复现，主线程据此修复，最后迁移测试及Chromium复验关闭。",
+      "evidence": [
+        {
+          "line": 273,
+          "output_line": 276
+        },
+        {
+          "line": 307,
+          "output_line": 310
+        },
+        {
+          "line": 320
+        },
+        {
+          "line": 335,
+          "output_line": 339
+        },
+        {
+          "line": 349
+        }
+      ],
+      "possible_solutions": [
+        "保留按实际键清单复现迁移问题、修复后复跑的机制。"
+      ],
+      "uncertainty": "额外审查调用有实际产出，不按调用数直接判浪费。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "positive_context",
+      "description": "子审在导出期间改变状态，实测文件/元数据混合快照，主线程修复后独立复验；验证覆盖了普通成功路径之外的并发写入边界。",
+      "evidence": [
+        {
+          "line": 273,
+          "output_line": 276
+        },
+        {
+          "line": 307,
+          "output_line": 310
+        },
+        {
+          "line": 320
+        },
+        {
+          "line": 335,
+          "output_line": 339
+        },
+        {
+          "line": 349
+        }
+      ],
+      "possible_solutions": [
+        "保留导出期间并发写入检查与同源快照不变量。"
+      ],
+      "uncertainty": "主子活动窗口异步重叠，不能重复加时。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：子代理派发/消息内容在原日志中部分是密文；通过实际工作与最终回传关联。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "recorded_limitation": "子代理派发/消息内容在原日志中部分是密文；通过实际工作与最终回传关联。"
+        }
+      ],
+      "possible_solutions": [
+        "以实际只读工作、agent_path、回传和主线程响应关联；不可恢复的密文标不可见。"
+      ],
+      "uncertainty": "子代理派发/消息内容在原日志中部分是密文；通过实际工作与最终回传关联。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：初轮误读不存在路径/工作目录等局部失误各自秒级，没有独立证据证明是主要耗时根因。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/1",
+          "recorded_limitation": "初轮误读不存在路径/工作目录等局部失误各自秒级，没有独立证据证明是主要耗时根因。"
+        }
+      ],
+      "possible_solutions": [
+        "如要确认局部错误成本，补具体调用输入、返回和耗时；只把秒级已知失败记为局部成本。"
+      ],
+      "uncertainty": "初轮误读不存在路径/工作目录等局部失误各自秒级，没有独立证据证明是主要耗时根因。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:U03",
+      "source_refs": [
+        "/uncertainties/2"
+      ],
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：大量成功源码输出已在原工具层截断，未从中推定未显示代码的缺陷。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/2",
+          "recorded_limitation": "大量成功源码输出已在原工具层截断，未从中推定未显示代码的缺陷。"
+        }
+      ],
+      "possible_solutions": [
+        "有需要再分段补可用原行，工具原先省略的源码保持未知。"
+      ],
+      "uncertainty": "大量成功源码输出已在原工具层截断，未从中推定未显示代码的缺陷。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:A01",
+      "source_refs": [
+        "/task_segments/0"
+      ],
+      "kind": "candidate_issue",
+      "description": "初审指出基线导出覆盖风险，并增强AST比较；仅凭这份摘要无法知道哪些导出原先未覆盖以及最终风险是否全部消除。",
+      "evidence": [
+        {
+          "lines": [
+            1,
+            183
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "补查导出清单与AST对照结果，逐项确认公共导出、调用和副作用边界。"
+      ],
+      "uncertainty": "原报告用“风险”，不升级为已交付功能损坏。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:A02",
+      "source_refs": [
+        "/task_segments/1",
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "新增迁移导出遗漏真实存储键，实际复现表明原用户状态不能全部保留，后已修复。",
+      "evidence": [
+        {
+          "line": 273,
+          "output_line": 276
+        },
+        {
+          "line": 335,
+          "output_line": 339
+        }
+      ],
+      "possible_solutions": [
+        "迁移前列实际键清单并做导出/导入往返核对。"
+      ],
+      "uncertainty": "与F01a为同一事实的缺陷面；没有最终数据丢失证据。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:A03",
+      "source_refs": [
+        "/task_segments/1",
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "异步导出文件再读取元数据会混合两个状态时刻；真实复现后修复关闭，初版快照一致性不足。",
+      "evidence": [
+        {
+          "line": 307,
+          "output_line": 310
+        },
+        {
+          "line": 335,
+          "output_line": 339
+        }
+      ],
+      "possible_solutions": [
+        "冻结元数据与文件ID或检测版本变化，保证同一快照。"
+      ],
+      "uncertainty": "与F01b关联，不把已修问题说成最终仍存在。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:A04",
+      "source_refs": [
+        "/findings/0/counter_explanation"
+      ],
+      "kind": "confirmed_issue",
+      "description": "审查曾假设源码路径存在而读到不存在路径，产生一次局部无效读取，后来纠正。",
+      "evidence": [
+        {
+          "audit_pointer": "/findings/0/counter_explanation"
+        }
+      ],
+      "possible_solutions": [
+        "先从实际文件清单定位，再展开目标内容。"
+      ],
+      "uncertainty": "原报告未给该失败独立行号和净耗时，不称主要根因。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:A05",
+      "source_refs": [
+        "/findings/0/counter_explanation",
+        "/uncertainties/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "审查中工作目录错误导致局部命令失败，需要更正目录后继续验证。",
+      "evidence": [
+        {
+          "audit_pointer": "/findings/0/counter_explanation"
+        }
+      ],
+      "possible_solutions": [
+        "显式workdir并以统一根目录构造路径。"
+      ],
+      "uncertainty": "只确认秒级局部失误，不能将整个审查时间归因于此。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:A06",
+      "source_refs": [
+        "/findings/0/counter_explanation"
+      ],
+      "kind": "confirmed_issue",
+      "description": "Chromium缺运行库使真实浏览器检查起初无法执行，补齐执行前提后才完成复现。",
+      "evidence": [
+        {
+          "audit_pointer": "/findings/0/counter_explanation"
+        }
+      ],
+      "possible_solutions": [
+        "先做已有浏览器最小启动探测，复用已验证的运行库环境。"
+      ],
+      "uncertainty": "报告未展开库名，不推断需安装全新浏览器。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:A07",
+      "source_refs": [
+        "/findings/0/counter_explanation"
+      ],
+      "kind": "confirmed_issue",
+      "description": "Babel导入形态与实际模块导出不符，审查脚本初次失败，更正后才执行验证。",
+      "evidence": [
+        {
+          "audit_pointer": "/findings/0/counter_explanation"
+        }
+      ],
+      "possible_solutions": [
+        "核对实际模块导出形态，先以最小导入测试确认再跑全脚本。"
+      ],
+      "uncertainty": "未记载具体模块版本/失败行，不凭此判Babel本身缺陷。"
+    },
+    {
+      "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d:A08",
+      "source_refs": [
+        "/task_segments/3"
+      ],
+      "kind": "evidence_gap",
+      "description": "开发/生产边界审查尚未定位确切重复调用点，超时仍要求独立调查；因此不能把所有超时或重复执行归于已确认Fragment兼容边界。",
+      "evidence": [
+        {
+          "lines": [
+            353,
+            421
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "补追踪实际调用次数、触发事件和开发/生产对照，独立定位超时。"
+      ],
+      "uncertainty": "这是明确保留的未确认点，不断言最终业务仍错。"
+    }
+  ]
+}

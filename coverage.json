@@ -1,0 +1,912 @@
+[
+  {
+    "id": "01a13352-f966-7843-bee2-9ad3e3561441",
+    "name": "重构前端业务模型",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T11-33-58-01a13352-f966-7843-bee2-9ad3e3561441.jsonl",
+    "snapshot_lines": 2444,
+    "artifact": "terra/01a13352-f966-7843-bee2-9ad3e3561441.json"
+  },
+  {
+    "id": "01a1339c-e038-76f2-9dfa-6206263042d9",
+    "name": "确认连接成功",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T12-54-41-01a1339c-e038-76f2-9dfa-6206263042d9.jsonl",
+    "snapshot_lines": 15,
+    "artifact": "terra/01a1339c-e038-76f2-9dfa-6206263042d9.json"
+  },
+  {
+    "id": "01a1339e-d169-7c10-ab99-168d8d2d9b82",
+    "name": "验证飞书文档连接能力",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T12-56-48-01a1339e-d169-7c10-ab99-168d8d2d9b82.jsonl",
+    "snapshot_lines": 2149,
+    "artifact": "sol_env/01a1339e-d169-7c10-ab99-168d8d2d9b82.json"
+  },
+  {
+    "id": "01a133f3-a1da-7423-89a1-8cdf94450720",
+    "name": "部署验证 SwarmForge 双 Agent",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T14-29-27-01a133f3-a1da-7423-89a1-8cdf94450720.jsonl",
+    "snapshot_lines": 122,
+    "artifact": "sol_env/01a133f3-a1da-7423-89a1-8cdf94450720.json"
+  },
+  {
+    "id": "01a133fa-6988-72e3-8e35-ca8d42ac2f65",
+    "name": "重新验证权限并继续测试",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T14-36-51-01a133fa-6988-72e3-8e35-ca8d42ac2f65.jsonl",
+    "snapshot_lines": 5705,
+    "artifact": "sol_env/01a133fa-6988-72e3-8e35-ca8d42ac2f65.json"
+  },
+  {
+    "id": "01a133fe-6308-7ea0-a68b-38ef3896b9f6",
+    "name": "Read swarmforge instructions",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T14-41-11-01a133fe-6308-7ea0-a68b-38ef3896b9f6.jsonl",
+    "snapshot_lines": 609,
+    "artifact": "sol_env/01a133fe-6308-7ea0-a68b-38ef3896b9f6.json"
+  },
+  {
+    "id": "01a133fe-6311-7151-971e-609dbd22b715",
+    "name": "Read and follow swarmforge prompts",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T14-41-11-01a133fe-6311-7151-971e-609dbd22b715.jsonl",
+    "snapshot_lines": 487,
+    "artifact": "sol_env/01a133fe-6311-7151-971e-609dbd22b715.json"
+  },
+  {
+    "id": "01a13446-1ea3-7d82-8765-000c4a348c77",
+    "name": "继续处理任务",
+    "kind": "MAIN",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T15-59-33-01a13446-1ea3-7d82-8765-000c4a348c77.jsonl",
+    "snapshot_lines": 3115,
+    "artifact": "sol_dev/01a13446-1ea3-7d82-8765-000c4a348c77.json"
+  },
+  {
+    "id": "01a1344d-92a0-7b50-a9d1-44f18d0afca0",
+    "name": "继续",
+    "kind": "SUB",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T16-07-41-01a1344d-92a0-7b50-a9d1-44f18d0afca0.jsonl",
+    "snapshot_lines": 190,
+    "artifact": "sol_dev/01a1344d-92a0-7b50-a9d1-44f18d0afca0.json"
+  },
+  {
+    "id": "01a1344d-f5e4-7fa1-aeeb-82bfc085c92a",
+    "name": "继续",
+    "kind": "SUB",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T16-08-06-01a1344d-f5e4-7fa1-aeeb-82bfc085c92a.jsonl",
+    "snapshot_lines": 493,
+    "artifact": "sol_dev/01a1344d-f5e4-7fa1-aeeb-82bfc085c92a.json"
+  },
+  {
+    "id": "01a1344e-37a1-7072-8400-1de33cb00009",
+    "name": "继续",
+    "kind": "SUB",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T16-08-23-01a1344e-37a1-7072-8400-1de33cb00009.jsonl",
+    "snapshot_lines": 625,
+    "artifact": "sol_dev/01a1344e-37a1-7072-8400-1de33cb00009.json"
+  },
+  {
+    "id": "01a13461-bcf5-78d0-b172-7092cb620c8c",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/13/rollout-2026-10-13T16-29-43-01a13461-bcf5-78d0-b172-7092cb620c8c.jsonl",
+    "snapshot_lines": 1,
+    "artifact": null
+  },
+  {
+    "id": "01a1384a-90bf-7072-bc12-94b20eb54bf6",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/14/rollout-2026-10-14T10-42-53-01a1384a-90bf-7072-bc12-94b20eb54bf6.jsonl",
+    "snapshot_lines": 1,
+    "artifact": null
+  },
+  {
+    "id": "01a1384d-3b71-71e0-8302-dc32d4e0874c",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/14/rollout-2026-10-14T10-45-48-01a1384d-3b71-71e0-8302-dc32d4e0874c.jsonl",
+    "snapshot_lines": 1,
+    "artifact": null
+  },
+  {
+    "id": "01a1384d-7bf3-7fd2-ae9a-42f6d3004438",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/14/rollout-2026-10-14T10-46-04-01a1384d-7bf3-7fd2-ae9a-42f6d3004438.jsonl",
+    "snapshot_lines": 1,
+    "artifact": null
+  },
+  {
+    "id": "01a13e5b-c02d-7cc1-876e-a424bfd19637",
+    "name": "请基于 GitHub 项目 https://github.com/larksuite/cli ，测试其能否在我",
+    "kind": "SUB",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/15/rollout-2026-10-15T14-59-22-01a13e5b-c02d-7cc1-876e-a424bfd19637.jsonl",
+    "snapshot_lines": 241,
+    "artifact": "sol_env/01a13e5b-c02d-7cc1-876e-a424bfd19637.json"
+  },
+  {
+    "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+    "name": "重构试验构型与虚拟预测前端",
+    "kind": "MAIN",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/15/rollout-2026-10-15T16-13-20-01a13e9f-7892-7c90-a251-d7d2c9592cfd.jsonl",
+    "snapshot_lines": 652,
+    "artifact": "sol_dev/01a13e9f-7892-7c90-a251-d7d2c9592cfd.json"
+  },
+  {
+    "id": "01a142ac-a362-7da0-ba5e-098197f33f6d",
+    "name": "整理业务流程可视化成果",
+    "kind": "MAIN",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/16/rollout-2026-10-16T11-06-12-01a142ac-a362-7da0-ba5e-098197f33f6d.jsonl",
+    "snapshot_lines": 247,
+    "artifact": "root_reuse/01a142ac-a362-7da0-ba5e-098197f33f6d.json"
+  },
+  {
+    "id": "01a142c0-98c8-77e1-beb5-6c7cedaf7514",
+    "name": "创建本地网站",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/16/rollout-2026-10-16T11-28-00-01a142c0-98c8-77e1-beb5-6c7cedaf7514.jsonl",
+    "snapshot_lines": 1587,
+    "artifact": "terra/01a142c0-98c8-77e1-beb5-6c7cedaf7514.json"
+  },
+  {
+    "id": "01a14908-48e8-74a0-8bc1-99fca4462c6a",
+    "name": "更新系统界面说明文档",
+    "kind": "MAIN",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/17/rollout-2026-10-17T16-44-02-01a14908-48e8-74a0-8bc1-99fca4462c6a.jsonl",
+    "snapshot_lines": 3425,
+    "artifact": "sol_dev/01a14908-48e8-74a0-8bc1-99fca4462c6a.json"
+  },
+  {
+    "id": "01a151ea-ea93-7f03-b94c-9b7dd1573ca4",
+    "name": "排查 ChatGPT 回复加载失败",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T10-08-32-01a151ea-ea93-7f03-b94c-9b7dd1573ca4.jsonl",
+    "snapshot_lines": 2385,
+    "artifact": "sol_env/01a151ea-ea93-7f03-b94c-9b7dd1573ca4.json"
+  },
+  {
+    "id": "01a15203-8170-77e0-ab24-7d3e421b2528",
+    "name": "排查回复加载错误",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T10-35-23-01a15203-8170-77e0-ab24-7d3e421b2528.jsonl",
+    "snapshot_lines": 46,
+    "artifact": "terra/01a15203-8170-77e0-ab24-7d3e421b2528.json"
+  },
+  {
+    "id": "01a1521a-17dd-7443-b464-6c3bd2775421",
+    "name": "核对 ChatGPT 故障记录",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T11-00-04-01a1521a-17dd-7443-b464-6c3bd2775421.jsonl",
+    "snapshot_lines": 64,
+    "artifact": "terra/01a1521a-17dd-7443-b464-6c3bd2775421.json"
+  },
+  {
+    "id": "01a152af-ec8a-7a42-9cfc-20530cbbd5ed",
+    "name": "打开 ProTangram 项目网址",
+    "kind": "MAIN",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T13-43-43-01a152af-ec8a-7a42-9cfc-20530cbbd5ed.jsonl",
+    "snapshot_lines": 10510,
+    "artifact": "root_reuse/01a152af-ec8a-7a42-9cfc-20530cbbd5ed.json"
+  },
+  {
+    "id": "01a15311-0f7e-75e2-bd64-18ae2df07d10",
+    "name": "",
+    "kind": "SUB",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T15-29-49-01a15311-0f7e-75e2-bd64-18ae2df07d10.jsonl",
+    "snapshot_lines": 339,
+    "artifact": "root_reuse/01a15311-0f7e-75e2-bd64-18ae2df07d10.json"
+  },
+  {
+    "id": "01a15311-4fc5-7580-8ea9-980fa9f91380",
+    "name": "",
+    "kind": "SUB",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T15-30-05-01a15311-4fc5-7580-8ea9-980fa9f91380.jsonl",
+    "snapshot_lines": 222,
+    "artifact": "root_reuse/01a15311-4fc5-7580-8ea9-980fa9f91380.json"
+  },
+  {
+    "id": "01a15312-b55a-7473-8d5c-8287573a1f0c",
+    "name": "",
+    "kind": "SUB",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T15-31-37-01a15312-b55a-7473-8d5c-8287573a1f0c.jsonl",
+    "snapshot_lines": 486,
+    "artifact": "root_reuse/01a15312-b55a-7473-8d5c-8287573a1f0c.json"
+  },
+  {
+    "id": "01a15327-05a4-7f60-99a0-e79a9e381792",
+    "name": "",
+    "kind": "SUB",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/19/rollout-2026-10-19T15-53-48-01a15327-05a4-7f60-99a0-e79a9e381792.jsonl",
+    "snapshot_lines": 133,
+    "artifact": "root_reuse/01a15327-05a4-7f60-99a0-e79a9e381792.json"
+  },
+  {
+    "id": null,
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/20/rollout-2026-10-20T09-51-50-01a15701-fd2b-73f1-a007-e8631cd57c5c.jsonl",
+    "snapshot_lines": 0,
+    "artifact": null
+  },
+  {
+    "id": "01a1570b-5750-7042-ae3e-e94b67aad107",
+    "name": "检查 Chrome DevTools 工具",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/20/rollout-2026-10-20T10-02-03-01a1570b-5750-7042-ae3e-e94b67aad107.jsonl",
+    "snapshot_lines": 24,
+    "artifact": "terra/01a1570b-5750-7042-ae3e-e94b67aad107.json"
+  },
+  {
+    "id": "01a15717-40cb-7d20-bc5c-0f4939c573c0",
+    "name": "检查 Chrome DevTools 工具",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/20/rollout-2026-10-20T10-15-04-01a15717-40cb-7d20-bc5c-0f4939c573c0.jsonl",
+    "snapshot_lines": 124,
+    "artifact": "terra/01a15717-40cb-7d20-bc5c-0f4939c573c0.json"
+  },
+  {
+    "id": "01a15831-12fc-71a1-8ec3-c448aac9a0ff",
+    "name": "确认在线状态",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/20/rollout-2026-10-20T15-22-53-01a15831-12fc-71a1-8ec3-c448aac9a0ff.jsonl",
+    "snapshot_lines": 41,
+    "artifact": "terra/01a15831-12fc-71a1-8ec3-c448aac9a0ff.json"
+  },
+  {
+    "id": "01a1588c-edb8-7620-95fb-47a0d6bb9da8",
+    "name": "",
+    "kind": "SUB",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/20/rollout-2026-10-20T17-03-13-01a1588c-edb8-7620-95fb-47a0d6bb9da8.jsonl",
+    "snapshot_lines": 318,
+    "artifact": "root_reuse/01a1588c-edb8-7620-95fb-47a0d6bb9da8.json"
+  },
+  {
+    "id": "01a16129-738c-7e83-9dc8-b7a683d71ca3",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T09-11-08-01a16129-738c-7e83-9dc8-b7a683d71ca3.jsonl",
+    "snapshot_lines": 2,
+    "artifact": null
+  },
+  {
+    "id": "01a1612a-46c1-7682-8078-b088d98e6a8c",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T09-12-03-01a1612a-46c1-7682-8078-b088d98e6a8c.jsonl",
+    "snapshot_lines": 2,
+    "artifact": null
+  },
+  {
+    "id": "01a16171-3024-7333-b58c-8ae47811b0ed",
+    "name": "选择 WSL 中的 Codex",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T10-29-30-01a16171-3024-7333-b58c-8ae47811b0ed.jsonl",
+    "snapshot_lines": 268,
+    "artifact": "terra/01a16171-3024-7333-b58c-8ae47811b0ed.json"
+  },
+  {
+    "id": "01a16396-c94b-7492-bea2-9c07eef12ddb",
+    "name": "回应问候",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T20-29-48-01a16396-c94b-7492-bea2-9c07eef12ddb.jsonl",
+    "snapshot_lines": 17,
+    "artifact": "terra/01a16396-c94b-7492-bea2-9c07eef12ddb.json"
+  },
+  {
+    "id": "01a163b8-7f1c-7bc2-a736-869a210620f4",
+    "name": "Read swarmforge instructions",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T21-06-37-01a163b8-7f1c-7bc2-a736-869a210620f4.jsonl",
+    "snapshot_lines": 57,
+    "artifact": "sol_env/01a163b8-7f1c-7bc2-a736-869a210620f4.json"
+  },
+  {
+    "id": "01a163b8-84fc-7922-b011-77f3896cace7",
+    "name": "Read and obey swarmforge rules",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T21-06-39-01a163b8-84fc-7922-b011-77f3896cace7.jsonl",
+    "snapshot_lines": 55,
+    "artifact": "sol_env/01a163b8-84fc-7922-b011-77f3896cace7.json"
+  },
+  {
+    "id": "01a163b8-8a92-72e2-ba90-58cb8545d340",
+    "name": "Read swarmforge instructions",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T21-06-40-01a163b8-8a92-72e2-ba90-58cb8545d340.jsonl",
+    "snapshot_lines": 46,
+    "artifact": "sol_env/01a163b8-8a92-72e2-ba90-58cb8545d340.json"
+  },
+  {
+    "id": "01a163b8-9003-7b12-af64-bd4481e34bc6",
+    "name": "Read swarmforge architect prompts",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T21-06-42-01a163b8-9003-7b12-af64-bd4481e34bc6.jsonl",
+    "snapshot_lines": 62,
+    "artifact": "sol_env/01a163b8-9003-7b12-af64-bd4481e34bc6.json"
+  },
+  {
+    "id": "01a163f3-763f-7123-8dc0-7e8f5bea4a20",
+    "name": "Read swarmforge instructions",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T22-11-02-01a163f3-763f-7123-8dc0-7e8f5bea4a20.jsonl",
+    "snapshot_lines": 84,
+    "artifact": "sol_env/01a163f3-763f-7123-8dc0-7e8f5bea4a20.json"
+  },
+  {
+    "id": "01a163f3-763f-7d92-bc5a-5da480a92c44",
+    "name": "Read swarmforge instructions",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T22-11-02-01a163f3-763f-7d92-bc5a-5da480a92c44.jsonl",
+    "snapshot_lines": 89,
+    "artifact": "sol_env/01a163f3-763f-7d92-bc5a-5da480a92c44.json"
+  },
+  {
+    "id": "01a163f3-8f83-7d60-a3ed-4edd83214047",
+    "name": "Read architect instructions",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T22-11-08-01a163f3-8f83-7d60-a3ed-4edd83214047.jsonl",
+    "snapshot_lines": 63,
+    "artifact": "sol_env/01a163f3-8f83-7d60-a3ed-4edd83214047.json"
+  },
+  {
+    "id": "01a163f4-8ab6-7643-bd0d-0a1479ffcd6f",
+    "name": "Read swarmforge instructions",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T22-12-13-01a163f4-8ab6-7643-bd0d-0a1479ffcd6f.jsonl",
+    "snapshot_lines": 685,
+    "artifact": "sol_env/01a163f4-8ab6-7643-bd0d-0a1479ffcd6f.json"
+  },
+  {
+    "id": "01a163f4-917b-7251-83c4-6e767fe26b6b",
+    "name": "Read swarmforge instructions",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T22-12-14-01a163f4-917b-7251-83c4-6e767fe26b6b.jsonl",
+    "snapshot_lines": 808,
+    "artifact": "sol_env/01a163f4-917b-7251-83c4-6e767fe26b6b.json"
+  },
+  {
+    "id": "01a163f4-964a-7850-b753-252dd5980415",
+    "name": "Read swarmforge instructions",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T22-12-16-01a163f4-964a-7850-b753-252dd5980415.jsonl",
+    "snapshot_lines": 803,
+    "artifact": "sol_env/01a163f4-964a-7850-b753-252dd5980415.json"
+  },
+  {
+    "id": "01a163f4-a62f-7c01-b875-b87626f041da",
+    "name": "Read swarmforge instructions",
+    "kind": "ROLE",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/22/rollout-2026-10-22T22-12-20-01a163f4-a62f-7c01-b875-b87626f041da.jsonl",
+    "snapshot_lines": 421,
+    "artifact": "sol_env/01a163f4-a62f-7c01-b875-b87626f041da.json"
+  },
+  {
+    "id": "01a166df-ec06-7462-ac10-863ed349bcfe",
+    "name": "对比这两个项目",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/23/rollout-2026-10-23T11-48-33-01a166df-ec06-7462-ac10-863ed349bcfe.jsonl",
+    "snapshot_lines": 1741,
+    "artifact": "terra/01a166df-ec06-7462-ac10-863ed349bcfe.json"
+  },
+  {
+    "id": "01a166e2-009f-7103-962e-6e0dfaf02273",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/23/rollout-2026-10-23T11-50-49-01a166e2-009f-7103-962e-6e0dfaf02273.jsonl",
+    "snapshot_lines": 2,
+    "artifact": null
+  },
+  {
+    "id": "01a16708-d87c-7e31-9b9e-e984bf61b3dc",
+    "name": "",
+    "kind": "SUB",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/23/rollout-2026-10-23T12-33-15-01a16708-d87c-7e31-9b9e-e984bf61b3dc.jsonl",
+    "snapshot_lines": 143,
+    "artifact": "terra/01a16708-d87c-7e31-9b9e-e984bf61b3dc.json"
+  },
+  {
+    "id": "01a1678a-cf90-7a73-9204-aae4c7adfec6",
+    "name": "检查 GitHub 最新文档提交",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/23/rollout-2026-10-23T14-55-15-01a1678a-cf90-7a73-9204-aae4c7adfec6.jsonl",
+    "snapshot_lines": 113,
+    "artifact": "terra/01a1678a-cf90-7a73-9204-aae4c7adfec6.json"
+  },
+  {
+    "id": "01a167a0-6b76-7321-97bc-1f4085f7815f",
+    "name": "检查 GitHub 同步状态",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/23/rollout-2026-10-23T15-18-48-01a167a0-6b76-7321-97bc-1f4085f7815f.jsonl",
+    "snapshot_lines": 4924,
+    "artifact": "terra/01a167a0-6b76-7321-97bc-1f4085f7815f.json"
+  },
+  {
+    "id": "01a16869-f957-7792-a43f-d4e42e4ea253",
+    "name": "补充浏览器图表",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/23/rollout-2026-10-23T18-58-58-01a16869-f957-7792-a43f-d4e42e4ea253.jsonl",
+    "snapshot_lines": 95,
+    "artifact": "terra/01a16869-f957-7792-a43f-d4e42e4ea253.json"
+  },
+  {
+    "id": "01a171ab-8e3f-7b52-a4e3-cad4debe1227",
+    "name": "打开之前的 pro-v1 项目",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/25/rollout-2026-10-25T14-07-15-01a171ab-8e3f-7b52-a4e3-cad4debe1227.jsonl",
+    "snapshot_lines": 786,
+    "artifact": "sol_env/01a171ab-8e3f-7b52-a4e3-cad4debe1227.json"
+  },
+  {
+    "id": "01a171d0-148b-7a12-aa78-3cb2e3b9faaf",
+    "name": "确认网站部署状态",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/25/rollout-2026-10-25T14-47-04-01a171d0-148b-7a12-aa78-3cb2e3b9faaf.jsonl",
+    "snapshot_lines": 932,
+    "artifact": "sol_env/01a171d0-148b-7a12-aa78-3cb2e3b9faaf.json"
+  },
+  {
+    "id": "01a17621-cf3a-7a30-abfb-bcb067534136",
+    "name": "整改前端工作入口",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/26/rollout-2026-10-26T10-54-49-01a17621-cf3a-7a30-abfb-bcb067534136.jsonl",
+    "snapshot_lines": 3571,
+    "artifact": "terra/01a17621-cf3a-7a30-abfb-bcb067534136.json"
+  },
+  {
+    "id": "01a17bf6-6ab3-7e41-8ece-a068b62b7208",
+    "name": "重构试验身份与数据传递",
+    "kind": "MAIN",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/27/rollout-2026-10-27T14-05-09-01a17bf6-6ab3-7e41-8ece-a068b62b7208.jsonl",
+    "snapshot_lines": 811,
+    "artifact": "sol_dev/01a17bf6-6ab3-7e41-8ece-a068b62b7208.json"
+  },
+  {
+    "id": "01a17c99-7c3b-7eb1-a647-5e470dffad0b",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/27/rollout-2026-10-27T17-03-16-01a17c99-7c3b-7eb1-a647-5e470dffad0b.jsonl",
+    "snapshot_lines": 2,
+    "artifact": null
+  },
+  {
+    "id": "01a17cb5-7590-7890-8da4-8974235b67f7",
+    "name": "连接飞书",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/27/rollout-2026-10-27T17-33-49-01a17cb5-7590-7890-8da4-8974235b67f7.jsonl",
+    "snapshot_lines": 2364,
+    "artifact": "sol_env/01a17cb5-7590-7890-8da4-8974235b67f7.json"
+  },
+  {
+    "id": "01a17cd4-9c4a-7d61-a30a-696f264c18fe",
+    "name": "生成HTML跳转关系界面",
+    "kind": "MAIN",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/27/rollout-2026-10-27T18-07-50-01a17cd4-9c4a-7d61-a30a-696f264c18fe.jsonl",
+    "snapshot_lines": 8062,
+    "artifact": "root_reuse/01a17cd4-9c4a-7d61-a30a-696f264c18fe.json"
+  },
+  {
+    "id": "01a17d10-f05c-78f1-a7d7-49663fb227c6",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/10/27/rollout-2026-10-27T19-13-44-01a17d10-f05c-78f1-a7d7-49663fb227c6.jsonl",
+    "snapshot_lines": 2,
+    "artifact": null
+  },
+  {
+    "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+    "name": "重构 HTML 原型为 React 工程",
+    "kind": "MAIN",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/02/rollout-2026-11-02T21-05-59-01a19c5d-dca8-7590-a6b1-cc876c7f865d.jsonl",
+    "snapshot_lines": 2365,
+    "artifact": "sol_dev/01a19c5d-dca8-7590-a6b1-cc876c7f865d.json"
+  },
+  {
+    "id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+    "name": "",
+    "kind": "SUB",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/02/rollout-2026-11-02T22-01-51-01a19c91-0415-7252-8b5e-59f2ede97fb5.jsonl",
+    "snapshot_lines": 52,
+    "artifact": "sol_dev/01a19c91-0415-7252-8b5e-59f2ede97fb5.json"
+  },
+  {
+    "id": "01a19ca2-015e-7b61-aa98-d8a41a2cab2b",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/02/rollout-2026-11-02T22-20-25-01a19ca2-015e-7b61-aa98-d8a41a2cab2b.jsonl",
+    "snapshot_lines": 1,
+    "artifact": null
+  },
+  {
+    "id": "01a19ca4-7516-75c3-ab58-2da993c3b76d",
+    "name": "",
+    "kind": "SUB",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/02/rollout-2026-11-02T22-23-06-01a19ca4-7516-75c3-ab58-2da993c3b76d.jsonl",
+    "snapshot_lines": 421,
+    "artifact": "sol_dev/01a19ca4-7516-75c3-ab58-2da993c3b76d.json"
+  },
+  {
+    "id": "01a19f49-5c44-7573-a628-04168a4690c3",
+    "name": "评估原型重构方案",
+    "kind": "MAIN",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/03/rollout-2026-11-03T10-42-27-01a19f49-5c44-7573-a628-04168a4690c3.jsonl",
+    "snapshot_lines": 332,
+    "artifact": "sol_dev/01a19f49-5c44-7573-a628-04168a4690c3.json"
+  },
+  {
+    "id": "01a1a06e-b57f-7141-97ef-38204a29ec98",
+    "name": "掌握文件信息",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/03/rollout-2026-11-03T16-02-52-01a1a06e-b57f-7141-97ef-38204a29ec98.jsonl",
+    "snapshot_lines": 2055,
+    "artifact": "sol_env/01a1a06e-b57f-7141-97ef-38204a29ec98.json"
+  },
+  {
+    "id": "01a1a0ca-176d-7182-8521-a220bd9029f7",
+    "name": "介绍当前架构",
+    "kind": "MAIN",
+    "owner": "sol_dev",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/03/rollout-2026-11-03T17-42-41-01a1a0ca-176d-7182-8521-a220bd9029f7.jsonl",
+    "snapshot_lines": 6545,
+    "artifact": "sol_dev/01a1a0ca-176d-7182-8521-a220bd9029f7.json"
+  },
+  {
+    "id": "01a1a42d-5e15-7fa0-afe5-aadeffbce7a2",
+    "name": "打开预览地址",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/04/rollout-2026-11-04T09-29-59-01a1a42d-5e15-7fa0-afe5-aadeffbce7a2.jsonl",
+    "snapshot_lines": 900,
+    "artifact": "sol_env/01a1a42d-5e15-7fa0-afe5-aadeffbce7a2.json"
+  },
+  {
+    "id": "01a1a527-bec9-7751-9d41-392526bb30c7",
+    "name": "替换左上角 Logo",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/04/rollout-2026-11-04T14-03-27-01a1a527-bec9-7751-9d41-392526bb30c7.jsonl",
+    "snapshot_lines": 101,
+    "artifact": "terra/01a1a527-bec9-7751-9d41-392526bb30c7.json"
+  },
+  {
+    "id": "01a1a587-3802-7333-a88a-950d7571e655",
+    "name": "检查 Codex 执行日志",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/04/rollout-2026-11-04T15-47-44-01a1a587-3802-7333-a88a-950d7571e655.jsonl",
+    "snapshot_lines": 208,
+    "artifact": "terra/01a1a587-3802-7333-a88a-950d7571e655.json"
+  },
+  {
+    "id": "01a1a9da-25a4-72d0-b1a4-1553e8b6c8d4",
+    "name": "调整UI数据展示布局",
+    "kind": "MAIN",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/05/rollout-2026-11-05T11-56-48-01a1a9da-25a4-72d0-b1a4-1553e8b6c8d4.jsonl",
+    "snapshot_lines": 11338,
+    "artifact": "root_reuse/01a1a9da-25a4-72d0-b1a4-1553e8b6c8d4.json"
+  },
+  {
+    "id": "01a1a9dd-d0a5-70b3-84d3-a243de0e8e12",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/05/rollout-2026-11-05T12-00-48-01a1a9dd-d0a5-70b3-84d3-a243de0e8e12.jsonl",
+    "snapshot_lines": 2,
+    "artifact": null
+  },
+  {
+    "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+    "name": "适配前端设计",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/05/rollout-2026-11-05T14-33-10-01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7.jsonl",
+    "snapshot_lines": 950,
+    "artifact": "terra/01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7.json"
+  },
+  {
+    "id": "01a1b213-3c1c-7bd1-829c-9da4b9e33e56",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/07/rollout-2026-11-07T02-16-07-01a1b213-3c1c-7bd1-829c-9da4b9e33e56.jsonl",
+    "snapshot_lines": 1,
+    "artifact": null
+  },
+  {
+    "id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+    "name": "检查 sudo 权限",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/09/rollout-2026-11-09T10-34-39-01a1be28-612b-7682-abb3-d951c593fbbe.jsonl",
+    "snapshot_lines": 2216,
+    "artifact": "sol_env/01a1be28-612b-7682-abb3-d951c593fbbe.json"
+  },
+  {
+    "id": "01a1beb6-c4b6-79d2-a924-480c1fffe621",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/09/rollout-2026-11-09T13-10-11-01a1beb6-c4b6-79d2-a924-480c1fffe621.jsonl",
+    "snapshot_lines": 1,
+    "artifact": null
+  },
+  {
+    "id": "01a1bebb-19ef-72e0-8f90-0b3c66e9d9b2",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/09/rollout-2026-11-09T13-14-55-01a1bebb-19ef-72e0-8f90-0b3c66e9d9b2.jsonl",
+    "snapshot_lines": 1,
+    "artifact": null
+  },
+  {
+    "id": "01a1bf2a-45e2-7211-bb4f-16a5ccdad28f",
+    "name": "梳理侧边栏与栏目布局需求",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/09/rollout-2026-11-09T15-16-21-01a1bf2a-45e2-7211-bb4f-16a5ccdad28f.jsonl",
+    "snapshot_lines": 2696,
+    "artifact": "terra/01a1bf2a-45e2-7211-bb4f-16a5ccdad28f.json"
+  },
+  {
+    "id": "01a1c102-e938-7b71-8747-7a570fac3e06",
+    "name": "检查飞书连接能力",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/09/rollout-2026-11-09T23-52-35-01a1c102-e938-7b71-8747-7a570fac3e06.jsonl",
+    "snapshot_lines": 777,
+    "artifact": "sol_env/01a1c102-e938-7b71-8747-7a570fac3e06.json"
+  },
+  {
+    "id": "01a1c3f4-5ff1-7252-9ba9-a21e85013260",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/10/rollout-2026-11-10T13-35-34-01a1c3f4-5ff1-7252-9ba9-a21e85013260.jsonl",
+    "snapshot_lines": 2,
+    "artifact": null
+  },
+  {
+    "id": "01a1c4cf-9a2f-7071-9232-6a76d4a7df62",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/10/rollout-2026-11-10T17-35-05-01a1c4cf-9a2f-7071-9232-6a76d4a7df62.jsonl",
+    "snapshot_lines": 2,
+    "artifact": null
+  },
+  {
+    "id": "01a1c860-ea56-7290-a69c-199bb294d399",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/11/rollout-2026-11-11T10-12-37-01a1c860-ea56-7290-a69c-199bb294d399.jsonl",
+    "snapshot_lines": 2,
+    "artifact": null
+  },
+  {
+    "id": "01a1ca16-f0ab-7261-8043-90330a8b2efc",
+    "name": "检查当前分支状态",
+    "kind": "MAIN",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/11/rollout-2026-11-11T18-11-08-01a1ca16-f0ab-7261-8043-90330a8b2efc.jsonl",
+    "snapshot_lines": 1613,
+    "artifact": "root_reuse/01a1ca16-f0ab-7261-8043-90330a8b2efc.json"
+  },
+  {
+    "id": "01a1ce43-7ddf-77e2-8b29-0a61fafeca85",
+    "name": "检查会话延迟",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/12/rollout-2026-11-12T13-38-12-01a1ce43-7ddf-77e2-8b29-0a61fafeca85.jsonl",
+    "snapshot_lines": 173,
+    "artifact": "terra/01a1ce43-7ddf-77e2-8b29-0a61fafeca85.json"
+  },
+  {
+    "id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+    "name": "发布仓库分支访问链接",
+    "kind": "MAIN",
+    "owner": "sol_env",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/12/rollout-2026-11-12T13-41-41-01a1ce46-ae71-78d0-b4bc-4b6178c32e45.jsonl",
+    "snapshot_lines": 965,
+    "artifact": "sol_env/01a1ce46-ae71-78d0-b4bc-4b6178c32e45.json"
+  },
+  {
+    "id": "01a1cef3-6155-7782-b58f-a93d0c6364ae",
+    "name": "",
+    "kind": "EMPTY",
+    "owner": "excluded",
+    "status": "excluded_empty",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/12/rollout-2026-11-12T16-50-19-01a1cef3-6155-7782-b58f-a93d0c6364ae.jsonl",
+    "snapshot_lines": 2,
+    "artifact": null
+  },
+  {
+    "id": "01a1cef3-8520-7bd2-85f9-20f07ffdba13",
+    "name": "明确数据对象划分",
+    "kind": "MAIN",
+    "owner": "root_reuse",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/12/rollout-2026-11-12T16-50-28-01a1cef3-8520-7bd2-85f9-20f07ffdba13.jsonl",
+    "snapshot_lines": 832,
+    "artifact": "root_reuse/01a1cef3-8520-7bd2-85f9-20f07ffdba13.json"
+  },
+  {
+    "id": "01a1cf3f-b072-7fa2-b71d-0f7a2868e771",
+    "name": "创建 GitHub 仓库",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/12/rollout-2026-11-12T18-13-40-01a1cf3f-b072-7fa2-b71d-0f7a2868e771.jsonl",
+    "snapshot_lines": 87,
+    "artifact": "terra/01a1cf3f-b072-7fa2-b71d-0f7a2868e771.json"
+  },
+  {
+    "id": "01a1d554-be0f-7a31-8950-bc9ff1c9f2f9",
+    "name": "读取抖音作品前10条评论",
+    "kind": "MAIN",
+    "owner": "terra",
+    "status": "deep_reviewed",
+    "source_path": "[USER_HOME]/.codex/sessions/2026/11/13/rollout-2026-11-13T22-34-28-01a1d554-be0f-7a31-8950-bc9ff1c9f2f9.jsonl",
+    "snapshot_lines": 637,
+    "artifact": "terra/01a1d554-be0f-7a31-8950-bc9ff1c9f2f9.json"
+  }
+]

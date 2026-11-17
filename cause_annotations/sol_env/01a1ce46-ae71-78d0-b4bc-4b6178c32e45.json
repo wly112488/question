@@ -1,0 +1,556 @@
+{
+  "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+  "source_audit": "sol_env/01a1ce46-ae71-78d0-b4bc-4b6178c32e45.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/11/12/rollout-2026-11-12T13-41-41-01a1ce46-ae71-78d0-b4bc-4b6178c32e45.jsonl",
+  "snapshot_lines": 965,
+  "items": [
+    {
+      "id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45:F01",
+      "kind": "positive_context",
+      "description": "先取/api/v2/health得到HTTP200，但后读正文发现是旧站HTML，随后改验证真实OM2 JSON release。 影响：多一轮检测，但防止SPA fallback误判健康。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "用户12明确在公司局域网给同事访问当前修改分支；193/244随后指出已有远程服务器，313要求同步最新修改。后续786/790要求去登录页，952/956才明确追问为什么不使用长期固定网站入口并要求先不要修改。各阶段目标不同，不以最后的固定入口期望倒推最初LAN发布失误。",
+        "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+        "physical_lines": [
+          12,
+          193,
+          244,
+          313,
+          786,
+          790,
+          952,
+          956
+        ]
+      },
+      "trigger_or_change": "核查用户提供的服务器IP时，健康路径HTTP200实际落到旧ProTangram前端。",
+      "cause_explanation": "250/255首先只显示首页和health状态200，259/262读正文才确认health也是text/html和旧站标题；280/289查到IP首页Nginx对应旧站，另有独立OM2 API及release；303在实际OM2公网入口取得JSON。直接机制是同一服务器不同入口的路由/SPA回退使任意路径可能200，状态码不证明命中了OM2后端。及时核对正文、服务目录和版本阻止了最终误报。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            12,
+            193,
+            244,
+            313,
+            786,
+            790,
+            952,
+            956
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            250,
+            255,
+            259,
+            262,
+            280,
+            289,
+            303,
+            306
+          ],
+          "what_it_supports": "IP路径返回旧站HTML、服务/路由分离及真实OM2 JSON release"
+        }
+      ],
+      "workflow_relevance": "主要是部署与版本识别，不是前端样式迭代；用户对照旧预览时应先分清站点入口。",
+      "necessary_cost": "确认访问内容、对应服务和发行版本是必要部署检查。",
+      "possibly_avoidable_cost": "仅看状态码可能造成错误交付；这轮自我纠正有必要收益，不能整轮判为浪费。",
+      "revised_possible_solutions": [
+        "保留状态、Content-Type、关键JSON字段及release的联合核验；多个站点时先建立入口到服务的对应关系。"
+      ],
+      "remaining_uncertainty": "只确认本次可见Nginx入口和OM2实例，不推断服务器其他未查路由。"
+    },
+    {
+      "id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45:F02a",
+      "kind": "confirmed_issue",
+      "description": "公网回归脚本选择器或导航路径不稳定，多个30秒超时后才改同源UI导航通过，测试入口本身增加等待。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户12明确在公司局域网给同事访问当前修改分支；193/244随后指出已有远程服务器，313要求同步最新修改。后续786/790要求去登录页，952/956才明确追问为什么不使用长期固定网站入口并要求先不要修改。各阶段目标不同，不以最后的固定入口期望倒推最初LAN发布失误。",
+        "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+        "physical_lines": [
+          12,
+          193,
+          244,
+          313,
+          786,
+          790,
+          952,
+          956
+        ]
+      },
+      "trigger_or_change": "公网回归脚本硬导航数据资源页后，目标main未出现，重试又遇登录控件超时；最终改用页面主导航。",
+      "cause_explanation": "528脚本登录后用page.goto逐个访问绝对业务路径，635等待内容展示框30秒超时；678另一轮账号控件也未出现。725记录资源页body为空并伴随JS网络中断；迁到Windows后750把硬导航改为主导航NavLink点击，762相同页面目标通过。应补充原描述的边界：未证实选择器本身错误，最终仍能定位；更可能是硬导航触发整页资源重载、网络状态与页面前提共同参与。改UI导航成功不能单独证明后端深链路路由坏了。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            12,
+            193,
+            244,
+            313,
+            786,
+            790,
+            952,
+            956
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            528,
+            635,
+            646,
+            678,
+            682,
+            704,
+            709,
+            725,
+            733,
+            750,
+            762
+          ],
+          "what_it_supports": "硬导航脚本、不同超时、空页面/网络失败、换平台与UI导航后通过"
+        }
+      ],
+      "workflow_relevance": "适用于实际预览验收；反复调样式背景不能解释掉定位超时，但这轮核心目标是远程同步，检查真实用户导航必要。",
+      "necessary_cost": "登录后验证任务、资源和工作台，并在失败后保存URL/正文/截图是必要成本。",
+      "possibly_avoidable_cost": "可避免在未先确定页面与资源加载状态时反复耗尽30秒；但不能把所有网络重试都归脚本浪费。",
+      "revised_possible_solutions": [
+        "先做一条最小登录与目标资源加载检查，再按用户主导航走核心路径；失败一次即保留URL、正文和requestfailed后分层定位。",
+        "若还需支持硬刷新/深链路，单独验证该路径，不能用UI导航成功替代该结论。"
+      ],
+      "remaining_uncertainty": "没有隔离同一浏览器/网络下硬导航与UI导航的对照，选择器、整页导航、网络和路由各自贡献仍不完全可分。"
+    },
+    {
+      "id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45:F02b",
+      "kind": "confirmed_issue",
+      "description": "WSL公网浏览器出现ERR_NETWORK_CHANGED等网络失败，迁移Windows后才最终通过；环境可用性未先用最小路径验证。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户12明确在公司局域网给同事访问当前修改分支；193/244随后指出已有远程服务器，313要求同步最新修改。后续786/790要求去登录页，952/956才明确追问为什么不使用长期固定网站入口并要求先不要修改。各阶段目标不同，不以最后的固定入口期望倒推最初LAN发布失误。",
+        "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+        "physical_lines": [
+          12,
+          193,
+          244,
+          313,
+          786,
+          790,
+          952,
+          956
+        ]
+      },
+      "trigger_or_change": "WSL公网浏览器加载新版JavaScript时报告网络环境变化，后改Windows浏览器继续验收。",
+      "cause_explanation": "682加入requestfailed和console日志，704明确/assets/index-DqWXStnr.js为ERR_NETWORK_CHANGED；同时同一资源经curl取得且hash与发行包匹配，远端670记录服务active/NRestarts=0。709支持切Windows，762最终成功。这支持客户端访问链路/浏览器环境中断参与失败，而非新版资产缺失；究竟是WSL网络、代理、接口切换或其他本机变化未被隔离。原条目“环境未先最小验证”是改进机会，不能推成所有失败都是可避免的模型决策。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            12,
+            193,
+            244,
+            313,
+            786,
+            790,
+            952,
+            956
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            670,
+            678,
+            682,
+            695,
+            704,
+            709,
+            725,
+            762
+          ],
+          "what_it_supports": "服务状态、资源校验、浏览器网络错误及Windows最终结果"
+        }
+      ],
+      "workflow_relevance": "是公网预览环境成本，与正常文字/排布反复无直接关系。",
+      "necessary_cost": "一次最小资源/登录验证、比较独立curl与浏览器结果并换可用访问侧合理。",
+      "possibly_avoidable_cost": "更早以最小路径辨别访问侧可能减少后续完整回归等待；真实网络变化自身不可据此归责模型。",
+      "revised_possible_solutions": [
+        "出现资源级ERR_NETWORK_CHANGED后先停止扩页面，比较同一资源在浏览器与独立请求的状态，再在已验证可用的一侧完成核心验收。"
+      ],
+      "remaining_uncertainty": "未取得网络接口、代理和浏览器内部事件的时间对照，无法确认底层网络变化原因或换Windows单独带来的净收益。"
+    },
+    {
+      "id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45:F02c",
+      "kind": "candidate_issue",
+      "description": "回归中出现401响应，当前报告未独立确定每次401属于身份、跳转或环境；不能直接归因产品功能失败。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "用户12明确在公司局域网给同事访问当前修改分支；193/244随后指出已有远程服务器，313要求同步最新修改。后续786/790要求去登录页，952/956才明确追问为什么不使用长期固定网站入口并要求先不要修改。各阶段目标不同，不以最后的固定入口期望倒推最初LAN发布失误。",
+        "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+        "physical_lines": [
+          12,
+          193,
+          244,
+          313,
+          786,
+          790,
+          952,
+          956
+        ]
+      },
+      "trigger_or_change": "浏览器console多次出现401，但日志未为每次console错误保留请求路径和认证阶段。",
+      "cause_explanation": "528的failed数组只收loggedIn=true之后的HTTP错误；695/704/733只有通用401 console文字，762仍有一条401 console，但同时authenticatedLogin=true、recordsStatus=200、三个页面成功且failed=[]。因此至少不能把这些401整体视为部署回归失败，初始未登录身份探测是合理反解释；但缺每条URL/响应/阶段，无法确认全部都是预期身份检查，也不能证明每次401是同一请求。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            12,
+            193,
+            244,
+            313,
+            786,
+            790,
+            952,
+            956
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            528,
+            682,
+            695,
+            704,
+            733,
+            746,
+            762
+          ],
+          "what_it_supports": "认证后错误过滤、无请求路径的401和最终已登录检查成功并存"
+        }
+      ],
+      "workflow_relevance": "适用于预览访问与登录状态边界；后续去登录页是新要求，不能追溯认定这些认证返回本来不应发生。",
+      "necessary_cost": "核对登录结果和授权记录接口必要；初始身份探测可能是正常流程。",
+      "possibly_avoidable_cost": "无目标信息地重复调查console401可能无收益；不能虚构可避免分钟。",
+      "revised_possible_solutions": [
+        "将401记录为请求路径、状态、是否登录前、是否跨源与响应摘要，再对照登录/记录接口结果；保留预期未认证与真正业务失败的区别。"
+      ],
+      "remaining_uncertainty": "每条401的具体endpoint、身份状态和返回正文仍未知，保留原候选而不编身份/路由根因。"
+    },
+    {
+      "id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45:F03",
+      "kind": "positive_context",
+      "description": "依赖锁hash、缓存复用、离线安装、62payload校验、13页面回归、数据计数保留、旧ProTangram不变、当前资源hash匹配，避免停服务导致隧道换URL。 影响：有数据/版本/旧站隔离的明确质量收益。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "用户12明确在公司局域网给同事访问当前修改分支；193/244随后指出已有远程服务器，313要求同步最新修改。后续786/790要求去登录页，952/956才明确追问为什么不使用长期固定网站入口并要求先不要修改。各阶段目标不同，不以最后的固定入口期望倒推最初LAN发布失误。",
+        "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+        "physical_lines": [
+          12,
+          193,
+          244,
+          313,
+          786,
+          790,
+          952,
+          956
+        ]
+      },
+      "trigger_or_change": "同步包含未提交修改的前后端发行包，并更新独立远程实例且保留其数据和原入口。",
+      "cause_explanation": "371按依赖锁hash准备包，448/452复用命中锁的缓存；507校验源文件和62payload，521已有13项相关页面回归，558离线安装后依赖/import验证；569有意只停API以保留隧道，591给出前后数据计数一致和release健康，610原站hash保持，704公网JS/CSS匹配，762实际登录/主页面通过。有效机制是对不同风险分别取证，而不是把一次build当部署全部完成。计数和hash仍各有边界，不能代替逐记录内容审查。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            12,
+            193,
+            244,
+            313,
+            786,
+            790,
+            952,
+            956
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            371,
+            448,
+            452,
+            507,
+            521,
+            558,
+            569,
+            591,
+            610,
+            704,
+            762,
+            767
+          ],
+          "what_it_supports": "依赖/发行校验、测试、切换保护、计数和版本/入口/旧站核对"
+        }
+      ],
+      "workflow_relevance": "远程同步是用户明确新增工作，与纯样式预览不同；这些保护属于真实部署相关必要质量成本。",
+      "necessary_cost": "备份、数据计数、旧站隔离、版本和核心页面确认必要。",
+      "possibly_avoidable_cost": "可汇总重复成功输出，但不应因调用多而取消与数据/版本风险相关的检查；无证据量化多余分钟。",
+      "revised_possible_solutions": [
+        "保留按风险分别验证的机制，将成功结果集中记录一次；继续明确count/hash/页面检查各自证明范围。"
+      ],
+      "remaining_uncertainty": "数据计数不等于每条内容一致，13项回归也不覆盖所有业务；既有弹窗规范失败另在U02保留。"
+    },
+    {
+      "id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45:F04",
+      "kind": "candidate_issue",
+      "description": "LAN链接及公网临时隧道虽可访问，用户末尾质疑为什么不是固定服务器网站；助手承认未满足长期稳定访问期望。 影响：额外解释/未来入口配置需求；当前版本同步本身成功。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户12明确在公司局域网给同事访问当前修改分支；193/244随后指出已有远程服务器，313要求同步最新修改。后续786/790要求去登录页，952/956才明确追问为什么不使用长期固定网站入口并要求先不要修改。各阶段目标不同，不以最后的固定入口期望倒推最初LAN发布失误。",
+        "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+        "physical_lines": [
+          12,
+          193,
+          244,
+          313,
+          786,
+          790,
+          952,
+          956
+        ]
+      },
+      "trigger_or_change": "先发布明确要求的公司LAN预览，后复用既有远程OM2临时入口同步版本，最后用户提出长期固定网站疑问。",
+      "cause_explanation": "需要更正过度追溯的解释：12明确说公司局域网，183给LAN链接并说明依赖本机开机；193/244/313才转向现有远程实例。255历史记录和289服务信息说明临时隧道是既有部署入口，这轮569还主动保留它，767同步完成。945说明远程后台服务与临时地址不同，952/956才明确长期固定入口期望，961承认没配置固定入口。原因是沿用旧入口并以保旧站/快速HTTPS为约束，但没有把地址有效期作为独立交付属性对齐；不是OM2根本未上远程服务器，也不能把初轮LAN选择定为错误。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            12,
+            193,
+            244,
+            313,
+            786,
+            790,
+            952,
+            956
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            12,
+            183,
+            193,
+            244,
+            255,
+            289,
+            306,
+            313,
+            569,
+            767,
+            945,
+            952,
+            956,
+            961
+          ],
+          "what_it_supports": "LAN初始要求、转远程、既有隧道保留与最后固定入口期望"
+        }
+      ],
+      "workflow_relevance": "与反复调整视觉原型不同，是访问者位置、运行主机和入口生命周期的目标澄清。正常新期望与早期未显式对齐可并存。",
+      "necessary_cost": "查清既有远程实例、保留旧站并同步版本必要。",
+      "possibly_avoidable_cost": "可减少将“远程持续运行”与“URL长期固定”混为同一验收条件的解释往返；固定入口实施尚未授权，用户明确先不要改。",
+      "revised_possible_solutions": [
+        "发布说明分别写清运行主机、访问网络、地址有效期和数据是否共用；沿用临时入口时明确其限制。",
+        "若后续获准固定入口，再在保护现有站点前提下选定域名/固定端口或反向代理方案；当前只说明选项不实施。"
+      ],
+      "remaining_uncertainty": "最初没有固定域名要求，不能确认当时临时入口违反已知约束；961是方案说明，快照内没有固定入口交付。"
+    },
+    {
+      "id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45:U01",
+      "kind": "evidence_gap",
+      "description": "91次顶层调用已完整摘要扫描，但许多嵌套命令没有独立持久duration，无法将轮次差精确拆成工具、API和其他时间。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户12明确在公司局域网给同事访问当前修改分支；193/244随后指出已有远程服务器，313要求同步最新修改。后续786/790要求去登录页，952/956才明确追问为什么不使用长期固定网站入口并要求先不要修改。各阶段目标不同，不以最后的固定入口期望倒推最初LAN发布失误。",
+        "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+        "physical_lines": [
+          12,
+          193,
+          244,
+          313,
+          786,
+          790,
+          952,
+          956
+        ]
+      },
+      "trigger_or_change": "顶层exec包裹多个并发/异步命令，返回只给包装耗时、部分子结果和会话句柄。",
+      "cause_explanation": "例如598并发轮询、启动浏览器、curl旧站与查询服务，601只回包装时间和exit=None；606/610又混合轮询与新命令。这样的持久格式不足以把每个嵌套操作的完整起止、重叠、API等待和模型时间拆开；局部返回或单次timeout可确认，但不能把轮次间隔全部算工具耗时。原因是记录粒度与异步重叠，不是发现了一个业务执行错误。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            12,
+            193,
+            244,
+            313,
+            786,
+            790,
+            952,
+            956
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            598,
+            601,
+            606,
+            610,
+            622,
+            625,
+            635,
+            709,
+            762
+          ],
+          "what_it_supports": "并发包装、异步未结束状态和后续结果分散的实际记录"
+        }
+      ],
+      "workflow_relevance": "适用于部署/浏览器验收的时间审计；用户原型迭代或离开时间不应被转算执行损耗。",
+      "necessary_cost": "按配对句柄追踪已记录结果，并排除用户等待和并行重叠必要。",
+      "possibly_avoidable_cost": "无法恢复未持久的独立duration，反复推算同一轮差没有新证据。",
+      "revised_possible_solutions": [
+        "仅统计有明确配对开始/完成或timeout的区间；未来需细分时为嵌套任务记录单独开始/结束与会话ID，未知部分保持未知。"
+      ],
+      "remaining_uncertainty": "本轮未重新以缺失时间构造总耗时；原目录91次顶层调用数沿用，细分净时间仍无法确定。"
+    },
+    {
+      "id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45:U02",
+      "kind": "evidence_gap",
+      "description": "既有backend弹窗检查失败仅初步定位，无关源码未独立缺陷审计；部署回归通过不代表该既有问题已解释或修复。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "用户12明确在公司局域网给同事访问当前修改分支；193/244随后指出已有远程服务器，313要求同步最新修改。后续786/790要求去登录页，952/956才明确追问为什么不使用长期固定网站入口并要求先不要修改。各阶段目标不同，不以最后的固定入口期望倒推最初LAN发布失误。",
+        "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+        "physical_lines": [
+          12,
+          193,
+          244,
+          313,
+          786,
+          790,
+          952,
+          956
+        ]
+      },
+      "trigger_or_change": "相关检查中Python静态边界测试拒绝已有前端dialog文件，但此次未扩展修复该既有规范问题。",
+      "cause_explanation": "412/421给出test_only_draft_confirmation_may_be_a_dialog失败：扫描前端源码，只允许shared.tsx使用dialog，而trialConfigurations.tsx命中。427/433将其hash与远程旧发行对照，显示该文件未改；470明确披露继续部署。本条“backend弹窗”需精确化为由Python测试执行的前端源码规范失败，现有证据不是后端运行时弹窗故障。为何规范与既有实现矛盾（测试过时、例外缺失还是真实违规）未独立审定，部署页面通过不能解决这个问题。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            12,
+            193,
+            244,
+            313,
+            786,
+            790,
+            952,
+            956
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            412,
+            417,
+            421,
+            427,
+            433,
+            470,
+            767
+          ],
+          "what_it_supports": "静态测试实际断言、命中文件、旧版hash一致和明确披露"
+        }
+      ],
+      "workflow_relevance": "这轮目标是同步已改原型，不是重新设计全部弹窗；不应把既有问题扩成未经请求的源码修复。",
+      "necessary_cost": "跑相关检查、识别是否本次引入并如实报告必要。",
+      "possibly_avoidable_cost": "无证据说跳过此既有修复是浪费；可避免把它误称已修或把所有页面回归当规范已通过。",
+      "revised_possible_solutions": [
+        "保留既有失败和未审边界；如后续纳入任务，对照当时弹窗规范与该文件用途判定是否确需例外或改实现，再定义最小验证。"
+      ],
+      "remaining_uncertainty": "源码未改只支持“非本次新增”，不证明它正确；未独立评估用户可见行为和规则有效性。"
+    },
+    {
+      "id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45:A01",
+      "kind": "evidence_gap",
+      "description": "Windows代理18182后只从本机LAN地址验证成功，未用另一台公司设备验证；“同机可访问”不能证明所有同事设备可访问。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "用户12明确在公司局域网给同事访问当前修改分支；193/244随后指出已有远程服务器，313要求同步最新修改。后续786/790要求去登录页，952/956才明确追问为什么不使用长期固定网站入口并要求先不要修改。各阶段目标不同，不以最后的固定入口期望倒推最初LAN发布失误。",
+        "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+        "physical_lines": [
+          12,
+          193,
+          244,
+          313,
+          786,
+          790,
+          952,
+          956
+        ]
+      },
+      "trigger_or_change": "Windows到WSL同一LAN地址不能直连后建立Windows18182代理，并仅在本机Windows完成最终访问检查。",
+      "cause_explanation": "132显示Windows LAN18181超时而已认证API在WSL侧200，142 Windows loopback200；148增加Windows监听并转到loopback上游，163 Windows最终LAN18182为200，WSL同地址却拒绝。167/178用本机Windows浏览器验证页面/接口，183明确未从另一设备实测。支持本机路径成立和环境路径差异；不能由同机成功推断公司其他设备的入站、防火墙、网段隔离均通过，也不能由WSL反向失败断言同事一定不可达。底层映射/防火墙的唯一原因未隔离。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            12,
+            193,
+            244,
+            313,
+            786,
+            790,
+            952,
+            956
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a1ce46-ae71-78d0-b4bc-4b6178c32e45",
+          "physical_lines": [
+            127,
+            132,
+            136,
+            142,
+            147,
+            148,
+            156,
+            163,
+            167,
+            178,
+            183
+          ],
+          "what_it_supports": "两侧访问差异、Windows代理、同机成功及跨设备未验证披露"
+        }
+      ],
+      "workflow_relevance": "适用于同事在公司LAN查看原型；实际预览反馈需要真实访问者路径可达，与页面视觉迭代本身不同。",
+      "necessary_cost": "验证本机上游、代理页面和认证接口必要。",
+      "possibly_avoidable_cost": "缺目标设备验证导致的可达性不确定不能用本机多次curl消除；未实测本身不等于已发生故障。",
+      "revised_possible_solutions": [
+        "如需确认同事可用，由授权的另一台目标公司网段设备访问同一链接并检查页面/数据；记录网络位置与结果，失败再分层查入站与隔离。"
+      ],
+      "remaining_uncertainty": "没有另一设备的实际结果，企业网隔离、防火墙与不同网段影响未知；不声称已覆盖所有同事。"
+    }
+  ]
+}

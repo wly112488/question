@@ -1,0 +1,99 @@
+{
+  "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+  "title": "",
+  "source_audit": "sol_dev/01a19c91-0415-7252-8b5e-59f2ede97fb5.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties",
+    "historical_outcome_status"
+  ],
+  "items": [
+    {
+      "id": "01a19c91-0415-7252-8b5e-59f2ede97fb5:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "子代理执行约46秒后快照结束，无最终输出；主线程随后再派final_review。 判断：存在无交付的检查启动成本，但无法确认根因是模型、运行时或中断，不与后续审查时间相加。 已知影响：5次只读调用未见可消费回传；净阻塞主线程时间未知。",
+      "evidence": [
+        {
+          "line": 44,
+          "output_line": 49
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "line": 893
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "line": 953
+        }
+      ],
+      "possible_solutions": [
+        "保留子任务完成/中断/失联状态和最后回传；有需求时关联父线程接续审查，确认哪些检查产物可消费。"
+      ],
+      "uncertainty": "固定快照/生命周期信息不足。"
+    },
+    {
+      "id": "01a19c91-0415-7252-8b5e-59f2ede97fb5:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：派发消息以密文记录；52行快照没有task_complete。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "recorded_limitation": "派发消息以密文记录；52行快照没有task_complete。"
+        }
+      ],
+      "possible_solutions": [
+        "核对父线程派发、agent_path、最后调用和接续final_review；无法恢复密文或生命周期时继续标未知。"
+      ],
+      "uncertainty": "派发消息以密文记录；52行快照没有task_complete。"
+    },
+    {
+      "id": "01a19c91-0415-7252-8b5e-59f2ede97fb5:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：长成功代码读取在原工具层已截断。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/1",
+          "recorded_limitation": "长成功代码读取在原工具层已截断。"
+        }
+      ],
+      "possible_solutions": [
+        "需要判具体代码阅读覆盖时补可用原行分段；历史工具省略内容不能从快照推定。"
+      ],
+      "uncertainty": "长成功代码读取在原工具层已截断。"
+    },
+    {
+      "id": "01a19c91-0415-7252-8b5e-59f2ede97fb5:A01",
+      "source_refs": [
+        "/task_segments/0",
+        "/historical_outcome_status"
+      ],
+      "kind": "evidence_gap",
+      "description": "52行固定快照只有5次只读调用，没有最终审查结论或task_complete，因此不能把本子任务标成已交付有效审查。",
+      "evidence": [
+        {
+          "lines": [
+            1,
+            52
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "将未完成审查和后续final_review分开登记，补可观察状态或已有回传，不推定终止原因。"
+      ],
+      "uncertainty": "与F01/U01为同一历史缺口的覆盖补充，完整已读不等于历史任务完成。"
+    }
+  ]
+}

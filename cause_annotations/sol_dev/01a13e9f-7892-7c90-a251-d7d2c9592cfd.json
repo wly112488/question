@@ -1,0 +1,600 @@
+{
+  "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+  "source_audit": "sol_dev/01a13e9f-7892-7c90-a251-d7d2c9592cfd.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/10/15/rollout-2026-10-15T16-13-20-01a13e9f-7892-7c90-a251-d7d2c9592cfd.jsonl",
+  "snapshot_lines": 652,
+  "items": [
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F01a",
+      "kind": "confirmed_issue",
+      "description": "保存按钮和后段数字孪生入口使用错误选择器/控件角色，分别完整等待12秒；全流程重跑会重复先前已过步骤。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "新共享PredictionWorkspace与维护弹窗/专业导航迭代。",
+      "cause_explanation": "143脚本等保存按钮12秒，281把专业导航数字孪生当button；实际新控件语义与脚本不符。原型改入口合理，首次探索必要，但失败后应读当前控件而不是重复整个已过链。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            143,
+            150,
+            281,
+            346
+          ],
+          "what_it_supports": "定位失败与最终场景"
+        }
+      ],
+      "workflow_relevance": "页面简化/文字入口调整符合本任务，不能把改版本身算错误。",
+      "necessary_cost": "目标构型、模型来源和保存归属复验必要。",
+      "possibly_avoidable_cost": "旧定位等待和前置重跑可能避免，净耗时未分解。",
+      "revised_possible_solutions": [
+        "按实测角色/可访问名定位，后段失败单测，最终全链。"
+      ],
+      "remaining_uncertainty": "150含重复打印143的失败，不能算两次同错误。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F01b",
+      "kind": "confirmed_issue",
+      "description": "脚本预期特定未接入文案，实际返回500无效响应，文字不符导致12秒等待，延误区分后端状态和前端错误表达。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "真实开发API代理返回500而不是脚本预期的特定未接入文案。",
+      "cause_explanation": "184页面出现“无效响应”，HTTP500是text/plain；脚本却等待精确“后端未接入”文案。原因是检查绑定了一个过窄错误表示，实际未接入服务可能经代理转成非JSON错误。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            184,
+            346
+          ],
+          "what_it_supports": "实际错误体和明确后端边界"
+        }
+      ],
+      "workflow_relevance": "不是用户改排布的成本，是错误契约/脚本预期对齐问题。",
+      "necessary_cost": "如实显示服务失败必要，不能改成模拟成功。",
+      "possibly_avoidable_cost": "等待一个不会出现的文案12秒可能避免。",
+      "revised_possible_solutions": [
+        "分别验证不可用服务与无效响应的用户反馈，不将所有错误硬等一种文案。"
+      ],
+      "remaining_uncertainty": "500的基础设施根因未完全确定，不能判业务后端实现坏。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F01c",
+      "kind": "confirmed_issue",
+      "description": "新增预测表单数字字段未声明number类型且误用whitespace规则，预测无法完成；两次等待失败后定位并修复。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "InputNumber输入3500后预测按钮触发未完成。",
+      "cause_explanation": "228显示INPUT3500但等待预测完成；239修规则为number字段显式type:number、仅文本加whitespace。数字组件给number值，旧规则默认字符串校验/whitespace混用挡住提交，浏览器因此等待无结果。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            206,
+            228,
+            239,
+            242,
+            346
+          ],
+          "what_it_supports": "有效输入、规则修正、最终27场景"
+        }
+      ],
+      "workflow_relevance": "是表单约束真实缺陷，不是反复原型布局。",
+      "necessary_cost": "数字/文本局部校验与真实表单验证必要。",
+      "possibly_avoidable_cost": "早测数字提交可减少两次后段全链等待，不删除该断言。",
+      "revised_possible_solutions": [
+        "规则类型匹配组件值类型，局部覆盖有效数字、空值及文本空白。"
+      ],
+      "remaining_uncertainty": "未证实用户真实提交失败，只是交付前检查捕获。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F02a",
+      "kind": "confirmed_issue",
+      "description": "实现后TypeScript检查发现chosen可能undefined，首次构建未通过，需修正类型/分支处理。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "新共享组件模型Select选择回调。",
+      "cause_explanation": "103编译器指chosen可能undefined，107修正增加if(!chosen)return；回调输入允许option缺失或数组首项为空，代码未守卫就访问字段。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            77,
+            103,
+            107
+          ],
+          "what_it_supports": "新增组件、类型错误、守卫改动"
+        }
+      ],
+      "workflow_relevance": "行为/类型边界，与样式迭代无直接关系。",
+      "necessary_cost": "类型检查发现空值分支必要。",
+      "possibly_avoidable_cost": "提交局部空值分支前漏处理，带来一次修正；不能把整次build都算浪费。",
+      "revised_possible_solutions": [
+        "选择回调先处理空option，再访问模型字段。"
+      ],
+      "remaining_uncertainty": "编译在打包前退出，不能乘完整成功build秒数。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F02b",
+      "kind": "confirmed_issue",
+      "description": "修复命令因工作目录错误找不到目标文件，产生一次无效FileNotFound修改尝试。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "107以frontend为workdir仍使用frontend/路径。",
+      "cause_explanation": "107实际workdir已到frontend，Path再加frontend前缀；109FileNotFound，随后npm仍开始。原因是相对路径根与shell根不一致且脚本失败后串行build未被阻断。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            107,
+            109
+          ],
+          "what_it_supports": "路径和实际失败"
+        }
+      ],
+      "workflow_relevance": "原型迭代频繁跨目录会触发，但不是正常迭代必要成本。",
+      "necessary_cost": "修改与构建必要。",
+      "possibly_avoidable_cost": "无效文件读和失败后仍build可避免。",
+      "revised_possible_solutions": [
+        "固定repo或package根之一，失败立即停止后续依赖命令。"
+      ],
+      "remaining_uncertainty": "未写错其他文件。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F02c",
+      "kind": "candidate_issue",
+      "description": "局部修正仍持续时多轮完整tsc+vite，成功Vite单次约55.37秒，可能有过早执行生产打包的成本。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "实现与类型/表单修复期间多轮校验。",
+      "cause_explanation": "77创建组件后即build，103类型失败，239仍改表单，346最终build通过。显示期间确有行为改动需重验，不能把重复build一概删；早期局部失败后仍完整前置可能多做。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            77,
+            103,
+            109,
+            239,
+            346
+          ],
+          "what_it_supports": "检查与后续实质修改交错"
+        }
+      ],
+      "workflow_relevance": "用户迭代前端并看预览，改后复验合理。",
+      "necessary_cost": "最终生产构建和覆盖要求场景必要。",
+      "possibly_avoidable_cost": "仅在局部类型尚不稳时可先typecheck，净节省未知。",
+      "revised_possible_solutions": [
+        "局部类型/表单先稳定，再最终build；新行为变化后仍做相关回归。"
+      ],
+      "remaining_uncertainty": "没有每轮分项耗时，不估节省比例。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F03",
+      "kind": "confirmed_issue",
+      "description": "最终起初把3项既有失败概括为文案/源码断言，用户追问后承认其中taskItemId:undefined属于对象结构差异。 判断：失败分类过粗；没有证据是本次代码回归，模型核对未改相关实现并修正文档。 已知影响：一轮用户追问及更正文档。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "全量95项中3项失败后用户353追问。",
+      "cause_explanation": "370严格对象差异是taskItemId显式undefined而非省略；380分别列入口文案、对象结构、说明文案并承认先前统称不准。原因是完成摘要先按表层源码断言归类，没有逐项解释比较语义。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            346,
+            353,
+            370,
+            380
+          ],
+          "what_it_supports": "原摘要、用户追问和精确断言"
+        }
+      ],
+      "workflow_relevance": "入口文案变化可来自正常迭代；报告分类仍需准确。",
+      "necessary_cost": "基线与失败归因必要。",
+      "possibly_avoidable_cost": "一轮过粗解释及更正可避免。",
+      "revised_possible_solutions": [
+        "分别写断言预期/实际和是否本轮改动，不用“文案”代替结构差异。"
+      ],
+      "remaining_uncertainty": "不能由此认定本轮引入这3项失败，380说对应实现未改。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F04a",
+      "kind": "positive_context",
+      "description": "预测成功使用隔离夹具验证，同时明确真实后端缺适用模型查询、回流、持久化；没有把夹具成功冒充生产后端可用。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "真实适用性/预测/保存后端未完备。",
+      "cause_explanation": "9要求不写死适用算法、不伪成功；346明确隔离接口夹具成功、真实模型查询/回流/持久化缺失，未把模拟当真实。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            184,
+            346
+          ],
+          "what_it_supports": "用户约束与完成边界"
+        }
+      ],
+      "workflow_relevance": "交互原型可以用隔离夹具，但必须说明真实能力。",
+      "necessary_cost": "成功/失败契约及归属断言必要。",
+      "possibly_avoidable_cost": "无已证实伪交付成本。",
+      "revised_possible_solutions": [
+        "保留夹具与实际API能力分开披露。"
+      ],
+      "remaining_uncertainty": "夹具不能证明真实工程模型精度或后端上线。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:F04b",
+      "kind": "positive_context",
+      "description": "同步GitHub遭TLS失败，有限重试且改变连接参数，最终实际同步并核对远端；错误没有被隐藏。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "Git同步时TLS握手终止。",
+      "cause_explanation": "455/491明确GnuTLS连接非正常终止；506使用HTTP/1.1核远端，518确认更新。支持外部连接障碍与有限调整，不证明模型代码引起TLS。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            455,
+            491,
+            506,
+            518
+          ],
+          "what_it_supports": "实际网络错误及远端复核"
+        }
+      ],
+      "workflow_relevance": "与前端排布迭代无直接因果，是交付同步条件。",
+      "necessary_cost": "远端核验、有限重试必要。",
+      "possibly_avoidable_cost": "无证据同条件无限重试；不能算业务低质。",
+      "revised_possible_solutions": [
+        "按TLS返回有界调整连接方式，最终核远端sha。"
+      ],
+      "remaining_uncertainty": "具体代理/网络断开来源未定位。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:A01",
+      "kind": "evidence_gap",
+      "description": "真实适用模型查询接口尚缺，隔离预测夹具的成功不能证明按真实构型查询模型的生产路径可用。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "真实后端接入不在已验证成功路径。",
+      "cause_explanation": "346把适用模型查询、模型回流、预测任务持久化分别列尚缺，184实际服务错误，而成功来自隔离接口夹具。可确认“为何不能证明真实能力”：缺服务闭环证据；无法据此确定后端尚缺的组织/实现原因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            184,
+            346
+          ],
+          "what_it_supports": "真实请求与夹具/缺能力声明"
+        }
+      ],
+      "workflow_relevance": "适用于前端原型；不把明确未接入的后端当本轮必须补全的隐含要求。",
+      "necessary_cost": "契约、错误反馈和前端成功夹具必要。",
+      "possibly_avoidable_cost": "无可确认多余后端开发成本；后续真实接入需另验。",
+      "revised_possible_solutions": [
+        "接入各真实能力后分别用真实构型查询、回流目标和新context持久化核验。"
+      ],
+      "remaining_uncertainty": "基础设施根因和真实模型精度未知，原三个ID均保留。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:A02",
+      "kind": "evidence_gap",
+      "description": "真实回流能力尚缺，模拟预测成功没有验证结果实际写回业务来源。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "真实后端接入不在已验证成功路径。",
+      "cause_explanation": "346把适用模型查询、模型回流、预测任务持久化分别列尚缺，184实际服务错误，而成功来自隔离接口夹具。可确认“为何不能证明真实能力”：缺服务闭环证据；无法据此确定后端尚缺的组织/实现原因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            184,
+            346
+          ],
+          "what_it_supports": "真实请求与夹具/缺能力声明"
+        }
+      ],
+      "workflow_relevance": "适用于前端原型；不把明确未接入的后端当本轮必须补全的隐含要求。",
+      "necessary_cost": "契约、错误反馈和前端成功夹具必要。",
+      "possibly_avoidable_cost": "无可确认多余后端开发成本；后续真实接入需另验。",
+      "revised_possible_solutions": [
+        "接入各真实能力后分别用真实构型查询、回流目标和新context持久化核验。"
+      ],
+      "remaining_uncertainty": "基础设施根因和真实模型精度未知，原三个ID均保留。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:A03",
+      "kind": "evidence_gap",
+      "description": "真实预测持久化尚缺，当前夹具成功不能证明重新进入或换上下文可从后端恢复结果。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "真实后端接入不在已验证成功路径。",
+      "cause_explanation": "346把适用模型查询、模型回流、预测任务持久化分别列尚缺，184实际服务错误，而成功来自隔离接口夹具。可确认“为何不能证明真实能力”：缺服务闭环证据；无法据此确定后端尚缺的组织/实现原因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            184,
+            346
+          ],
+          "what_it_supports": "真实请求与夹具/缺能力声明"
+        }
+      ],
+      "workflow_relevance": "适用于前端原型；不把明确未接入的后端当本轮必须补全的隐含要求。",
+      "necessary_cost": "契约、错误反馈和前端成功夹具必要。",
+      "possibly_avoidable_cost": "无可确认多余后端开发成本；后续真实接入需另验。",
+      "revised_possible_solutions": [
+        "接入各真实能力后分别用真实构型查询、回流目标和新context持久化核验。"
+      ],
+      "remaining_uncertainty": "基础设施根因和真实模型精度未知，原三个ID均保留。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:U01",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：11月2日回顾输出中自述耗时原因不能替代本会话调用证据；没有完整人工工时，不能估算总效率比例。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "用户后续询问原型方式/效率。",
+      "cause_explanation": "9与346展示大范围共享组件和多场景要求；本日志仅有工具活动，无法补人工对照工时或从自述得出净效率比例。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346,
+            380
+          ],
+          "what_it_supports": "实际工作和检查范围"
+        }
+      ],
+      "workflow_relevance": "正常迭代/验收不能全部算低效。",
+      "necessary_cost": "解释成本构成必要。",
+      "possibly_avoidable_cost": "未知，无人工对照和重叠分解。",
+      "revised_possible_solutions": [
+        "效率结论只用有边界的调用证据；需比例时另补对照工时。"
+      ],
+      "remaining_uncertainty": "不把回顾自述当新实测。"
+    },
+    {
+      "id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd:U02",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：原工具部分输出已截断，保留缺口而不恢复不存在的数据。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "9要求增量前端重构、共享预测入口/目标构型继承、后端判适用性、不得伪造真实预测；要求浏览器覆盖无CSV跨构型等场景。346交付明确隔离接口夹具与真实缺接口。",
+        "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+        "physical_lines": [
+          9,
+          346
+        ]
+      },
+      "trigger_or_change": "103/455等历史输出已经截断。",
+      "cause_explanation": "留存返回仍有类型/网络错误，但省略源码不在物理记录中，不能重建全部语义或逐项旧测试内容。",
+      "raw_evidence": [
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            9,
+            346
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a13e9f-7892-7c90-a251-d7d2c9592cfd",
+          "physical_lines": [
+            103,
+            455
+          ],
+          "what_it_supports": "截断标记"
+        }
+      ],
+      "workflow_relevance": "大源码读取与原型无关紧要部分可能长，但不能猜被省略内容。",
+      "necessary_cost": "读取关键错误必要。",
+      "possibly_avoidable_cost": "未来可限字节；本次缺历史不可挽回。",
+      "revised_possible_solutions": [
+        "按相关字段/业务栈读，无法恢复处保留未知。"
+      ],
+      "remaining_uncertainty": "不推断省略部分另有故障。"
+    }
+  ]
+}

@@ -1,0 +1,671 @@
+{
+  "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+  "source_audit": "sol_dev/01a19c5d-dca8-7590-a6b1-cc876c7f865d.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/11/02/rollout-2026-11-02T21-05-59-01a19c5d-dca8-7590-a6b1-cc876c7f865d.jsonl",
+  "snapshot_lines": 2365,
+  "items": [
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:F01a",
+      "kind": "confirmed_issue",
+      "description": "浏览器验收期间开发服务、依赖与源码仍变化，出现Outdated Optimize Dep/导出不匹配，页面版本不稳定增加失败重跑。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "恢复模块与替换第三方依赖后开发服务验收。",
+      "cause_explanation": "378同时有Outdated Optimize Dep及antd缺ForwardTable导出；说明缓存/依赖优化和导出映射前提未一致，不能把全部错误仅归HMR，更不能归因用户改样式，因为此轮不许改产品行为。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            378,
+            2111,
+            2274
+          ],
+          "what_it_supports": "具体导出/优化错误与最终稳定结果"
+        }
+      ],
+      "workflow_relevance": "本轮是工程保真而非随意布局迭代，必要源码拆分会改变依赖图。",
+      "necessary_cost": "恢复模块、核导出、开发生产回归必要。",
+      "possibly_avoidable_cost": "环境/导出前提未稳定即完整验收可能重复。",
+      "revised_possible_solutions": [
+        "先完成导出映射与依赖优化重启，再固定批次执行浏览器。"
+      ],
+      "remaining_uncertainty": "仅凭378不能确定ForwardTable属于缓存还是映射，原结论应拆分保留。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:F01b",
+      "kind": "confirmed_issue",
+      "description": "末期一次仅入口注释保存也触发HMR，参数上移按钮超时；固定源码后同用例通过，显示无业务变化的文件写入也扰动了验收。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "后期入口文件保存触发全页reload。",
+      "cause_explanation": "2089参数按钮未到，2111记录bootstrap两次page reload并宣布冻结297文件，2119同物理场景通过。支持测试状态被开发热更新扰动；未单独排除API夹具同步修复，不能把所有该轮失败只归注释。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            2089,
+            2111,
+            2119
+          ],
+          "what_it_supports": "按钮失败、reload与冻结后通过"
+        }
+      ],
+      "workflow_relevance": "原型可以持续改源码；最终批次内保存无业务注释也会重载，应避开该批次。",
+      "necessary_cost": "每次真正行为改动后复验必要。",
+      "possibly_avoidable_cost": "批次内无关写入造成状态丢失/重跑可能避免。",
+      "revised_possible_solutions": [
+        "最终验收短时固定被监视源码，注释/报告写不触发应用文件。"
+      ],
+      "remaining_uncertainty": "无法从自然时间差计算净节省。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:F01c",
+      "kind": "candidate_issue",
+      "description": "原报告反解释还记载任务卡片存在开发/生产执行语义差异，因此相关失败不能全部按热更新处理；该差异的具体行为在本发现中未展开。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "开发态移动卡片用例失败而生产态通过。",
+      "cause_explanation": "子审418核两次开发失败、生产通过，Fragment对照4/4；开发StrictMode重复语义是合理候选且最小兼容边界验证，但418明确具体重复调用点未定位，超时另查。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19ca4-7516-75c3-ab58-2da993c3b76d",
+          "physical_lines": [
+            371,
+            418
+          ],
+          "what_it_supports": "失败与受控Fragment对照"
+        }
+      ],
+      "workflow_relevance": "保留原HTML生产执行语义是本轮要求，不是任意更换架构。",
+      "necessary_cost": "开发/生产对照和单点入口检查必要。",
+      "possibly_avoidable_cost": "盲试多个全局边界应避免，本记录已有局部对照。",
+      "revised_possible_solutions": [
+        "精确测试bootstrap环境选择，继续定位重复执行点，不用边界修复解释API超时。"
+      ],
+      "remaining_uncertainty": "底层哪一个回调被重复触发尚不明确。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:F02",
+      "kind": "confirmed_issue",
+      "description": "自动化前端基线用例依赖开发机API代理，physical/feedback在刷新时超时；独立探测localhost:3001同样超时。最终增加前端本地数据验收的API夹具，并保留专业执行端口独立成功/失败适配。 判断：测试边界初始化太晚，增加了与产品行为无关的超时。 已知影响：重启后physical-current一次43.215秒失败；后续3秒API探测exit28。不可将所有刷新失败都追溯为同一根因。",
+      "cause_status": "mixed",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "本地行为对照脚本在刷新等待load。",
+      "cause_explanation": "2055真实localhost:3001探测超时、2075列多条/api pending且刷新10秒超时，说明开发代理依赖外部服务阻塞；部分脚本已拦截API、部分未，边界不一致。2119固定后通过，但同时有HMR修正，不能把每次刷新都归API。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            1951,
+            2055,
+            2075,
+            2119
+          ],
+          "what_it_supports": "真实请求与测试拦截差异"
+        }
+      ],
+      "workflow_relevance": "原型预览可有未接入后端；保真仍须验证保护行为，不能伪成功。",
+      "necessary_cost": "本地存储行为夹具与真实服务不可用保护分开验必要。",
+      "possibly_avoidable_cost": "未声明依赖就等load导致与本地行为无关超时可能避免。",
+      "revised_possible_solutions": [
+        "本地行为用固定API夹具；真实API单探并标阻塞，保留服务失败用例。"
+      ],
+      "remaining_uncertainty": "夹具通过不等于端到端后端可用。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:F03a",
+      "kind": "confirmed_issue",
+      "description": "迁移导出初版凭猜测命名空间遗漏真实tangram主题/展开存储键，不能保留全部原浏览器状态；子审复现后修复。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "新增跨origin备份工具。",
+      "cause_explanation": "1147解释file→HTTP隔离，子审273设置实际tangram键，276导出为空且校验拒该key；工具命名空间白名单没有覆盖真实基线。339/349补真实key与冲突测试。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            1147
+          ],
+          "what_it_supports": "迁移必要性"
+        },
+        {
+          "session_id": "01a19ca4-7516-75c3-ab58-2da993c3b76d",
+          "physical_lines": [
+            273,
+            276,
+            320,
+            339,
+            349
+          ],
+          "what_it_supports": "实际键复现和关闭"
+        }
+      ],
+      "workflow_relevance": "与样式迭代不同，本轮明确保存数据保真。",
+      "necessary_cost": "跨origin迁移、冲突保护和主题状态复验必要。",
+      "possibly_avoidable_cost": "先列真实key可避免猜命名空间漏项。",
+      "revised_possible_solutions": [
+        "以真实存储键清单驱动导入导出，含legacy展开/主题与冲突。"
+      ],
+      "remaining_uncertainty": "已修，无最终用户数据丢失证据。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:F03b",
+      "kind": "confirmed_issue",
+      "description": "导出先异步读文件再读元数据，中途状态变更可拼出不同时间点的混合快照，子审实际复现并推动补测。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "备份异步读文件期间另写元数据和新文件。",
+      "cause_explanation": "子审307延迟Blob读取并插入新文件，310元数据2个但文件只1个仍成功；原因是文件枚举与文本快照不同时。339改为变化时拒绝，稳定重试完整。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19ca4-7516-75c3-ab58-2da993c3b76d",
+          "physical_lines": [
+            307,
+            310,
+            320,
+            339,
+            349
+          ],
+          "what_it_supports": "受控竞态复现与修复"
+        }
+      ],
+      "workflow_relevance": "用户原型可以边工作边备份，需快照一致性。",
+      "necessary_cost": "并发场景和重试验证必要。",
+      "possibly_avoidable_cost": "写前快照/变化检测可减少修补；无净时间数。",
+      "revised_possible_solutions": [
+        "捕获同一版本元数据/文件集，变化拒绝下载并允许稳定重试。"
+      ],
+      "remaining_uncertainty": "349提附件读两次是保护成本，不能自动当无用重复。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:F04a",
+      "kind": "confirmed_issue",
+      "description": "tail读取含data URL的堆栈，历史工具报告约10879659 tokens、42470058字节省略，按行截断没有控制单行大小，关键错误被淹没。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "调试测试错误时tail含data URL的栈。",
+      "cause_explanation": "1048根错误window.dispatchEvent不是function，却附带base64模块栈，报告大批字节省略；按行tail无法限制单行bundle。有效错误并不需要全部内嵌代码。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            1048,
+            1058
+          ],
+          "what_it_supports": "真实根错误与资源膨胀"
+        }
+      ],
+      "workflow_relevance": "不是用户反复改排布所需，只是诊断输出边界。",
+      "necessary_cost": "读取首个业务错误和补事件测试边界必要。",
+      "possibly_avoidable_cost": "巨型资源输出及重新定位可避免；原token非实际上下文/计费。",
+      "revised_possible_solutions": [
+        "移除data URL，按字节截业务栈，保留类型与退出码。"
+      ],
+      "remaining_uncertainty": "第一次长栈难预见；不算几千万字节全输入模型。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:F04b",
+      "kind": "confirmed_issue",
+      "description": "rg读取序列化fixtures再次生成超长单行输出，历史工具报告753278 tokens、1964535字节省略，需要重新定位有效事件。",
+      "cause_status": "supported",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "rg匹配序列化fixtures。",
+      "cause_explanation": "1820返回一行包含整段JSON存储，工具省略1964535字节；长单行fixture被逐行搜索整段打印。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            1820
+          ],
+          "what_it_supports": "原始省略标记与JSON样式"
+        }
+      ],
+      "workflow_relevance": "测试数据读取必要，整段资源不是迭代目标。",
+      "necessary_cost": "提取与当前事件相关字段必要。",
+      "possibly_avoidable_cost": "超长返回可用结构读取避免。",
+      "revised_possible_solutions": [
+        "解析JSON提所需key/事件，设单值和总字节上限。"
+      ],
+      "remaining_uncertainty": "不能从原token推估金额。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:F05",
+      "kind": "positive_context",
+      "description": "大量历史用例在确认HTML本身也失败，模型将它们保留为历史证据并更新当前基线用例；最终66项自动化、开发/生产11套70组、三个入口58地址对照均有输出。 判断：不能把必要质量检查、故意红灯测试或保留基线异常统称浪费；完成声明基本对应工具证据。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "要求HTML基线与重构行为一致。",
+      "cause_explanation": "12不允许顺手改疑似原问题，664免像素，2274对应自动化/70组/58地址差异零；保留历史异常并建立当前用例正符合保真要求。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            2274
+          ],
+          "what_it_supports": "用户范围与交付证据边界"
+        }
+      ],
+      "workflow_relevance": "本次特殊：原型行为已确认，不是继续产品设计。",
+      "necessary_cost": "原基线、当前实现和多入口对照必要。",
+      "possibly_avoidable_cost": "无依据把全部验证或历史红灯计浪费。",
+      "revised_possible_solutions": [
+        "保留基线异常与本轮回归分开，最终固定环境再全套。"
+      ],
+      "remaining_uncertainty": "最终摘要不替代每条原始结果；本轮原因仅引用已回查的事件。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:U01",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：初期refactor_review子会话快照在52行结束，无最终回传；主会话后续list_agents仅剩root，无法判断是否中断或外部生命周期问题。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "初始只读子审快照止于52行。",
+      "cause_explanation": "该子49仍为成功读取，没有最终回传；父2274有后来接续结果，不能从这证明首次是模型退出、运行时结束还是其他中断。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+          "physical_lines": [
+            44,
+            49
+          ],
+          "what_it_supports": "最后实际调用/返回"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            2274
+          ],
+          "what_it_supports": "父任务最终交付"
+        }
+      ],
+      "workflow_relevance": "独立审查帮助保真，不默认判并行无效。",
+      "necessary_cost": "接续审查保证结果必要。",
+      "possibly_avoidable_cost": "首次5读无可消费结论属已见启动成本，净主阻塞未知。",
+      "revised_possible_solutions": [
+        "保留任务结束/中断状态及最后结果，不猜生命周期原因。"
+      ],
+      "remaining_uncertainty": "未获得首次最终输出。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:U02",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：部分原工具结果在写入历史时已截断，重读源行不能恢复被执行器省略的字节；不据省略部分作确定缺陷结论。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "1048/1820等历史工具自身截断。",
+      "cause_explanation": "原记录只保留省略标记与片段，重读不能恢复被执行器省略字节，因此不能拿未见源码证明其他错误。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            1048,
+            1820
+          ],
+          "what_it_supports": "原始截断"
+        }
+      ],
+      "workflow_relevance": "大量原型源码诊断需限界。",
+      "necessary_cost": "关键错误片段回查必要。",
+      "possibly_avoidable_cost": "未来字节限长可预防，现缺口不可编补。",
+      "revised_possible_solutions": [
+        "保留截断边界，需具体语义时仅补可用原段。"
+      ],
+      "remaining_uncertainty": "没有被省略完整副本。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:U03",
+      "kind": "evidence_gap",
+      "description": "原审计明确的限制：派发和子代理消息部分以密文记录，无法逐字恢复派发要求；以agent_path、只读行为、最终回传及主线程响应关联。 因此相关因果、覆盖或完成状态只能限定在已有证据内。",
+      "cause_status": "unknown",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "子审归属可从实际读写和回传关联。",
+      "cause_explanation": "初审44/49与后续子320/349明确只读审查及迁移结论，可核任务，但无法由摘要恢复全部派发逐字内容。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c91-0415-7252-8b5e-59f2ede97fb5",
+          "physical_lines": [
+            44,
+            49
+          ],
+          "what_it_supports": "初审行为"
+        },
+        {
+          "session_id": "01a19ca4-7516-75c3-ab58-2da993c3b76d",
+          "physical_lines": [
+            320,
+            349
+          ],
+          "what_it_supports": "接续回传"
+        }
+      ],
+      "workflow_relevance": "不是样式成本，是历史消息可见性。",
+      "necessary_cost": "归属核对必要。",
+      "possibly_avoidable_cost": "未知。",
+      "revised_possible_solutions": [
+        "保留角色/回传和父响应，不编隐藏要求。"
+      ],
+      "remaining_uncertainty": "完整派发未恢复。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:U04",
+      "kind": "positive_context",
+      "description": "日志跨夜且恢复环境有变化，总跨度不能代表持续模型执行时间。",
+      "cause_status": "not_applicable",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "跨夜继续并改变验收边界。",
+      "cause_explanation": "664是后轮明确免像素，2111/2119又属后期冻结复验，自然跨度不能算连续执行；没有人工/异步工时对照。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            664,
+            2111,
+            2119
+          ],
+          "what_it_supports": "阶段变化和实际执行"
+        }
+      ],
+      "workflow_relevance": "用户连续迭代/停顿是背景，不是模型浪费。",
+      "necessary_cost": "恢复后确认环境必要。",
+      "possibly_avoidable_cost": "未知净耗时，不能按跨夜跨度求和。",
+      "revised_possible_solutions": [
+        "按有边界的执行区间统计，用户与重叠等待分开。"
+      ],
+      "remaining_uncertainty": "不能重建完整人工工时。"
+    },
+    {
+      "id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d:A01",
+      "kind": "candidate_issue",
+      "description": "交付后用户多次询问可维护源码、HTML和tang目录位置；虽均得到路径/命令，说明交付导航可能不够直接，增加找入口的沟通。",
+      "cause_status": "inferred",
+      "context_from_chat": {
+        "summary": "12要求完整HTML行为保真工程化，不是产品重设计；664仅免像素差异。1147发现file://与HTTP存储隔离需迁移，2274给三入口地址与功能对照。",
+        "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+        "physical_lines": [
+          12,
+          664,
+          1147,
+          2274
+        ]
+      },
+      "trigger_or_change": "2274给多个工程/验收文档和预览后，2281用户仍问HTML怎么打开。",
+      "cause_explanation": "说明用户需要直接入口而交付首先突出工程成果；可推断产物/源码/原HTML用途导航不够直达，但用户也可能只是要不同入口，不能说功能失败。",
+      "raw_evidence": [
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            12,
+            664,
+            1147,
+            2274
+          ],
+          "what_it_supports": "当时目标、范围或工作上下文"
+        },
+        {
+          "session_id": "01a19c5d-dca8-7590-a6b1-cc876c7f865d",
+          "physical_lines": [
+            2274,
+            2281
+          ],
+          "what_it_supports": "交付信息与后续询问"
+        }
+      ],
+      "workflow_relevance": "用户看实际预览是目标，最短打开路径有价值。",
+      "necessary_cost": "交代可维护源码与产物区别必要。",
+      "possibly_avoidable_cost": "若一次并列原HTML/源码根/运行预览可少一轮定位沟通。",
+      "revised_possible_solutions": [
+        "交付同时给可点击预览、原HTML打开方式、源码根和各自用途。"
+      ],
+      "remaining_uncertainty": "多次后续询问完整细节未在本小批逐条复核；不升级成实现缺陷。"
+    }
+  ]
+}

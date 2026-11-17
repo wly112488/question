@@ -1,0 +1,81 @@
+{
+  "session_id": "01a16869-f957-7792-a43f-d4e42e4ea253",
+  "title": "补充浏览器图表",
+  "source_audit": "terra/01a16869-f957-7792-a43f-d4e42e4ea253.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a16869-f957-7792-a43f-d4e42e4ea253:F01a",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "工具发现时输出完整对象而被截断。",
+      "evidence": "第18、21、72、74、78、85、88行",
+      "possible_solutions": [
+        "先只输出候选工具名称及必要描述。"
+      ],
+      "uncertainty": "原审计根因置信：高：工具检索过宽；补丁上下文含错误节点文本；多余输出与一次失败；修补后成功，查行修复合理。"
+    },
+    {
+      "id": "01a16869-f957-7792-a43f-d4e42e4ea253:F01b",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "补丁首次因上下文不匹配失败，读取实际行后修正。",
+      "evidence": "第18、21、72、74、78、85、88行",
+      "possible_solutions": [
+        "根据当前文件实际内容构造精简补丁上下文。"
+      ],
+      "uncertainty": "原审计根因置信：高：工具检索过宽；补丁上下文含错误节点文本；多余输出与一次失败；修补后成功，查行修复合理。"
+    },
+    {
+      "id": "01a16869-f957-7792-a43f-d4e42e4ea253:F02",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "图1将Trial到SET及执行记录画为1..N，原文只说可有多组、多次，并未规定最少一项；图新增未获证实的最低基数；可解释为表达典型流程，但严格基数可能误导后端。 影响或损失：业务约束表达可能错误，实际影响未知",
+      "evidence": "第54、66、85行",
+      "possible_solutions": [
+        "对未明确的最低基数不擅自标1，标待确认或使用不规定基数的关系。"
+      ],
+      "uncertainty": "原审计根因置信：高：从可有多个推断为至少一个；图新增未获证实的最低基数；可解释为表达典型流程，但严格基数可能误导后端。"
+    },
+    {
+      "id": "01a16869-f957-7792-a43f-d4e42e4ea253:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "第47至54行约78分钟间隔原因未知，不等同推理时间；授权调用无结果，不能宣称原文件写回或交付完成；未能使用浏览器资料。",
+      "evidence": "源审计任务段定位：第12、25、29、43、54、72–94行",
+      "possible_solutions": [
+        "用调用起止和用户交互记录核对时间归属；缺少证据时不把空档归因于模型工作。",
+        "核对授权调用的最终返回与目标文件状态，无法获得则保留未确认。"
+      ],
+      "uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a16869-f957-7792-a43f-d4e42e4ea253:A01",
+      "source_refs": [
+        "/task_segments/0"
+      ],
+      "kind": "evidence_gap",
+      "description": "任务“结合浏览器为指定文档补图”：浏览器连接失败；项目内生成两图审阅稿，写回原文件的授权调用尚无返回",
+      "evidence": "第12、25、29、43、54、72–94行",
+      "possible_solutions": [
+        "核对对应交付或实际用户环境的最终结果；无法获得证据时明确保留未确认状态。"
+      ],
+      "uncertainty": "任务中断、用户取消、环境限制或后续指令均可能解释未完成，不能直接推断违令。"
+    }
+  ]
+}

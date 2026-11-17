@@ -1,0 +1,752 @@
+{
+  "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+  "title": "检查 sudo 权限",
+  "source_audit": "sol_env/01a1be28-612b-7682-abb3-d951c593fbbe.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties",
+    "historical_outcome_status"
+  ],
+  "items": [
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "两段Python tar流上传在archive.close()后直接proc.wait()，遗漏proc.stdin.close()；SSH远端tar等待EOF。1081相同脚本加入proc.stdin.close()后1090马上exit0。 影响：第一703启动05:02:11.751Z，中止912于05:15:16.410Z，原生命令913 duration784.521424911s exit143；第二974启动05:17:08.292Z，中止1073于05:22:42.515Z，1074 duration334.070962920s exit143。两段不重叠。1081修复05:22:54.493Z启动，1087于05:22:57.523Z完成，duration2.852032442s exit0。包含实际传输时间，不将前两段总1118.59s全称可避免；第二段16MB已落远端后的无进展等待最有证据。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            703,
+            705,
+            711,
+            717,
+            725,
+            731,
+            744,
+            750,
+            756,
+            769,
+            773,
+            790,
+            807,
+            821,
+            828,
+            845,
+            862,
+            879,
+            889,
+            902,
+            904,
+            912,
+            974,
+            976,
+            982,
+            988,
+            994,
+            1000,
+            1015,
+            1021,
+            1027,
+            1033,
+            1040,
+            1053,
+            1060,
+            1067,
+            1073,
+            1081,
+            1090
+          ]
+        },
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            913,
+            1074,
+            1087
+          ],
+          "artifact": "eof_evidence.json"
+        },
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            913,
+            1074,
+            1087
+          ],
+          "artifact": "eof_evidence.json"
+        }
+      ],
+      "possible_solutions": [
+        "流传输结束显式close stdin；通信加超时和可观测字节/阶段；连续无进展两次检查管道/子进程，不盲目延长poll。"
+      ],
+      "uncertainty": "第一段还含大wheel传输，因此不能将整段全部算deadlock；第二段5m以上仅16MB已落远端，控制变量修正强支持EOF根因。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F02a",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "BatchMode未尝试密码，却被解释成服务器拒绝密码；认证结果被扩大，误导后续操作。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            31,
+            34,
+            69,
+            88,
+            98,
+            103,
+            110,
+            138,
+            141,
+            152,
+            155,
+            172,
+            179,
+            184,
+            191,
+            196,
+            203,
+            209,
+            212,
+            216,
+            218,
+            222,
+            225
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "按SSH实际模式解释结果，仅称非交互认证未成功；需要密码结论时取得对应尝试证据。"
+      ],
+      "uncertainty": "开始Win interop被沙箱拒绝是真实障碍；系统权限后来变化，不能说一直本可成功。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F02b",
+      "source_refs": [
+        "/findings/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "给出的本机密钥复制命令被用户两次在远端shell运行，宿主和shell位置不清引发失败与往返。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            31,
+            34,
+            69,
+            88,
+            98,
+            103,
+            110,
+            138,
+            141,
+            152,
+            155,
+            172,
+            179,
+            184,
+            191,
+            196,
+            203,
+            209,
+            212,
+            216,
+            218,
+            222,
+            225
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "对命令明确标本机WSL、Windows或远端；条件允许时在已授权入口自行实测。"
+      ],
+      "uncertainty": "最初Win interop确被沙箱拒绝，权限后来改变，不能说全程助手都可直接完成。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03a",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "发布构建缺少setuptools，构建backend前提未满足即启动，形成一次构建链失败。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            598,
+            601,
+            609,
+            618,
+            622,
+            625,
+            629,
+            638,
+            651,
+            658,
+            667,
+            1111,
+            1124,
+            1137,
+            1143,
+            1566,
+            1572,
+            1581
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "构建前核验锁定Python和build backend是否可用，以可重复的构建环境恢复依赖。"
+      ],
+      "uncertainty": "TypeScript错误是构建必要发现；通用部署前置能力和脚本语法可提前验证。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03b",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "发布脚本硬编码/usr/bin/npm，而实际环境该路径不存在，构建入口不可移植。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            598,
+            601,
+            609,
+            618,
+            622,
+            625,
+            629,
+            638,
+            651,
+            658,
+            667,
+            1111,
+            1124,
+            1137,
+            1143,
+            1566,
+            1572,
+            1581
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "通过已验证PATH解析npm或显式配置入口，预检路径后再构建。"
+      ],
+      "uncertainty": "TypeScript错误是构建必要发现；通用部署前置能力和脚本语法可提前验证。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03c",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "TypeScript import错误使构建失败，修正后才通过；这是构建发现的实际代码问题。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            598,
+            601,
+            609,
+            618,
+            622,
+            625,
+            629,
+            638,
+            651,
+            658,
+            667,
+            1111,
+            1124,
+            1137,
+            1143,
+            1566,
+            1572,
+            1581
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "修正确切import并重跑相关类型/构建验证，保留构建检查。"
+      ],
+      "uncertainty": "必要构建发现问题不等于构建本身低效，不能把此失败全部视为可避免等待。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03d",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "安装脚本嵌套字符串产生SyntaxError，远端执行前没有先校验生成代码。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            598,
+            601,
+            609,
+            618,
+            622,
+            625,
+            629,
+            638,
+            651,
+            658,
+            667,
+            1111,
+            1124,
+            1137,
+            1143,
+            1566,
+            1572,
+            1581
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "避免多层字符串拼接，先对生成脚本做本地语法检查，再执行远端步骤。"
+      ],
+      "uncertainty": "TypeScript错误是构建必要发现；通用部署前置能力和脚本语法可提前验证。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03e",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "安装链收到空JSON却继续解析，导致失败；调用输出与解析前提未被核验。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            598,
+            601,
+            609,
+            618,
+            622,
+            625,
+            629,
+            638,
+            651,
+            658,
+            667,
+            1111,
+            1124,
+            1137,
+            1143,
+            1566,
+            1572,
+            1581
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "解析前检查退出码、非空输出和JSON结构，保留原始错误后再决定重试。"
+      ],
+      "uncertainty": "TypeScript错误是构建必要发现；通用部署前置能力和脚本语法可提前验证。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03f",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "安装脚本运行时模块路径缺失，说明工作目录/导入路径假设与远端实际环境不一致。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            598,
+            601,
+            609,
+            618,
+            622,
+            625,
+            629,
+            638,
+            651,
+            658,
+            667,
+            1111,
+            1124,
+            1137,
+            1143,
+            1566,
+            1572,
+            1581
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "以固定cwd和明确模块入口执行，在最小远端副本检查import与路径。"
+      ],
+      "uncertainty": "TypeScript错误是构建必要发现；通用部署前置能力和脚本语法可提前验证。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F03g",
+      "source_refs": [
+        "/findings/2"
+      ],
+      "kind": "confirmed_issue",
+      "description": "第二服务器缺python-venv包，启动后才安装，服务器前置能力未预检。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            598,
+            601,
+            609,
+            618,
+            622,
+            625,
+            629,
+            638,
+            651,
+            658,
+            667,
+            1111,
+            1124,
+            1137,
+            1143,
+            1566,
+            1572,
+            1581
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "远端部署前核验解释器、venv创建和必要系统包，匹配后再运行服务安装。"
+      ],
+      "uncertainty": "TypeScript错误是构建必要发现；通用部署前置能力和脚本语法可提前验证。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F04",
+      "source_refs": [
+        "/findings/3"
+      ],
+      "kind": "confirmed_issue",
+      "description": "独立实例只初始化账号和空间，首页/健康/登录通过即交付；用户看到产品和试验构型空，才导入现存seed457记录。 影响：一次用户纠正，追加种子迁移和核对；展示不可用到修复。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            906,
+            1164,
+            1245,
+            1310,
+            1958,
+            2042,
+            2058,
+            2072,
+            2100,
+            2187,
+            2213
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "部署交付前检查关键列表计数/来源；空库是意图时明确说明，需演示数据时导受控seed。"
+      ],
+      "uncertainty": "独立数据库不复制生产数据符合906约束；但当前工作区用于展示的seed是非生产输入，应明确是否纳入，不能从健康200推出业务完整。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F05a",
+      "source_refs": [
+        "/findings/4"
+      ],
+      "kind": "candidate_issue",
+      "description": "cloudflared官方获取403后探索多个代理、版本与替代隧道，多路线安装及超时重试增加成本，路线停止条件不清。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1523,
+            1622,
+            1631,
+            1642,
+            1645,
+            1649,
+            1652,
+            1660,
+            1662,
+            1669,
+            1673,
+            1682,
+            1717,
+            1734,
+            1747,
+            1754,
+            1765,
+            1796,
+            1803,
+            1847,
+            1877,
+            1892,
+            1919,
+            1965,
+            2017,
+            2034
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "先确认一种可用的官方分发或已有可信缓存，限定每条路线的最小验证与失败停止条件。"
+      ],
+      "uncertainty": "用户授权任意方式公开且没有安全组凭据，替代探索有依据，不能把所有尝试判无效。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F05b",
+      "source_refs": [
+        "/findings/4"
+      ],
+      "kind": "confirmed_issue",
+      "description": "临时密钥在相关子进程仍需使用前被删除，导致额外SSH认证失败。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1523,
+            1622,
+            1631,
+            1642,
+            1645,
+            1649,
+            1652,
+            1660,
+            1662,
+            1669,
+            1673,
+            1682,
+            1717,
+            1734,
+            1747,
+            1754,
+            1765,
+            1796,
+            1803,
+            1847,
+            1877,
+            1892,
+            1919,
+            1965,
+            2017,
+            2034
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "以调用作用域管理临时key，等待依赖它的子进程完成后再清理。"
+      ],
+      "uncertainty": "无法改安全组且用户要任意方式公开，替代探索有授权；不能预设隧道一定不合适。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F05c",
+      "source_refs": [
+        "/findings/4"
+      ],
+      "kind": "confirmed_issue",
+      "description": "localtunnel健康/登录检查通过后交付，但外部访客需确认页，用户体验没有从实际访客入口核验，之后换cloudflared。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1523,
+            1622,
+            1631,
+            1642,
+            1645,
+            1649,
+            1652,
+            1660,
+            1662,
+            1669,
+            1673,
+            1682,
+            1717,
+            1734,
+            1747,
+            1754,
+            1765,
+            1796,
+            1803,
+            1847,
+            1877,
+            1892,
+            1919,
+            1965,
+            2017,
+            2034
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "用实际外部访客入口检查确认页、登录与核心流程，确认体验满足目标再交付URL。"
+      ],
+      "uncertainty": "无法改安全组且用户要任意方式公开，替代探索有授权；不能预设隧道一定不合适。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F06a",
+      "source_refs": [
+        "/findings/5"
+      ],
+      "kind": "positive_context",
+      "description": "用户明确并行后使用独立实例/DB/存储/服务，不切旧current；检查内存只启API不启worker，并披露公网端口不可达。 影响：避免覆盖线上和资源超限，重要质量收益。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            906,
+            927,
+            930,
+            940,
+            943,
+            1164,
+            1203,
+            1245,
+            1301,
+            1310,
+            1947,
+            1958
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "应保留：保留资源/隔离/回退验证。"
+      ],
+      "uncertainty": "隔离与资源检查直接服务用户约束，不能为快而复用生产库。 根因置信：high；本目录不将候选原因提升为已证实因果。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F06b",
+      "source_refs": [
+        "/findings/5"
+      ],
+      "kind": "evidence_gap",
+      "description": "内存约束下只启API未启worker；API健康不证明依赖后台任务的业务路径已能使用。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            906,
+            927,
+            930,
+            940,
+            943,
+            1164,
+            1203,
+            1245,
+            1301,
+            1310,
+            1947,
+            1958
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "保留worker未启的交付范围；若目标需要后台处理，先核对资源预算再启动并验证相关路径。"
+      ],
+      "uncertainty": "这是明示资源保护选择，不能认定为隐瞒或盲目漏启。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:F06c",
+      "source_refs": [
+        "/findings/5"
+      ],
+      "kind": "confirmed_issue",
+      "description": "前一并行实例公网端口不可达，且缺云安全组凭据不能直接修改；当时外部访问目标未达成。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            906,
+            927,
+            930,
+            940,
+            943,
+            1164,
+            1203,
+            1245,
+            1301,
+            1310,
+            1947,
+            1958
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "分开报告应用健康和外部连通性，在用户授权的网络配置入口补验证，或选择满足实际访客验收的公开路线。"
+      ],
+      "uncertainty": "没有足够证据只归因安全组；后续换服务器/隧道成功不抹去该阶段的连通失败。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:U01",
+      "source_refs": [
+        "/uncertainties/0"
+      ],
+      "kind": "positive_context",
+      "description": "249顶层调用全摘要扫描；703/974/1081完整源码补读确定EOF。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/0",
+          "statement": "249顶层调用全摘要扫描；703/974/1081完整源码补读确定EOF。"
+        }
+      ],
+      "possible_solutions": [
+        "保留703/974/1081完整源码对照与原生命令duration，区分实际传输、无进展等待和未知时间；不把总1118.59秒全称可省。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:U02",
+      "source_refs": [
+        "/uncertainties/1"
+      ],
+      "kind": "confirmed_issue",
+      "description": "源行1305/1307及1951/1953含明文凭据，工具数据清洗存在风险；本目录仅保留位置，不复制值。",
+      "evidence": [
+        {
+          "session_id": "01a1be28-612b-7682-abb3-d951c593fbbe",
+          "physical_lines": [
+            1305,
+            1307,
+            1951,
+            1953
+          ]
+        }
+      ],
+      "possible_solutions": [
+        "输出边界对这些位置及秘密字段人工核对脱敏，产物仅保留源行。"
+      ],
+      "uncertainty": "未证明凭据已被滥用，通用正则不能保证识别全部裸秘密。"
+    },
+    {
+      "id": "01a1be28-612b-7682-abb3-d951c593fbbe:U03",
+      "source_refs": [
+        "/uncertainties/2"
+      ],
+      "kind": "positive_context",
+      "description": "新旧服务器和数据库分开；不将跨任务/服务器等待相加当单一任务总时长。",
+      "evidence": [
+        {
+          "audit_pointer": "/uncertainties/2",
+          "statement": "新旧服务器和数据库分开；不将跨任务/服务器等待相加当单一任务总时长。"
+        }
+      ],
+      "possible_solutions": [
+        "保留服务器、实例与数据库身份和各自时间区间，跨任务等待不相加当单次总墙钟。"
+      ],
+      "uncertainty": "本项沿用原审计的限制，不据此认定历史执行出错，也不宣称未保存信息可恢复。"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "session_id": "01a15831-12fc-71a1-8ec3-c448aac9a0ff",
+  "title": "确认在线状态",
+  "source_audit": "terra/01a15831-12fc-71a1-8ec3-c448aac9a0ff.json",
+  "reviewed_report_sections": [
+    "session_id",
+    "status",
+    "reviewed_scope",
+    "task_segments",
+    "findings",
+    "uncertainties"
+  ],
+  "items": [
+    {
+      "id": "01a15831-12fc-71a1-8ec3-c448aac9a0ff:F01",
+      "source_refs": [
+        "/findings/0"
+      ],
+      "kind": "confirmed_issue",
+      "description": "问候前先尝试错误技能路径，再读正确技能及参考；简单问候出现可避免路径失败与三次读取；当时技能要求启动时调用，不能归咎为无理由使用技能。 影响或损失：首次失败到第二次调用约5.14秒；全轮24.6秒不等于纯额外损失",
+      "evidence": "第17、24、31行",
+      "possible_solutions": [
+        "技能引用使用已列根路径；将无关参考延后至实际需要。"
+      ],
+      "uncertainty": "原审计根因置信：中：路径映射与强制启动流程；简单问候出现可避免路径失败与三次读取；当时技能要求启动时调用，不能归咎为无理由使用技能。"
+    },
+    {
+      "id": "01a15831-12fc-71a1-8ec3-c448aac9a0ff:A01",
+      "source_refs": [
+        "/task_segments/0"
+      ],
+      "kind": "positive_context",
+      "description": "任务“确认在线”：正常回应；该轮24.6秒",
+      "evidence": "第10、38行",
+      "possible_solutions": [
+        "保留明确限定范围的核对、复验或直接答复机制。"
+      ],
+      "uncertainty": "成功结论限于源报告所记录的时点、样本和验证范围。"
+    }
+  ]
+}

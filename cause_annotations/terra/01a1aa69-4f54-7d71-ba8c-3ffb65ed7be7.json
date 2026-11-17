@@ -1,0 +1,138 @@
+{
+  "session_id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+  "source_audit": "terra/01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7.json",
+  "source_rollout": "[USER_HOME]/.codex/sessions/2026/11/05/rollout-2026-11-05T14-33-10-01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7.jsonl",
+  "snapshot_lines": 950,
+  "items": [
+    {
+      "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7:F01a",
+      "kind": "confirmed_issue",
+      "description": "浏览器验证把异步提交的202状态预期为200，导致脚本失败。",
+      "cause_status": "supported",
+      "context_from_chat": "用户逐步适配会话菜单并查看任务工作台，后来要求计算服务均可使用（22、163、373、784行）。",
+      "trigger_or_change": "浏览器脚本最初将提交202当200，修正后定位器等待超时；走查也因数据和页面状态多次调整，最后五项服务成功。",
+      "cause_explanation": "服务以202接受异步任务，脚本预期200，故验证断言失败；这不是计算服务的算法错误。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+          "physical_lines": "第880、896、903、917行",
+          "what_it_supports": "本条具体调用、返回与后续结果的原始定位；解释见本条原因。"
+        },
+        {
+          "session_id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+          "physical_lines": "22、163、341、355、373、575、589、605、630、784、880、896、903、917、947",
+          "what_it_supports": "用户当时要求、实际操作与返回、反馈和后续修正。"
+        }
+      ],
+      "workflow_relevance": "前端原型的样式、文字和排布需要随实际预览迭代；只将可独立定位的遗漏、验证错位或无效尝试视为问题。",
+      "necessary_cost": "依据用户目标理解和预览、查找已有状态、检查相关操作及按反馈调整是必要成本。",
+      "possibly_avoidable_cost": "可避免部分仅限记录中因假设、状态不符或未改变条件的重复；不得把整轮或用户空档算成浪费。",
+      "revised_possible_solutions": [
+        "对照接口契约验证异步状态码。"
+      ],
+      "remaining_uncertainty": "原审计根因置信：高：断言预期与实际返回不同，选择器未匹配界面；测试自身状态码与选择器假设不符，造成回归脚本返工；实际发现接口行为是合理验证的一部分，不等于产品故障。"
+    },
+    {
+      "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7:F01b",
+      "kind": "confirmed_issue",
+      "description": "修正状态码后选择器又等待15秒失败，随后修正并运行成功。",
+      "cause_status": "supported",
+      "context_from_chat": "用户逐步适配会话菜单并查看任务工作台，后来要求计算服务均可使用（22、163、373、784行）。",
+      "trigger_or_change": "浏览器脚本最初将提交202当200，修正后定位器等待超时；走查也因数据和页面状态多次调整，最后五项服务成功。",
+      "cause_explanation": "修正状态码后第903行locator.check等待超时，后续917行五项服务成功；具体定位失配仅限该测试路径。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+          "physical_lines": "第880、896、903、917行",
+          "what_it_supports": "本条具体调用、返回与后续结果的原始定位；解释见本条原因。"
+        },
+        {
+          "session_id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+          "physical_lines": "22、163、341、355、373、575、589、605、630、784、880、896、903、917、947",
+          "what_it_supports": "用户当时要求、实际操作与返回、反馈和后续修正。"
+        }
+      ],
+      "workflow_relevance": "前端原型的样式、文字和排布需要随实际预览迭代；只将可独立定位的遗漏、验证错位或无效尝试视为问题。",
+      "necessary_cost": "依据用户目标理解和预览、查找已有状态、检查相关操作及按反馈调整是必要成本。",
+      "possibly_avoidable_cost": "可避免部分仅限记录中因假设、状态不符或未改变条件的重复；不得把整轮或用户空档算成浪费。",
+      "revised_possible_solutions": [
+        "使用实际可访问标签和页面状态条件定位。"
+      ],
+      "remaining_uncertainty": "原审计根因置信：高：断言预期与实际返回不同，选择器未匹配界面；测试自身状态码与选择器假设不符，造成回归脚本返工；实际发现接口行为是合理验证的一部分，不等于产品故障。"
+    },
+    {
+      "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7:F02",
+      "kind": "confirmed_issue",
+      "description": "走查脚本多次因路径、旧数据、异步页面和选择器失败后重跑；测试状态和同步条件不稳定导致重复准备；逐次修复继续走查产生了有价值的流程证据。 影响或损失：至少四次失败，不将整轮409秒归为浪费",
+      "cause_status": "mixed",
+      "context_from_chat": "用户逐步适配会话菜单并查看任务工作台，后来要求计算服务均可使用（22、163、373、784行）。",
+      "trigger_or_change": "浏览器脚本最初将提交202当200，修正后定位器等待超时；走查也因数据和页面状态多次调整，最后五项服务成功。",
+      "cause_explanation": "走查中路径、测试数据与异步界面状态变化造成定位失败和重跑；每个失败不是相同机制，正常的用户预览反馈不归为错误。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+          "physical_lines": "第575、589、605、630行",
+          "what_it_supports": "本条具体调用、返回与后续结果的原始定位；解释见本条原因。"
+        },
+        {
+          "session_id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+          "physical_lines": "22、163、341、355、373、575、589、605、630、784、880、896、903、917、947",
+          "what_it_supports": "用户当时要求、实际操作与返回、反馈和后续修正。"
+        }
+      ],
+      "workflow_relevance": "前端原型的样式、文字和排布需要随实际预览迭代；只将可独立定位的遗漏、验证错位或无效尝试视为问题。",
+      "necessary_cost": "依据用户目标理解和预览、查找已有状态、检查相关操作及按反馈调整是必要成本。",
+      "possibly_avoidable_cost": "可避免部分仅限记录中因假设、状态不符或未改变条件的重复；不得把整轮或用户空档算成浪费。",
+      "revised_possible_solutions": [
+        "为每次运行使用隔离数据、等待页面稳定并从检查点继续。"
+      ],
+      "remaining_uncertainty": "原审计根因置信：中：测试状态隔离和界面同步不足；测试状态和同步条件不稳定导致重复准备；逐次修复继续走查产生了有价值的流程证据。"
+    },
+    {
+      "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7:U01",
+      "kind": "evidence_gap",
+      "description": "第22行请求末句未完成，后续不实现该部分合理；不得把隔夜用户空档算工作时间。",
+      "cause_status": "unknown",
+      "context_from_chat": "用户逐步适配会话菜单并查看任务工作台，后来要求计算服务均可使用（22、163、373、784行）。",
+      "trigger_or_change": "浏览器脚本最初将提交202当200，修正后定位器等待超时；走查也因数据和页面状态多次调整，最后五项服务成功。",
+      "cause_explanation": "原聊天所见的边界：第22行请求末句未完成，后续不实现该部分合理；不得把隔夜用户空档算工作时间。。现有可见记录不足以给未观测部分补造原因；相关调用和反馈见下列物理行。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+          "physical_lines": "22、163、341、355、373、575、589、605、630、784、880、896、903、917、947",
+          "what_it_supports": "用户当时要求、实际操作与返回、反馈和后续修正。"
+        }
+      ],
+      "workflow_relevance": "前端原型的样式、文字和排布需要随实际预览迭代；只将可独立定位的遗漏、验证错位或无效尝试视为问题。",
+      "necessary_cost": "依据用户目标理解和预览、查找已有状态、检查相关操作及按反馈调整是必要成本。",
+      "possibly_avoidable_cost": "缺少足够证据计算净耗时，保持未知。",
+      "revised_possible_solutions": [
+        "用调用起止和用户交互记录核对时间归属；缺少证据时不把空档归因于模型工作。"
+      ],
+      "remaining_uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    },
+    {
+      "id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7:U02",
+      "kind": "positive_context",
+      "description": "第341行会话菜单测试一次失败；修正唯一名称后第355行末尾返回完整PASS，不能把其最终验收说成未通过。",
+      "cause_status": "not_applicable",
+      "context_from_chat": "用户逐步适配会话菜单并查看任务工作台，后来要求计算服务均可使用（22、163、373、784行）。",
+      "trigger_or_change": "浏览器脚本最初将提交202当200，修正后定位器等待超时；走查也因数据和页面状态多次调整，最后五项服务成功。",
+      "cause_explanation": "原聊天所示正向或反例：第341行会话菜单测试一次失败；修正唯一名称后第355行末尾返回完整PASS，不能把其最终验收说成未通过。。这是该时点和条件下的结果，不作为错误归因。",
+      "raw_evidence": [
+        {
+          "session_id": "01a1aa69-4f54-7d71-ba8c-3ffb65ed7be7",
+          "physical_lines": "22、163、341、355、373、575、589、605、630、784、880、896、903、917、947",
+          "what_it_supports": "用户当时要求、实际操作与返回、反馈和后续修正。"
+        }
+      ],
+      "workflow_relevance": "前端原型的样式、文字和排布需要随实际预览迭代；只将可独立定位的遗漏、验证错位或无效尝试视为问题。",
+      "necessary_cost": "依据用户目标理解和预览、查找已有状态、检查相关操作及按反馈调整是必要成本。",
+      "possibly_avoidable_cost": "缺少足够证据计算净耗时，保持未知。",
+      "revised_possible_solutions": [
+        "保留原有证据边界与有意红测、成功复验或无问题的上下文，不将其误记为失败。"
+      ],
+      "remaining_uncertainty": "这是原审计明确的证据边界或合理反解释，不能据此直接认定错误或推断额外损失。"
+    }
+  ]
+}
