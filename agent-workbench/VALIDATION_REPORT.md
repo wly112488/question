@@ -2,7 +2,7 @@
 
 ## Automated checks
 
-- Python unit/smoke suite: 29 tests are defined across core path/marker handling, source-skill validation, safe project initialization, install/update/uninstall, rollback, manifest path confinement and CLI launching.
+- Python unit/smoke suite: 32 tests are defined across core path/marker handling, source-skill validation, safe project initialization, install/update/uninstall, rollback, manifest path confinement and CLI launching.
 - A real local Git checkout is used to verify branch, cleanliness, remote identity and current commit handling.
 - A POSIX end-to-end integration test creates a temporary Git-backed ai-specs fixture, installs into an isolated HOME/XDG data directory, initializes a disposable project, launches the installed shim against a fake Codex executable, runs aiw doctor, and uninstalls only unchanged global/runtime files.
 - Windows and Ubuntu GitHub Actions matrix is configured for Python 3.10 and 3.13.
