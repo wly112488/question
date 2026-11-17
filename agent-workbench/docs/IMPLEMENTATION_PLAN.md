@@ -58,11 +58,11 @@ This is one cohesive deliverable because the installer, managed state, project i
 - Atomic writes leave the prior file intact on failure.
 - Hash comparison identifies user edits.
 
-- [ ] Step 1: Write failing unit tests for platform path selection, marker insertion/replacement, malformed markers, hash changes and atomic write.
-- [ ] Step 2: Run the targeted tests and observe expected failures.
-- [ ] Step 3: Implement only the primitives needed by those tests.
-- [ ] Step 4: Re-run targeted tests and preserve green coverage.
-- [ ] Step 5: Run `git diff --check`.
+- [x] Step 1: Write failing unit tests for platform path selection, marker insertion/replacement, malformed markers, hash changes and atomic write.
+- [x] Step 2: Run the targeted tests and observe expected failures.
+- [x] Step 3: Implement only the primitives needed by those tests.
+- [x] Step 4: Re-run targeted tests and preserve green coverage.
+- [x] Step 5: Run `git diff --check`.
 
 ## Task 2: Specs checkout and skill synchronization
 
@@ -80,11 +80,11 @@ This is one cohesive deliverable because the installer, managed state, project i
 - Current skills are copied to named SKILL.md folders and upstream commit is recorded.
 - Conflicts with unowned or modified skills are preserved and reported.
 
-- [ ] Step 1: Write failing tests using temporary local Git repositories and injected subprocess runner.
-- [ ] Step 2: Verify RED.
-- [ ] Step 3: Implement checkout validation and mapping.
-- [ ] Step 4: Verify clone, fast-forward, dirty-checkout, missing-source and skill-conflict tests.
-- [ ] Step 5: Run `git diff --check`.
+- [x] Step 1: Write failing tests using temporary local Git repositories and injected subprocess runner.
+- [x] Step 2: Verify RED.
+- [x] Step 3: Implement checkout validation and mapping.
+- [x] Step 4: Verify clone, fast-forward, dirty-checkout, missing-source and skill-conflict tests.
+- [x] Step 5: Run `git diff --check`.
 
 ## Task 3: Global instruction installation and safe lifecycle
 
@@ -102,11 +102,11 @@ This is one cohesive deliverable because the installer, managed state, project i
 - Manifest records managed hashes and source commit.
 - Uninstall is hash-guarded.
 
-- [ ] Step 1: Write failing lifecycle tests.
-- [ ] Step 2: Verify RED.
-- [ ] Step 3: Implement safe install/update/uninstall.
-- [ ] Step 4: Verify conflict and preservation behavior.
-- [ ] Step 5: Run `git diff --check`.
+- [x] Step 1: Write failing lifecycle tests.
+- [x] Step 2: Verify RED.
+- [x] Step 3: Implement safe install/update/uninstall.
+- [x] Step 4: Verify conflict and preservation behavior.
+- [x] Step 5: Run `git diff --check`.
 
 ## Task 4: Project initializer and durable state
 
@@ -123,11 +123,11 @@ This is one cohesive deliverable because the installer, managed state, project i
 - Existing project state is never overwritten.
 - Path validation prevents initializing a non-directory or ambiguous path.
 
-- [ ] Step 1: Write failing project-init tests.
-- [ ] Step 2: Verify RED.
-- [ ] Step 3: Implement initializer.
-- [ ] Step 4: Verify repeated init and preservation.
-- [ ] Step 5: Run `git diff --check`.
+- [x] Step 1: Write failing project-init tests.
+- [x] Step 2: Verify RED.
+- [x] Step 3: Implement initializer.
+- [x] Step 4: Verify repeated init and preservation.
+- [x] Step 5: Run `git diff --check`.
 
 ## Task 5: Doctor, status, launch and CLI behavior
 
@@ -146,11 +146,11 @@ This is one cohesive deliverable because the installer, managed state, project i
 - CLI exit codes distinguish success, user/configuration error and external command failure.
 - No args launches interactive Codex from current directory.
 
-- [ ] Step 1: Write failing tests with fake executables/runners.
-- [ ] Step 2: Verify RED.
-- [ ] Step 3: Implement CLI commands and launcher.
-- [ ] Step 4: Verify argument forwarding, cwd, error propagation and read-only doctor.
-- [ ] Step 5: Run `git diff --check`.
+- [x] Step 1: Write failing tests with fake executables/runners.
+- [x] Step 2: Verify RED.
+- [x] Step 3: Implement CLI commands and launcher.
+- [x] Step 4: Verify argument forwarding, cwd, error propagation and read-only doctor.
+- [x] Step 5: Run `git diff --check`.
 
 ## Task 6: Documentation, packaging and end-to-end smoke tests
 
@@ -164,9 +164,20 @@ This is one cohesive deliverable because the installer, managed state, project i
 - Python test suite passes and source files compile.
 - Root audit corpus is unchanged except its README runtime link.
 
-- [ ] Step 1: Write failing smoke tests for install → init → doctor → launch → update → uninstall using temp dirs/local git.
-- [ ] Step 2: Verify RED.
-- [ ] Step 3: Implement docs and remaining integration.
-- [ ] Step 4: Run all tests, compile check, clean clone-style smoke test.
-- [ ] Step 5: Inspect targeted diff and confirm audit source directories are unchanged.
-- [ ] Step 6: Commit the completed implementation to the feature branch and open a PR to main.
+- [x] Step 1: Write failing smoke tests for install → init → doctor → launch → update → uninstall using temp dirs/local git.
+- [x] Step 2: Verify RED.
+- [x] Step 3: Implement docs and remaining integration.
+- [x] Step 4: Run all tests, compile check, clean clone-style smoke test.
+- [x] Step 5: Inspect targeted diff and confirm audit source directories are unchanged.
+- [x] Step 6: Commit the completed implementation to the feature branch and open a PR to main.
+
+
+## Completion record
+
+Implementation completed on branch feat/ai-workbench-cli.
+
+- Implemented the modular Python CLI, safe managed-file installer, current ai-specs skill synchronization, project initializer, doctor/status/update/uninstall commands, and interactive Codex launcher.
+- Added installation, security, evaluation and validation documentation plus Windows/Ubuntu CI.
+- Automated suite contains 29 tests, including a real local-Git integration fixture and a POSIX end-to-end launcher/doctor/uninstall test.
+- Local checks: unit/smoke suite, compileall, CLI help/version and Python 3.10 grammar parsing.
+- Live Codex authentication/model execution and actual Windows/WSL deployment are not verified in this build environment. The user must install/authenticate Codex CLI, provide private ai-specs Git access and run aiw doctor after deployment.
