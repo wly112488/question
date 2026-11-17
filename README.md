@@ -4,6 +4,7 @@
 
 ## 从这里阅读
 
+- [新增：问题解决方案与协作模式重设计](PROPOSED_SOLUTION_DESIGN.md)
 - [逐会话问题索引（72份）](issue_descriptions/README.md)
 - [全部607条原问题描述与可能方案](issue_descriptions/all_issues.md)
 - [逐会话原因补充索引（72份）](cause_annotations/README.md)
@@ -25,6 +26,7 @@
 - 根目录的 terra、sol_dev、sol_env、root_reuse：72份最初审计报告。
 - issue_descriptions：逐条展开的问题、可能方案、检索分类及逐份覆盖核验。
 - cause_annotations：在原编号下补充聊天背景、原因证据、必要成本与可避免成本。
+- PROPOSED_SOLUTION_DESIGN.md：新增的系统级解决方案设计与协作模式建议；不覆盖原始 finding，不代表已实施或已验证。
 
 记录中的“第N行”指本地原始会话快照的物理行；仓库保留定位信息，但不包含完整原始会话，因此不是仅凭公开仓库即可独立复现的原始证据集。源审计哈希对应脱敏前本地基线，不能作为公开文件的内容哈希。
 
