@@ -55,7 +55,7 @@ def main(argv: list[str] | None = None) -> int:
             if str(paths.bin_dir) not in os.environ.get("PATH", "").split(os.pathsep):
                 if paths.is_windows:
                     print("Add this directory to your user PATH, then open a new PowerShell window:")
-                    print(f'  $p = [Environment]::GetEnvironmentVariable("Path", "User"); if (($p -split ";") -notcontains "{paths.bin_dir}") {{ [Environment]::SetEnvironmentVariable("Path", (($p.TrimEnd(";") + ";{paths.bin_dir}").Trim(";")), "User") }}')
+                    print(f'  $p = [Environment]::GetEnvironmentVariable("Path", "User"); if ([string]::IsNullOrWhiteSpace($p)) {{ $p = "" }}; if (($p -split ";") -notcontains "{paths.bin_dir}") {{ $new = if ($p) {{ "$p;{paths.bin_dir}" }} else {{ "{paths.bin_dir}" }}; [Environment]::SetEnvironmentVariable("Path", $new, "User") }}')
                 else:
                     print("Add this to your shell profile, then open a new terminal:")
                     print('  export PATH="$HOME/.local/bin:$PATH"')
