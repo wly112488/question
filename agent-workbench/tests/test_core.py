@@ -55,5 +55,17 @@ class CoreTests(unittest.TestCase):
             self.assertEqual(path.read_text(), "second")
             self.assertEqual(list(path.parent.glob("*.tmp")), [])
 
+    def test_removing_block_preserves_user_text_appended_after_managed_block(self):
+        original = "# User rules\\n"
+        block = "<!-- AI-WORKBENCH:START -->\\nmanaged\\n<!-- AI-WORKBENCH:END -->"
+        updated = replace_managed_block(original, block) + "appended later\\n"
+        self.assertEqual(remove_managed_block(updated), original + "appended later\\n")
+
+    def test_removing_block_preserves_appended_text_when_original_had_no_newline(self):
+        original = "# User rules"
+        block = "<!-- AI-WORKBENCH:START -->\\nmanaged\\n<!-- AI-WORKBENCH:END -->"
+        updated = replace_managed_block(original, block) + "appended later\\n"
+        self.assertEqual(remove_managed_block(updated, separator_added=True), original + "\\nappended later\\n")
+
 if __name__ == "__main__":
     unittest.main()
