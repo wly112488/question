@@ -158,5 +158,15 @@ class CommandTests(unittest.TestCase):
                 self.assertNotIn("stdout", kwargs)
                 self.assertNotIn("stdin", kwargs)
 
+    def test_uninstall_refuses_manifest_paths_outside_managed_roots(self):
+        from ai_workbench.core import save_manifest, sha256_text
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); paths = self.make_paths(root)
+            victim = root / "important.txt"; victim.write_text("keep me")
+            save_manifest(paths.manifest, {"version": 1, "managed_files": {str(victim): sha256_text("keep me")}})
+            result = uninstall(paths)
+            self.assertTrue(victim.exists())
+            self.assertTrue(any("outside" in item for item in result["preserved"]))
+
 if __name__ == "__main__":
     unittest.main()
