@@ -2,7 +2,7 @@ from __future__ import annotations
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from .core import ManagedConflictError, atomic_write, managed_block_hash, replace_managed_block, START_MARKER, END_MARKER
+from .core import ManagedConflictError, atomic_write, managed_block_hash, read_text_exact, replace_managed_block, START_MARKER, END_MARKER
 
 PROJECT_BLOCK = f"""{START_MARKER}
 ## AI Workbench
@@ -52,7 +52,7 @@ def initialize_project(project_root: Path) -> dict:
     agents = root / "AGENTS.md"
     if agents.is_symlink():
         raise ManagedConflictError(f"Refusing to edit symlinked project instructions: {agents}")
-    original = agents.read_text(encoding="utf-8") if agents.exists() else ""
+    original = read_text_exact(agents) if agents.exists() else ""
     current_hash = managed_block_hash(original)
     state_dir = root / ".ai-workbench"
     state_file = state_dir / "PROJECT_STATE.md"
