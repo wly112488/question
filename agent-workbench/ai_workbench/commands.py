@@ -2,7 +2,7 @@ from __future__ import annotations
 import json, os, shlex, shutil, stat, subprocess, sys
 from pathlib import Path
 from typing import Callable
-from .core import (END_MARKER, START_MARKER, ManagedConflictError, Paths, WorkbenchError, atomic_write, get_paths, managed_block_hash, read_manifest, replace_managed_block, remove_managed_block, save_manifest, sha256_file, sha256_text)
+from .core import (END_MARKER, START_MARKER, ManagedConflictError, Paths, WorkbenchError, atomic_write, get_paths, managed_block_hash, read_manifest, read_text_exact, replace_managed_block, remove_managed_block, save_manifest, sha256_file, sha256_text)
 from .specs import ensure_specs_checkout, load_skill_sources, sync_managed_skills
 
 GLOBAL_BLOCK = f"""{START_MARKER}
@@ -32,7 +32,7 @@ def _run(args: list[str], cwd: Path | None = None, runner: Callable | None = Non
     return subprocess.run(args, cwd=str(cwd) if cwd else None, text=True, capture_output=True, check=False)
 
 def _install_block(path: Path, block: str, expected_hash: str | None) -> str:
-    current = path.read_text(encoding="utf-8") if path.exists() else ""
+    current = read_text_exact(path) if path.exists() else ""
     existing_hash = managed_block_hash(current)
     if existing_hash is not None and (expected_hash is None or existing_hash != expected_hash):
         raise ManagedConflictError(f"Managed instructions are not owned by this install or were edited: {path}")
@@ -92,7 +92,7 @@ def _snapshot(paths: list[Path]) -> dict[Path, tuple[str | None, int | None]]:
         if path.exists():
             if path.is_symlink():
                 raise ManagedConflictError(f"Refusing to replace symlink: {path}")
-            saved[path] = (path.read_text(encoding="utf-8"), stat.S_IMODE(path.stat().st_mode))
+            saved[path] = (read_text_exact(path), stat.S_IMODE(path.stat().st_mode))
         else:
             saved[path] = (None, None)
     return saved
@@ -128,12 +128,12 @@ def install(paths: Paths | None = None, specs_dir: Path | None = None, source_ro
     if paths.global_agents.is_symlink():
         raise ManagedConflictError(f"Refusing to replace symlinked global instructions: {paths.global_agents}")
     if paths.global_agents.exists():
-        old_block = managed_block_hash(paths.global_agents.read_text(encoding="utf-8"))
+        old_block = managed_block_hash(read_text_exact(paths.global_agents))
         if old_block is not None and (manifest.get("global_agents_block_hash") is None or old_block != manifest.get("global_agents_block_hash")):
             raise ManagedConflictError(f"Global Codex instructions contain unowned or modified AI Workbench markers: {paths.global_agents}")
     skill_updates, _ = sync_managed_skills(sources, paths.skills_dir, manifest)
     runtime_targets = _preflight_runtime(paths, source_root, old_files)
-    global_before = paths.global_agents.read_text(encoding="utf-8") if paths.global_agents.exists() else ""
+    global_before = read_text_exact(paths.global_agents) if paths.global_agents.exists() else ""
     had_block = managed_block_hash(global_before) is not None
     separator_added = manifest.get("global_agents_separator_added") if had_block else bool(global_before and not global_before.endswith("\n"))
     affected = [paths.global_agents, paths.manifest] + [Path(item) for item in skill_updates] + runtime_targets
@@ -196,7 +196,7 @@ def doctor(paths: Paths | None = None, project_root: Path | None = None) -> list
     if paths.global_agents.exists():
         try:
             if not paths.global_agents.is_symlink():
-                block = managed_block_hash(paths.global_agents.read_text(encoding="utf-8"))
+                block = managed_block_hash(read_text_exact(paths.global_agents))
             else:
                 global_error = "symlinked file is not managed"
         except WorkbenchError as exc:
@@ -232,7 +232,7 @@ def doctor(paths: Paths | None = None, project_root: Path | None = None) -> list
         if agents.exists() and state.exists() and owner.exists():
             try:
                 data = json.loads(owner.read_text(encoding="utf-8"))
-                ok = managed_block_hash(agents.read_text(encoding="utf-8")) == data.get("project_agents_block_hash")
+                ok = managed_block_hash(read_text_exact(agents)) == data.get("project_agents_block_hash")
             except (OSError, ValueError, WorkbenchError):
                 ok = False
         checks.append(_check("Project initialized", ok, str(root)))
@@ -266,7 +266,7 @@ def uninstall(paths: Paths | None = None) -> dict:
         if paths.global_agents.is_symlink():
             preserved.append(str(paths.global_agents) + " (symlink; preserved)")
         else:
-            text = paths.global_agents.read_text(encoding="utf-8")
+            text = read_text_exact(paths.global_agents)
             digest = managed_block_hash(text)
             if digest and digest == manifest.get("global_agents_block_hash"):
                 atomic_write(paths.global_agents, remove_managed_block(text, bool(manifest.get("global_agents_separator_added"))))
