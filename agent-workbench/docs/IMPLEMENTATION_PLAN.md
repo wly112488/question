@@ -178,6 +178,6 @@ Implementation completed on branch feat/ai-workbench-cli.
 
 - Implemented the modular Python CLI, safe managed-file installer, current ai-specs skill synchronization, project initializer, doctor/status/update/uninstall commands, and interactive Codex launcher.
 - Added installation, security, evaluation and validation documentation plus Windows/Ubuntu CI.
-- Automated suite contains 29 tests, including a real local-Git integration fixture and a POSIX end-to-end launcher/doctor/uninstall test.
+- Automated suite contains 32 tests, including a real local-Git integration fixture and a POSIX end-to-end launcher/doctor/uninstall test.
 - Local checks: unit/smoke suite, compileall, CLI help/version and Python 3.10 grammar parsing.
 - Live Codex authentication/model execution and actual Windows/WSL deployment are not verified in this build environment. The user must install/authenticate Codex CLI, provide private ai-specs Git access and run aiw doctor after deployment.
