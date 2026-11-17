@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 
 from ai_workbench.core import (
-    ManagedConflictError, atomic_write, extract_managed_block, get_paths,
+    ManagedConflictError, atomic_write, extract_managed_block, get_paths, read_text_exact,
     managed_block_hash, replace_managed_block, remove_managed_block, sha256_text,
 )
 
@@ -66,6 +66,12 @@ class CoreTests(unittest.TestCase):
         block = "<!-- AI-WORKBENCH:START -->\\nmanaged\\n<!-- AI-WORKBENCH:END -->"
         updated = replace_managed_block(original, block) + "appended later\\n"
         self.assertEqual(remove_managed_block(updated, separator_added=True), original + "\\nappended later\\n")
+
+    def test_read_text_exact_preserves_windows_line_endings(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "AGENTS.md"
+            path.write_bytes(b"# Existing\\r\\nKeep exactly\\r\\n")
+            self.assertEqual(read_text_exact(path), "# Existing\\r\\nKeep exactly\\r\\n")
 
 if __name__ == "__main__":
     unittest.main()
